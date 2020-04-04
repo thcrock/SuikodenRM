@@ -63,7 +63,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 		super(firstFrame);
 		
 		BodyDef gameCharacter = new BodyDef();
-		gameCharacter.type = BodyDef.BodyType.StaticBody;
+		gameCharacter.type = BodyDef.BodyType.DynamicBody;
 		gameCharacter.position.set(new Vector2(x, y));
 
 		body = bw.getWorld().createBody(gameCharacter);

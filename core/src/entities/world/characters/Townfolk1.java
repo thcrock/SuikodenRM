@@ -52,6 +52,7 @@ public class Townfolk1 extends GameWorldCharacter {
 		messages.add("Hi Tester!");
 		messages.add("I am a townsfolk");
         this.setDown(true);
+        this.setSpeed(10.0f);
 	}
 
 }
