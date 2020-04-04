@@ -32,54 +32,42 @@ public class Player extends DrawableBox2D {
 	private float dx = 0;
 	private float dy = 0;
 	private float animTime = 0;
-	private TextureRegion walkRight1 = 	new TextureRegion(ImageCache.getFrame("riouWalkLeft", 1));
-	private TextureRegion walkRight2 =  new TextureRegion(ImageCache.getFrame("riouWalkLeft", 2));
-	private TextureRegion walkRight3 =  new TextureRegion(ImageCache.getFrame("riouWalkLeft", 3));
-	
 	private GameAnimation currentWalkAnim;
 	
 	private static GameAnimation leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("riouWalkLeft", 1), 
-			ImageCache.getFrame("riouWalkLeft", 2), 
-			ImageCache.getFrame("riouWalkLeft", 3), 
-			ImageCache.getFrame("riouWalkLeft", 2)});
+			ImageCache.getFrame("emi0", 18), 
+			ImageCache.getFrame("emi0", 19), 
+			});
 	
 	private static GameAnimation upAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("riouWalkUp", 1), 
-			ImageCache.getFrame("riouWalkUp", 2), 
-			ImageCache.getFrame("riouWalkUp", 3), 
-			ImageCache.getFrame("riouWalkUp", 2)});
+			ImageCache.getFrame("emi0", 28), 
+			ImageCache.getFrame("emi0", 14), 
+			});
 
-	private static GameAnimation rightAnim;
+	private static GameAnimation rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
+			ImageCache.getFrame("emi0", 57), 
+			ImageCache.getFrame("emi0", 58), 
+	        });
 	
 	private static GameAnimation downAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("riouWalkDown", 1), 
-			ImageCache.getFrame("riouWalkDown", 2), 
-			ImageCache.getFrame("riouWalkDown", 3), 
-			ImageCache.getFrame("riouWalkDown", 2)});
+			ImageCache.getFrame("emi0", 17), 
+			ImageCache.getFrame("emi0", 31), 
+			});
 	
 	
 	public Player(Body body) {
-		super(new TextureRegion(ImageCache.getFrame("riouWalkDown", 2)));
-		
-		walkRight1.flip(true, false);
-		walkRight2.flip(true, false);
-		walkRight3.flip(true, false);
-		rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				walkRight1, 
-				walkRight2, 
-				walkRight3, 
-				walkRight2});
+		super(new TextureRegion(ImageCache.getFrame("emi0", 0)));
 		
 		//sprite = new TextureRegion(ImageCache.getFrame("riouWalkDown", 2));
 		currentWalkAnim = downAnim;
 		this.body = body;
 		
 		setAdjustWidth(false);
-
-    	setHeight(walkRight1.getRegionHeight()*SuikodenRM.scale);
-    	setWidth(walkRight1.getRegionWidth()*SuikodenRM.scale);
-    	this.setCenterX(this.getOriginX()*SuikodenRM.scale-1*SuikodenRM.scale);
+        TextureRegion exampleSprite = new TextureRegion(ImageCache.getFrame("emi0", 0));
+    	setHeight(exampleSprite.getRegionHeight()*SuikodenRM.scale*0.5f);
+    	setWidth(exampleSprite.getRegionWidth()*SuikodenRM.scale*0.5f);
+    	this.setCenterX(10);
+    	this.setCenterY(10);
 	}
 	
 	public void draw(Batch spriteBatch) {
@@ -121,35 +109,35 @@ public class Player extends DrawableBox2D {
 		if(isUp()) {
 			currentWalkAnim = upAnim;
 			this.setRegion(upAnim.getKeyFrame(animTime, true));
-			this.setWidth(upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale);
-			this.setHeight(upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale);
+			this.setWidth(upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+			this.setHeight(upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
 			currentDirection = faceUP;
 		}
 		else if(isDown()) {
 			currentWalkAnim = downAnim;
 			this.setRegion(downAnim.getKeyFrame(animTime, true));
-			this.setWidth(downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale);
-			this.setHeight(downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale);
+			this.setWidth(downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+			this.setHeight(downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
 			currentDirection = faceDOWN;
 		}
 		else if(isLeft()) {
 			currentWalkAnim = leftAnim;
 			this.setRegion(leftAnim.getKeyFrame(animTime, true));
-			this.setWidth(leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale);
-			this.setHeight(leftAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale);
+			this.setWidth(leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+			this.setHeight(leftAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
 			currentDirection = faceLEFT;
 		}
 		else if(isRight()) {
 			currentWalkAnim = rightAnim;
 			this.setRegion(rightAnim.getKeyFrame(animTime, true));
-			this.setWidth(rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale);
-			this.setHeight(rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale);
+			this.setWidth(rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+			this.setHeight(rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
 			currentDirection = faceRIGHT;
 		}
 		else {
 			this.setRegion(currentWalkAnim.getKeyFrame(animTime, false));
-			this.setWidth(currentWalkAnim.getKeyFrame(animTime, false).getRegionWidth()*SuikodenRM.scale);
-			this.setHeight(currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale);
+			this.setWidth(currentWalkAnim.getKeyFrame(animTime, false).getRegionWidth()*SuikodenRM.scale*0.5f);
+			this.setHeight(currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
 		}
 
 		
