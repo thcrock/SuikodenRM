@@ -12,9 +12,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.orangeegames.suikorm.SuikodenRM;
 
-public class Townfolk1 extends GameWorldCharacter {
 
-	
+public class Townfolk1 extends GameWorldCharacter {
 
 	public Townfolk1(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
 		super(firstFrame, bw, x, y);
@@ -51,8 +50,5 @@ public class Townfolk1 extends GameWorldCharacter {
 		
 		messages.add("Hi Tester!");
 		messages.add("I am a townsfolk");
-        this.setDown(true);
-        this.setSpeed(10.0f);
 	}
-
 }

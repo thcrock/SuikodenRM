@@ -176,6 +176,7 @@ public class BoxWorld extends GameState {
 					
 					GameWorldCharacter gc = CharacterGeneration.getWorldCharacter((String) mo.getProperties().get("character"), this, x, y);
 					gc.setMessage(Integer.parseInt((String) mo.getProperties().get("startMessage")), Integer.parseInt((String) mo.getProperties().get("stopMessage")));
+                    gc.setPhases((String) mo.getProperties().get("phases"));
 					drawableBoxes.add(gc);
 					characters.add(gc);
 				}

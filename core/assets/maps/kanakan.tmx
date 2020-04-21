@@ -327,6 +327,7 @@
   <object id="5" name="Townfolk1" x="672" y="227" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk1"/>
+    <property name="phases" value="l-40;p-1;r-40;p-2;u-40;p-1.4;d-40;p-1.2"/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="2"/>
    </properties>

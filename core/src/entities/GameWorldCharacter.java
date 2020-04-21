@@ -20,6 +20,19 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.orangeegames.suikorm.SuikodenRM;
 
+enum Direction { Right, Left, Down, Up, Pause };
+
+class Phase {
+    public Direction direction;
+    public int distance;
+    public float secondsPause;
+
+    public Phase(Direction direction, int distance, float secondsPause) {
+        this.direction = direction;
+        this.distance = distance;
+        this.secondsPause = secondsPause;
+    }
+}
 public abstract class GameWorldCharacter extends DrawableBox2D {
 	
 	private static int faceUP = 0;
@@ -59,6 +72,16 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 	protected boolean moveable = true;
 	private boolean fighting = false;
 	
+    private float startX;
+    private float startY;
+    private float checkpointX;
+    private float checkpointY;
+    private float targetX;
+    private float targetY;
+    private Phase[] phases;
+    private int phaseIndex = -1;
+    private float pauseSeconds = 0;
+
 	public GameWorldCharacter(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
 		super(firstFrame);
 		
@@ -91,9 +114,24 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 		
 	}
 	
+    public void setPhases(String phaseText) {
+        //this.phases = this.phaseListFromText("l-40;p-1;r-40;p-2;u-40;p-1.4;d-40;p-1.2");
+        this.phases = this.phaseListFromText(phaseText);
+        this.startX = this.getPosition().x;
+        this.startY = this.getPosition().y;
+        this.checkpointX = this.startX;
+        this.checkpointY = this.startY;
+        this.targetX = this.checkpointX;
+        this.targetY = this.checkpointY;
+        this.nextPhase();
+    }
 	public void draw(Batch spriteBatch) {
 		this.draw(spriteBatch, body);
 	}
+
+    protected Vector2 getPosition() {
+        return this.body.getPosition();
+    }
 	
 	public void interact(Player player) {
 		if(moveable) {
@@ -143,14 +181,16 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 	
 	public void update(float delta) {
 		if(left) {
-			dx -= speed;
-			if(dx < -maxSpeed)
+			dx = -speed;
+			if(dx < -maxSpeed) {
 				dx = -maxSpeed;
+            }
 		}
 		else if(right) {
-			dx += speed;
-			if(dx > maxSpeed)
+			dx = speed;
+			if(dx > maxSpeed) {
 				dx = maxSpeed;
+            }
 		}
 		else {
 			dx = 0;
@@ -207,7 +247,41 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 			this.setHeight(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
 		}
 
+        if(this.isRight()) {
+            if(this.getPosition().x >= this.targetX) {
+               this.nextPhase(); 
+            }
+        }
+        if(this.isLeft()) {
+            if(this.getPosition().x <= this.targetX) {
+                this.nextPhase();
+            }
+        }
+        if(this.isUp()) {
+            if(this.getPosition().y >= this.targetY) {
+               this.nextPhase(); 
+            }
+        }
+        if(this.isDown()) {
+            if(this.getPosition().y <= this.targetY) {
+                this.nextPhase();
+            }
+        }
+        if(this.phases[this.phaseIndex].direction == Direction.Pause) {
+            this.pauseSeconds += delta;
+            if(this.pauseSeconds > this.phases[this.phaseIndex].secondsPause) {
+                this.nextPhase();
+            }
+        }
 	}
+
+    protected void setFaceDown() {
+        this.currentWalkAnim = this.downAnim;
+        this.setRegion(this.downAnim.getKeyFrame(animTime, true));
+        this.setWidth(this.downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+        this.setHeight(this.downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+        currentDirection = faceDOWN;
+    }
 
 	public boolean isFighting() {
 		return fighting;
@@ -284,4 +358,79 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 	public boolean faceLeft() {
 		return currentDirection == faceLEFT;
 	}
+    private Phase[] phaseListFromText(String text) {
+        String[] phaseStrings = text.split(";");
+        Phase[] phases = new Phase[phaseStrings.length];
+        for (int i = 0; i < phaseStrings.length; i++) {
+            String[] parts = phaseStrings[i].split("-");
+            if(parts[0].equals("d")) {
+                phases[i] = new Phase(Direction.Down, Integer.parseInt(parts[1]), 0);
+            } else if(parts[0].equals("u")) {
+                phases[i] = new Phase(Direction.Up, Integer.parseInt(parts[1]), 0);
+            } else if(parts[0].equals("l")) {
+                phases[i] = new Phase(Direction.Left, Integer.parseInt(parts[1]), 0);
+            } else if(parts[0].equals("r")) {
+                phases[i] = new Phase(Direction.Right, Integer.parseInt(parts[1]), 0);
+            } else if(parts[0].equals("p")) {
+                phases[i] = new Phase(Direction.Pause, 0, Float.parseFloat(parts[1]));
+            } else {
+            }
+        }
+        return phases;
+    }
+
+    public void nextPhase() {
+        if (phaseIndex+1 >= this.phases.length) {
+            phaseIndex = 0;
+        } else {
+            phaseIndex++;
+        }
+
+        Phase phase = this.phases[phaseIndex];
+        System.out.println(phase.direction);
+        if(phase.direction == Direction.Left) {
+            this.setLeft(true);
+            this.setRight(false);
+            this.setUp(false);
+            this.setDown(false);
+            this.setSpeed(10.0f);
+            this.checkpointX = this.targetX;
+            this.checkpointY = this.targetY;
+            this.targetX = this.checkpointX - phase.distance;
+        } else if(phase.direction == Direction.Right) {
+            this.setRight(true);
+            this.setLeft(false);
+            this.setUp(false);
+            this.setDown(false);
+            this.setSpeed(10.0f);
+            this.checkpointX = this.targetX;
+            this.targetX = this.checkpointX + phase.distance;
+        } else if(phase.direction == Direction.Up) {
+            this.setRight(false);
+            this.setLeft(false);
+            this.setUp(true);
+            this.setDown(false);
+            this.setSpeed(10.0f);
+            this.checkpointY = this.targetY;
+            this.targetY = this.checkpointY + phase.distance;
+        } else if(phase.direction == Direction.Down) {
+            this.setRight(false);
+            this.setLeft(false);
+            this.setUp(false);
+            this.setDown(true);
+            this.setSpeed(10.0f);
+            this.checkpointY = this.targetY;
+            this.targetY = this.checkpointY - phase.distance;
+        } else if(phase.direction == Direction.Pause) {
+            this.setRight(false);
+            this.setLeft(false);
+            this.setUp(false);
+            this.setDown(false);
+            this.setFaceDown();
+            this.setSpeed(0.0f);
+            this.pauseSeconds = 0;
+            this.checkpointX = this.targetX;
+            this.targetX = this.checkpointX;
+        }
+    }
 }
