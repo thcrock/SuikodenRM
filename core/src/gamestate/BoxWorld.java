@@ -310,7 +310,7 @@ public class BoxWorld extends GameState {
 				mapRenderer.renderTileLayer(background);
 			}
 			
-			mapRenderer.renderTileLayer(objectLayers, drawableBoxes);
+			mapRenderer.renderTileLayer(objectLayers, drawableBoxes, player);
 
 			for(TiledMapTileLayer foreground : foregrounds) {
 				mapRenderer.renderTileLayer(foreground);

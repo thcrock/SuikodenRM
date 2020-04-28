@@ -48,7 +48,8 @@ public class Townfolk1 extends GameWorldCharacter {
 		this.currentWalkAnim = this.downAnim;
 		facePicture = ImageCache.getTexture("townfolk0_07");
 		
-		messages.add("Hi Tester!");
-		messages.add("I am a townsfolk");
+		messages.add("The mangos are great today!");
+        messages.add("Can I interest you in some mangos?");
+        messages.add("");
 	}
 }

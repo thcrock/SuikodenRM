@@ -69,7 +69,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 	protected int startMessage = 0;
 	protected int stopMessage = 0;
 	
-	protected boolean moveable = true;
+	protected boolean moveable = false;
 	private boolean fighting = false;
 	
     private float startX;
@@ -111,11 +111,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
     	setWidth(firstFrame.getRegionWidth()*SuikodenRM.scale);
 
 		this.setCenterX(this.getOriginX()*SuikodenRM.scale-4*SuikodenRM.scale);
-		
 	}
 	
     public void setPhases(String phaseText) {
-        //this.phases = this.phaseListFromText("l-40;p-1;r-40;p-2;u-40;p-1.4;d-40;p-1.2");
         this.phases = this.phaseListFromText(phaseText);
         this.startX = this.getPosition().x;
         this.startY = this.getPosition().y;
@@ -138,7 +136,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 			TextureRegion tr = null;
 			float diffX = this.getBody().getPosition().x - player.getBody().getPosition().x;
 			float diffY = this.getBody().getPosition().y - player.getBody().getPosition().y;
-			System.out.println("X: " + diffX + " , Y: " + diffY);
 			if(diffX > 8*SuikodenRM.scale) {
 				tr = this.leftAnim.getKeyFrame(0.3f, false);
 			} else if(diffX < -8*SuikodenRM.scale) {
@@ -267,7 +264,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
                 this.nextPhase();
             }
         }
-        if(this.phases[this.phaseIndex].direction == Direction.Pause) {
+        if(this.phases != null && this.phases[this.phaseIndex].direction == Direction.Pause) {
             this.pauseSeconds += delta;
             if(this.pauseSeconds > this.phases[this.phaseIndex].secondsPause) {
                 this.nextPhase();
@@ -359,6 +356,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 		return currentDirection == faceLEFT;
 	}
     private Phase[] phaseListFromText(String text) {
+        if (text.length() == 0) {
+            return null;
+        }
         String[] phaseStrings = text.split(";");
         Phase[] phases = new Phase[phaseStrings.length];
         for (int i = 0; i < phaseStrings.length; i++) {
@@ -380,6 +380,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
     }
 
     public void nextPhase() {
+        if (this.phases == null || this.phases.length == 0) {
+            return;
+        }
         if (phaseIndex+1 >= this.phases.length) {
             phaseIndex = 0;
         } else {
@@ -387,7 +390,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
         }
 
         Phase phase = this.phases[phaseIndex];
-        System.out.println(phase.direction);
         if(phase.direction == Direction.Left) {
             this.setLeft(true);
             this.setRight(false);
