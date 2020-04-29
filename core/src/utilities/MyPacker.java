@@ -1,6 +1,8 @@
 package utilities;
 
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
+import java.lang.Runtime;
+import java.io.InputStream;
 
 public class MyPacker {
         public static void main (String[] args) throws Exception {
