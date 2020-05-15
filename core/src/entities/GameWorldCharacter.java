@@ -279,6 +279,13 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
         this.setHeight(this.downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
         currentDirection = faceDOWN;
     }
+    protected void setFaceUp() {
+        this.currentWalkAnim = this.upAnim;
+        this.setRegion(this.upAnim.getKeyFrame(animTime, true));
+        this.setWidth(this.upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+        this.setHeight(this.upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+        currentDirection = faceUP;
+    }
 
 	public boolean isFighting() {
 		return fighting;
@@ -343,6 +350,15 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 			this.setTexture(this.downAnim.getKeyFrame(animTime, false).getTexture());
 		}
 	}
+
+    public void setDirection(String direction) {
+        if(direction.equals("d")) {
+            setFaceDown();
+        } else if(direction.equals("u")) {
+            setFaceUp();
+        }
+        //setSpeed(0.0f);
+    }
 
 	public boolean faceUp() {
 		return currentDirection == faceUP;

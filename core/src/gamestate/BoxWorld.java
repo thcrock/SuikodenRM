@@ -186,6 +186,10 @@ public class BoxWorld extends GameState {
                     if(speed != null) {
                         gc.setMaxSpeed(speed);
                     }
+                    String direction = mo.getProperties().get("face", String.class);
+                    if(direction != null) {
+                        gc.setDirection(direction);
+                    }
 					drawableBoxes.add(gc);
 					characters.add(gc);
 				}
