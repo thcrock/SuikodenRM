@@ -9,6 +9,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -16,8 +17,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.orangeegames.suikorm.SuikodenRM;
 
@@ -87,11 +88,18 @@ public class ChatState extends GameState {
 			if(!(underChatWindow.getHeight() < underChatWindow.getMaxHeight())) {
 				underChatWindow.setText(tryText.get(stringPosition).subSequence(0, (int) deltaText)); 
 			}
-			if(SuikodenRM.debug) System.out.println(font.getWrappedBounds(tryText.get(stringPosition).subSequence(0, (int) deltaText), (underChatWindow.getWidth() - underChatWindow.getStyle().background.getLeftWidth() - underChatWindow.getStyle().background.getRightWidth())) + " : " + underChatWindow.getHeight() + " : " + underChatWindow.getWidth() + " : " + underChatWindow.getStyle().background.getRightWidth());
-			if(font.getWrappedBounds(
-					tryText.get(stringPosition).subSequence(0, (int) deltaText), 
-					(underChatWindow.getWidth() - underChatWindow.getStyle().background.getLeftWidth()*2 - 40)).height
-					>= underChatWindow.getHeight()) {
+            GlyphLayout layout = new GlyphLayout();
+            layout.setText(
+                font,
+				tryText.get(stringPosition).subSequence(0, (int) deltaText), 
+                Color.WHITE,
+				(underChatWindow.getWidth() - underChatWindow.getStyle().background.getLeftWidth()*2 - 40),
+                0,
+                true
+            );
+
+            int heightToCheck = (int) layout.height;
+			if((int) layout.height >= underChatWindow.getHeight()) {
 				if(tryText.get(stringPosition).charAt((int) deltaText) == ' ') {
 					textHalt = true;
 					tryText.add(stringPosition+1, (String) tryText.get(stringPosition).subSequence((int) (deltaText), tryText.get(stringPosition).length())); 
@@ -151,7 +159,10 @@ public class ChatState extends GameState {
 			underChatWindow.setWrap(true);
 			underChatWindow.setAlignment(Align.left + Align.top);
 			
-			int nameWidth = (int) font.getWrappedBounds(stringName,chatWindowWidth).width + 40;
+            GlyphLayout layout = new GlyphLayout();
+            layout.setText(font, stringName, Color.WHITE, chatWindowWidth, 0, true);
+
+            int nameWidth = (int) layout.width + 40;
 			if(SuikodenRM.debug) System.out.println(nameWidth);
 			if (nameWidth < PORTRAIT_WIDTH + 10) nameWidth = PORTRAIT_WIDTH + 10;
 			if(SuikodenRM.debug) System.out.println(nameWidth);

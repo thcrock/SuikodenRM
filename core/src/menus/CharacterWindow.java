@@ -3,6 +3,7 @@ package menus;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
@@ -11,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 import com.orangeegames.suikorm.SuikodenRM;
 
@@ -95,7 +96,10 @@ public class CharacterWindow {
 		generateData(characterInformation);
 		
 		
-		int nameWidth = (int) font.getWrappedBounds(gc.getName(),windowWidth).width + 40;
+		GlyphLayout layout = new GlyphLayout();
+        layout.setText(font, gc.getName(), Color.WHITE, windowWidth, 0, true);
+
+        int nameWidth = (int) layout.width + 40;
 		if(SuikodenRM.debug) System.out.println(nameWidth);
 		if (nameWidth < PORTRAIT_WIDTH + 10) nameWidth = PORTRAIT_WIDTH + 10;
 		if(SuikodenRM.debug) System.out.println(nameWidth);

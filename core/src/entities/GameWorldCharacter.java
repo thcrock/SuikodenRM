@@ -296,6 +296,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 		this.speed = speed;
 	}
 	
+	public void setMaxSpeed(float speed) {
+		this.maxSpeed = speed;
+	}
+
 	public boolean isLeft() {
 		return left;
 	}
@@ -395,7 +399,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setRight(false);
             this.setUp(false);
             this.setDown(false);
-            this.setSpeed(10.0f);
+            this.setSpeed(maxSpeed);
             this.checkpointX = this.targetX;
             this.checkpointY = this.targetY;
             this.targetX = this.checkpointX - phase.distance;
@@ -404,7 +408,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setLeft(false);
             this.setUp(false);
             this.setDown(false);
-            this.setSpeed(10.0f);
+            this.setSpeed(maxSpeed);
             this.checkpointX = this.targetX;
             this.targetX = this.checkpointX + phase.distance;
         } else if(phase.direction == Direction.Up) {
@@ -412,7 +416,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setLeft(false);
             this.setUp(true);
             this.setDown(false);
-            this.setSpeed(10.0f);
+            this.setSpeed(maxSpeed);
             this.checkpointY = this.targetY;
             this.targetY = this.checkpointY + phase.distance;
         } else if(phase.direction == Direction.Down) {
@@ -420,7 +424,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setLeft(false);
             this.setUp(false);
             this.setDown(true);
-            this.setSpeed(10.0f);
+            this.setSpeed(maxSpeed);
             this.checkpointY = this.targetY;
             this.targetY = this.checkpointY - phase.distance;
         } else if(phase.direction == Direction.Pause) {

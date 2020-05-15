@@ -13,7 +13,7 @@ public class PlayerAnimation implements ApplicationListener {
 	private static final int FRAME_COLS = 3;
 	private static final int FRAME_ROWS = 3;
 	
-	Animation walkAnimation;
+	Animation<TextureRegion> walkAnimation;
 	Texture walkSheet;
 	TextureRegion[] walkFrames;
 	SpriteBatch spBatch;
@@ -33,7 +33,7 @@ public class PlayerAnimation implements ApplicationListener {
 			}
 		}
 		
-		walkAnimation = new Animation(0.025f, walkFrames);
+		walkAnimation = new Animation<TextureRegion>(0.025f, walkFrames);
 		stateTime = 0f;
 	}
 	@Override

@@ -2,6 +2,7 @@ package gamestate;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.lang.Class;
 
 import net.dermetfan.gdx.physics.box2d.Box2DMapObjectParser;
 import utilities.CharacterGeneration;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g3d.decals.Decal;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -45,6 +47,7 @@ public class BoxWorld extends GameState {
 
 	World world;
 	public OrthogonalCustomRenderer mapRenderer;
+	//public OrthogonalTiledMapRenderer mapRenderer;
 	Box2DDebugRenderer box2drenderer;
 	public OrthographicCamera camera;
 	Player player;
@@ -157,7 +160,7 @@ public class BoxWorld extends GameState {
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
 					
-					int spawnNumber = Integer.parseInt((String) mo.getProperties().get("spawnNumber"));
+					int spawnNumber = mo.getProperties().get("spawnNumber", Integer.class);
 					
 					float x = mo.getRectangle().x*SuikodenRM.scale;
 					float y = mo.getRectangle().y*SuikodenRM.scale;
@@ -175,8 +178,14 @@ public class BoxWorld extends GameState {
 					float y = (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale;
 					
 					GameWorldCharacter gc = CharacterGeneration.getWorldCharacter((String) mo.getProperties().get("character"), this, x, y);
-					gc.setMessage(Integer.parseInt((String) mo.getProperties().get("startMessage")), Integer.parseInt((String) mo.getProperties().get("stopMessage")));
+                    int start = mo.getProperties().get("startMessage", Integer.class);
+                    int end = mo.getProperties().get("stopMessage", Integer.class);
+					gc.setMessage(start, end);
                     gc.setPhases((String) mo.getProperties().get("phases"));
+                    Float speed = mo.getProperties().get("speed", Float.class);
+                    if(speed != null) {
+                        gc.setMaxSpeed(speed);
+                    }
 					drawableBoxes.add(gc);
 					characters.add(gc);
 				}
@@ -249,6 +258,7 @@ public class BoxWorld extends GameState {
 		});
 		
 		mapRenderer = new OrthogonalCustomRenderer(map);
+		//mapRenderer = new OrthogonalTiledMapRenderer(map);
 		box2drenderer = new Box2DDebugRenderer();
 		box2drenderer.setDrawAABBs(true);
 	}
@@ -310,7 +320,7 @@ public class BoxWorld extends GameState {
 				mapRenderer.renderTileLayer(background);
 			}
 			
-			mapRenderer.renderTileLayer(objectLayers, drawableBoxes, player);
+            mapRenderer.renderTileLayer(objectLayers, drawableBoxes, player);
 
 			for(TiledMapTileLayer foreground : foregrounds) {
 				mapRenderer.renderTileLayer(foreground);
