@@ -19,8 +19,8 @@ public class Player extends DrawableBox2D {
 	
 	/** the movement velocity **/
 	
-	private float speed = 60f*SuikodenRM.scale;
-	private float maxSpeed = 60f*SuikodenRM.scale;
+	private float speed = 90f*SuikodenRM.scale;
+	private float maxSpeed = 90f*SuikodenRM.scale;
 	
 	private boolean left;
 	private boolean right;
@@ -35,35 +35,39 @@ public class Player extends DrawableBox2D {
 	private GameAnimation currentWalkAnim;
 	
 	private static GameAnimation leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("emi0", 18), 
-			ImageCache.getFrame("emi0", 19), 
+			ImageCache.getFrame("girlbluehair", 4), 
+			ImageCache.getFrame("girlbluehair", 8), 
+			ImageCache.getFrame("girlbluehair", 12), 
 			});
 	
 	private static GameAnimation upAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("emi0", 28), 
-			ImageCache.getFrame("emi0", 14), 
+			ImageCache.getFrame("girlbluehair", 1), 
+			ImageCache.getFrame("girlbluehair", 5), 
+			ImageCache.getFrame("girlbluehair", 9), 
 			});
 
 	private static GameAnimation rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("emi0", 57), 
-			ImageCache.getFrame("emi0", 58), 
+			ImageCache.getFrame("girlbluehair", 2), 
+			ImageCache.getFrame("girlbluehair", 6), 
+			ImageCache.getFrame("girlbluehair", 10), 
 	        });
 	
 	private static GameAnimation downAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("emi0", 17), 
-			ImageCache.getFrame("emi0", 31), 
+			ImageCache.getFrame("girlbluehair", 3), 
+			ImageCache.getFrame("girlbluehair", 7), 
+			ImageCache.getFrame("girlbluehair", 11), 
 			});
 	
 	
 	public Player(Body body) {
-		super(new TextureRegion(ImageCache.getFrame("emi0", 0)));
+		super(new TextureRegion(ImageCache.getFrame("girlbluehair", 7)));
 		
 		//sprite = new TextureRegion(ImageCache.getFrame("riouWalkDown", 2));
 		currentWalkAnim = downAnim;
 		this.body = body;
 		
 		setAdjustWidth(false);
-        TextureRegion exampleSprite = new TextureRegion(ImageCache.getFrame("emi0", 0));
+        TextureRegion exampleSprite = new TextureRegion(ImageCache.getFrame("girlbluehair", 7));
     	setHeight(exampleSprite.getRegionHeight()*SuikodenRM.scale*0.5f);
     	setWidth(exampleSprite.getRegionWidth()*SuikodenRM.scale*0.5f);
     	this.setCenterX(10);

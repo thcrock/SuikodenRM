@@ -48,7 +48,8 @@ public class OldMan extends GameWorldCharacter {
 		facePicture = ImageCache.getTexture("oldman_7");
 		
 		messages.add("You've got it all wrong. The game is too weak these days. Belcoot would take them all.");
-        messages.add("The catch was great today! Mackerel, snapper, barnfish. Can I interest you in some fish?");
+        messages.add("Fresh bread! Fresh bread!");
         messages.add("Mmmmm, barnfish..");
+        messages.add("I saw a young lady in blue come by earlier today. She looked like she was up to no good. Watch out, kids!");
 	}
 }

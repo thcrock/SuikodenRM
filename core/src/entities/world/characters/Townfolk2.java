@@ -50,5 +50,6 @@ public class Townfolk2 extends GameWorldCharacter {
 		
 		messages.add("How's your mom?");
         messages.add("I have a confession. I hate mangoes!?");
+        messages.add("The catch was great today! Mackerel, snapper, barnfish. Can I interest you in some fish?");
 	}
 }
