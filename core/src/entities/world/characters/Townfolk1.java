@@ -50,6 +50,6 @@ public class Townfolk1 extends GameWorldCharacter {
 		
 		messages.add("The mangos are great today!");
         messages.add("Can I interest you in some mangos?");
-        messages.add("");
+        messages.add("Watch out for the thorns on this one!");
 	}
 }

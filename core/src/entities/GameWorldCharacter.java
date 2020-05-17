@@ -4,6 +4,7 @@ import gamestate.BoxWorld;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Float;
 
 import animations.GameAnimation;
 
@@ -26,11 +27,13 @@ class Phase {
     public Direction direction;
     public int distance;
     public float secondsPause;
+    public Float speed;
 
-    public Phase(Direction direction, int distance, float secondsPause) {
+    public Phase(Direction direction, int distance, float secondsPause, Float speed) {
         this.direction = direction;
         this.distance = distance;
         this.secondsPause = secondsPause;
+        this.speed = speed;
     }
 }
 public abstract class GameWorldCharacter extends DrawableBox2D {
@@ -383,16 +386,22 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
         Phase[] phases = new Phase[phaseStrings.length];
         for (int i = 0; i < phaseStrings.length; i++) {
             String[] parts = phaseStrings[i].split("-");
+            Float speed;
+            if(parts.length == 3) {
+                speed = Float.parseFloat(parts[2]);
+            } else {
+                speed = null;
+            }
             if(parts[0].equals("d")) {
-                phases[i] = new Phase(Direction.Down, Integer.parseInt(parts[1]), 0);
+                phases[i] = new Phase(Direction.Down, Integer.parseInt(parts[1]), 0, speed);
             } else if(parts[0].equals("u")) {
-                phases[i] = new Phase(Direction.Up, Integer.parseInt(parts[1]), 0);
+                phases[i] = new Phase(Direction.Up, Integer.parseInt(parts[1]), 0, speed);
             } else if(parts[0].equals("l")) {
-                phases[i] = new Phase(Direction.Left, Integer.parseInt(parts[1]), 0);
+                phases[i] = new Phase(Direction.Left, Integer.parseInt(parts[1]), 0, speed);
             } else if(parts[0].equals("r")) {
-                phases[i] = new Phase(Direction.Right, Integer.parseInt(parts[1]), 0);
+                phases[i] = new Phase(Direction.Right, Integer.parseInt(parts[1]), 0, speed);
             } else if(parts[0].equals("p")) {
-                phases[i] = new Phase(Direction.Pause, 0, Float.parseFloat(parts[1]));
+                phases[i] = new Phase(Direction.Pause, 0, Float.parseFloat(parts[1]), speed);
             } else {
             }
         }
@@ -415,7 +424,12 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setRight(false);
             this.setUp(false);
             this.setDown(false);
-            this.setSpeed(maxSpeed);
+            if(phase.speed != null) {
+                System.out.println("custom speed!" + phase.speed.toString());
+                this.setSpeed(phase.speed);
+            } else {
+                this.setSpeed(maxSpeed);
+            }
             this.checkpointX = this.targetX;
             this.checkpointY = this.targetY;
             this.targetX = this.checkpointX - phase.distance;
@@ -424,7 +438,11 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setLeft(false);
             this.setUp(false);
             this.setDown(false);
-            this.setSpeed(maxSpeed);
+            if(phase.speed != null) {
+                this.setSpeed(phase.speed);
+            } else {
+                this.setSpeed(maxSpeed);
+            }
             this.checkpointX = this.targetX;
             this.targetX = this.checkpointX + phase.distance;
         } else if(phase.direction == Direction.Up) {
@@ -432,7 +450,11 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setLeft(false);
             this.setUp(true);
             this.setDown(false);
-            this.setSpeed(maxSpeed);
+            if(phase.speed != null) {
+                this.setSpeed(phase.speed);
+            } else {
+                this.setSpeed(maxSpeed);
+            }
             this.checkpointY = this.targetY;
             this.targetY = this.checkpointY + phase.distance;
         } else if(phase.direction == Direction.Down) {
@@ -440,7 +462,11 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setLeft(false);
             this.setUp(false);
             this.setDown(true);
-            this.setSpeed(maxSpeed);
+            if(phase.speed != null) {
+                this.setSpeed(phase.speed);
+            } else {
+                this.setSpeed(maxSpeed);
+            }
             this.checkpointY = this.targetY;
             this.targetY = this.checkpointY - phase.distance;
         } else if(phase.direction == Direction.Pause) {
@@ -448,7 +474,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.setLeft(false);
             this.setUp(false);
             this.setDown(false);
-            this.setFaceDown();
+            //this.setFaceDown();
             this.setSpeed(0.0f);
             this.pauseSeconds = 0;
             this.checkpointX = this.targetX;
