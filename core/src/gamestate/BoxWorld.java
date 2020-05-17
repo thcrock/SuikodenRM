@@ -9,6 +9,7 @@ import utilities.CharacterGeneration;
 import utilities.OrthogonalCustomRenderer;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL30;
@@ -54,6 +55,7 @@ public class BoxWorld extends GameState {
 	ArrayList<TiledMapTileLayer> foregrounds, backgrounds, objectLayers;
 	ArrayList<DrawableBox2D> drawableBoxes;
 	ArrayList<GameWorldCharacter> characters;
+    Music music;
 	
 	boolean disposeThis = false;
 	
@@ -83,6 +85,8 @@ public class BoxWorld extends GameState {
 		walkableDoors = new ArrayList<Door>();
 		
 		mapSpawns = new ArrayList<Spawn>();
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/Kanakan.mp3"));
+        music.play();
 		
 		initiate(fromDoor);
 	}
