@@ -1,7 +1,11 @@
 SuikodenRM
 ==========
 
-SuikodenRM is a game created by the SuikodenRM engine, under development by Orangee Games.
+This is a game created by the SuikodenRM engine.
+
+## Running
+
+I haven't quite figured out how to package this up yet, but you can run it with gradle. If you have a Java Runtime Environment (JRE) installed (I'm using Java 11), you should be able to clone this repository, navigate to the directory, and type 'gradle run'.
 
 ### How to create your own map
 
