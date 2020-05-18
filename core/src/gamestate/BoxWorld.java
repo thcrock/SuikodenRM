@@ -85,7 +85,8 @@ public class BoxWorld extends GameState {
 		walkableDoors = new ArrayList<Door>();
 		
 		mapSpawns = new ArrayList<Spawn>();
-        music = Gdx.audio.newMusic(Gdx.files.internal("music/Kanakan.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/Kanakan.ogg"));
+        music.setLooping(true);
         music.play();
 		
 		initiate(fromDoor);

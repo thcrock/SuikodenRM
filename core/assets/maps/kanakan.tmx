@@ -379,7 +379,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="949.667" y="350.5" width="32" height="8">
+  <object id="1" name="spawn1" type="1" x="187.667" y="504" width="32" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
