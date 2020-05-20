@@ -60,7 +60,7 @@ public class BoxWorld extends GameState {
 	boolean disposeThis = false;
 	
 	float rotation = 0;
-	float zoom = 1;
+	float zoom = 0.75f;
 	
 	Door fromDoor;
 	Door nextDoor;
