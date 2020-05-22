@@ -12,6 +12,7 @@ import entities.world.characters.Townfolk3;
 import entities.world.characters.Townfolk4;
 import entities.world.characters.OldMan;
 import entities.world.characters.Dog;
+import entities.world.characters.Friend;
 import entities.world.characters.Kid1;
 import entities.world.characters.Fisherman;
 import entities.world.characters.Killey;
@@ -33,6 +34,7 @@ public class CharacterGeneration {
 		else if(name.equals("OldMan")) return new OldMan(ImageCache.getFrame("oldman", 7), bw, x, y);
 		else if(name.equals("Dog")) return new Dog(ImageCache.getFrame("dog_run", 1), bw, x, y);
 		else if(name.equals("Kid1")) return new Kid1(ImageCache.getFrame("kid1", 1), bw, x, y);
+		else if(name.equals("Friend")) return new Friend(ImageCache.getFrame("girlbluehair", 4), bw, x, y);
 		else if(name.equals("Fisherman")) return new Fisherman(ImageCache.getFrame("fishing", 1), bw, x, y);
 		return null;
 	}

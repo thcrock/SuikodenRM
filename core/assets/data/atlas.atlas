@@ -509,70 +509,70 @@ fishing
   orig: 96, 93
   offset: 0, 0
   index: 1
-girlbluehair
+friend
   rotate: false
   xy: 972, 805
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 1
-girlbluehair
+friend
   rotate: false
   xy: 972, 743
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 2
-girlbluehair
+friend
   rotate: false
   xy: 972, 681
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 3
-girlbluehair
+friend
   rotate: false
   xy: 659, 2
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 4
-girlbluehair
+friend
   rotate: false
   xy: 709, 2
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 5
-girlbluehair
+friend
   rotate: false
   xy: 759, 2
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 6
-girlbluehair
+friend
   rotate: false
   xy: 919, 622
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 7
-girlbluehair
+friend
   rotate: false
   xy: 922, 68
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 8
-girlbluehair
+friend
   rotate: false
   xy: 972, 63
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 9
-girlbluehair
+friend
   rotate: false
   xy: 539, 15
   size: 48, 60
@@ -1218,7 +1218,7 @@ filter: Nearest,Nearest
 repeat: none
 chest
   rotate: false
-  xy: 400, 115
+  xy: 996, 60
   size: 26, 20
   orig: 26, 20
   offset: 0, 0
@@ -1253,7 +1253,7 @@ cliveFightingAttack
   index: 8
 cliveFightingAttack
   rotate: false
-  xy: 431, 134
+  xy: 981, 134
   size: 41, 58
   orig: 41, 58
   offset: 0, 0
@@ -1267,35 +1267,35 @@ cliveFightingIdle
   index: 2
 cliveFightingIdle
   rotate: false
-  xy: 651, 132
+  xy: 658, 70
   size: 29, 60
   orig: 29, 60
   offset: 0, 0
   index: 3
 cliveFightingIdle
   rotate: false
-  xy: 682, 132
+  xy: 689, 70
   size: 29, 60
   orig: 29, 60
   offset: 0, 0
   index: 4
 cliveWalkDown
   rotate: false
-  xy: 548, 89
+  xy: 525, 27
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 1
 cliveWalkDown
   rotate: false
-  xy: 568, 96
+  xy: 545, 27
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 3
 cliveWalkDown
   rotate: false
-  xy: 506, 43
+  xy: 625, 26
   size: 18, 44
   orig: 18, 44
   offset: 0, 0
@@ -1309,39 +1309,39 @@ cliveWalkLeft
   index: 2
 cliveWalkLeft
   rotate: false
-  xy: 588, 96
+  xy: 565, 34
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 1
 cliveWalkLeft
   rotate: false
-  xy: 406, 20
+  xy: 585, 34
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 3
 cliveWalkUp
   rotate: false
-  xy: 426, 20
+  xy: 605, 34
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 1
 cliveWalkUp
   rotate: false
-  xy: 446, 39
-  size: 18, 45
-  orig: 18, 45
-  offset: 0, 0
-  index: 3
-cliveWalkUp
-  rotate: false
-  xy: 526, 43
+  xy: 645, 24
   size: 18, 44
   orig: 18, 44
   offset: 0, 0
   index: 2
+cliveWalkUp
+  rotate: false
+  xy: 665, 23
+  size: 18, 45
+  orig: 18, 45
+  offset: 0, 0
+  index: 3
 emi0
   rotate: false
   xy: 2, 174
@@ -1433,16 +1433,100 @@ emi0
   orig: 63, 75
   offset: 0, 0
   index: 68
-girlbluehair
+friend
   rotate: false
   xy: 262, 54
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 11
-girlbluehair
+friend
   rotate: false
   xy: 439, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 12
+girlbluehair
+  rotate: false
+  xy: 489, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 1
+girlbluehair
+  rotate: false
+  xy: 539, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 2
+girlbluehair
+  rotate: false
+  xy: 589, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 3
+girlbluehair
+  rotate: false
+  xy: 639, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 4
+girlbluehair
+  rotate: false
+  xy: 689, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 5
+girlbluehair
+  rotate: false
+  xy: 739, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 6
+girlbluehair
+  rotate: false
+  xy: 789, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 7
+girlbluehair
+  rotate: false
+  xy: 839, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 8
+girlbluehair
+  rotate: false
+  xy: 889, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 9
+girlbluehair
+  rotate: false
+  xy: 939, 194
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 10
+girlbluehair
+  rotate: false
+  xy: 319, 115
+  size: 48, 60
+  orig: 48, 60
+  offset: 0, 0
+  index: 11
+girlbluehair
+  rotate: false
+  xy: 312, 53
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
@@ -1456,168 +1540,168 @@ highlanderFightingAttack
   index: 4
 highlanderFightingAttack
   rotate: false
-  xy: 619, 134
+  xy: 626, 72
   size: 30, 58
   orig: 30, 58
   offset: 0, 0
   index: 1
 highlanderFightingAttack
   rotate: false
-  xy: 713, 134
+  xy: 720, 72
   size: 29, 58
   orig: 29, 58
   offset: 0, 0
   index: 5
 highlanderFightingAttack
   rotate: false
-  xy: 744, 136
+  xy: 751, 74
   size: 29, 56
   orig: 29, 56
   offset: 0, 0
   index: 3
 highlanderFightingAttack
   rotate: false
-  xy: 775, 137
+  xy: 782, 75
   size: 27, 55
   orig: 27, 55
   offset: 0, 0
   index: 2
 highlanderWalkDown
   rotate: false
-  xy: 888, 101
+  xy: 841, 24
   size: 18, 41
   orig: 18, 41
   offset: 0, 0
   index: 2
 highlanderWalkDown
   rotate: false
-  xy: 988, 100
+  xy: 861, 23
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: 1
 highlanderWalkDown
   rotate: false
-  xy: 622, 55
+  xy: 900, 38
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: 3
 highlanderWalkLeft
   rotate: false
-  xy: 641, 55
+  xy: 919, 38
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: 1
 highlanderWalkLeft
   rotate: false
-  xy: 660, 55
+  xy: 938, 38
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: 3
 highlanderWalkUp
   rotate: false
-  xy: 908, 101
+  xy: 957, 38
+  size: 17, 42
+  orig: 17, 42
+  offset: 0, 0
+  index: 1
+highlanderWalkUp
+  rotate: false
+  xy: 976, 39
   size: 18, 41
   orig: 18, 41
   offset: 0, 0
   index: 2
 highlanderWalkUp
   rotate: false
-  xy: 679, 55
-  size: 17, 42
-  orig: 17, 42
-  offset: 0, 0
-  index: 1
-highlanderWalkUp
-  rotate: false
-  xy: 698, 55
+  xy: 996, 16
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: 3
 kid1
   rotate: false
-  xy: 489, 194
+  xy: 431, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 1
 kid1
   rotate: false
-  xy: 539, 194
+  xy: 481, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 2
 kid1
   rotate: false
-  xy: 589, 194
+  xy: 531, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 3
 kid1
   rotate: false
-  xy: 639, 194
+  xy: 581, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 4
 kid1
   rotate: false
-  xy: 689, 194
+  xy: 631, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 5
 kid1
   rotate: false
-  xy: 739, 194
+  xy: 681, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 6
 kid1
   rotate: false
-  xy: 789, 194
+  xy: 731, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 7
 kid1
   rotate: false
-  xy: 839, 194
+  xy: 781, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 8
 kid1
   rotate: false
-  xy: 889, 194
+  xy: 831, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 9
 kid1
   rotate: false
-  xy: 939, 194
+  xy: 881, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 10
 kid1
   rotate: false
-  xy: 319, 115
+  xy: 931, 132
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
   index: 11
 kid1
   rotate: false
-  xy: 312, 53
+  xy: 431, 70
   size: 48, 60
   orig: 48, 60
   offset: 0, 0
@@ -1645,105 +1729,105 @@ killeyFightingAttack
   index: 10
 killeyFightingAttack
   rotate: false
-  xy: 474, 136
+  xy: 481, 74
   size: 40, 56
   orig: 40, 56
   offset: 0, 0
   index: 3
 killeyFightingAttack
   rotate: false
-  xy: 516, 136
+  xy: 523, 74
   size: 39, 56
   orig: 39, 56
   offset: 0, 0
   index: 2
 killeyFightingAttack
   rotate: false
-  xy: 804, 138
+  xy: 811, 76
   size: 28, 54
   orig: 28, 54
   offset: 0, 0
   index: 1
 killeyFightingIdle
   rotate: false
-  xy: 834, 131
+  xy: 403, 74
   size: 26, 61
   orig: 26, 61
   offset: 0, 0
   index: 2
 killeyFightingIdle
   rotate: false
-  xy: 862, 129
+  xy: 841, 67
   size: 24, 63
   orig: 24, 63
   offset: 0, 0
   index: 1
 killeyWalkDown
   rotate: false
-  xy: 888, 144
+  xy: 867, 82
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
   index: 3
 killeyWalkLeft
   rotate: false
-  xy: 914, 144
+  xy: 893, 82
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
   index: 1
 killeyWalkLeft
   rotate: false
-  xy: 940, 144
+  xy: 919, 82
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
   index: 2
 killeyWalkLeft
   rotate: false
-  xy: 966, 144
+  xy: 945, 82
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
   index: 3
 killeyWalkUp
   rotate: false
-  xy: 992, 144
+  xy: 971, 82
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
   index: 1
+killeyWalkUp
+  rotate: false
+  xy: 997, 84
+  size: 24, 48
+  orig: 24, 48
+  offset: 0, 0
+  index: 2
 killeyWalkUp
   rotate: false
   xy: 262, 4
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
-  index: 2
-killeyWalkUp
-  rotate: false
-  xy: 309, 3
-  size: 24, 48
-  orig: 24, 48
-  offset: 0, 0
   index: 3
 leknaatWalkDown
   rotate: false
-  xy: 335, 5
+  xy: 309, 5
   size: 24, 46
   orig: 24, 46
   offset: 0, 0
   index: 1
 leknaatWalkDown
   rotate: false
-  xy: 403, 67
+  xy: 406, 26
   size: 23, 46
   orig: 23, 46
   offset: 0, 0
   index: 3
 leknaatWalkDown
   rotate: false
-  xy: 480, 89
+  xy: 431, 23
   size: 24, 45
   orig: 24, 45
   offset: 0, 0
@@ -1757,35 +1841,35 @@ leknaatWalkLeft
   index: 1
 leknaatWalkLeft
   rotate: false
-  xy: 506, 89
+  xy: 483, 27
   size: 19, 45
   orig: 19, 45
   offset: 0, 0
   index: 2
 leknaatWalkLeft
   rotate: false
-  xy: 527, 89
+  xy: 504, 27
   size: 19, 45
   orig: 19, 45
   offset: 0, 0
   index: 3
 leknaatWalkUp
   rotate: false
-  xy: 361, 5
+  xy: 335, 5
   size: 24, 46
   orig: 24, 46
   offset: 0, 0
   index: 1
 leknaatWalkUp
   rotate: false
-  xy: 428, 86
+  xy: 361, 5
   size: 24, 46
   orig: 24, 46
   offset: 0, 0
   index: 2
 leknaatWalkUp
   rotate: false
-  xy: 454, 86
+  xy: 457, 22
   size: 24, 46
   orig: 24, 46
   offset: 0, 0
@@ -1801,7 +1885,7 @@ neat9patch
   index: -1
 neat9patch2
   rotate: false
-  xy: 557, 165
+  xy: 564, 103
   size: 60, 27
   split: 5, 47, 5, 21
   pad: 5, 5, 12, 5
@@ -1810,7 +1894,7 @@ neat9patch2
   index: -1
 neattry
   rotate: false
-  xy: 557, 143
+  xy: 564, 81
   size: 60, 20
   split: 54, 5, 5, 5
   pad: 23, 21, 0, 5
@@ -1819,77 +1903,77 @@ neattry
   index: -1
 riouWalkDown
   rotate: false
-  xy: 546, 43
+  xy: 725, 26
   size: 18, 44
   orig: 18, 44
   offset: 0, 0
   index: 1
 riouWalkDown
   rotate: false
-  xy: 566, 43
+  xy: 745, 26
   size: 18, 44
   orig: 18, 44
   offset: 0, 0
   index: 3
 riouWalkDown
   rotate: false
-  xy: 928, 100
+  xy: 880, 38
   size: 18, 42
   orig: 18, 42
   offset: 0, 0
   index: 2
 riouWalkLeft
   rotate: false
-  xy: 586, 50
+  xy: 765, 28
   size: 17, 44
   orig: 17, 44
   offset: 0, 0
   index: 1
 riouWalkLeft
   rotate: false
-  xy: 605, 50
-  size: 15, 44
-  orig: 15, 44
-  offset: 0, 0
-  index: 2
-riouWalkLeft
-  rotate: false
-  xy: 948, 99
+  xy: 784, 30
   size: 18, 43
   orig: 18, 43
   offset: 0, 0
   index: 3
+riouWalkLeft
+  rotate: false
+  xy: 804, 29
+  size: 15, 44
+  orig: 15, 44
+  offset: 0, 0
+  index: 2
 riouWalkUp
   rotate: false
-  xy: 466, 39
+  xy: 685, 23
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 1
 riouWalkUp
   rotate: false
-  xy: 486, 42
+  xy: 705, 23
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 3
 riouWalkUp
   rotate: false
-  xy: 968, 99
+  xy: 821, 31
   size: 18, 43
   orig: 18, 43
   offset: 0, 0
   index: 2
 shop
   rotate: false
-  xy: 406, 2
+  xy: 132, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 shop
   rotate: false
-  xy: 424, 2
+  xy: 150, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

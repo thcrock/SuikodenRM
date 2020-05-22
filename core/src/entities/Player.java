@@ -78,6 +78,10 @@ public class Player extends DrawableBox2D {
 		this.draw(spriteBatch, body);
 	}
 	
+    public Vector2 getLinearVelocity() {
+        return body.getLinearVelocity();
+    }
+
 	public void update2(float delta) {
 		if(left) {
 			dx -= speed;
@@ -223,6 +227,10 @@ public class Player extends DrawableBox2D {
 	public void interact(Player player) {
 		
 	}
+
+    public Vector2 getPosition() {
+        return body.getPosition();
+    }
 	
 	public void dispose() {
 		getTexture().dispose();

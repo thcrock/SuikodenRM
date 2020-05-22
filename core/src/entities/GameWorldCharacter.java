@@ -130,7 +130,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 		this.draw(spriteBatch, body);
 	}
 
-    protected Vector2 getPosition() {
+    public Vector2 getPosition() {
         return this.body.getPosition();
     }
 	

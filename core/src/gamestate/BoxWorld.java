@@ -487,6 +487,10 @@ public class BoxWorld extends GameState {
 		return world;
 	}
 
+    public Player getPlayer() {
+        return player;
+    }
+
 
 
 	@Override
