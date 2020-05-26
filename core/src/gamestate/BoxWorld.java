@@ -43,6 +43,7 @@ import entities.DrawableBox2D;
 import entities.GameWorldCharacter;
 import entities.Player;
 import entities.Spawn;
+import entities.StoryScene;
 
 public class BoxWorld extends GameState {
 
@@ -55,6 +56,7 @@ public class BoxWorld extends GameState {
 	ArrayList<TiledMapTileLayer> foregrounds, backgrounds, objectLayers;
 	ArrayList<DrawableBox2D> drawableBoxes;
 	ArrayList<GameWorldCharacter> characters;
+    StoryScene scene;
     Music music;
 	
 	boolean disposeThis = false;
@@ -197,6 +199,9 @@ public class BoxWorld extends GameState {
                     }
 					drawableBoxes.add(gc);
 					characters.add(gc);
+                    if(mo.getProperties().get("character").equals("Townfolk3")) {
+                        scene = new StoryScene(gc);
+                    }
 				}
 			}
 			
@@ -309,6 +314,7 @@ public class BoxWorld extends GameState {
 			if(!GameStateManager.PAUSED) {
 				world.step(1 / 60f, 8, 3);
 				player.update2(delta);
+                scene.update(delta);
 				for(GameWorldCharacter gc : characters) {
 					gc.update(delta);
 				}

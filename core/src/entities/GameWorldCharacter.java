@@ -1,6 +1,7 @@
 package entities;
 
 import gamestate.BoxWorld;
+import gamestate.Scriptable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ class Phase {
         this.speed = speed;
     }
 }
-public abstract class GameWorldCharacter extends DrawableBox2D {
+public abstract class GameWorldCharacter extends DrawableBox2D implements Scriptable {
 	
 	private static int faceUP = 0;
 	private static int faceDOWN = 1;
@@ -51,6 +52,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 	private boolean up;
 	private boolean down;
 	int currentDirection;
+    private boolean isInScript;
 	
 	protected float dx = 0;
 	protected float dy = 0;
@@ -246,26 +248,15 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
 			this.setWidth(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionWidth()*SuikodenRM.scale*0.5f);
 			this.setHeight(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
 		}
-
-        if(this.isRight()) {
-            if(this.getPosition().x >= this.targetX) {
-               this.nextPhase(); 
-            }
+        if(!isInScript && this.hasReachedTarget()) {
+            this.nextPhase(); 
         }
-        if(this.isLeft()) {
-            if(this.getPosition().x <= this.targetX) {
-                this.nextPhase();
-            }
-        }
-        if(this.isUp()) {
-            if(this.getPosition().y >= this.targetY) {
-               this.nextPhase(); 
-            }
-        }
-        if(this.isDown()) {
-            if(this.getPosition().y <= this.targetY) {
-                this.nextPhase();
-            }
+        if(isInScript && this.hasReachedTarget()) {
+            this.setRight(false);
+            this.setLeft(false);
+            this.setUp(false);
+            this.setDown(false);
+            this.setSpeed(0.0f);
         }
         if(this.phases != null && this.phases[this.phaseIndex].direction == Direction.Pause) {
             this.pauseSeconds += delta;
@@ -274,6 +265,37 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             }
         }
 	}
+
+    private boolean hasReachedTarget() {
+        if(this.isRight()) {
+            if(this.getPosition().x >= this.targetX) {
+               return true;
+            }
+        }
+        if(this.isLeft()) {
+            if(this.getPosition().x <= this.targetX) {
+                return true;
+            }
+        }
+        if(this.isUp()) {
+            if(this.getPosition().y >= this.targetY) {
+               return true;
+            }
+        }
+        if(this.isDown()) {
+            if(this.getPosition().y <= this.targetY) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void startScript() {
+        this.isInScript = true;
+    }
+    public boolean hasFinishedAction() {
+        return hasReachedTarget();
+    }
 
     protected void setFaceDown() {
         this.currentWalkAnim = this.downAnim;
@@ -419,56 +441,20 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
         }
 
         Phase phase = this.phases[phaseIndex];
+        float speed;
+        if(phase.speed != null) {
+            speed = phase.speed;
+        } else {
+            speed = maxSpeed;
+        }
         if(phase.direction == Direction.Left) {
-            this.setLeft(true);
-            this.setRight(false);
-            this.setUp(false);
-            this.setDown(false);
-            if(phase.speed != null) {
-                System.out.println("custom speed!" + phase.speed.toString());
-                this.setSpeed(phase.speed);
-            } else {
-                this.setSpeed(maxSpeed);
-            }
-            this.checkpointX = this.targetX;
-            this.checkpointY = this.targetY;
-            this.targetX = this.checkpointX - phase.distance;
+            this.moveRight(phase.distance, speed);
         } else if(phase.direction == Direction.Right) {
-            this.setRight(true);
-            this.setLeft(false);
-            this.setUp(false);
-            this.setDown(false);
-            if(phase.speed != null) {
-                this.setSpeed(phase.speed);
-            } else {
-                this.setSpeed(maxSpeed);
-            }
-            this.checkpointX = this.targetX;
-            this.targetX = this.checkpointX + phase.distance;
+            this.moveRight(phase.distance, speed);
         } else if(phase.direction == Direction.Up) {
-            this.setRight(false);
-            this.setLeft(false);
-            this.setUp(true);
-            this.setDown(false);
-            if(phase.speed != null) {
-                this.setSpeed(phase.speed);
-            } else {
-                this.setSpeed(maxSpeed);
-            }
-            this.checkpointY = this.targetY;
-            this.targetY = this.checkpointY + phase.distance;
+            this.moveUp(phase.distance, speed);
         } else if(phase.direction == Direction.Down) {
-            this.setRight(false);
-            this.setLeft(false);
-            this.setUp(false);
-            this.setDown(true);
-            if(phase.speed != null) {
-                this.setSpeed(phase.speed);
-            } else {
-                this.setSpeed(maxSpeed);
-            }
-            this.checkpointY = this.targetY;
-            this.targetY = this.checkpointY - phase.distance;
+            this.moveDown(phase.distance, speed);
         } else if(phase.direction == Direction.Pause) {
             this.setRight(false);
             this.setLeft(false);
@@ -480,5 +466,57 @@ public abstract class GameWorldCharacter extends DrawableBox2D {
             this.checkpointX = this.targetX;
             this.targetX = this.checkpointX;
         }
+    }
+    public void moveRight(int distance, float speed) {
+        this.setRight(true);
+        this.setLeft(false);
+        this.setUp(false);
+        this.setDown(false);
+        this.setSpeed(speed);
+        if(this.targetX != 0f) {
+            this.checkpointX = this.targetX;
+        } else {
+            this.checkpointX = this.getPosition().x;
+        }
+        this.targetX = this.checkpointX + distance;
+    }
+    public void moveLeft(int distance, float speed) {
+        this.setLeft(true);
+        this.setRight(false);
+        this.setUp(false);
+        this.setDown(false);
+        this.setSpeed(speed);
+        if(this.targetX != 0f) {
+            this.checkpointX = this.targetX;
+        } else {
+            this.checkpointX = this.getPosition().x;
+        }
+        this.targetX = this.checkpointX - distance;
+    }
+    public void moveUp(int distance, float speed) {
+        this.setRight(false);
+        this.setLeft(false);
+        this.setUp(true);
+        this.setDown(false);
+        this.setSpeed(speed);
+        if(this.targetY != 0f) {
+            this.checkpointY = this.targetY;
+        } else {
+            this.checkpointY = this.getPosition().y;
+        }
+        this.targetY = this.checkpointY + distance;
+    }
+    public void moveDown(int distance, float speed) {
+        this.setRight(false);
+        this.setLeft(false);
+        this.setUp(false);
+        this.setDown(true);
+        this.setSpeed(speed);
+        if(this.targetY != 0f) {
+            this.checkpointY = this.targetY;
+        } else {
+            this.checkpointY = this.getPosition().y;
+        }
+        this.targetY = this.checkpointY - distance;
     }
 }
