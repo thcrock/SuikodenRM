@@ -8,4 +8,6 @@ public interface Scriptable {
     public void moveLeft(int distance, float speed);
     public void moveUp(int distance, float speed);
     public void moveDown(int distance, float speed);
+    public void pauseFor(float seconds);
+    public void animationFrame(String textureName, int index);
 }

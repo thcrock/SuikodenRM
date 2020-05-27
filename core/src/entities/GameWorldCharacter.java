@@ -8,6 +8,7 @@ import java.util.List;
 import java.lang.Float;
 
 import animations.GameAnimation;
+import animations.ImageCache;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -52,6 +53,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	private boolean up;
 	private boolean down;
 	int currentDirection;
+    private boolean currentlyPaused = false;
     private boolean isInScript;
 	
 	protected float dx = 0;
@@ -211,6 +213,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 		else {
 			dy = 0;
 		}
+        if(dy > 0 || dx > 0) {
+            this.currentlyPaused = false;
+        }
 		
 		this.body.setLinearVelocity(new Vector2(dx, dy));
 		
@@ -243,11 +248,11 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 			this.setHeight(this.rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
 			currentDirection = faceRIGHT;
 		}
-		else {
+		else if (!isInScript) {
 			this.setRegion(this.currentWalkAnim.getKeyFrame(animTime, false));
 			this.setWidth(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionWidth()*SuikodenRM.scale*0.5f);
 			this.setHeight(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
-		}
+        }
         if(!isInScript && this.hasReachedTarget()) {
             this.nextPhase(); 
         }
@@ -258,11 +263,8 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.setDown(false);
             this.setSpeed(0.0f);
         }
-        if(this.phases != null && this.phases[this.phaseIndex].direction == Direction.Pause) {
-            this.pauseSeconds += delta;
-            if(this.pauseSeconds > this.phases[this.phaseIndex].secondsPause) {
-                this.nextPhase();
-            }
+        if(this.pauseSeconds > 0) {
+            this.pauseSeconds -= delta;
         }
 	}
 
@@ -294,6 +296,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.isInScript = true;
     }
     public boolean hasFinishedAction() {
+        if(this.currentlyPaused == true) {
+            return this.pauseSeconds <= 0;
+        }
         return hasReachedTarget();
     }
 
@@ -372,8 +377,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	public void setDown(boolean down) {
 		this.down = down;
 		if(!down && this.currentWalkAnim == this.downAnim) {
-			this.setTexture(this.downAnim.getKeyFrame(animTime, false).getTexture());
-		}
+			this.setTexture(this.downAnim.getKeyFrame(animTime, false).getTexture()); }
 	}
 
     public void setDirection(String direction) {
@@ -456,13 +460,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         } else if(phase.direction == Direction.Down) {
             this.moveDown(phase.distance, speed);
         } else if(phase.direction == Direction.Pause) {
-            this.setRight(false);
-            this.setLeft(false);
-            this.setUp(false);
-            this.setDown(false);
-            //this.setFaceDown();
-            this.setSpeed(0.0f);
-            this.pauseSeconds = 0;
+            this.pauseFor(phase.secondsPause);
             this.checkpointX = this.targetX;
             this.targetX = this.checkpointX;
         }
@@ -518,5 +516,17 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.checkpointY = this.getPosition().y;
         }
         this.targetY = this.checkpointY - distance;
+    }
+    public void pauseFor(float seconds) {
+        this.setRight(false);
+        this.setLeft(false);
+        this.setUp(false);
+        this.setDown(false);
+        this.setSpeed(0.0f);
+        this.currentlyPaused = true;
+        this.pauseSeconds = seconds;
+    }
+    public void animationFrame(String textureName, int index) {
+		this.setRegion(ImageCache.getFrame(textureName, index));
     }
 }

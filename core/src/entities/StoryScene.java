@@ -22,7 +22,8 @@ public class StoryScene {
         }
         if(firstOneTriggered && !secondOneTriggered && character.hasFinishedAction()) {
             secondOneTriggered = true;
-            character.moveUp(50, 10);
+            character.animationFrame("townfolk03", 1);
+            character.pauseFor(2.0f);
         }
         if(secondOneTriggered && !thirdOneTriggered && character.hasFinishedAction()) {
             thirdOneTriggered = true;
