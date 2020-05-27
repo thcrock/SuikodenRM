@@ -54,6 +54,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	private boolean down;
 	int currentDirection;
     private boolean currentlyPaused = false;
+    private boolean currentlyTalking = false;
     private boolean isInScript;
 	
 	protected float dx = 0;
@@ -295,9 +296,20 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     public void startScript() {
         this.isInScript = true;
     }
+    public void stopScript() {
+        this.isInScript = false;
+    }
     public boolean hasFinishedAction() {
         if(this.currentlyPaused == true) {
             return this.pauseSeconds <= 0;
+        }
+        if(this.currentlyTalking == true) {
+            if(SuikodenRM.gsm.PAUSED) {
+                return false;
+            } else {
+                this.currentlyTalking = false;
+                return true;
+            }
         }
         return hasReachedTarget();
     }
@@ -528,5 +540,12 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     }
     public void animationFrame(String textureName, int index) {
 		this.setRegion(ImageCache.getFrame(textureName, index));
+    }
+    public void sayMessage(String message) {
+        messages.add(message);
+        this.startMessage = messages.size() - 1;
+        this.stopMessage = messages.size();
+        currentlyTalking = true;
+		SuikodenRM.gsm.setMessage(this);
     }
 }

@@ -11,6 +11,7 @@ public class StoryScene {
     boolean firstOneTriggered = false;
     boolean secondOneTriggered = false;
     boolean thirdOneTriggered = false;
+    boolean over = false;
     public StoryScene(Scriptable theScripted) {
         character = theScripted;
     }
@@ -22,12 +23,17 @@ public class StoryScene {
         }
         if(firstOneTriggered && !secondOneTriggered && character.hasFinishedAction()) {
             secondOneTriggered = true;
-            character.animationFrame("townfolk03", 1);
-            character.pauseFor(2.0f);
+            character.sayMessage("howdy!");
         }
         if(secondOneTriggered && !thirdOneTriggered && character.hasFinishedAction()) {
             thirdOneTriggered = true;
-            character.moveLeft(50, 10);
+            character.animationFrame("townfolk03", 1);
+            character.pauseFor(1.0f);
+        }
+        if(thirdOneTriggered && character.hasFinishedAction() && !over) {
+            System.out.println("done with script!");
+            over = true;
+            character.stopScript();
         }
     }
 }
