@@ -1,0 +1,22 @@
+{
+    "actions": [
+        {
+            "class": "scripting.MoveRight",
+            "distance": 50,
+            "speed": 10
+        },
+        {
+            "class": "scripting.AnimationFrame",
+            "textureName": "townfolk03",
+            "index": 1
+        },
+        {
+            "class": "scripting.PauseFor",
+            "seconds": 1.0
+        },
+        {
+            "class": "scripting.SayMessage",
+            "message": "Howdy!"
+        }
+    ]
+}

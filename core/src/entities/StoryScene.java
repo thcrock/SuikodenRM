@@ -4,36 +4,56 @@ import gamestate.Scriptable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import scripting.Script;
+import scripting.Action;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.Json;
 
 
 public class StoryScene {
     Scriptable character;
-    boolean firstOneTriggered = false;
-    boolean secondOneTriggered = false;
-    boolean thirdOneTriggered = false;
+    boolean started = false;
     boolean over = false;
+    Script script;
+    int currentActionIndex = -1;
+    boolean waiting = false;
     public StoryScene(Scriptable theScripted) {
         character = theScripted;
+        Json json = new Json();
+        script = json.fromJson(Script.class, Gdx.files.internal("scripts/testScript.json"));
     }
+
     public void update(float delta) {
-        if(!firstOneTriggered) {
+        if(over) {
+            return;
+        }
+        if(!started) {
+            System.out.println("started script");
             character.startScript();
-            firstOneTriggered = true;
-            character.moveRight(50, 10);
+            started = true;
         }
-        if(firstOneTriggered && !secondOneTriggered && character.hasFinishedAction()) {
-            secondOneTriggered = true;
-            character.sayMessage("howdy!");
+        if(waiting) {
+            if(character.hasFinishedAction()) {
+                System.out.println("finished action");
+                waiting = false;
+            }
         }
-        if(secondOneTriggered && !thirdOneTriggered && character.hasFinishedAction()) {
-            thirdOneTriggered = true;
-            character.animationFrame("townfolk03", 1);
-            character.pauseFor(1.0f);
-        }
-        if(thirdOneTriggered && character.hasFinishedAction() && !over) {
-            System.out.println("done with script!");
-            over = true;
-            character.stopScript();
+        if(!waiting) {
+            System.out.println("not waiting, going to next action");
+            currentActionIndex++;
+            if(currentActionIndex >= script.actions.size()) {
+                System.out.println("stopping script");
+                character.stopScript();
+                over = true;
+            } else {
+                Action action = script.actions.get(currentActionIndex);
+                System.out.println("performing" + action);
+                action.perform(character);
+                if(action.needsWait) {
+                    System.out.println("beginning wait");
+                    waiting = true;
+                }
+            }
         }
     }
 }
