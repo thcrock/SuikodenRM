@@ -1,0 +1,28 @@
+{
+    "actions": [
+        {
+            "character": "Player",
+            "class": "scripting.MoveRight",
+            "distance": 50,
+            "speed": 30
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.MoveUp",
+            "distance": 70,
+            "speed": 50
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.MoveRight",
+            "distance": 1,
+            "speed": 1
+        },
+        {
+            "character": "Player",
+            "class": "scripting.MoveLeft",
+            "distance": 1,
+            "speed": 1
+        }
+    ]
+}

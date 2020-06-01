@@ -55,7 +55,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	int currentDirection;
     private boolean currentlyPaused = false;
     private boolean currentlyTalking = false;
-    private boolean isInScript;
+    protected boolean isInScript;
 	
 	protected float dx = 0;
 	protected float dy = 0;

@@ -58,7 +58,7 @@ public class Friend extends GameWorldCharacter {
 	public void update(float delta) {
         super.update(delta);
         this.player = boxWorld.getPlayer();
-        if(player != null) {
+        if(player != null && !isInScript) {
             float distance = player.getPosition().dst2(this.getPosition());
 
             if (distance > distanceLastTime && distance > 1000) {
