@@ -56,8 +56,9 @@ public class BoxWorld extends GameState {
 	ArrayList<TiledMapTileLayer> foregrounds, backgrounds, objectLayers;
 	ArrayList<DrawableBox2D> drawableBoxes;
 	ArrayList<GameWorldCharacter> characters;
-    StoryScene scene;
+    StoryScene currentScene;
     Music music;
+
 	
 	boolean disposeThis = false;
 	
@@ -71,6 +72,7 @@ public class BoxWorld extends GameState {
 	public static short PLAYER = 0x0001;
 	public static short DOOR = 0x0002;
 	
+    Body bodyToDestroy;
 	Door swapDoor;
 	
 	public BoxWorld(Door fromDoor) {
@@ -161,6 +163,30 @@ public class BoxWorld extends GameState {
 					doorBody.setUserData(newDoor);
 				}
 			}
+			if(layerTypeString.equals("scripts")) {
+				System.out.println("Scripts");
+				Iterator<MapObject> moIterator = ml.getObjects().iterator();
+				while(moIterator.hasNext()) {
+					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
+					
+					String scriptName = (String) mo.getProperties().get("scriptName");
+					System.out.println(scriptName);
+					PolygonShape ps = new PolygonShape();
+					ps.setAsBox((mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().height/2)*SuikodenRM.scale);
+					FixtureDef fixtureScript = new FixtureDef();
+					fixtureScript.filter.categoryBits = DOOR;
+					fixtureScript.filter.maskBits = PLAYER;
+					fixtureScript.isSensor = true;
+					fixtureScript.shape = ps;
+					BodyDef scriptBodyDef = new BodyDef();
+					scriptBodyDef.position.set(new Vector2((mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale));
+					Body scriptBody = world.createBody(scriptBodyDef);
+					
+					scriptBody.createFixture(fixtureScript);
+					StoryScene scene = new StoryScene(scriptName);
+					scriptBody.setUserData(scene);
+				}
+			}
 			if(layerTypeString.equals("spawns")) {
 				System.out.println("Spawny Time");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
@@ -199,9 +225,6 @@ public class BoxWorld extends GameState {
                     }
 					drawableBoxes.add(gc);
 					characters.add(gc);
-                    if(mo.getProperties().get("character").equals("Townfolk3")) {
-                        scene = new StoryScene(gc);
-                    }
 				}
 			}
 			
@@ -261,7 +284,19 @@ public class BoxWorld extends GameState {
 					}
 					disposeThis = true;
 					swapDoor = door;
-				}
+				} else if (bodyA.getUserData() instanceof StoryScene || bodyB.getUserData() instanceof StoryScene) {
+                    if(currentScene != null) {
+                        return;
+                    }
+                    if(bodyA.getUserData() instanceof StoryScene) {
+                        currentScene = (StoryScene) bodyA.getUserData();
+                        bodyToDestroy = bodyA;
+                    } else {
+                        currentScene = (StoryScene) bodyB.getUserData();
+                        bodyToDestroy = bodyB;
+                    }
+                    currentScene.initialize(characters, player);
+                }
 			}
 			@Override
 			public void endContact(Contact contact) {}
@@ -312,9 +347,15 @@ public class BoxWorld extends GameState {
 			Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
 			
 			if(!GameStateManager.PAUSED) {
+                if(bodyToDestroy != null) {
+                    world.destroyBody(bodyToDestroy);
+                    bodyToDestroy = null;
+                }
 				world.step(1 / 60f, 8, 3);
 				player.update2(delta);
-                scene.update(delta);
+                if(currentScene != null) {
+                    currentScene.update(delta);
+                }
 				for(GameWorldCharacter gc : characters) {
 					gc.update(delta);
 				}

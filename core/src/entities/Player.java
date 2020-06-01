@@ -2,6 +2,10 @@ package entities;
 
 import animations.GameAnimation;
 import animations.ImageCache;
+import gamestate.Scriptable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -10,7 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.orangeegames.suikorm.SuikodenRM;
 
-public class Player extends DrawableBox2D {
+public class Player extends DrawableBox2D implements Scriptable {
 	
 	private static int faceUP = 0;
 	private static int faceDOWN = 1;
@@ -33,6 +37,21 @@ public class Player extends DrawableBox2D {
 	private float dy = 0;
 	private float animTime = 0;
 	private GameAnimation currentWalkAnim;
+
+    /** To enable scripting **/
+    private float checkpointX;
+    private float checkpointY;
+    private float targetX;
+    private float targetY;
+    private boolean currentlyPaused = false;
+    private boolean currentlyTalking = false;
+    private boolean isInScript;
+	protected ArrayList<String> messages = new ArrayList<String>();
+	protected int startMessage = 0;
+	protected int stopMessage = 0;
+    private float pauseSeconds = 0;
+	protected TextureRegion facePicture;
+	protected String name;
 	
 	private static GameAnimation leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
 			ImageCache.getFrame("girlbluehair", 4), 
@@ -65,6 +84,7 @@ public class Player extends DrawableBox2D {
 		//sprite = new TextureRegion(ImageCache.getFrame("riouWalkDown", 2));
 		currentWalkAnim = downAnim;
 		this.body = body;
+        this.name = "Player";
 		
 		setAdjustWidth(false);
         TextureRegion exampleSprite = new TextureRegion(ImageCache.getFrame("girlbluehair", 7));
@@ -115,6 +135,7 @@ public class Player extends DrawableBox2D {
 		
 		animTime += Gdx.graphics.getDeltaTime();
 		if(isUp()) {
+            this.setSpeed(maxSpeed);
 			currentWalkAnim = upAnim;
 			this.setRegion(upAnim.getKeyFrame(animTime, true));
 			this.setWidth(upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
@@ -122,6 +143,7 @@ public class Player extends DrawableBox2D {
 			currentDirection = faceUP;
 		}
 		else if(isDown()) {
+            this.setSpeed(maxSpeed);
 			currentWalkAnim = downAnim;
 			this.setRegion(downAnim.getKeyFrame(animTime, true));
 			this.setWidth(downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
@@ -129,6 +151,7 @@ public class Player extends DrawableBox2D {
 			currentDirection = faceDOWN;
 		}
 		else if(isLeft()) {
+            this.setSpeed(maxSpeed);
 			currentWalkAnim = leftAnim;
 			this.setRegion(leftAnim.getKeyFrame(animTime, true));
 			this.setWidth(leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
@@ -136,6 +159,7 @@ public class Player extends DrawableBox2D {
 			currentDirection = faceLEFT;
 		}
 		else if(isRight()) {
+            this.setSpeed(maxSpeed);
 			currentWalkAnim = rightAnim;
 			this.setRegion(rightAnim.getKeyFrame(animTime, true));
 			this.setWidth(rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
@@ -148,6 +172,16 @@ public class Player extends DrawableBox2D {
 			this.setHeight(currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
 		}
 
+        if(isInScript && this.hasReachedTarget()) {
+            this.setRight(false);
+            this.setLeft(false);
+            this.setUp(false);
+            this.setDown(false);
+            this.setSpeed(0.0f);
+        }
+        if(this.pauseSeconds > 0) {
+            this.pauseSeconds -= delta;
+        }
 		
 	}
 
@@ -235,5 +269,133 @@ public class Player extends DrawableBox2D {
 	public void dispose() {
 		getTexture().dispose();
 	}
+
+    public void moveRight(int distance, float speed) {
+        this.setRight(true);
+        this.setLeft(false);
+        this.setUp(false);
+        this.setDown(false);
+        this.setSpeed(speed);
+        if(this.targetX != 0f) {
+            this.checkpointX = this.targetX;
+        } else {
+            this.checkpointX = this.getPosition().x;
+        }
+        this.targetX = this.checkpointX + distance;
+    }
+    public void moveLeft(int distance, float speed) {
+        this.setLeft(true);
+        this.setRight(false);
+        this.setUp(false);
+        this.setDown(false);
+        this.setSpeed(speed);
+        if(this.targetX != 0f) {
+            this.checkpointX = this.targetX;
+        } else {
+            this.checkpointX = this.getPosition().x;
+        }
+        this.targetX = this.checkpointX - distance;
+    }
+    public void moveUp(int distance, float speed) {
+        this.setRight(false);
+        this.setLeft(false);
+        this.setUp(true);
+        this.setDown(false);
+        this.setSpeed(speed);
+        if(this.targetY != 0f) {
+            this.checkpointY = this.targetY;
+        } else {
+            this.checkpointY = this.getPosition().y;
+        }
+        this.targetY = this.checkpointY + distance;
+    }
+    public void moveDown(int distance, float speed) {
+        this.setRight(false);
+        this.setLeft(false);
+        this.setUp(false);
+        this.setDown(true);
+        this.setSpeed(speed);
+        if(this.targetY != 0f) {
+            this.checkpointY = this.targetY;
+        } else {
+            this.checkpointY = this.getPosition().y;
+        }
+        this.targetY = this.checkpointY - distance;
+    }
+    public void pauseFor(float seconds) {
+        this.setRight(false);
+        this.setLeft(false);
+        this.setUp(false);
+        this.setDown(false);
+        this.setSpeed(0.0f);
+        this.currentlyPaused = true;
+        this.pauseSeconds = seconds;
+    }
+    public void animationFrame(String textureName, int index) {
+		this.setRegion(ImageCache.getFrame(textureName, index));
+    }
+    public void sayMessage(String message) {
+        messages.add(message);
+        this.startMessage = messages.size() - 1;
+        this.stopMessage = messages.size();
+        currentlyTalking = true;
+		SuikodenRM.gsm.setMessage(this);
+    }
+    public boolean hasFinishedAction() {
+        if(this.currentlyPaused == true) {
+            return this.pauseSeconds <= 0;
+        }
+        if(this.currentlyTalking == true) {
+            if(SuikodenRM.gsm.PAUSED) {
+                return false;
+            } else {
+                this.currentlyTalking = false;
+                return true;
+            }
+        }
+        if(!right && !left && !up && !down) {
+            return true;
+        }
+        return hasReachedTarget();
+    }
+    private boolean hasReachedTarget() {
+        if(this.isRight()) {
+            if(this.getPosition().x >= this.targetX) {
+               return true;
+            }
+        }
+        if(this.isLeft()) {
+            if(this.getPosition().x <= this.targetX) {
+                return true;
+            }
+        }
+        if(this.isUp()) {
+            if(this.getPosition().y >= this.targetY) {
+               return true;
+            }
+        }
+        if(this.isDown()) {
+            if(this.getPosition().y <= this.targetY) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public void startScript() {
+        this.isInScript = true;
+    }
+    public void stopScript() {
+        this.isInScript = false;
+    }
+	public TextureRegion getFacePicture() {
+		return facePicture;
+	}
 	
+	public List<String> getMessages() {
+		return messages.subList(startMessage, stopMessage);
+	}
+	
+	public String getName() {
+		return name;
+	}
 }

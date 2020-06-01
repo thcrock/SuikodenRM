@@ -56,7 +56,7 @@ public class ChatState extends GameState {
 	private Stage stage;
 	
 	
-	public ChatState(BoxWorld ls, int state, GameWorldCharacter character) {
+	public ChatState(BoxWorld ls, int state, Scriptable character) {
 		this.levelState = ls;
 		spriteBatch = (SpriteBatch) ls.mapRenderer.getBatch();
 		this.returnState = state;

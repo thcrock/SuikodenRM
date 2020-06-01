@@ -1,7 +1,14 @@
 package gamestate;
 
+import java.util.List;
+
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
 
 public interface Scriptable {
+    public String getName();
+	public List<String> getMessages();
+	public TextureRegion getFacePicture();
     public void startScript();
     public void stopScript();
     public boolean hasFinishedAction();

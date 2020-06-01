@@ -1,22 +1,49 @@
 {
     "actions": [
         {
+            "character": "Player",
+            "class": "scripting.MoveRight",
+            "distance": 50,
+            "speed": 30
+        },
+        {
+            "character": "Player",
+            "class": "scripting.MoveUp",
+            "distance": 50,
+            "speed": 30
+        },
+        {
+            "character": "Player",
+            "class": "scripting.MoveRight",
+            "distance": 50,
+            "speed": 30
+        },
+        {
+            "character": "Townfolk3",
             "class": "scripting.MoveRight",
             "distance": 50,
             "speed": 10
         },
         {
+            "character": "Townfolk3",
             "class": "scripting.AnimationFrame",
             "textureName": "townfolk03",
             "index": 1
         },
         {
+            "character": "Townfolk3",
             "class": "scripting.PauseFor",
             "seconds": 1.0
         },
         {
+            "character": "Townfolk3",
             "class": "scripting.SayMessage",
             "message": "Howdy!"
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.SayMessage",
+            "message": "Hey M!"
         }
     ]
 }

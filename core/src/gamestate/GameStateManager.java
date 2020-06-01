@@ -17,6 +17,7 @@ public class GameStateManager implements InputProcessor{
 	
 	GameState[] gameState;
 	SuikodenRM relation;
+
 	
 	public int currentState;
 	
@@ -97,7 +98,7 @@ public class GameStateManager implements InputProcessor{
 		relation.changeScreen();
 	}
 	
-	public void setMessage(GameWorldCharacter character) {
+	public void setMessage(Scriptable character) {
 		BoxWorld oldState = (BoxWorld) gameState[currentState];
 		int oldStateNumber = currentState;
 		gameState[currentState].pause();
