@@ -46,7 +46,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	private static int faceLEFT = 3;
 
 	private float speed = 60f*SuikodenRM.scale;
-	private float maxSpeed = 60f*SuikodenRM.scale;
+	private float maxSpeed = 120f*SuikodenRM.scale;
 	
 	private boolean left;
 	private boolean right;
@@ -89,6 +89,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     private Phase[] phases;
     private int phaseIndex = -1;
     private float pauseSeconds = 0;
+    private boolean coupleMovementAndAnimation = true;
 
 	public GameWorldCharacter(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
 		super(firstFrame);
@@ -221,38 +222,40 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 		this.body.setLinearVelocity(new Vector2(dx, dy));
 		
 		animTime += Gdx.graphics.getDeltaTime();
-		if(isUp()) {
-			this.currentWalkAnim = upAnim;
-			this.setRegion(upAnim.getKeyFrame(animTime, true));
-			this.setWidth(upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
-			currentDirection = faceUP;
-		}
-		else if(isDown()) {
-			this.currentWalkAnim = this.downAnim;
-			this.setRegion(this.downAnim.getKeyFrame(animTime, true));
-			this.setWidth(this.downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(this.downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
-			currentDirection = faceDOWN;
-		}
-		else if(isLeft()) {
-			this.currentWalkAnim = this.leftAnim;
-			this.setRegion(this.leftAnim.getKeyFrame(animTime, true));
-			this.setWidth(this.leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(this.leftAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
-			currentDirection = faceLEFT;
-		}
-		else if(isRight()) {
-			this.currentWalkAnim = this.rightAnim;
-			this.setRegion(this.rightAnim.getKeyFrame(animTime, true));
-			this.setWidth(this.rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(this.rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
-			currentDirection = faceRIGHT;
-		}
-		else if (!isInScript) {
-			this.setRegion(this.currentWalkAnim.getKeyFrame(animTime, false));
-			this.setWidth(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
+        if(coupleMovementAndAnimation) {
+            if(isUp()) {
+                this.currentWalkAnim = upAnim;
+                this.setRegion(upAnim.getKeyFrame(animTime, true));
+                this.setWidth(upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+                currentDirection = faceUP;
+            }
+            else if(isDown()) {
+                this.currentWalkAnim = this.downAnim;
+                this.setRegion(this.downAnim.getKeyFrame(animTime, true));
+                this.setWidth(this.downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(this.downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+                currentDirection = faceDOWN;
+            }
+            else if(isLeft()) {
+                this.currentWalkAnim = this.leftAnim;
+                this.setRegion(this.leftAnim.getKeyFrame(animTime, true));
+                this.setWidth(this.leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(this.leftAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+                currentDirection = faceLEFT;
+            }
+            else if(isRight()) {
+                this.currentWalkAnim = this.rightAnim;
+                this.setRegion(this.rightAnim.getKeyFrame(animTime, true));
+                this.setWidth(this.rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(this.rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+                currentDirection = faceRIGHT;
+            }
+            else if (!isInScript) {
+                this.setRegion(this.currentWalkAnim.getKeyFrame(animTime, false));
+                this.setWidth(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(this.currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
+            }
         }
         if(!isInScript && this.hasReachedTarget()) {
             this.nextPhase(); 
@@ -464,7 +467,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             speed = maxSpeed;
         }
         if(phase.direction == Direction.Left) {
-            this.moveRight(phase.distance, speed);
+            this.moveLeft(phase.distance, speed);
         } else if(phase.direction == Direction.Right) {
             this.moveRight(phase.distance, speed);
         } else if(phase.direction == Direction.Up) {
@@ -547,5 +550,8 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.stopMessage = messages.size();
         currentlyTalking = true;
 		SuikodenRM.gsm.setMessage(this);
+    }
+    public void decoupleMovementAndAnimation() {
+        this.coupleMovementAndAnimation = false;
     }
 }

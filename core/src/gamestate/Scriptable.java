@@ -19,4 +19,5 @@ public interface Scriptable {
     public void pauseFor(float seconds);
     public void animationFrame(String textureName, int index);
     public void sayMessage(String message);
+    public void decoupleMovementAndAnimation();
 }

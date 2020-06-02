@@ -52,6 +52,7 @@ public class Player extends DrawableBox2D implements Scriptable {
     private float pauseSeconds = 0;
 	protected TextureRegion facePicture;
 	protected String name;
+    private boolean coupleMovementAndAnimation = true;
 	
 	private static GameAnimation leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
 			ImageCache.getFrame("girlbluehair", 4), 
@@ -134,43 +135,45 @@ public class Player extends DrawableBox2D implements Scriptable {
 		body.setLinearVelocity(new Vector2(dx, dy));
 		
 		animTime += Gdx.graphics.getDeltaTime();
-		if(isUp()) {
-            this.setSpeed(maxSpeed);
-			currentWalkAnim = upAnim;
-			this.setRegion(upAnim.getKeyFrame(animTime, true));
-			this.setWidth(upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
-			currentDirection = faceUP;
-		}
-		else if(isDown()) {
-            this.setSpeed(maxSpeed);
-			currentWalkAnim = downAnim;
-			this.setRegion(downAnim.getKeyFrame(animTime, true));
-			this.setWidth(downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
-			currentDirection = faceDOWN;
-		}
-		else if(isLeft()) {
-            this.setSpeed(maxSpeed);
-			currentWalkAnim = leftAnim;
-			this.setRegion(leftAnim.getKeyFrame(animTime, true));
-			this.setWidth(leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(leftAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
-			currentDirection = faceLEFT;
-		}
-		else if(isRight()) {
-            this.setSpeed(maxSpeed);
-			currentWalkAnim = rightAnim;
-			this.setRegion(rightAnim.getKeyFrame(animTime, true));
-			this.setWidth(rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
-			currentDirection = faceRIGHT;
-		}
-		else {
-			this.setRegion(currentWalkAnim.getKeyFrame(animTime, false));
-			this.setWidth(currentWalkAnim.getKeyFrame(animTime, false).getRegionWidth()*SuikodenRM.scale*0.5f);
-			this.setHeight(currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
-		}
+        if(coupleMovementAndAnimation) {
+            if(isUp()) {
+                this.setSpeed(maxSpeed);
+                currentWalkAnim = upAnim;
+                this.setRegion(upAnim.getKeyFrame(animTime, true));
+                this.setWidth(upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+                currentDirection = faceUP;
+            }
+            else if(isDown()) {
+                this.setSpeed(maxSpeed);
+                currentWalkAnim = downAnim;
+                this.setRegion(downAnim.getKeyFrame(animTime, true));
+                this.setWidth(downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+                currentDirection = faceDOWN;
+            }
+            else if(isLeft()) {
+                this.setSpeed(maxSpeed);
+                currentWalkAnim = leftAnim;
+                this.setRegion(leftAnim.getKeyFrame(animTime, true));
+                this.setWidth(leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(leftAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+                currentDirection = faceLEFT;
+            }
+            else if(isRight()) {
+                this.setSpeed(maxSpeed);
+                currentWalkAnim = rightAnim;
+                this.setRegion(rightAnim.getKeyFrame(animTime, true));
+                this.setWidth(rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+                currentDirection = faceRIGHT;
+            }
+            else {
+                this.setRegion(currentWalkAnim.getKeyFrame(animTime, false));
+                this.setWidth(currentWalkAnim.getKeyFrame(animTime, false).getRegionWidth()*SuikodenRM.scale*0.5f);
+                this.setHeight(currentWalkAnim.getKeyFrame(animTime, false).getRegionHeight()*SuikodenRM.scale*0.5f);
+            }
+        }
 
         if(isInScript && this.hasReachedTarget()) {
             this.setRight(false);
@@ -398,4 +401,7 @@ public class Player extends DrawableBox2D implements Scriptable {
 	public String getName() {
 		return name;
 	}
+    public void decoupleMovementAndAnimation() {
+        this.coupleMovementAndAnimation = false;
+    }
 }

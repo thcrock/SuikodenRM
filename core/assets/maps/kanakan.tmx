@@ -381,7 +381,7 @@
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>
-    <property name="speed" type="float" value="90"/>
+    <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>

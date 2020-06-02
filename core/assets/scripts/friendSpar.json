@@ -15,14 +15,91 @@
         {
             "character": "Friend",
             "class": "scripting.MoveRight",
-            "distance": 1,
-            "speed": 1
+            "distance": 10,
+            "speed": 50
         },
         {
             "character": "Player",
             "class": "scripting.MoveLeft",
             "distance": 1,
             "speed": 1
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.PauseFor",
+            "seconds": 1
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.DecoupleMovementAndAnimation"
+        },
+        {
+            "character": "Player",
+            "class": "scripting.DecoupleMovementAndAnimation"
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.MoveRight",
+            "distance": 15,
+            "speed": 125
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.MoveLeft",
+            "distance": 10,
+            "speed": 90
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.SayMessage",
+            "message": "You can't guard me!"
+        },
+        {
+            "character": "Player",
+            "class": "scripting.MoveLeft",
+            "distance": 15,
+            "speed": 125
+        },
+        {
+            "character": "Player",
+            "class": "scripting.MoveRight",
+            "distance": 10,
+            "speed": 90
+        },
+        {
+            "character": "Player",
+            "class": "scripting.SayMessage",
+            "message": "Take that!"
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.MoveRight",
+            "distance": 15,
+            "speed": 120
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.MoveLeft",
+            "distance": 10,
+            "speed": 90
+        },
+        {
+            "character": "Player",
+            "class": "scripting.MoveLeft",
+            "distance": 15,
+            "speed": 125
+        },
+        {
+            "character": "Player",
+            "class": "scripting.MoveRight",
+            "distance": 10,
+            "speed": 90
+        },
+        {
+            "character": "Friend",
+            "class": "scripting.MoveLeft",
+            "distance": 25,
+            "speed": 40
         }
     ]
 }

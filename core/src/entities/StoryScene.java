@@ -63,6 +63,7 @@ public class StoryScene {
                 over = true;
             } else {
                 Action action = script.actions.get(currentActionIndex);
+                System.out.println("Starting new action" + action);
                 action.perform(characters.get(action.character));
                 if(action.needsWait) {
                     waiting = true;
