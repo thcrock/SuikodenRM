@@ -18,6 +18,6 @@ public interface Scriptable {
     public void moveDown(int distance, float speed);
     public void pauseFor(float seconds);
     public void animationFrame(String textureName, int index);
-    public void sayMessage(String message);
+    public void sayMessage(String message, String speakerOverrideName);
     public void decoupleMovementAndAnimation();
 }

@@ -98,13 +98,13 @@ public class GameStateManager implements InputProcessor{
 		relation.changeScreen();
 	}
 	
-	public void setMessage(Scriptable character) {
+	public void setMessage(Scriptable character, String speakerOverrideName) {
 		BoxWorld oldState = (BoxWorld) gameState[currentState];
 		int oldStateNumber = currentState;
 		gameState[currentState].pause();
 		currentState = MENUSTATE;
 		PAUSED = true;
-		gameState[currentState] = new ChatState(oldState, oldStateNumber, character);
+		gameState[currentState] = new ChatState(oldState, oldStateNumber, character, speakerOverrideName);
 		relation.changeScreen();
 	}
 	

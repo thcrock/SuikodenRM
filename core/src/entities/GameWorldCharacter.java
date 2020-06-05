@@ -161,7 +161,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 				this.setWidth(tr.getRegionWidth()*SuikodenRM.scale);
 			}
 		}
-		SuikodenRM.gsm.setMessage(this);
+		SuikodenRM.gsm.setMessage(this, null);
 	}
 	
 	public String getName() {
@@ -260,6 +260,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         if(!isInScript && this.hasReachedTarget()) {
             this.nextPhase(); 
         }
+
+        if(!isInScript && this.currentlyPaused == true && this.pauseSeconds <= 0) {
+            this.nextPhase();
+        }
         if(isInScript && this.hasReachedTarget()) {
             this.setRight(false);
             this.setLeft(false);
@@ -301,6 +305,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     }
     public void stopScript() {
         this.isInScript = false;
+        this.coupleMovementAndAnimation = true;
     }
     public boolean hasFinishedAction() {
         if(this.currentlyPaused == true) {
@@ -477,10 +482,11 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         } else if(phase.direction == Direction.Pause) {
             this.pauseFor(phase.secondsPause);
             this.checkpointX = this.targetX;
-            this.targetX = this.checkpointX;
+            this.checkpointY = this.targetY;
         }
     }
     public void moveRight(int distance, float speed) {
+        this.currentlyPaused = false;
         this.setRight(true);
         this.setLeft(false);
         this.setUp(false);
@@ -494,6 +500,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.targetX = this.checkpointX + distance;
     }
     public void moveLeft(int distance, float speed) {
+        this.currentlyPaused = false;
         this.setLeft(true);
         this.setRight(false);
         this.setUp(false);
@@ -507,6 +514,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.targetX = this.checkpointX - distance;
     }
     public void moveUp(int distance, float speed) {
+        this.currentlyPaused = false;
         this.setRight(false);
         this.setLeft(false);
         this.setUp(true);
@@ -520,6 +528,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.targetY = this.checkpointY + distance;
     }
     public void moveDown(int distance, float speed) {
+        this.currentlyPaused = false;
         this.setRight(false);
         this.setLeft(false);
         this.setUp(false);
@@ -544,12 +553,12 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     public void animationFrame(String textureName, int index) {
 		this.setRegion(ImageCache.getFrame(textureName, index));
     }
-    public void sayMessage(String message) {
+    public void sayMessage(String message, String speakerOverrideName) {
         messages.add(message);
         this.startMessage = messages.size() - 1;
         this.stopMessage = messages.size();
         currentlyTalking = true;
-		SuikodenRM.gsm.setMessage(this);
+		SuikodenRM.gsm.setMessage(this, speakerOverrideName);
     }
     public void decoupleMovementAndAnimation() {
         this.coupleMovementAndAnimation = false;

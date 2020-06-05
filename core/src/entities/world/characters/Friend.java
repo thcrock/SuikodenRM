@@ -24,7 +24,7 @@ public class Friend extends GameWorldCharacter {
         boxWorld = bw;
         distanceLastTime = 0;
 		
-		name = "Friend";
+		name = "Mari";
 		
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
 				ImageCache.getFrame("friend", 7), 

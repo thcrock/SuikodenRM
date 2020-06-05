@@ -56,22 +56,24 @@ public class ChatState extends GameState {
 	private Stage stage;
 	
 	
-	public ChatState(BoxWorld ls, int state, Scriptable character) {
+	public ChatState(BoxWorld ls, int state, Scriptable character, String speakerOverrideName) {
 		this.levelState = ls;
 		spriteBatch = (SpriteBatch) ls.mapRenderer.getBatch();
 		this.returnState = state;
 		for(String message : character.getMessages()) {
 			tryText.add(message);
 		}
-		if(character.getName() != null) {
+        if(speakerOverrideName != null) {
+			stringName = speakerOverrideName;
+			textName = true;
+        } else if(character.getName() != null) {
 			stringName = character.getName();
 			textName = true;
-			
-			if(character.getFacePicture() != null) {
-				i = new Image(character.getFacePicture());
-			}
 		}
 		
+        if(character.getFacePicture() != null) {
+            i = new Image(character.getFacePicture());
+        }
 	}
 
 	@Override

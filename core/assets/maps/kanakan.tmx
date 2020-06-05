@@ -252,6 +252,7 @@
    <properties>
     <property name="character" value="Townfolk2"/>
     <property name="phases" value="l-20;p-1;r-40;p-4;l-20;p-1.2"/>
+    <property name="speed" type="float" value="60"/>
     <property name="startMessage" type="int" value="1"/>
     <property name="stopMessage" type="int" value="2"/>
    </properties>
