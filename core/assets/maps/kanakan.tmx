@@ -391,6 +391,7 @@
  <objectgroup id="9" name="scripts">
   <object id="23" name="fightscene" x="190" y="426.5" width="37.5" height="22.5">
    <properties>
+    <property name="convoName" value="challenge"/>
     <property name="scriptName" value="friendSpar"/>
    </properties>
   </object>

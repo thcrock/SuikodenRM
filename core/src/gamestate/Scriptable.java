@@ -20,4 +20,5 @@ public interface Scriptable {
     public void animationFrame(String textureName, int index);
     public void sayMessage(String message, String speakerOverrideName);
     public void decoupleMovementAndAnimation();
+    public void giveChoices(String[] choices);
 }

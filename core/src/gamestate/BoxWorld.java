@@ -44,6 +44,7 @@ import entities.GameWorldCharacter;
 import entities.Player;
 import entities.Spawn;
 import entities.StoryScene;
+import entities.Conversation;
 
 public class BoxWorld extends GameState {
 
@@ -57,6 +58,7 @@ public class BoxWorld extends GameState {
 	ArrayList<DrawableBox2D> drawableBoxes;
 	ArrayList<GameWorldCharacter> characters;
     StoryScene currentScene;
+	Conversation currentConversation;
     Music music;
 
 	
@@ -169,8 +171,8 @@ public class BoxWorld extends GameState {
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
 					
-					String scriptName = (String) mo.getProperties().get("scriptName");
-					System.out.println(scriptName);
+					String convoName = (String) mo.getProperties().get("convoName");
+					System.out.println(convoName);
 					PolygonShape ps = new PolygonShape();
 					ps.setAsBox((mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().height/2)*SuikodenRM.scale);
 					FixtureDef fixtureScript = new FixtureDef();
@@ -183,7 +185,7 @@ public class BoxWorld extends GameState {
 					Body scriptBody = world.createBody(scriptBodyDef);
 					
 					scriptBody.createFixture(fixtureScript);
-					StoryScene scene = new StoryScene(scriptName);
+					Conversation scene = new Conversation(convoName);
 					scriptBody.setUserData(scene);
 				}
 			}
@@ -284,18 +286,19 @@ public class BoxWorld extends GameState {
 					}
 					disposeThis = true;
 					swapDoor = door;
-				} else if (bodyA.getUserData() instanceof StoryScene || bodyB.getUserData() instanceof StoryScene) {
-                    if(currentScene != null) {
+				} else if (bodyA.getUserData() instanceof Conversation || bodyB.getUserData() instanceof Conversation) {
+                    if(currentConversation != null) {
                         return;
                     }
-                    if(bodyA.getUserData() instanceof StoryScene) {
-                        currentScene = (StoryScene) bodyA.getUserData();
+                    if(bodyA.getUserData() instanceof Conversation) {
+                        currentConversation = (Conversation) bodyA.getUserData();
                         bodyToDestroy = bodyA;
                     } else {
-                        currentScene = (StoryScene) bodyB.getUserData();
+                        currentConversation = (Conversation) bodyB.getUserData();
                         bodyToDestroy = bodyB;
                     }
-                    currentScene.initialize(characters, player);
+					System.out.println(currentConversation);
+                    currentConversation.initialize(characters, player);
                 }
 			}
 			@Override
@@ -353,8 +356,8 @@ public class BoxWorld extends GameState {
                 }
 				world.step(1 / 60f, 8, 3);
 				player.update2(delta);
-                if(currentScene != null) {
-                    currentScene.update(delta);
+                if(currentConversation != null) {
+                    currentConversation.update(delta);
                 }
 				for(GameWorldCharacter gc : characters) {
 					gc.update(delta);

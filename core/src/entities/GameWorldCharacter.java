@@ -563,4 +563,5 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     public void decoupleMovementAndAnimation() {
         this.coupleMovementAndAnimation = false;
     }
+    public void giveChoices(String[] choices) {}
 }

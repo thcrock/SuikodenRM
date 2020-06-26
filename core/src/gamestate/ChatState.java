@@ -262,6 +262,7 @@ public class ChatState extends GameState {
 		TXT_SPEED = PRESS_BUTTON_TEXT_SPEED;
 
 		if(stringPosition == (tryText.size() - 1) && textHalt) {
+            System.out.println("exiting from chat state");
 			SuikodenRM.gsm.unpauseState(returnState);
 		}	
 		if(textHalt) {

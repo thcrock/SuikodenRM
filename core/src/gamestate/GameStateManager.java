@@ -10,6 +10,7 @@ import entities.Door;
 import entities.GameWorldCharacter;
 import fighting.FightingState;
 import fighting.FightingTestState;
+import menus.ChoiceState;
 
 public class GameStateManager implements InputProcessor{
 
@@ -73,10 +74,24 @@ public class GameStateManager implements InputProcessor{
 		gameState[currentState] = new FightingTestState();
 		relation.changeScreen();
 	}
+
+    public void setChoiceState(String[] choices) {
+		BoxWorld oldState = (BoxWorld) gameState[currentState];
+		int oldStateNumber = currentState;
+		gameState[currentState].pause();
+        System.out.println("paused!");
+		PAUSED = true;
+		currentState = MENUSTATE;
+		gameState[currentState] = new ChoiceState(oldState, 0, choices);
+        System.out.println(gameState[currentState]);
+		relation.changeScreen();
+    }
 	
 	public void unpauseState(int state) {
+        System.out.println("unloading state. before: " + currentState);
 		unloadState(currentState);
 		currentState = state;
+        System.out.println("unloading state. after: " + currentState);
 		PAUSED = false;
 		gameState[currentState].resume();
 		relation.changeScreen();
@@ -107,8 +122,9 @@ public class GameStateManager implements InputProcessor{
 		gameState[currentState] = new ChatState(oldState, oldStateNumber, character, speakerOverrideName);
 		relation.changeScreen();
 	}
-	
+
 	public void update(float delta){
+        System.out.println("updating " + gameState[currentState]);
 		gameState[currentState].update(delta);
 	}
 	

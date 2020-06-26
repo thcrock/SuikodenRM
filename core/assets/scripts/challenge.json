@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Hey, want to fight?\n\n[[ Sure! |yes]]\n[[ Nope! |no]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "yes",
+		"tags": "",
+		"body": "OK! Here we go!",
+		"position": {
+			"x": 910,
+			"y": 162
+		},
+		"colorID": 0
+	},
+	{
+		"title": "no",
+		"tags": "",
+		"body": "Why not?",
+		"position": {
+			"x": 1130,
+			"y": 162
+		},
+		"colorID": 0
+	}
+]

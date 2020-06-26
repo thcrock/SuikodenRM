@@ -344,6 +344,11 @@ public class Player extends DrawableBox2D implements Scriptable {
         currentlyTalking = true;
 		SuikodenRM.gsm.setMessage(this, speakerOverrideName);
     }
+    public void giveChoices(String[] choices) {
+        currentlyTalking = true;
+		SuikodenRM.gsm.setChoiceState(choices);
+    }
+
     public boolean hasFinishedAction() {
         if(this.currentlyPaused == true) {
             return this.pauseSeconds <= 0;
