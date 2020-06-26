@@ -53,6 +53,7 @@ public class Player extends DrawableBox2D implements Scriptable {
 	protected TextureRegion facePicture;
 	protected String name;
     private boolean coupleMovementAndAnimation = true;
+    private int currentChoice = -1;
 	
 	private static GameAnimation leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
 			ImageCache.getFrame("girlbluehair", 4), 
@@ -346,9 +347,16 @@ public class Player extends DrawableBox2D implements Scriptable {
     }
     public void giveChoices(String[] choices) {
         currentlyTalking = true;
-		SuikodenRM.gsm.setChoiceState(choices);
+		SuikodenRM.gsm.setChoiceState(this, choices);
     }
 
+    public int getCurrentChoice() {
+        return currentChoice;
+    }
+
+    public void setCurrentChoice(int choice) {
+        currentChoice = choice;
+    }
     public boolean hasFinishedAction() {
         if(this.currentlyPaused == true) {
             return this.pauseSeconds <= 0;

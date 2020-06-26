@@ -75,15 +75,14 @@ public class GameStateManager implements InputProcessor{
 		relation.changeScreen();
 	}
 
-    public void setChoiceState(String[] choices) {
+    public void setChoiceState(Scriptable character, String[] choices) {
 		BoxWorld oldState = (BoxWorld) gameState[currentState];
 		int oldStateNumber = currentState;
 		gameState[currentState].pause();
         System.out.println("paused!");
 		PAUSED = true;
 		currentState = MENUSTATE;
-		gameState[currentState] = new ChoiceState(oldState, 0, choices);
-        System.out.println(gameState[currentState]);
+		gameState[currentState] = new ChoiceState(oldState, 0, choices, character);
 		relation.changeScreen();
     }
 	

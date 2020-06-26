@@ -21,4 +21,6 @@ public interface Scriptable {
     public void sayMessage(String message, String speakerOverrideName);
     public void decoupleMovementAndAnimation();
     public void giveChoices(String[] choices);
+    public int getCurrentChoice();
+    public void setCurrentChoice(int choice);
 }

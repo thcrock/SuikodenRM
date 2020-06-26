@@ -3,6 +3,7 @@ package menus;
 import entities.GameCharacter;
 import gamestate.BoxWorld;
 import gamestate.GameState;
+import gamestate.Scriptable;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,7 @@ public class ChoiceState extends GameState {
 	private Skin skin;
 	private SpriteBatch spriteBatch;
 	private int returnState;
+    private Scriptable character;
 	
 	Container<Table> mainContainer;
 	LabelStyle origButton;
@@ -63,8 +65,9 @@ public class ChoiceState extends GameState {
 	
 	Image characterImage;
 	
-	public ChoiceState(BoxWorld ls, int state, String[] myChoices) {
+	public ChoiceState(BoxWorld ls, int state, String[] myChoices, Scriptable myCharacter) {
 		this.levelState = ls;
+        this.character = myCharacter;
 		spriteBatch = (SpriteBatch) ls.mapRenderer.getBatch();
 		this.returnState = state;
         for (String s : myChoices) {
@@ -218,9 +221,12 @@ public class ChoiceState extends GameState {
 		}
 		
 		int choice = mainWindowRow + mainWindowColumn;
-		System.out.println(choice);
+
 		if(k == Keys.ENTER) {
 			System.out.println(choice);
+            this.character.setCurrentChoice(choice);
+            System.out.println("exiting from choice state");
+			SuikodenRM.gsm.unpauseState(returnState);
 		} else {
 			((Label) mainContainer.getActor().getChildren().items[choice]).setStyle(hoverButton);
 		}

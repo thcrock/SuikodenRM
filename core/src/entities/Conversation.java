@@ -14,6 +14,7 @@ import com.kyper.yarn.Dialogue;
 import com.kyper.yarn.Dialogue.CommandResult;
 import com.kyper.yarn.Dialogue.LineResult;
 import com.kyper.yarn.Dialogue.OptionResult;
+import com.kyper.yarn.Dialogue.NodeCompleteResult;
 import com.kyper.yarn.Dialogue.Options;
 import com.kyper.yarn.DialogueData;
 
@@ -30,6 +31,7 @@ public class Conversation {
     //class variables
     LineResult line = null;
     OptionResult option = null;
+    NodeCompleteResult node_complete = null;
 
     public Conversation(String convoName) {
         DialogueData data = new DialogueData(convoName);
@@ -86,30 +88,33 @@ public class Conversation {
         }
         */
 
-	    if(line == null && option == null && dialogue.isNextComplete()){
-		    dialogue.stop(); //stop the dialogue if it is already not stopped
-
-			for (Scriptable s : usedCharacters) {
-				s.stopScript();
-			}
-			over = true;
-	    }
+        Scriptable player = characters.get("Camila");
+        if(waiting && option != null) {
+            if(player.getCurrentChoice() != -1) {
+                option.choose(player.getCurrentChoice());
+                option = null;
+                waiting = false;
+            }
+        }
 
 		//check that the current line is null and that the next result is a line
 		if(line == null && dialogue.isNextLine()){
-			 line = dialogue.getNextAsLine(); //get the next result as a line
+            System.out.println("got line!");
+			line = dialogue.getNextAsLine(); //get the next result as a line
+            node_complete = null;
 		}
         else if(option == null && dialogue.isNextOptions()){
 	        //check that there currently is no options and next result is options
 			option = dialogue.getNextAsOptions();
-            line = null;
+            node_complete = null;
             System.out.println(option);
 	    }
 
 	   //check that there is no line and next result is node compelte
 	   //usually this means there is nothing executing
         if(line != null) {
-            characters.get("Camila").sayMessage(line.getText(), "Camila");            
+            player.sayMessage(line.getText(), "Camila");            
+            line = null;
         } else if(option != null) {
             System.out.println("choices");
             String[] items = new String[option.getOptions().size];
@@ -118,7 +123,20 @@ public class Conversation {
                 items[i] = s;
                 i++;
             }
-            characters.get("Camila").giveChoices(items);
+            player.giveChoices(items);
+            waiting = true;
+        }
+        if(line == null && option == null) {
+            if(node_complete != null) {
+                dialogue.stop(); //stop the dialogue if it is already not stopped
+
+                for (Scriptable s : usedCharacters) {
+                    s.stopScript();
+                }
+                over = true;
+            } else if(dialogue.isNextComplete()) {
+                node_complete = dialogue.getNextAsComplete();
+            }
         }
 
         if(over) {
