@@ -12,7 +12,7 @@
 	{
 		"title": "yes",
 		"tags": "",
-		"body": "OK! Here we go!",
+		"body": "OK! Here we go!\r\n[[camila move]]",
 		"position": {
 			"x": 910,
 			"y": 162
@@ -26,6 +26,16 @@
 		"position": {
 			"x": 1130,
 			"y": 162
+		},
+		"colorID": 0
+	},
+	{
+		"title": "camila move",
+		"tags": "",
+		"body": "<<moveUp Camila 50 30 >>\n<<moveRight Camila 50 30 >>",
+		"position": {
+			"x": 592,
+			"y": 156
 		},
 		"colorID": 0
 	}

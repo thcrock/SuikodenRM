@@ -568,4 +568,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         return -1;
     }
     public void setCurrentChoice(int choice) {}
+    public void hasFinishedTalking() {
+        this.currentlyTalking = false;
+    }
 }

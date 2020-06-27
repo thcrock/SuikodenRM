@@ -23,4 +23,5 @@ public interface Scriptable {
     public void giveChoices(String[] choices);
     public int getCurrentChoice();
     public void setCurrentChoice(int choice);
+    public void hasFinishedTalking();
 }

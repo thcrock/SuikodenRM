@@ -356,12 +356,15 @@ public class Player extends DrawableBox2D implements Scriptable {
 
     public void setCurrentChoice(int choice) {
         currentChoice = choice;
+        this.currentlyTalking = false;
     }
     public boolean hasFinishedAction() {
         if(this.currentlyPaused == true) {
+            System.out.println("checking paused");
             return this.pauseSeconds <= 0;
         }
         if(this.currentlyTalking == true) {
+            System.out.println("checking talking");
             if(SuikodenRM.gsm.PAUSED) {
                 return false;
             } else {
@@ -370,8 +373,10 @@ public class Player extends DrawableBox2D implements Scriptable {
             }
         }
         if(!right && !left && !up && !down) {
+            System.out.println("stopped");
             return true;
         }
+        System.out.println("has reached target");
         return hasReachedTarget();
     }
     private boolean hasReachedTarget() {
@@ -402,6 +407,11 @@ public class Player extends DrawableBox2D implements Scriptable {
     }
     public void stopScript() {
         this.isInScript = false;
+        this.setRight(false);
+        this.setLeft(false);
+        this.setUp(false);
+        this.setDown(false);
+        this.setSpeed(0.0f);
         System.out.println("out of script");
         this.coupleMovementAndAnimation = true;
     }
@@ -418,5 +428,8 @@ public class Player extends DrawableBox2D implements Scriptable {
 	}
     public void decoupleMovementAndAnimation() {
         this.coupleMovementAndAnimation = false;
+    }
+    public void hasFinishedTalking() {
+        this.currentlyTalking = false;
     }
 }

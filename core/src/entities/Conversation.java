@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import scripting.Script;
 import scripting.Action;
+import scripting.MoveRight;
+import scripting.MoveUp;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Json;
 import com.kyper.yarn.Dialogue;
@@ -28,10 +30,12 @@ public class Conversation {
     HashMap<String, Scriptable> characters;
     HashSet<Scriptable> usedCharacters;
     Dialogue dialogue;
+    Action currentAction = null;
     //class variables
     LineResult line = null;
     OptionResult option = null;
     NodeCompleteResult node_complete = null;
+    CommandResult command = null;
 
     public Conversation(String convoName) {
         DialogueData data = new DialogueData(convoName);
@@ -46,12 +50,13 @@ public class Conversation {
         }
         characters.put("Camila", player);
         usedCharacters = new HashSet<Scriptable>();
-        /*for (Action a : script.actions) {
-            usedCharacters.add(characters.get(a.character));
-        }*/
+        usedCharacters.add(player);
     }
 
     public void update(float delta) {
+        if(over) {
+            return;
+        }
         if(dialogue.isRunning() == false && !started){
             System.out.println("Starting");
             started = true;
@@ -61,12 +66,50 @@ public class Conversation {
             }
         }
 
-		//in your update method-----
+        if(waiting && currentAction != null) {
+            System.out.println("lets check action");
+            if(characters.get(currentAction.character).hasFinishedAction()) {
+                System.out.println("done with action!");
+                waiting = false;
+                currentAction = null;
+                command = null;
+            } else {
+                System.out.println("waiting for action to finish");
+                return;
+            }
+        }
 
 		//check if next result is a command
-		if(dialogue.isNextCommand()){
-			CommandResult command = dialogue.getNextAsCommand();
+		if(command == null && dialogue.isNextCommand()){
+			command = dialogue.getNextAsCommand();
 			//arbitrary code to execute command
+            String params[] = command.getCommand().split("\\s+");
+			for (int i = 0; i < params.length; i++) {
+				params[i] = params[i].trim(); // just trim to make sure
+                System.out.println(params[i]);
+			}
+            String commandName = params[0];
+            if(commandName.equals("moveRight")) {
+                scripting.MoveRight action = new scripting.MoveRight();
+                action.speed = Float.parseFloat(params[2]);
+                action.distance = Integer.parseInt(params[3]);
+                action.character = params[1];
+                currentAction = action;
+                currentAction.perform(characters.get(action.character));
+            } else if(commandName.equals("moveUp")) {
+                scripting.MoveUp action = new scripting.MoveUp();
+                action.speed = Float.parseFloat(params[2]);
+                action.distance = Integer.parseInt(params[3]);
+                action.character = params[1];
+                currentAction = action;
+                currentAction.perform(characters.get(action.character));
+            } else {
+                System.out.println("unknown command " + commandName);
+            }
+            if(currentAction.needsWait) {
+                System.out.println("waiting");
+                waiting = true;
+            }
 			//here well just print it out to console
 			Gdx.app.log("Command:",command.getCommand());
 		}
@@ -126,8 +169,10 @@ public class Conversation {
             player.giveChoices(items);
             waiting = true;
         }
-        if(line == null && option == null) {
+        if(line == null && option == null && command == null) {
+            System.out.println("no line or option");
             if(node_complete != null) {
+                System.out.println("over with dialogue");
                 dialogue.stop(); //stop the dialogue if it is already not stopped
 
                 for (Scriptable s : usedCharacters) {
@@ -135,13 +180,11 @@ public class Conversation {
                 }
                 over = true;
             } else if(dialogue.isNextComplete()) {
+                System.out.println("node complete");
                 node_complete = dialogue.getNextAsComplete();
             }
         }
 
-        if(over) {
-            return;
-        }
         /*if(waiting) {
             if(characters.get(script.actions.get(currentActionIndex).character).hasFinishedAction()) {
                 waiting = false;
