@@ -14,6 +14,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -22,6 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.orangeegames.suikorm.SuikodenRM;
 
@@ -112,12 +115,40 @@ public class ChoiceState extends GameState {
 		
 		
 		mainContainer = new Container<Table>(table1);
-		mainContainer.setWidth(width/2);
-		mainContainer.setHeight(height/3);
-		mainContainer.setX(20);
-		mainContainer.setY(height - 20 - height/3);
-		mainContainer.setBackground(skin.getDrawable("neat9patch"));
+        int chatWindowWidth = width - height/8;
+        int chatWindowHeight = height/4;
+		mainContainer.setWidth(chatWindowWidth);
+		mainContainer.setHeight(chatWindowHeight);
+		mainContainer.setX(width/2 - chatWindowWidth/2);
+		mainContainer.setY(0 + chatWindowHeight/4);
+		mainContainer.setBackground(skin.getDrawable("unchat"));
 		
+        LabelStyle leftupperchat = new LabelStyle();
+        leftupperchat.background = skin.getDrawable("upleftchat");
+        leftupperchat.font = font;
+        leftupperchat.fontColor = new Color(Color.CYAN);
+        
+        LabelStyle rightupperchat = new LabelStyle();
+        rightupperchat.background = skin.getDrawable("uprightchat");
+        rightupperchat.font = font;
+        GlyphLayout layout = new GlyphLayout();
+        layout.setText(font, "Camila", Color.WHITE, chatWindowWidth, 0, true);
+        int nameWidth = (int) layout.width + 40;
+        if(SuikodenRM.debug) System.out.println(nameWidth);
+        if (nameWidth < PORTRAIT_WIDTH + 10) nameWidth = PORTRAIT_WIDTH + 10;
+        if(SuikodenRM.debug) System.out.println(nameWidth);
+        leftUpperInfoWindow = new Label("Camila", leftupperchat);
+        leftUpperInfoWindow.setWidth(nameWidth);
+        leftUpperInfoWindow.setHeight(chatWindowHeight/4);
+        leftUpperInfoWindow.setX(width/2 - chatWindowWidth/2);
+        leftUpperInfoWindow.setY(mainContainer.getY() + mainContainer.getHeight());
+        leftUpperInfoWindow.setAlignment(Align.center + Align.bottom);
+        
+        rightUpperInfoWindow = new Label("", rightupperchat);
+        rightUpperInfoWindow.setWidth(chatWindowWidth - nameWidth);
+        rightUpperInfoWindow.setHeight(5);
+        rightUpperInfoWindow.setX(mainContainer.getX() + leftUpperInfoWindow.getWidth());
+        rightUpperInfoWindow.setY(mainContainer.getY() + mainContainer.getHeight());
 		table1.pad(10);
         for(String s : choices) {
             table1.row();
@@ -128,6 +159,8 @@ public class ChoiceState extends GameState {
         }
 
 		stage.addActor(mainContainer);
+        stage.addActor(rightUpperInfoWindow);
+        stage.addActor(leftUpperInfoWindow);
 		
 		
 		((Label) mainContainer.getActor().getChildren().items[0]).setStyle(hoverButton);

@@ -10,6 +10,11 @@ import scripting.Script;
 import scripting.Action;
 import scripting.MoveRight;
 import scripting.MoveUp;
+import scripting.MoveLeft;
+import scripting.MoveDown;
+import scripting.PauseFor;
+import scripting.AnimationFrame;
+import scripting.DecoupleMovementAndAnimation;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Json;
 import com.kyper.yarn.Dialogue;
@@ -100,6 +105,38 @@ public class Conversation {
                 scripting.MoveUp action = new scripting.MoveUp();
                 action.speed = Float.parseFloat(params[2]);
                 action.distance = Integer.parseInt(params[3]);
+                action.character = params[1];
+                currentAction = action;
+                currentAction.perform(characters.get(action.character));
+            } else if(commandName.equals("moveLeft")) {
+                scripting.MoveLeft action = new scripting.MoveLeft();
+                action.speed = Float.parseFloat(params[2]);
+                action.distance = Integer.parseInt(params[3]);
+                action.character = params[1];
+                currentAction = action;
+                currentAction.perform(characters.get(action.character));
+            } else if(commandName.equals("moveDown")) {
+                scripting.MoveDown action = new scripting.MoveDown();
+                action.speed = Float.parseFloat(params[2]);
+                action.distance = Integer.parseInt(params[3]);
+                action.character = params[1];
+                currentAction = action;
+                currentAction.perform(characters.get(action.character));
+            } else if(commandName.equals("pauseFor")) {
+                scripting.PauseFor action = new scripting.PauseFor();
+                action.seconds = Float.parseFloat(params[2]);
+                action.character = params[1];
+                currentAction = action;
+                currentAction.perform(characters.get(action.character));
+            } else if(commandName.equals("animationFrame")) {
+                scripting.AnimationFrame action = new scripting.AnimationFrame();
+                action.textureName = params[2];
+                action.index = Integer.parseInt(params[3]);
+                action.character = params[1];
+                currentAction = action;
+                currentAction.perform(characters.get(action.character));
+            } else if(commandName.equals("decoupleMovementAndAnimation")) {
+                scripting.DecoupleMovementAndAnimation action = new scripting.DecoupleMovementAndAnimation();
                 action.character = params[1];
                 currentAction = action;
                 currentAction.perform(characters.get(action.character));
