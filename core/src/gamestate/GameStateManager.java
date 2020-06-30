@@ -8,6 +8,7 @@ import com.orangeegames.suikorm.SuikodenRM;
 
 import entities.Door;
 import entities.GameWorldCharacter;
+import entities.Conversation;
 import fighting.FightingState;
 import fighting.FightingTestState;
 import menus.ChoiceState;
@@ -121,6 +122,11 @@ public class GameStateManager implements InputProcessor{
 		gameState[currentState] = new ChatState(oldState, oldStateNumber, character, speakerOverrideName);
 		relation.changeScreen();
 	}
+
+    public void triggerConversation(Conversation conversation) {
+        BoxWorld bw = (BoxWorld) gameState[currentState];
+		bw.triggerConversation(conversation);
+    }
 
 	public void update(float delta){
         System.out.println("updating " + gameState[currentState]);

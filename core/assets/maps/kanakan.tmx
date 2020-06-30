@@ -240,9 +240,10 @@
     <property name="stopMessage" type="int" value="2"/>
    </properties>
   </object>
-  <object id="6" name="Shopkeeper" x="480.25" y="140.25" width="14" height="14">
+  <object id="6" name="Fruitmonger" x="480.25" y="140.25" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk1"/>
+    <property name="convoName" value="fruitStand"/>
     <property name="phases" value=""/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
@@ -350,10 +351,10 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="19" name="Shop Clerk" x="542.333" y="123.667" width="14" height="14">
+  <object id="19" name="FruitClerk" x="542.333" y="123.667" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk1"/>
-    <property name="phases" value="r-1;p-12;d-1;p-0.5;d-50-120;l-20-120;p-4;r-20-40;u-51-60"/>
+    <property name="phases" value=""/>
     <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
@@ -378,7 +379,7 @@
     <property name="stopMessage" type="int" value="3"/>
    </properties>
   </object>
-  <object id="22" name="Girl1" x="197.5" y="526" width="14" height="14">
+  <object id="22" name="Renata" x="523.5" y="237" width="14" height="14">
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>
@@ -397,7 +398,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="187.667" y="504" width="32" height="8">
+  <object id="1" name="spawn1" type="1" x="487.167" y="225.5" width="32" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>

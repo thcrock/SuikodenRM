@@ -50,10 +50,12 @@ public class Conversation {
 
     public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player) {
         characters = new HashMap<String, Scriptable>();
+        System.out.println("initializing");
         for (Scriptable s : inputcharacters) {
+            System.out.println(s.getName());
             characters.put(s.getName(), s);
         }
-        characters.put("Camila", player);
+        characters.put("Mia", player);
         usedCharacters = new HashSet<Scriptable>();
         usedCharacters.add(player);
     }
@@ -72,7 +74,7 @@ public class Conversation {
         }
 
         if(waiting && currentAction != null) {
-            System.out.println("lets check action");
+            System.out.println("lets check action for " + currentAction.character);
             if(characters.get(currentAction.character).hasFinishedAction()) {
                 System.out.println("done with action!");
                 waiting = false;
@@ -96,59 +98,98 @@ public class Conversation {
             String commandName = params[0];
             if(commandName.equals("moveRight")) {
                 scripting.MoveRight action = new scripting.MoveRight();
-                action.speed = Float.parseFloat(params[2]);
-                action.distance = Integer.parseInt(params[3]);
+                action.distance = Integer.parseInt(params[2]);
+                action.speed = Float.parseFloat(params[3]);
                 action.character = params[1];
                 currentAction = action;
-                currentAction.perform(characters.get(action.character));
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("moveUp")) {
                 scripting.MoveUp action = new scripting.MoveUp();
-                action.speed = Float.parseFloat(params[2]);
-                action.distance = Integer.parseInt(params[3]);
+                action.distance = Integer.parseInt(params[2]);
+                action.speed = Float.parseFloat(params[3]);
                 action.character = params[1];
                 currentAction = action;
-                currentAction.perform(characters.get(action.character));
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    System.out.println("starting script for " + action.character);
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("moveLeft")) {
                 scripting.MoveLeft action = new scripting.MoveLeft();
-                action.speed = Float.parseFloat(params[2]);
-                action.distance = Integer.parseInt(params[3]);
+                action.distance = Integer.parseInt(params[2]);
+                action.speed = Float.parseFloat(params[3]);
                 action.character = params[1];
                 currentAction = action;
-                currentAction.perform(characters.get(action.character));
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("moveDown")) {
                 scripting.MoveDown action = new scripting.MoveDown();
-                action.speed = Float.parseFloat(params[2]);
-                action.distance = Integer.parseInt(params[3]);
+                action.distance = Integer.parseInt(params[2]);
+                action.speed = Float.parseFloat(params[3]);
                 action.character = params[1];
                 currentAction = action;
-                currentAction.perform(characters.get(action.character));
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("pauseFor")) {
                 scripting.PauseFor action = new scripting.PauseFor();
                 action.seconds = Float.parseFloat(params[2]);
                 action.character = params[1];
                 currentAction = action;
-                currentAction.perform(characters.get(action.character));
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("animationFrame")) {
                 scripting.AnimationFrame action = new scripting.AnimationFrame();
                 action.textureName = params[2];
                 action.index = Integer.parseInt(params[3]);
                 action.character = params[1];
                 currentAction = action;
-                currentAction.perform(characters.get(action.character));
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("decoupleMovementAndAnimation")) {
                 scripting.DecoupleMovementAndAnimation action = new scripting.DecoupleMovementAndAnimation();
                 action.character = params[1];
                 currentAction = action;
-                currentAction.perform(characters.get(action.character));
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else {
                 System.out.println("unknown command " + commandName);
             }
+			Gdx.app.log("Command:",command.getCommand());
             if(currentAction.needsWait) {
                 System.out.println("waiting");
                 waiting = true;
+            } else {
+                command = null;
             }
 			//here well just print it out to console
-			Gdx.app.log("Command:",command.getCommand());
+            return;
 		}
         /*
         System.out.println("checking");
@@ -168,7 +209,7 @@ public class Conversation {
         }
         */
 
-        Scriptable player = characters.get("Camila");
+        Scriptable player = characters.get("Mia");
         if(waiting && option != null) {
             if(player.getCurrentChoice() != -1) {
                 option.choose(player.getCurrentChoice());
@@ -193,7 +234,23 @@ public class Conversation {
 	   //check that there is no line and next result is node compelte
 	   //usually this means there is nothing executing
         if(line != null) {
-            player.sayMessage(line.getText(), "Camila");            
+            String[] lineParts = line.getText().split(":");
+            Scriptable speaker;
+            String overrideName;
+            if(lineParts.length == 1) {
+                speaker = player;
+                overrideName = "Mia";
+                speaker.sayMessage(lineParts[0], overrideName);
+            } else {
+                if(characters.containsKey(lineParts[0])) {
+                    speaker = characters.get(lineParts[0]);
+                    overrideName = lineParts[0];
+                } else {
+                    speaker = player;
+                    overrideName = lineParts[0];
+                }
+                speaker.sayMessage(lineParts[1], overrideName);
+            } 
             line = null;
         } else if(option != null) {
             System.out.println("choices");

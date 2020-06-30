@@ -212,7 +212,13 @@ public class BoxWorld extends GameState {
 					float x = (mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale;
 					float y = (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale;
 					
-					GameWorldCharacter gc = CharacterGeneration.getWorldCharacter((String) mo.getProperties().get("character"), this, x, y);
+					GameWorldCharacter gc = CharacterGeneration.getWorldCharacter(
+                        (String) mo.getProperties().get("character"),
+                        this,
+                        x,
+                        y
+                    );
+                    gc.setName(mo.getName());
                     int start = mo.getProperties().get("startMessage", Integer.class);
                     int end = mo.getProperties().get("stopMessage", Integer.class);
 					gc.setMessage(start, end);
@@ -224,6 +230,10 @@ public class BoxWorld extends GameState {
                     String direction = mo.getProperties().get("face", String.class);
                     if(direction != null) {
                         gc.setDirection(direction);
+                    }
+                    String convoName = mo.getProperties().get("convoName", String.class);
+                    if(convoName != null) {
+                        gc.setConversation(new Conversation(convoName));
                     }
 					drawableBoxes.add(gc);
 					characters.add(gc);
@@ -314,6 +324,11 @@ public class BoxWorld extends GameState {
 		box2drenderer = new Box2DDebugRenderer();
 		box2drenderer.setDrawAABBs(true);
 	}
+
+    public void triggerConversation(Conversation conversation) {
+        currentConversation = conversation;
+        currentConversation.initialize(characters, player);
+    }
 	
 	@Override
 	public void show() {
