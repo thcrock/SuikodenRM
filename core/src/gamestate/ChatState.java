@@ -54,10 +54,12 @@ public class ChatState extends GameState {
 	Image i;
 	
 	private Stage stage;
+    private Scriptable scriptable;
 	
 	
 	public ChatState(BoxWorld ls, int state, Scriptable character, String speakerOverrideName) {
 		this.levelState = ls;
+        this.scriptable = character;
 		spriteBatch = (SpriteBatch) ls.mapRenderer.getBatch();
 		this.returnState = state;
 		for(String message : character.getMessages()) {
@@ -262,7 +264,9 @@ public class ChatState extends GameState {
 		TXT_SPEED = PRESS_BUTTON_TEXT_SPEED;
 
 		if(stringPosition == (tryText.size() - 1) && textHalt) {
+            System.out.println("exiting from chat state");
 			SuikodenRM.gsm.unpauseState(returnState);
+            this.scriptable.hasFinishedTalking();
 		}	
 		if(textHalt) {
 			textHalt = false;

@@ -44,6 +44,7 @@ import entities.GameWorldCharacter;
 import entities.Player;
 import entities.Spawn;
 import entities.StoryScene;
+import entities.Conversation;
 
 public class BoxWorld extends GameState {
 
@@ -57,6 +58,7 @@ public class BoxWorld extends GameState {
 	ArrayList<DrawableBox2D> drawableBoxes;
 	ArrayList<GameWorldCharacter> characters;
     StoryScene currentScene;
+	Conversation currentConversation;
     Music music;
 
 	
@@ -169,8 +171,8 @@ public class BoxWorld extends GameState {
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
 					
-					String scriptName = (String) mo.getProperties().get("scriptName");
-					System.out.println(scriptName);
+					String convoName = (String) mo.getProperties().get("convoName");
+					System.out.println(convoName);
 					PolygonShape ps = new PolygonShape();
 					ps.setAsBox((mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().height/2)*SuikodenRM.scale);
 					FixtureDef fixtureScript = new FixtureDef();
@@ -183,7 +185,7 @@ public class BoxWorld extends GameState {
 					Body scriptBody = world.createBody(scriptBodyDef);
 					
 					scriptBody.createFixture(fixtureScript);
-					StoryScene scene = new StoryScene(scriptName);
+					Conversation scene = new Conversation(convoName);
 					scriptBody.setUserData(scene);
 				}
 			}
@@ -210,7 +212,13 @@ public class BoxWorld extends GameState {
 					float x = (mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale;
 					float y = (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale;
 					
-					GameWorldCharacter gc = CharacterGeneration.getWorldCharacter((String) mo.getProperties().get("character"), this, x, y);
+					GameWorldCharacter gc = CharacterGeneration.getWorldCharacter(
+                        (String) mo.getProperties().get("character"),
+                        this,
+                        x,
+                        y
+                    );
+                    gc.setName(mo.getName());
                     int start = mo.getProperties().get("startMessage", Integer.class);
                     int end = mo.getProperties().get("stopMessage", Integer.class);
 					gc.setMessage(start, end);
@@ -222,6 +230,10 @@ public class BoxWorld extends GameState {
                     String direction = mo.getProperties().get("face", String.class);
                     if(direction != null) {
                         gc.setDirection(direction);
+                    }
+                    String convoName = mo.getProperties().get("convoName", String.class);
+                    if(convoName != null) {
+                        gc.setConversation(new Conversation(convoName));
                     }
 					drawableBoxes.add(gc);
 					characters.add(gc);
@@ -284,18 +296,19 @@ public class BoxWorld extends GameState {
 					}
 					disposeThis = true;
 					swapDoor = door;
-				} else if (bodyA.getUserData() instanceof StoryScene || bodyB.getUserData() instanceof StoryScene) {
-                    if(currentScene != null) {
+				} else if (bodyA.getUserData() instanceof Conversation || bodyB.getUserData() instanceof Conversation) {
+                    if(currentConversation != null) {
                         return;
                     }
-                    if(bodyA.getUserData() instanceof StoryScene) {
-                        currentScene = (StoryScene) bodyA.getUserData();
+                    if(bodyA.getUserData() instanceof Conversation) {
+                        currentConversation = (Conversation) bodyA.getUserData();
                         bodyToDestroy = bodyA;
                     } else {
-                        currentScene = (StoryScene) bodyB.getUserData();
+                        currentConversation = (Conversation) bodyB.getUserData();
                         bodyToDestroy = bodyB;
                     }
-                    currentScene.initialize(characters, player);
+					System.out.println(currentConversation);
+                    currentConversation.initialize(characters, player);
                 }
 			}
 			@Override
@@ -311,6 +324,11 @@ public class BoxWorld extends GameState {
 		box2drenderer = new Box2DDebugRenderer();
 		box2drenderer.setDrawAABBs(true);
 	}
+
+    public void triggerConversation(Conversation conversation) {
+        currentConversation = conversation;
+        currentConversation.initialize(characters, player);
+    }
 	
 	@Override
 	public void show() {
@@ -353,8 +371,8 @@ public class BoxWorld extends GameState {
                 }
 				world.step(1 / 60f, 8, 3);
 				player.update2(delta);
-                if(currentScene != null) {
-                    currentScene.update(delta);
+                if(currentConversation != null) {
+                    currentConversation.update(delta);
                 }
 				for(GameWorldCharacter gc : characters) {
 					gc.update(delta);

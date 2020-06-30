@@ -56,6 +56,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     private boolean currentlyPaused = false;
     private boolean currentlyTalking = false;
     protected boolean isInScript;
+    private Conversation triggeredConversation;
 	
 	protected float dx = 0;
 	protected float dy = 0;
@@ -161,7 +162,12 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 				this.setWidth(tr.getRegionWidth()*SuikodenRM.scale);
 			}
 		}
-		SuikodenRM.gsm.setMessage(this, null);
+        if(triggeredConversation != null) {
+            SuikodenRM.gsm.triggerConversation(triggeredConversation);
+            this.triggeredConversation = null;
+        } else {
+		    SuikodenRM.gsm.setMessage(this, null);
+        }
 	}
 	
 	public String getName() {
@@ -176,6 +182,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 		return messages.subList(startMessage, stopMessage);
 	}
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
 	public void setMessage(int startMessage, int stopMessage) {
 		this.startMessage = startMessage;
 		this.stopMessage = stopMessage;
@@ -184,6 +194,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	public void setMoveable(boolean moveable) {
 		this.moveable = moveable;
 	}
+
+    public void setConversation(Conversation conversation) {
+        this.triggeredConversation = conversation;
+    }
 	
 	public void update(float delta) {
 		if(left) {
@@ -265,6 +279,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.nextPhase();
         }
         if(isInScript && this.hasReachedTarget()) {
+            System.out.println("has reached target, resetting");
             this.setRight(false);
             this.setLeft(false);
             this.setUp(false);
@@ -302,16 +317,21 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 
     public void startScript() {
         this.isInScript = true;
+        this.targetY = 0f;
+        this.targetX = 0f;
     }
     public void stopScript() {
+        assert false;
         this.isInScript = false;
         this.coupleMovementAndAnimation = true;
     }
     public boolean hasFinishedAction() {
         if(this.currentlyPaused == true) {
+            System.out.println("is paused");
             return this.pauseSeconds <= 0;
         }
         if(this.currentlyTalking == true) {
+            System.out.println("is talking");
             if(SuikodenRM.gsm.PAUSED) {
                 return false;
             } else {
@@ -319,6 +339,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
                 return true;
             }
         }
+        System.out.println("check if reached target");
         return hasReachedTarget();
     }
 
@@ -520,12 +541,17 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.setUp(true);
         this.setDown(false);
         this.setSpeed(speed);
+        System.out.println("in moveUp");
+        System.out.println(this.targetY);
+        System.out.println(this.getPosition().y);
         if(this.targetY != 0f) {
             this.checkpointY = this.targetY;
         } else {
             this.checkpointY = this.getPosition().y;
         }
+        System.out.println(distance);
         this.targetY = this.checkpointY + distance;
+        System.out.println("setting target to " + this.targetY);
     }
     public void moveDown(int distance, float speed) {
         this.currentlyPaused = false;
@@ -562,5 +588,13 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     }
     public void decoupleMovementAndAnimation() {
         this.coupleMovementAndAnimation = false;
+    }
+    public void giveChoices(String[] choices) {}
+    public int getCurrentChoice() {
+        return -1;
+    }
+    public void setCurrentChoice(int choice) {}
+    public void hasFinishedTalking() {
+        this.currentlyTalking = false;
     }
 }
