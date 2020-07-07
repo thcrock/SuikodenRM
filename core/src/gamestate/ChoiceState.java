@@ -52,7 +52,7 @@ public class ChoiceState extends GameState {
 	Label rightUpperInfoWindow;
 	
 	// Text
-	int STD_TEXT_SPEED = 10;
+	int STD_TEXT_SPEED = 30;
 	int PRESS_BUTTON_TEXT_SPEED = 50;
 	int TXT_SPEED = STD_TEXT_SPEED;
 	

@@ -480,7 +480,7 @@ public class BoxWorld extends GameState {
 			
 				float xPos = player.getBody().getPosition().x;
 				float yPos = player.getBody().getPosition().y;
-				float viewDistance = 5f * SuikodenRM.scale;
+				float viewDistance = 10f * SuikodenRM.scale;
 				if(player.faceUp()) {
 					world.QueryAABB(callback, 
 							xPos, 
