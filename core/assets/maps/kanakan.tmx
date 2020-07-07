@@ -303,6 +303,7 @@
   <object id="13" name="Shopkeeper" x="405.25" y="142.25" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
+    <property name="convoName" value="bakeryConversation"/>
     <property name="phases" value=""/>
     <property name="startMessage" type="int" value="1"/>
     <property name="stopMessage" type="int" value="2"/>

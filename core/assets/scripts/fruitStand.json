@@ -72,7 +72,7 @@
 	{
 		"title": "exit",
 		"tags": "",
-		"body": "<<pauseFor Fruitmonger 1>>\n<<moveDown Mia 1 1>>\n\n<<moveDown Renata 20 40>>\n<<moveRight Renata 20 40>>\nRenata: I bet I could cut this watermelon with my sword!\n<<moveDown FruitClerk 30 140>>\nFruitClerk: Hey! You break it you pay for it!\n<<moveDown Renata 20 150>>\n<<moveLeft Renata 100 150>>\n<<moveDown Mia 20 80>>\n<<moveLeft Mia 60 80>>\nRenata: hahahahahahaha!!!",
+		"body": "<<pauseFor Fruitmonger 1>>\n<<moveDown Mia 1 1>>\n\n<<moveDown Renata 20 40>>\n<<moveRight Renata 20 40>>\nRenata: I bet I could cut this watermelon with my sword!\nMia: I bet that would get you into Roundier Haia's school!\n<<moveDown FruitClerk 30 140>>\nFruitClerk: Hey! You break it you pay for it!\n<<moveDown Renata 20 150>>\n<<moveLeft Renata 100 150>>\n<<moveDown Mia 20 80>>\n<<moveLeft Mia 60 80>>\nRenata: hahahahahahaha!!!",
 		"position": {
 			"x": 1420,
 			"y": 51
