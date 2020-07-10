@@ -338,6 +338,7 @@
   <object id="17" name="Fisher" x="1434.33" y="171" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk2"/>
+    <property name="convoName" value="fishMonger"/>
     <property name="phases" value=""/>
     <property name="startMessage" type="int" value="2"/>
     <property name="stopMessage" type="int" value="3"/>
@@ -380,7 +381,7 @@
     <property name="stopMessage" type="int" value="3"/>
    </properties>
   </object>
-  <object id="22" name="Renata" x="523.5" y="237" width="14" height="14">
+  <object id="22" name="Renata" x="1402.5" y="317.5" width="14" height="14">
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>
@@ -399,7 +400,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="487.167" y="225.5" width="32" height="8">
+  <object id="1" name="spawn1" type="1" x="1352.67" y="292" width="32" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
