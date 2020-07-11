@@ -1,5 +1,6 @@
 package gamestate;
 
+import java.util.HashSet;
 import menus.MenuTestState;
 import animations.ImageCache;
 
@@ -19,7 +20,7 @@ public class GameStateManager implements InputProcessor{
 	
 	GameState[] gameState;
 	SuikodenRM relation;
-
+    HashSet<String> completedScripts;
 	
 	public int currentState;
 	
@@ -32,6 +33,7 @@ public class GameStateManager implements InputProcessor{
 		gameState = new GameState[NUMGAMESTATES];
 		ImageCache.load();
 		relation = rel;
+        completedScripts = new HashSet<String>();
 		
 		currentState = LEVELSTATE;
 		loadState(currentState);
@@ -126,6 +128,12 @@ public class GameStateManager implements InputProcessor{
     public void triggerConversation(Conversation conversation) {
         BoxWorld bw = (BoxWorld) gameState[currentState];
 		bw.triggerConversation(conversation);
+        completedScripts.add(conversation.name);
+        System.out.println("Added " + conversation.name);
+    }
+
+    public HashSet<String> getCompletedScripts() {
+        return completedScripts;
     }
 
 	public void update(float delta){

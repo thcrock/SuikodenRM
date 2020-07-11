@@ -46,7 +46,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	private static int faceLEFT = 3;
 
 	private float speed = 60f*SuikodenRM.scale;
-	private float maxSpeed = 120f*SuikodenRM.scale;
+	private float maxSpeed = 220f*SuikodenRM.scale;
 	
 	private boolean left;
 	private boolean right;
@@ -134,6 +134,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.nextPhase();
     }
 	public void draw(Batch spriteBatch) {
+        if(hidden) {
+            return;
+        }
 		this.draw(spriteBatch, body);
 	}
 

@@ -29,9 +29,11 @@ import com.kyper.yarn.DialogueData;
 public class Conversation {
     boolean started = false;
     boolean over = false;
+    public String name;
     Script script;
     int currentActionIndex = -1;
     boolean waiting = false;
+    HashSet<String> triggers;
     HashMap<String, Scriptable> characters;
     HashSet<Scriptable> usedCharacters;
     Dialogue dialogue;
@@ -42,10 +44,26 @@ public class Conversation {
     NodeCompleteResult node_complete = null;
     CommandResult command = null;
 
-    public Conversation(String convoName) {
+    public Conversation(String convoName, String onlyTriggerIf) {
+        name = convoName;
+        triggers = new HashSet();
+        if(onlyTriggerIf != null) {
+            String[] trigger = onlyTriggerIf.split("\\|");
+            for(String t : trigger) {
+                triggers.add(t);
+            }
+        }
         DialogueData data = new DialogueData(convoName);
         dialogue = new Dialogue(data);
         dialogue.loadFile("scripts/" + convoName + ".json",false,false,null);
+    }
+
+    public boolean isOver() {
+        return over;
+    }
+
+    public HashSet<String> getTriggers() {
+        return this.triggers;
     }
 
     public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player) {
@@ -170,6 +188,26 @@ public class Conversation {
                 currentAction.perform(character);
             } else if(commandName.equals("decoupleMovementAndAnimation")) {
                 scripting.DecoupleMovementAndAnimation action = new scripting.DecoupleMovementAndAnimation();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("hide")) {
+                scripting.Hide action = new scripting.Hide();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("unhide")) {
+                scripting.UnHide action = new scripting.UnHide();
                 action.character = params[1];
                 currentAction = action;
                 Scriptable character = characters.get(action.character);

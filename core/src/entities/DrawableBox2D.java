@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 public abstract class DrawableBox2D extends Box2DSprite implements Comparable<DrawableBox2D> {
  
         Body body;
+        boolean hidden = false;
        
         public abstract void interact(Player player);
        
@@ -21,7 +22,19 @@ public abstract class DrawableBox2D extends Box2DSprite implements Comparable<Dr
         }
        
         public void draw(Batch spriteBatch) {
+            if(hidden) {
+                System.out.println("Character is hidden, not rendering");
+                return;
+            }
         	this.draw(spriteBatch, body);
+        }
+
+        public void hide() {
+            hidden = true;
+        }
+
+        public void unhide() {
+            hidden = false;
         }
        
         @Override

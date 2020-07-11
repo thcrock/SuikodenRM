@@ -3,6 +3,7 @@ package gamestate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.lang.Class;
+import java.util.Collections;
 
 import net.dermetfan.gdx.physics.box2d.Box2DMapObjectParser;
 import utilities.CharacterGeneration;
@@ -91,9 +92,9 @@ public class BoxWorld extends GameState {
 		walkableDoors = new ArrayList<Door>();
 		
 		mapSpawns = new ArrayList<Spawn>();
-        music = Gdx.audio.newMusic(Gdx.files.internal("music/Kanakan.ogg"));
-        music.setLooping(true);
-        music.play();
+        //music = Gdx.audio.newMusic(Gdx.files.internal("music/Kanakan.ogg"));
+        //music.setLooping(true);
+        //music.play();
 		
 		initiate(fromDoor);
 	}
@@ -185,7 +186,8 @@ public class BoxWorld extends GameState {
 					Body scriptBody = world.createBody(scriptBodyDef);
 					
 					scriptBody.createFixture(fixtureScript);
-					Conversation scene = new Conversation(convoName);
+                    String onlyTriggerIf = (String) mo.getProperties().get("onlyTriggerIf");
+					Conversation scene = new Conversation(convoName, onlyTriggerIf);
 					scriptBody.setUserData(scene);
 				}
 			}
@@ -233,7 +235,13 @@ public class BoxWorld extends GameState {
                     }
                     String convoName = mo.getProperties().get("convoName", String.class);
                     if(convoName != null) {
-                        gc.setConversation(new Conversation(convoName));
+                        gc.setConversation(new Conversation(convoName, null));
+                    }
+                    boolean hidden = mo.getProperties().get("hidden", false, Boolean.class);
+                    System.out.println(hidden);
+                    if(hidden) {
+                        System.out.println("I am hiding this character!!!!!!!!!!!!!!");
+                        gc.hide();
                     }
 					drawableBoxes.add(gc);
 					characters.add(gc);
@@ -297,6 +305,7 @@ public class BoxWorld extends GameState {
 					disposeThis = true;
 					swapDoor = door;
 				} else if (bodyA.getUserData() instanceof Conversation || bodyB.getUserData() instanceof Conversation) {
+                    System.out.println("In conversation checker");
                     if(currentConversation != null) {
                         return;
                     }
@@ -306,6 +315,23 @@ public class BoxWorld extends GameState {
                     } else {
                         currentConversation = (Conversation) bodyB.getUserData();
                         bodyToDestroy = bodyB;
+                    }
+                    System.out.println(currentConversation.getTriggers().isEmpty());
+                    System.out.println("convo triggers");
+                    for(String s : currentConversation.getTriggers()) {
+                        System.out.println(s);
+                    }
+                    System.out.println("completed scripts");
+                    for(String s : SuikodenRM.gsm.getCompletedScripts()) {
+                        System.out.println(s);
+                    }
+                    if(
+                        !currentConversation.getTriggers().isEmpty() &&
+                        Collections.disjoint(currentConversation.getTriggers(), SuikodenRM.gsm.getCompletedScripts())
+                    ) {
+                        bodyToDestroy = null;
+                        currentConversation = null;
+                        return;
                     }
 					System.out.println(currentConversation);
                     currentConversation.initialize(characters, player);
@@ -373,6 +399,9 @@ public class BoxWorld extends GameState {
 				player.update2(delta);
                 if(currentConversation != null) {
                     currentConversation.update(delta);
+                    if(currentConversation.isOver()) {
+                        currentConversation = null;
+                    }
                 }
 				for(GameWorldCharacter gc : characters) {
 					gc.update(delta);

@@ -24,4 +24,6 @@ public interface Scriptable {
     public int getCurrentChoice();
     public void setCurrentChoice(int choice);
     public void hasFinishedTalking();
+    public void hide();
+    public void unhide();
 }
