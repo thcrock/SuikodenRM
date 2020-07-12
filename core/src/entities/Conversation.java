@@ -29,9 +29,11 @@ import com.kyper.yarn.DialogueData;
 public class Conversation {
     boolean started = false;
     boolean over = false;
+    public String name;
     Script script;
     int currentActionIndex = -1;
     boolean waiting = false;
+    HashSet<String> triggers;
     HashMap<String, Scriptable> characters;
     HashSet<Scriptable> usedCharacters;
     Dialogue dialogue;
@@ -42,10 +44,26 @@ public class Conversation {
     NodeCompleteResult node_complete = null;
     CommandResult command = null;
 
-    public Conversation(String convoName) {
+    public Conversation(String convoName, String onlyTriggerIf) {
+        name = convoName;
+        triggers = new HashSet();
+        if(onlyTriggerIf != null) {
+            String[] trigger = onlyTriggerIf.split("\\|");
+            for(String t : trigger) {
+                triggers.add(t);
+            }
+        }
         DialogueData data = new DialogueData(convoName);
         dialogue = new Dialogue(data);
         dialogue.loadFile("scripts/" + convoName + ".json",false,false,null);
+    }
+
+    public boolean isOver() {
+        return over;
+    }
+
+    public HashSet<String> getTriggers() {
+        return this.triggers;
     }
 
     public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player) {
@@ -65,7 +83,6 @@ public class Conversation {
             return;
         }
         if(dialogue.isRunning() == false && !started){
-            System.out.println("Starting");
             started = true;
             dialogue.start(); 
             for (Scriptable s : usedCharacters) {
@@ -74,14 +91,11 @@ public class Conversation {
         }
 
         if(waiting && currentAction != null) {
-            System.out.println("lets check action for " + currentAction.character);
             if(characters.get(currentAction.character).hasFinishedAction()) {
-                System.out.println("done with action!");
                 waiting = false;
                 currentAction = null;
                 command = null;
             } else {
-                System.out.println("waiting for action to finish");
                 return;
             }
         }
@@ -93,7 +107,6 @@ public class Conversation {
             String params[] = command.getCommand().split("\\s+");
 			for (int i = 0; i < params.length; i++) {
 				params[i] = params[i].trim(); // just trim to make sure
-                System.out.println(params[i]);
 			}
             String commandName = params[0];
             if(commandName.equals("moveRight")) {
@@ -116,7 +129,6 @@ public class Conversation {
                 currentAction = action;
                 Scriptable character = characters.get(action.character);
                 if(!usedCharacters.contains(character)) {
-                    System.out.println("starting script for " + action.character);
                     usedCharacters.add(character);
                     character.startScript();
                 }
@@ -178,12 +190,31 @@ public class Conversation {
                     character.startScript();
                 }
                 currentAction.perform(character);
+            } else if(commandName.equals("hide")) {
+                scripting.Hide action = new scripting.Hide();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("unhide")) {
+                scripting.UnHide action = new scripting.UnHide();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else {
                 System.out.println("unknown command " + commandName);
             }
 			Gdx.app.log("Command:",command.getCommand());
             if(currentAction.needsWait) {
-                System.out.println("waiting");
                 waiting = true;
             } else {
                 command = null;

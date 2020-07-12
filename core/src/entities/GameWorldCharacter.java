@@ -46,7 +46,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	private static int faceLEFT = 3;
 
 	private float speed = 60f*SuikodenRM.scale;
-	private float maxSpeed = 120f*SuikodenRM.scale;
+	private float maxSpeed = 220f*SuikodenRM.scale;
 	
 	private boolean left;
 	private boolean right;
@@ -134,6 +134,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.nextPhase();
     }
 	public void draw(Batch spriteBatch) {
+        if(hidden) {
+            return;
+        }
 		this.draw(spriteBatch, body);
 	}
 
@@ -279,7 +282,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.nextPhase();
         }
         if(isInScript && this.hasReachedTarget()) {
-            System.out.println("has reached target, resetting");
             this.setRight(false);
             this.setLeft(false);
             this.setUp(false);
@@ -327,11 +329,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     }
     public boolean hasFinishedAction() {
         if(this.currentlyPaused == true) {
-            System.out.println("is paused");
             return this.pauseSeconds <= 0;
         }
         if(this.currentlyTalking == true) {
-            System.out.println("is talking");
             if(SuikodenRM.gsm.PAUSED) {
                 return false;
             } else {
@@ -339,7 +339,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
                 return true;
             }
         }
-        System.out.println("check if reached target");
         return hasReachedTarget();
     }
 
@@ -541,17 +540,12 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.setUp(true);
         this.setDown(false);
         this.setSpeed(speed);
-        System.out.println("in moveUp");
-        System.out.println(this.targetY);
-        System.out.println(this.getPosition().y);
         if(this.targetY != 0f) {
             this.checkpointY = this.targetY;
         } else {
             this.checkpointY = this.getPosition().y;
         }
-        System.out.println(distance);
         this.targetY = this.checkpointY + distance;
-        System.out.println("setting target to " + this.targetY);
     }
     public void moveDown(int distance, float speed) {
         this.currentlyPaused = false;

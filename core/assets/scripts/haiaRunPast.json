@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<unhide Haia>>\nRenata: Hey!\n<<moveDown Haia 200 220>>\n<<moveRight Mia 1 60>>\n<<moveRight Renata 1 60>>\n<<moveDown Haia 400 220>>\n<<moveDown Mia 1 20>>\n<<moveDown Renata 1 20>>\nMia: Was that Roundier Haia?\nRenata: Yeah! He looked worried.\nMia: What do you think he's doing?\nRenata: How about we find out? Let's go follow him!\nMia: I don't know...maybe we should leave him alone?\nRenata: Maybe we can help him and he'll let us into his school?.\nMia: Uh...I guess...I have a bad feeling about this.\nRenata: Let's hurry!\n",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+]

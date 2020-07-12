@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="24">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="33">
  <tileset firstgid="1" name="dirt" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="tiles/tileset_dirt/tileset1.png" width="48" height="48"/>
  </tileset>
@@ -381,12 +381,22 @@
     <property name="stopMessage" type="int" value="3"/>
    </properties>
   </object>
-  <object id="22" name="Renata" x="1402.5" y="317.5" width="14" height="14">
+  <object id="22" name="Renata" x="177" y="458.5" width="14" height="14">
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>
     <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>
+    <property name="stopMessage" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="24" name="Haia" x="1495" y="318.5" width="14" height="14">
+   <properties>
+    <property name="character" value="Townfolk4"/>
+    <property name="hidden" type="bool" value="true"/>
+    <property name="phases" value=""/>
+    <property name="speed" type="float" value="220"/>
+    <property name="startMessage" type="int" value="1"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
@@ -398,9 +408,15 @@
     <property name="scriptName" value="friendSpar"/>
    </properties>
   </object>
+  <object id="32" name="haiaRunPast" x="1299" y="476" width="236" height="35.5">
+   <properties>
+    <property name="convoName" value="haiaRunPast"/>
+    <property name="onlyTriggerIf" value="fishMonger|fruitStand|bakeryConversation"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="1352.67" y="292" width="32" height="8">
+  <object id="1" name="spawn1" type="1" x="192.167" y="438.5" width="32" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
