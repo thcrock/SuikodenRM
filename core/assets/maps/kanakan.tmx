@@ -381,7 +381,7 @@
     <property name="stopMessage" type="int" value="3"/>
    </properties>
   </object>
-  <object id="22" name="Renata" x="1310" y="301.5" width="14" height="14">
+  <object id="22" name="Renata" x="177" y="458.5" width="14" height="14">
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>
@@ -416,7 +416,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="1344.17" y="321.5" width="32" height="8">
+  <object id="1" name="spawn1" type="1" x="192.167" y="438.5" width="32" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>

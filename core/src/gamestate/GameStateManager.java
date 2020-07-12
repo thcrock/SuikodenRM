@@ -126,10 +126,16 @@ public class GameStateManager implements InputProcessor{
 	}
 
     public void triggerConversation(Conversation conversation) {
-        BoxWorld bw = (BoxWorld) gameState[currentState];
-		bw.triggerConversation(conversation);
-        completedScripts.add(conversation.name);
-        System.out.println("Added " + conversation.name);
+        GameState gs = gameState[currentState];
+        if(gs instanceof BoxWorld) {
+            BoxWorld bw = (BoxWorld) gs;
+            bw.triggerConversation(conversation);
+            completedScripts.add(conversation.name);
+            System.out.println("Added " + conversation.name);
+        } else {
+            System.out.println("current state not BoxWorld, skipping convo");
+        }
+
     }
 
     public HashSet<String> getCompletedScripts() {

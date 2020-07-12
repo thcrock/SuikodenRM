@@ -83,7 +83,6 @@ public class Conversation {
             return;
         }
         if(dialogue.isRunning() == false && !started){
-            System.out.println("Starting");
             started = true;
             dialogue.start(); 
             for (Scriptable s : usedCharacters) {
@@ -92,14 +91,11 @@ public class Conversation {
         }
 
         if(waiting && currentAction != null) {
-            System.out.println("lets check action for " + currentAction.character);
             if(characters.get(currentAction.character).hasFinishedAction()) {
-                System.out.println("done with action!");
                 waiting = false;
                 currentAction = null;
                 command = null;
             } else {
-                System.out.println("waiting for action to finish");
                 return;
             }
         }
@@ -111,7 +107,6 @@ public class Conversation {
             String params[] = command.getCommand().split("\\s+");
 			for (int i = 0; i < params.length; i++) {
 				params[i] = params[i].trim(); // just trim to make sure
-                System.out.println(params[i]);
 			}
             String commandName = params[0];
             if(commandName.equals("moveRight")) {
@@ -134,7 +129,6 @@ public class Conversation {
                 currentAction = action;
                 Scriptable character = characters.get(action.character);
                 if(!usedCharacters.contains(character)) {
-                    System.out.println("starting script for " + action.character);
                     usedCharacters.add(character);
                     character.startScript();
                 }
@@ -221,7 +215,6 @@ public class Conversation {
             }
 			Gdx.app.log("Command:",command.getCommand());
             if(currentAction.needsWait) {
-                System.out.println("waiting");
                 waiting = true;
             } else {
                 command = null;
