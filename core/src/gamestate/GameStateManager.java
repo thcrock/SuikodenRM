@@ -116,13 +116,18 @@ public class GameStateManager implements InputProcessor{
 	}
 	
 	public void setMessage(Scriptable character, String speakerOverrideName) {
-		BoxWorld oldState = (BoxWorld) gameState[currentState];
-		int oldStateNumber = currentState;
-		gameState[currentState].pause();
-		currentState = MENUSTATE;
-		PAUSED = true;
-		gameState[currentState] = new ChatState(oldState, oldStateNumber, character, speakerOverrideName);
-		relation.changeScreen();
+        GameState gs = gameState[currentState];
+        if(gs instanceof BoxWorld) {
+            BoxWorld oldState = (BoxWorld) gs;
+            int oldStateNumber = currentState;
+            gameState[currentState].pause();
+            currentState = MENUSTATE;
+            PAUSED = true;
+            gameState[currentState] = new ChatState(oldState, oldStateNumber, character, speakerOverrideName);
+            relation.changeScreen();
+        } else {
+            System.out.println("current state not BoxWorld, skipping message");
+        }
 	}
 
     public void triggerConversation(Conversation conversation) {

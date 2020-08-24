@@ -51,5 +51,6 @@ public class OldMan extends GameWorldCharacter {
         messages.add("Fresh bread! Fresh bread!");
         messages.add("Mmmmm, barnfish..");
         messages.add("I saw a young lady in blue come by earlier today. She looked like she was up to no good. Watch out, kids!");
+        messages.add("I'm so glad I retired from the vineyard. That was backbreaking work.");
 	}
 }

@@ -356,6 +356,20 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.setHeight(this.upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
         currentDirection = faceUP;
     }
+    protected void setFaceRight() {
+        this.currentWalkAnim = this.rightAnim;
+        this.setRegion(this.rightAnim.getKeyFrame(animTime, true));
+        this.setWidth(this.rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+        this.setHeight(this.rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+        currentDirection = faceRIGHT;
+    }
+    protected void setFaceLeft() {
+        this.currentWalkAnim = this.leftAnim;
+        this.setRegion(this.leftAnim.getKeyFrame(animTime, true));
+        this.setWidth(this.leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
+        this.setHeight(this.leftAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
+        currentDirection = faceLEFT;
+    }
 
 	public boolean isFighting() {
 		return fighting;
@@ -425,6 +439,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             setFaceDown();
         } else if(direction.equals("u")) {
             setFaceUp();
+        } else if(direction.equals("r")) {
+            setFaceRight();
+        } else if(direction.equals("l")) {
+            setFaceLeft();
         }
         //setSpeed(0.0f);
     }

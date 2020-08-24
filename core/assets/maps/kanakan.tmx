@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="75" height="75" tilewidth="16" tileheight="16" infinite="0" nextlayerid="23" nextobjectid="33">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="75" height="75" tilewidth="16" tileheight="16" infinite="0" nextlayerid="23" nextobjectid="34">
  <tileset firstgid="1" name="dirt" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="tiles/tileset_dirt/tileset1.png" width="48" height="48"/>
  </tileset>
@@ -759,7 +759,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1312,0,1313,0,1314,0,0,0,2147484962,0,2147484961,0,2147484960,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2058,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1328,0,1329,0,1330,0,0,0,2147484978,0,2147484977,0,2147484976,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1478,0,0,0,1478,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1668,0,0,0,0,0,0,0,1478,0,0,0,1478,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1478,0,0,0,1478,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1344,0,0,0,0,0,0,0,0,0,0,0,2147484992,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1478,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1478,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2107,0,2108,0,2109,0,2110,0,1478,1478,0,0,
@@ -1058,7 +1058,7 @@
     <property name="stopMessage" type="int" value="2"/>
    </properties>
   </object>
-  <object id="6" name="Fruitmonger" x="592.25" y="50.25" width="14" height="14">
+  <object id="6" name="Fruitmonger" x="591.25" y="61.25" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk1"/>
     <property name="convoName" value="fruitStand"/>
@@ -1067,7 +1067,7 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="7" name="Townfolk2" x="418" y="206" width="14" height="14">
+  <object id="7" name="Townfolk2" x="432.5" y="191.5" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk2"/>
     <property name="phases" value="l-20;p-1;r-40;p-4;l-20;p-1.2"/>
@@ -1076,49 +1076,52 @@
     <property name="stopMessage" type="int" value="2"/>
    </properties>
   </object>
-  <object id="8" name="OldMan" x="687.667" y="334.667" width="14" height="14">
+  <object id="8" name="OldMan" x="687.667" y="350.667" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
+    <property name="face" value="u"/>
     <property name="phases" value=""/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="9" name="Townfolk3" x="686.333" y="314.667" width="14" height="14">
+  <object id="9" name="Townfolk3" x="688.833" y="314.667" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk3"/>
+    <property name="face" value="d"/>
     <property name="phases" value=""/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="10" name="Townfolk4" x="662.667" y="325.667" width="14" height="14">
+  <object id="10" name="Townfolk4" x="712.167" y="332.167" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk4"/>
+    <property name="face" value="l"/>
     <property name="phases" value=""/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="11" name="Dog" x="860.333" y="540.667" width="14" height="14">
+  <object id="11" name="Dog" x="865.333" y="537.167" width="14" height="14">
    <properties>
     <property name="character" value="Dog"/>
-    <property name="phases" value="l-1250;p-1;r-1250;p-2"/>
+    <property name="phases" value="l-750;p-1;r-750;p-2"/>
     <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="12" name="Kid" x="850.666" y="512" width="14" height="14">
+  <object id="12" name="Kid" x="884.666" y="533" width="14" height="14">
    <properties>
     <property name="character" value="Kid1"/>
-    <property name="phases" value="l-1250;p-2;r-1250;p-2"/>
+    <property name="phases" value="l-750;p-2;r-750;p-2"/>
     <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="13" name="Shopkeeper" x="382.917" y="50.5833" width="14" height="14">
+  <object id="13" name="Shopkeeper" x="383.917" y="60.5833" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
     <property name="convoName" value="bakeryConversation"/>
@@ -1127,7 +1130,7 @@
     <property name="stopMessage" type="int" value="2"/>
    </properties>
   </object>
-  <object id="14" name="FishLover" x="132.163" y="99.417" width="14" height="14">
+  <object id="14" name="FishLover" x="123.163" y="115.917" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
     <property name="face" value="u"/>
@@ -1141,11 +1144,11 @@
     <property name="character" value="Townfolk1"/>
     <property name="phases" value=""/>
     <property name="speed" type="float" value="15"/>
-    <property name="startMessage" type="int" value="1"/>
-    <property name="stopMessage" type="int" value="2"/>
+    <property name="startMessage" type="int" value="2"/>
+    <property name="stopMessage" type="int" value="3"/>
    </properties>
   </object>
-  <object id="16" name="OldMan" x="741.5" y="279.833" width="14" height="14">
+  <object id="16" name="OldMan" x="891.5" y="302.333" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
     <property name="phases" value=""/>
@@ -1153,7 +1156,7 @@
     <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
-  <object id="17" name="Fisher" x="182.33" y="50.3333" width="14" height="14">
+  <object id="17" name="Fisher" x="181.83" y="60.8333" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk2"/>
     <property name="convoName" value="fishMonger"/>
@@ -1162,25 +1165,25 @@
     <property name="stopMessage" type="int" value="3"/>
    </properties>
   </object>
-  <object id="18" name="Hungry Dog" x="241.667" y="191" width="14" height="14">
+  <object id="18" name="Hungry Dog" x="931.167" y="49.5" width="14" height="14">
    <properties>
     <property name="character" value="Dog"/>
-    <property name="phases" value="p-4;r-280-40;p-2.2;l-280-120;p-2"/>
+    <property name="phases" value="p-4;l-190-40;p-1.8;r-190-120;p-2"/>
     <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="19" name="FruitClerk" x="716.666" y="38.0003" width="14" height="14">
+  <object id="19" name="FruitClerk" x="742.666" y="27.0003" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk1"/>
-    <property name="phases" value=""/>
+    <property name="phases" value="l-1;p-10;d-10-120;p-1;r-1;p-1;u-10;l-1;p-1.6"/>
     <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="20" name="Fisherman" x="94.9967" y="30" width="14" height="14">
+  <object id="20" name="Fisherman" x="72.4967" y="38" width="14" height="14">
    <properties>
     <property name="character" value="Fisherman"/>
     <property name="face" value="l"/>
@@ -1189,14 +1192,14 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="21" name="FlowerTender" x="840" y="67.5" width="14" height="14">
+  <object id="21" name="FlowerTender" x="895.5" y="29.5" width="14" height="14">
    <properties>
-    <property name="character" value="Townfolk1"/>
-    <property name="face" value="d"/>
+    <property name="character" value="Townfolk2"/>
+    <property name="face" value="l"/>
     <property name="phases" value=""/>
     <property name="speed" type="float" value="15"/>
-    <property name="startMessage" type="int" value="2"/>
-    <property name="stopMessage" type="int" value="3"/>
+    <property name="startMessage" type="int" value="3"/>
+    <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
   <object id="22" name="Renata" x="287.5" y="743" width="14" height="14">
@@ -1218,6 +1221,14 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
+  <object id="33" name="OldMan" x="1016.5" y="666.5">
+   <properties>
+    <property name="character" value="OldMan"/>
+    <property name="phases" value=""/>
+    <property name="startMessage" type="int" value="4"/>
+    <property name="stopMessage" type="int" value="5"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="9" name="scripts">
   <object id="23" name="fightscene" x="190" y="771.5" width="37.5" height="22.5">
@@ -1234,7 +1245,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="259.167" y="807.333" width="32" height="8">
+  <object id="1" name="spawn1" type="1" x="474.667" y="202.333" width="32" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
