@@ -124,7 +124,7 @@ public class BoxWorld extends GameState {
 				System.out.println("Test2");
 				backgrounds.add((TiledMapTileLayer) ml);
 			}
-			if(layerTypeString.equals("2.5")) {
+			if(layerTypeString.contains("2.5")) {
 				System.out.println("Test3");
 				objectLayers.add((TiledMapTileLayer) ml);
 			}
