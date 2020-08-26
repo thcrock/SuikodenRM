@@ -55,7 +55,6 @@ public class BoxWorld extends GameState {
 	Box2DDebugRenderer box2drenderer;
 	public OrthographicCamera camera;
 	Player player;
-    DrawableBox2D friend;
 	ArrayList<TiledMapTileLayer> foregrounds, backgrounds, objectLayers;
 	ArrayList<DrawableBox2D> drawableBoxes;
 	ArrayList<GameWorldCharacter> characters;
@@ -207,6 +206,7 @@ public class BoxWorld extends GameState {
 				}
 			}
 			if(layerTypeString.equals("characters")) {
+/*
 				System.out.println("Character Generation");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
@@ -244,13 +244,10 @@ public class BoxWorld extends GameState {
                         System.out.println("I am hiding this character!!!!!!!!!!!!!!");
                         gc.hide();
                     }
-                    if(((String) mo.getProperties().get("character")).equals("Friend")) {
-                        this.friend = gc;
-                    } else {
-					    drawableBoxes.add(gc);
-                    }
+					drawableBoxes.add(gc);
 					characters.add(gc);
 				}
+*/
 			}
 			
 		}
@@ -287,7 +284,7 @@ public class BoxWorld extends GameState {
 		shape.dispose();
 		
 		player = new Player(body);
-        //drawableBoxes.add(player);
+        drawableBoxes.add(player);
 		
 		world.setContactListener(new ContactListener() {
 
@@ -428,7 +425,7 @@ public class BoxWorld extends GameState {
 				mapRenderer.renderTileLayer(background);
 			}
 			
-            mapRenderer.renderTileLayer(objectLayers, drawableBoxes, player, friend);
+            mapRenderer.renderTileLayer(objectLayers, drawableBoxes);
 
 			for(TiledMapTileLayer foreground : foregrounds) {
 				mapRenderer.renderTileLayer(foreground);
