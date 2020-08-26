@@ -218,7 +218,7 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 		
 	}
 	
-public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, Player player) {
+public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, Player player, DrawableBox2D friend) {
 		
 		// From here -->
 		for(TiledMapTileLayer layer : layers) {
@@ -249,7 +249,7 @@ public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, Player player) 
 			final float[] vertices = this.vertices;
 	
 			// Our first not final int.
-			int playersRow = (int) ((player.getY())/layerTileHeight);
+			int playersRow = (int) ((player.getPosition().y)/layerTileHeight);
 			
 			// Once again, instead of going from the beginning to the end, we go
 			// from the end to the beginning
@@ -382,6 +382,7 @@ public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, Player player) 
 		 * single line for your 2.5D game to work!
 		 */
 		player.draw(this.batch);
+		friend.draw(this.batch);
 		/*
 		 * OBS! OBS!
 		 */
@@ -389,6 +390,7 @@ public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, Player player) 
 		
 		
 		// We're going from the row that the player is standing on, all the way to the beginning
+        
 		for(TiledMapTileLayer layer : layers) {
 			final Color batchColor = batch.getColor();
 			final float color = Color.toFloatBits(batchColor.r, batchColor.g,
@@ -417,7 +419,7 @@ public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, Player player) 
 			final float[] vertices = this.vertices;
 	
 			// Our first not final int.
-			int playersRow = (int) (player.getY()/layerTileHeight);
+			int playersRow = (int) (player.getPosition().y/layerTileHeight);
 			for (int row = row2; row > playersRow; row--) {
 				y -= layerTileHeight;
 			}
@@ -545,19 +547,20 @@ public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, Player player) 
 				y -= layerTileHeight;
 			}
 		}
+
 		
 	}
 
 
-	public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, ArrayList<DrawableBox2D> drawableBoxes, Player player) {
+	public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, ArrayList<DrawableBox2D> drawableBoxes, Player player, DrawableBox2D friend) {
 		
 		Collections.sort(drawableBoxes);
 		unitScale = SuikodenRM.scale;
+	    renderTileLayer(layers, player, friend);	
 		for(int i = 0; i < drawableBoxes.size(); i++) {
 			DrawableBox2D db2d = drawableBoxes.get(i);
 			db2d.draw(batch);
         }
-	    renderTileLayer(layers, player);	
     }		
 	
 
