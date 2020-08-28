@@ -223,13 +223,9 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 		
 		Collections.sort(drawableBoxes);
 		unitScale = SuikodenRM.scale;
-System.out.println("rendering");
-		int mostRecentBox = -1; 
 		for(int i = 0; i < drawableBoxes.size(); i++) {
 			DrawableBox2D db2d = drawableBoxes.get(i);
-            System.out.println(db2d.getBody().getPosition().y);
 			for(TiledMapTileLayer layer : layers) {
-				System.out.println("lyer " + layer.getName());
 				final Color batchColor = batch.getColor();
 				final float color = Color.toFloatBits(batchColor.r, batchColor.g,
 						batchColor.b, batchColor.a * layer.getOpacity());
@@ -246,12 +242,8 @@ System.out.println("rendering");
 			
 				// <-- To here, nothing has changed from the original OrthogonalTiledMapRenderer
 				
-				final int row1 = Math.max(0, (int) (viewBounds.y / layerTileHeight)-(int) layerTileHeight);
 				final int row2 = Math.min(layerHeight, (int) ((viewBounds.y
 						+ viewBounds.height) / layerTileHeight)); 
-				System.out.println("view bounds");
-				System.out.println(row1);
-				System.out.println(row2);
 				
 				// Instead of looking into the first row first, we look into the last row first.
 				// Didn't find a good way to work around this.
@@ -261,19 +253,15 @@ System.out.println("rendering");
 		
 				// Our first not final int.
 				int playersRow = (int) ((db2d.getBody().getPosition().y)/layerTileHeight);
-				System.out.println(playersRow);
-                if (playersRow <= row1 || playersRow > row2) {
-					System.out.println("skipping!");
-					continue;	
-				}
-				int previousRow;
-				if(mostRecentBox != -1) {
-					previousRow = (int) ((drawableBoxes.get(mostRecentBox).getBody().getPosition().y)/layerTileHeight);
-				} else {
-					previousRow = row2;
-				}
+                int previousRow;
+                if(i == 0) {
+                    previousRow = row2;
+                } else {
+				    previousRow = Math.min(row2, (int)((drawableBoxes.get(i-1).getBody().getPosition().y)/layerTileHeight));
+                }
+
+                System.out.println("previous row = " + previousRow);
 				
-                mostRecentBox = i;
 				for (int row = row2; row > previousRow; row--) {
 					y -= layerTileHeight;
 				}
@@ -406,7 +394,9 @@ System.out.println("rendering");
 			db2d.draw(batch);
 		}
 		
+//System.out.println("rendering the afterloop");
 		for(TiledMapTileLayer layer : layers) {
+			//System.out.println("lyer " + layer.getName());
 			final Color batchColor = batch.getColor();
 			final float color = Color.toFloatBits(batchColor.r, batchColor.g,
 					batchColor.b, batchColor.a * layer.getOpacity());

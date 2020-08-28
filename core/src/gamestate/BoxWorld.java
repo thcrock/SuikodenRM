@@ -206,7 +206,6 @@ public class BoxWorld extends GameState {
 				}
 			}
 			if(layerTypeString.equals("characters")) {
-/*
 				System.out.println("Character Generation");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
@@ -247,7 +246,6 @@ public class BoxWorld extends GameState {
 					drawableBoxes.add(gc);
 					characters.add(gc);
 				}
-*/
 			}
 			
 		}
