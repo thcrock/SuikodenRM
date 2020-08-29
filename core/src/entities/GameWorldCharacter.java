@@ -96,7 +96,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 		super(firstFrame);
 		
 		BodyDef gameCharacter = new BodyDef();
-		gameCharacter.type = BodyDef.BodyType.DynamicBody;
+		gameCharacter.type = BodyDef.BodyType.KinematicBody;
 		gameCharacter.position.set(new Vector2(x, y));
 
 		body = bw.getWorld().createBody(gameCharacter);

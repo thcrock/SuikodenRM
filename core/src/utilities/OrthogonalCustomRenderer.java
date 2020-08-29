@@ -260,7 +260,6 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 				    previousRow = Math.min(row2, (int)((drawableBoxes.get(i-1).getBody().getPosition().y)/layerTileHeight));
                 }
 
-                System.out.println("previous row = " + previousRow);
 				
 				for (int row = row2; row > previousRow; row--) {
 					y -= layerTileHeight;
@@ -394,9 +393,7 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 			db2d.draw(batch);
 		}
 		
-//System.out.println("rendering the afterloop");
 		for(TiledMapTileLayer layer : layers) {
-			//System.out.println("lyer " + layer.getName());
 			final Color batchColor = batch.getColor();
 			final float color = Color.toFloatBits(batchColor.r, batchColor.g,
 					batchColor.b, batchColor.a * layer.getOpacity());
