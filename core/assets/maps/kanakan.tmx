@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="90" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="27" nextobjectid="113">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="90" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="27" nextobjectid="115">
  <tileset firstgid="1" name="dirt" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="tiles/tileset_dirt/tileset1.png" width="48" height="48"/>
  </tileset>
@@ -1255,6 +1255,16 @@
     <property name="phases" value=""/>
     <property name="startMessage" type="int" value="4"/>
     <property name="stopMessage" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="114" name="Townfolk2" x="1049.17" y="127.5" width="14" height="14">
+   <properties>
+    <property name="character" value="Townfolk2"/>
+    <property name="convoName" value="flowerPlanting"/>
+    <property name="phases" value=""/>
+    <property name="speed" type="float" value="60"/>
+    <property name="startMessage" type="int" value="3"/>
+    <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
  </objectgroup>

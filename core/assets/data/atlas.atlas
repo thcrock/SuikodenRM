@@ -445,6 +445,13 @@ emi0
   size: 1, 80
   orig: 1, 80
   offset: 0, 0
+  index: 48
+emi0
+  rotate: false
+  xy: 1014, 942
+  size: 1, 80
+  orig: 1, 80
+  offset: 0, 0
   index: 27
 emi0
   rotate: false
@@ -459,13 +466,6 @@ emi0
   size: 1, 80
   orig: 1, 80
   offset: 0, 0
-  index: 62
-emi0
-  rotate: false
-  xy: 1014, 942
-  size: 1, 80
-  orig: 1, 80
-  offset: 0, 0
   index: 55
 emi0
   rotate: false
@@ -473,7 +473,7 @@ emi0
   size: 1, 80
   orig: 1, 80
   offset: 0, 0
-  index: 48
+  index: 62
 emi0
   rotate: false
   xy: 1014, 942
@@ -1236,14 +1236,14 @@ cliveFightingIdle
   size: 29, 60
   orig: 29, 60
   offset: 0, 0
-  index: 5
+  index: 1
 cliveFightingIdle
   rotate: false
   xy: 369, 115
   size: 29, 60
   orig: 29, 60
   offset: 0, 0
-  index: 1
+  index: 5
 cliveFightingAttack
   rotate: false
   xy: 362, 53
