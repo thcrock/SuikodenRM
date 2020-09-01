@@ -56,27 +56,27 @@ public class Player extends DrawableBox2D implements Scriptable {
     private int currentChoice = -1;
 	
 	private static GameAnimation leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("girlbluehair", 4), 
-			ImageCache.getFrame("girlbluehair", 8), 
+			ImageCache.getFrame("girlbluehair", 10), 
+			ImageCache.getFrame("girlbluehair", 11), 
 			ImageCache.getFrame("girlbluehair", 12), 
 			});
 	
 	private static GameAnimation upAnim = new GameAnimation(0.2f, new TextureRegion[]{
 			ImageCache.getFrame("girlbluehair", 1), 
-			ImageCache.getFrame("girlbluehair", 5), 
-			ImageCache.getFrame("girlbluehair", 9), 
+			ImageCache.getFrame("girlbluehair", 2), 
+			ImageCache.getFrame("girlbluehair", 3), 
 			});
 
 	private static GameAnimation rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("girlbluehair", 2), 
+			ImageCache.getFrame("girlbluehair", 4), 
+			ImageCache.getFrame("girlbluehair", 5), 
 			ImageCache.getFrame("girlbluehair", 6), 
-			ImageCache.getFrame("girlbluehair", 10), 
 	        });
 	
 	private static GameAnimation downAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("girlbluehair", 3), 
 			ImageCache.getFrame("girlbluehair", 7), 
-			ImageCache.getFrame("girlbluehair", 11), 
+			ImageCache.getFrame("girlbluehair", 8), 
+			ImageCache.getFrame("girlbluehair", 9), 
 			});
 	
 	

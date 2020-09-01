@@ -1267,9 +1267,7 @@
     <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup id="23" name="dumpingground">
-  <object id="22" name="Renata" x="287.5" y="823" width="14" height="14">
+  <object id="22" name="Renata" x="860.167" y="236.333" width="14" height="14">
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>
@@ -1279,6 +1277,7 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup id="23" name="dumpingground"/>
  <objectgroup id="9" name="scripts">
   <object id="23" name="fightscene" x="190" y="851.5" width="37.5" height="22.5">
    <properties>

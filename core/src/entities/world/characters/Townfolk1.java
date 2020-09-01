@@ -21,32 +21,32 @@ public class Townfolk1 extends GameWorldCharacter {
 		name = "Townfolk1";
 		
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("townfolk0", 6), 
-                ImageCache.getFrame("townfolk0", 7), 
-				ImageCache.getFrame("townfolk0", 8), 
+				ImageCache.getFrame("townfolk01", 7), 
+                ImageCache.getFrame("townfolk01", 8), 
+				ImageCache.getFrame("townfolk01", 9), 
 				});
 		
 		this.leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("townfolk0", 9), 
-                ImageCache.getFrame("townfolk0", 10), 
-				ImageCache.getFrame("townfolk0", 11), 
+				ImageCache.getFrame("townfolk01", 10), 
+                ImageCache.getFrame("townfolk01", 11), 
+				ImageCache.getFrame("townfolk01", 12), 
 				});
 		
 		this.upAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("townfolk0", 0), 
-                ImageCache.getFrame("townfolk0", 1), 
-				ImageCache.getFrame("townfolk0", 2), 
+				ImageCache.getFrame("townfolk01", 1), 
+                ImageCache.getFrame("townfolk01", 2), 
+				ImageCache.getFrame("townfolk01", 3), 
 				});
 
 		this.rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("townfolk0", 3), 
-                ImageCache.getFrame("townfolk0", 4), 
-				ImageCache.getFrame("townfolk0", 5), 
+				ImageCache.getFrame("townfolk01", 4), 
+                ImageCache.getFrame("townfolk01", 5), 
+				ImageCache.getFrame("townfolk01", 6), 
 				});
         System.out.println(this.downAnim);
 		
 		this.currentWalkAnim = this.downAnim;
-		facePicture = ImageCache.getTexture("townfolk0_07");
+		facePicture = ImageCache.getTexture("townfolk01_07");
 		
 		messages.add("The mangos are great today!");
         messages.add("Can I interest you in some mangos?");
