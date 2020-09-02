@@ -1086,7 +1086,7 @@
 </data>
  </layer>
  <objectgroup id="7" name="characters">
-  <object id="5" name="Townfolk1" x="652" y="271" width="14" height="14">
+  <object id="5" name="Man" x="652" y="271" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk1"/>
     <property name="phases" value="l-40;p-1;r-40;p-2;u-40;p-1.4;d-40;p-1.2"/>
@@ -1104,7 +1104,7 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="7" name="Townfolk2" x="432.5" y="271.5" width="14" height="14">
+  <object id="7" name="Woman" x="432.5" y="271.5" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk2"/>
     <property name="phases" value="l-20;p-1;r-40;p-4;l-20;p-1.2"/>
@@ -1113,7 +1113,7 @@
     <property name="stopMessage" type="int" value="2"/>
    </properties>
   </object>
-  <object id="8" name="OldMan" x="594.788" y="446.908" width="14" height="14">
+  <object id="8" name="Fencing Traditionalist" x="594.788" y="446.908" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
     <property name="face" value="u"/>
@@ -1122,7 +1122,7 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="9" name="Townfolk3" x="596.461" y="412.431" width="14" height="14">
+  <object id="9" name="Fencing Pundit" x="596.461" y="412.431" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk3"/>
     <property name="face" value="d"/>
@@ -1131,7 +1131,7 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="10" name="Townfolk4" x="622.333" y="429.423" width="14" height="14">
+  <object id="10" name="Fencing Fan" x="622.333" y="429.423" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk4"/>
     <property name="face" value="l"/>
@@ -1149,9 +1149,10 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="12" name="Kid" x="884.666" y="613" width="14" height="14">
+  <object id="12" name="Izan" x="884.666" y="613" width="14" height="14">
    <properties>
     <property name="character" value="Kid1"/>
+    <property name="convoName" value="izan"/>
     <property name="phases" value="l-750;p-2;r-750;p-2"/>
     <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>
@@ -1193,7 +1194,7 @@
     <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
-  <object id="17" name="Fisher" x="181.83" y="140.833" width="14" height="14">
+  <object id="17" name="Fisher" x="181.58" y="142.333" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk2"/>
     <property name="convoName" value="fishMonger"/>
@@ -1216,8 +1217,8 @@
     <property name="character" value="Townfolk1"/>
     <property name="phases" value="l-1;p-10;d-10-120;p-1;r-1;p-1;u-10;l-1;p-1.6"/>
     <property name="speed" type="float" value="120"/>
-    <property name="startMessage" type="int" value="0"/>
-    <property name="stopMessage" type="int" value="1"/>
+    <property name="startMessage" type="int" value="3"/>
+    <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
   <object id="20" name="Fisherman" x="72.4967" y="118" width="14" height="14">
@@ -1239,9 +1240,9 @@
     <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
-  <object id="24" name="Haia" x="1003" y="500.5" width="14" height="14">
+  <object id="24" name="Haia" x="901.667" y="745.833" width="14" height="14">
    <properties>
-    <property name="character" value="Townfolk4"/>
+    <property name="character" value="Haia"/>
     <property name="hidden" type="bool" value="true"/>
     <property name="phases" value=""/>
     <property name="speed" type="float" value="220"/>
@@ -1257,7 +1258,7 @@
     <property name="stopMessage" type="int" value="5"/>
    </properties>
   </object>
-  <object id="114" name="Townfolk2" x="1049.17" y="127.5" width="14" height="14">
+  <object id="114" name="Townfolk2" x="1039.17" y="131.5" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk2"/>
     <property name="convoName" value="flowerPlanting"/>
@@ -1267,7 +1268,7 @@
     <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
-  <object id="22" name="Renata" x="860.167" y="236.333" width="14" height="14">
+  <object id="22" name="Renata" x="133.084" y="865.25" width="14" height="14">
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>
@@ -1279,7 +1280,7 @@
  </objectgroup>
  <objectgroup id="23" name="dumpingground"/>
  <objectgroup id="9" name="scripts">
-  <object id="23" name="fightscene" x="190" y="851.5" width="37.5" height="22.5">
+  <object id="23" name="fightscene" x="149.583" y="850.833" width="37.5" height="22.5">
    <properties>
     <property name="convoName" value="challenge"/>
     <property name="scriptName" value="friendSpar"/>
@@ -1288,7 +1289,7 @@
   <object id="32" name="haiaRunPast" x="690" y="867" width="236" height="35.5">
    <properties>
     <property name="convoName" value="haiaRunPast"/>
-    <property name="onlyTriggerIf" value="fishMonger|fruitStand|bakeryConversation"/>
+    <property name="onlyTriggerIf2" value="fishMonger|fruitStand|bakeryConversation"/>
    </properties>
   </object>
   <object id="115" name="trespassing" x="1044" y="839.333" width="121.333" height="9.33333">
@@ -1298,7 +1299,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="827.5" y="210.166" width="32" height="8">
+  <object id="1" name="spawn1" type="1" x="159.167" y="837.249" width="32" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>

@@ -13,42 +13,41 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.orangeegames.suikorm.SuikodenRM;
 
 
-public class Kid1 extends GameWorldCharacter {
+public class Haia extends GameWorldCharacter {
 
-	public Kid1(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
+	public Haia(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
 		super(firstFrame, bw, x, y);
 		
-		name = "Kid1";
+		name = "Haia";
 		
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("kid1", 3), 
-                ImageCache.getFrame("kid1", 7), 
-				ImageCache.getFrame("kid1", 11), 
+				ImageCache.getFrame("haia", 7), 
+                ImageCache.getFrame("haia", 8), 
+				ImageCache.getFrame("haia", 9), 
 				});
 		
 		this.leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("kid1", 4), 
-                ImageCache.getFrame("kid1", 8), 
-				ImageCache.getFrame("kid1", 12), 
+				ImageCache.getFrame("haia", 10), 
+                ImageCache.getFrame("haia", 11), 
+				ImageCache.getFrame("haia", 12), 
 				});
 		
 		this.upAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("kid1", 1), 
-                ImageCache.getFrame("kid1", 5), 
-				ImageCache.getFrame("kid1", 9), 
+				ImageCache.getFrame("haia", 1), 
+                ImageCache.getFrame("haia", 2), 
+				ImageCache.getFrame("haia", 3), 
 				});
 
 		this.rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("kid1", 2), 
-                ImageCache.getFrame("kid1", 6), 
-				ImageCache.getFrame("kid1", 10), 
+				ImageCache.getFrame("haia", 4), 
+                ImageCache.getFrame("haia", 5), 
+				ImageCache.getFrame("haia", 6), 
 				});
         System.out.println(this.downAnim);
 		
 		this.currentWalkAnim = this.downAnim;
-		facePicture = ImageCache.getTexture("kid1_07");
+		facePicture = ImageCache.getTexture("haia_07");
 		
-		messages.add("Come back here!");
-        messages.add("");
+		messages.add("...");
 	}
 }

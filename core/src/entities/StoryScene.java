@@ -31,7 +31,7 @@ public class StoryScene {
         for (Scriptable s : inputcharacters) {
             characters.put(s.getName(), s);
         }
-        characters.put("Camila", player);
+        characters.put("Mia", player);
         usedCharacters = new HashSet<Scriptable>();
         for (Action a : script.actions) {
             usedCharacters.add(characters.get(a.character));

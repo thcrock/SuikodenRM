@@ -51,5 +51,6 @@ public class Townfolk1 extends GameWorldCharacter {
 		messages.add("The mangos are great today!");
         messages.add("Can I interest you in some mangos?");
         messages.add("The roses are in bloom! Have you seen them?");
+        messages.add("Everyone keeps trying to take our fruit without paying! Freeloaders!");
 	}
 }

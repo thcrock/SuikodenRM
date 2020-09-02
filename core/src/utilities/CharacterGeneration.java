@@ -6,6 +6,7 @@ import entities.GameWorldCharacter;
 import entities.game.characters.GameClive;
 import entities.game.characters.GameKilley;
 import entities.world.characters.Clive;
+import entities.world.characters.Haia;
 import entities.world.characters.Townfolk1;
 import entities.world.characters.Townfolk2;
 import entities.world.characters.Townfolk3;
@@ -36,6 +37,7 @@ public class CharacterGeneration {
 		else if(name.equals("Kid1")) return new Kid1(ImageCache.getFrame("kid1", 1), bw, x, y);
 		else if(name.equals("Friend")) return new Friend(ImageCache.getFrame("girlbluehair", 4), bw, x, y);
 		else if(name.equals("Fisherman")) return new Fisherman(ImageCache.getFrame("fishing", 1), bw, x, y);
+		else if(name.equals("Haia")) return new Haia(ImageCache.getFrame("haia", 1), bw, x, y);
 		return null;
 	}
 	

@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Fishmonger: Ocean's greetings, young ones! Isn't the day magnificent?\n[[Uh, sure? |choosefish]]\n[[Totally, man!|choosefish]]\n[[I almost fell into the water, so no!|choosefish]]",
+		"body": "Fishmonger: Ocean's greetings, young ones! Isn't the day magnificent?\n[[Uh, sure? |choosefish]]\n[[Totally!|choosefish]]\n[[I almost fell into the water, so no!|choosefish]]",
 		"position": {
 			"x": 0,
 			"y": 0

@@ -132,12 +132,12 @@ public class ChoiceState extends GameState {
         rightupperchat.background = skin.getDrawable("uprightchat");
         rightupperchat.font = font;
         GlyphLayout layout = new GlyphLayout();
-        layout.setText(font, "Camila", Color.WHITE, chatWindowWidth, 0, true);
+        layout.setText(font, "Mia", Color.WHITE, chatWindowWidth, 0, true);
         int nameWidth = (int) layout.width + 40;
         if(SuikodenRM.debug) System.out.println(nameWidth);
         if (nameWidth < PORTRAIT_WIDTH + 10) nameWidth = PORTRAIT_WIDTH + 10;
         if(SuikodenRM.debug) System.out.println(nameWidth);
-        leftUpperInfoWindow = new Label("Camila", leftupperchat);
+        leftUpperInfoWindow = new Label("Mia", leftupperchat);
         leftUpperInfoWindow.setWidth(nameWidth);
         leftUpperInfoWindow.setHeight(chatWindowHeight/4);
         leftUpperInfoWindow.setX(width/2 - chatWindowWidth/2);

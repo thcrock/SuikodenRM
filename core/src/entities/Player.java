@@ -86,7 +86,7 @@ public class Player extends DrawableBox2D implements Scriptable {
 		//sprite = new TextureRegion(ImageCache.getFrame("riouWalkDown", 2));
 		currentWalkAnim = downAnim;
 		this.body = body;
-        this.name = "Camila";
+        this.name = "Mia";
 		
 		setAdjustWidth(false);
         TextureRegion exampleSprite = new TextureRegion(ImageCache.getFrame("girlbluehair", 7));
