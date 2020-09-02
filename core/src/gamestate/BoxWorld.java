@@ -39,6 +39,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.orangeegames.suikorm.SuikodenRM;
 
 import entities.AbstractChest;
+import entities.Collider;
 import entities.Door;
 import entities.DrawableBox2D;
 import entities.GameWorldCharacter;
@@ -58,6 +59,7 @@ public class BoxWorld extends GameState {
 	ArrayList<TiledMapTileLayer> foregrounds, backgrounds, objectLayers;
 	ArrayList<DrawableBox2D> drawableBoxes;
 	ArrayList<GameWorldCharacter> characters;
+    ArrayList<Collider> colliders;
     StoryScene currentScene;
 	Conversation currentConversation;
     Music music;
@@ -88,6 +90,7 @@ public class BoxWorld extends GameState {
 		drawableBoxes = new ArrayList<DrawableBox2D>();
 
 		characters = new ArrayList<GameWorldCharacter>();
+        colliders = new ArrayList<Collider>();
 		
 		walkableDoors = new ArrayList<Door>();
 		
@@ -140,6 +143,26 @@ public class BoxWorld extends GameState {
 					System.out.println("Test5");
 				}
 			}
+            if(layerTypeString.equals("colliders")) {
+				System.out.println("Colliders");
+				Iterator<MapObject> moIterator = ml.getObjects().iterator();
+				while(moIterator.hasNext()) {
+					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
+					
+					String message = (String) mo.getProperties().get("message");
+					PolygonShape ps = new PolygonShape();
+					ps.setAsBox((mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().height/2)*SuikodenRM.scale);
+					FixtureDef fixture = new FixtureDef();
+					fixture.shape = ps;
+					BodyDef bodyDef = new BodyDef();
+					bodyDef.position.set(new Vector2((mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale));
+					Body body = world.createBody(bodyDef);
+					
+					body.createFixture(fixture);
+					Collider newCollider = new Collider(message);
+					body.setUserData(newCollider);
+				}
+            }
 			if(layerTypeString.equals("doors")) {
 				System.out.println("Doors");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
@@ -503,6 +526,13 @@ public class BoxWorld extends GameState {
 							db2d.interact(player);
 							return true;
 						}
+                        System.out.println(fixture.getUserData());
+                        if(fixture.getBody().getUserData() instanceof Collider) {
+                            Collider col = ((Collider) fixture.getBody().getUserData());
+                            col.interact(player);
+                            return true;
+                        }
+                        //SuikodenRM.gsm.setInfo("Test message");
 						return true;
 					}
 				};

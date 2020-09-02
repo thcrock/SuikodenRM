@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="90" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="27" nextobjectid="115">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="90" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="28" nextobjectid="116">
  <tileset firstgid="1" name="dirt" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="tiles/tileset_dirt/tileset1.png" width="48" height="48"/>
  </tileset>
@@ -1291,6 +1291,11 @@
     <property name="onlyTriggerIf" value="fishMonger|fruitStand|bakeryConversation"/>
    </properties>
   </object>
+  <object id="115" name="trespassing" x="1044" y="839.333" width="121.333" height="9.33333">
+   <properties>
+    <property name="convoName" value="trespassing"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
   <object id="1" name="spawn1" type="1" x="827.5" y="210.166" width="32" height="8">
@@ -1351,24 +1356,90 @@
   <object id="91" name="coast12" type="object" x="163" y="1178.5" width="304.5" height="17"/>
   <object id="92" name="coast13" type="object" x="468.5" y="1196.5" width="14.5" height="82" rotation="-40"/>
   <object id="93" name="coast14" type="object" x="517.5" y="1262" width="13.5" height="17"/>
-  <object id="95" name="pinkhouse" type="object" x="532.5" y="1010" width="120" height="158"/>
-  <object id="96" name="forestgreenhouse" type="object" x="1043.5" y="1136" width="121" height="96"/>
-  <object id="97" name="turquoisehouse" type="object" x="947.5" y="894.5" width="233" height="145"/>
-  <object id="98" name="orangehouse2" type="object" x="435" y="893.5" width="234.5" height="82"/>
-  <object id="99" name="beigehouse" type="object" x="1043" y="750" width="120" height="97.5"/>
-  <object id="100" name="purplehouse" type="object" x="1010.5" y="546.5" width="122.5" height="157.5"/>
-  <object id="101" name="orangehouse3" type="object" x="1044" y="366" width="119" height="96.5"/>
+  <object id="99" name="beigehouse" type="object" x="1043" y="750" width="120" height="86.8333"/>
   <object id="102" name="gardenwest" type="object" x="962.5" y="82" width="13" height="204"/>
-  <object id="103" name="fruit1" type="object" x="641.5" y="98.5" width="96" height="20.5"/>
-  <object id="104" name="fruit2" type="object" x="738" y="124" width="13.5" height="45.5"/>
-  <object id="105" name="fruit3" type="object" x="706" y="148.5" width="30" height="18.5"/>
-  <object id="106" name="flowerbench" type="object" x="806" y="92" width="84.5" height="33"/>
-  <object id="107" name="sacks" type="object" x="480" y="98" width="31.5" height="29.5"/>
-  <object id="108" name="bread1" type="object" x="432.5" y="98.5" width="32.5" height="19.5"/>
-  <object id="109" name="bread2" type="object" x="338.5" y="99" width="13" height="18.5"/>
-  <object id="110" name="bread3" type="object" x="337.5" y="130" width="14" height="20"/>
-  <object id="111" name="fish1" type="object" x="241.5" y="98.5" width="62.5" height="21.5"/>
-  <object id="112" name="fishbarrels" type="object" x="133.5" y="97.5" width="19" height="63.5"/>
+ </objectgroup>
+ <objectgroup id="27" name="colliders">
+  <object id="106" name="flowerbench" type="object" x="806" y="92" width="84.5" height="33">
+   <properties>
+    <property name="message" value="Flowers"/>
+   </properties>
+  </object>
+  <object id="103" name="fruit1" type="object" x="641.5" y="98.5" width="96" height="20.5">
+   <properties>
+    <property name="message" value="Produce"/>
+   </properties>
+  </object>
+  <object id="104" name="fruit2" type="object" x="738" y="124" width="13.5" height="45.5">
+   <properties>
+    <property name="message" value="Produce"/>
+   </properties>
+  </object>
+  <object id="105" name="fruit3" type="object" x="706" y="148.5" width="30" height="18.5">
+   <properties>
+    <property name="message" value="Produce"/>
+   </properties>
+  </object>
+  <object id="100" name="purplehouse" type="object" x="1010.5" y="546.5" width="122.5" height="157.5">
+   <properties>
+    <property name="message" value="Locked"/>
+   </properties>
+  </object>
+  <object id="101" name="orangehouse3" type="object" x="1044" y="366" width="119" height="96.5">
+   <properties>
+    <property name="message" value="Locked"/>
+   </properties>
+  </object>
+  <object id="97" name="turquoisehouse" type="object" x="947.5" y="894.5" width="233" height="145">
+   <properties>
+    <property name="message" value="Locked"/>
+   </properties>
+  </object>
+  <object id="96" name="forestgreenhouse" type="object" x="1043.5" y="1136" width="121" height="96">
+   <properties>
+    <property name="message" value="Locked"/>
+   </properties>
+  </object>
+  <object id="95" name="pinkhouse" type="object" x="532.5" y="1010" width="120" height="158">
+   <properties>
+    <property name="message" value="Locked"/>
+   </properties>
+  </object>
+  <object id="98" name="orangehouse2" type="object" x="435" y="893.5" width="234.5" height="82">
+   <properties>
+    <property name="message" value="Locked"/>
+   </properties>
+  </object>
+  <object id="107" name="sacks" type="object" x="480" y="98" width="31.5" height="29.5">
+   <properties>
+    <property name="message" value="Flour, I guess?"/>
+   </properties>
+  </object>
+  <object id="108" name="bread1" type="object" x="432.5" y="98.5" width="32.5" height="19.5">
+   <properties>
+    <property name="message" value="Yummy bread"/>
+   </properties>
+  </object>
+  <object id="110" name="bread3" type="object" x="337.5" y="130" width="14" height="20">
+   <properties>
+    <property name="message" value="Smells fresh!"/>
+   </properties>
+  </object>
+  <object id="109" name="bread2" type="object" x="338.5" y="99" width="13" height="18.5">
+   <properties>
+    <property name="message" value="Stale bread"/>
+   </properties>
+  </object>
+  <object id="111" name="fish1" type="object" x="241.5" y="98.5" width="62.5" height="21.5">
+   <properties>
+    <property name="message" value="Fresh fish"/>
+   </properties>
+  </object>
+  <object id="112" name="fishbarrels" type="object" x="133.5" y="97.5" width="19" height="63.5">
+   <properties>
+    <property name="message" value="Fish"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer id="24" name="foreground" width="90" height="80">
   <data encoding="csv">
