@@ -591,6 +591,11 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     public void animationFrame(String textureName, int index) {
 		this.setRegion(ImageCache.getFrame(textureName, index));
     }
+    public void setMessage(String message) {
+        messages.add(message);
+        this.startMessage = messages.size() - 1;
+        this.stopMessage = messages.size();
+    }
     public void sayMessage(String message, String speakerOverrideName) {
         messages.add(message);
         this.startMessage = messages.size() - 1;

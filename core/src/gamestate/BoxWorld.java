@@ -244,9 +244,15 @@ public class BoxWorld extends GameState {
                         y
                     );
                     gc.setName(mo.getName());
-                    int start = mo.getProperties().get("startMessage", Integer.class);
-                    int end = mo.getProperties().get("stopMessage", Integer.class);
-					gc.setMessage(start, end);
+                    Integer start = mo.getProperties().get("startMessage", Integer.class);
+                    Integer end = mo.getProperties().get("stopMessage", Integer.class);
+                    if(start != null && end != null) {
+					    gc.setMessage(start, end);
+                    }
+                    String message = mo.getProperties().get("message", String.class);
+                    if(message != null) {
+                        gc.setMessage(message);
+                    }
                     gc.setPhases((String) mo.getProperties().get("phases"));
                     Float speed = mo.getProperties().get("speed", Float.class);
                     if(speed != null) {

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" width="100" height="85" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="91">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" width="100" height="85" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="94">
  <tileset firstgid="1" source="tileset_town_multi_v001.tsx"/>
  <tileset firstgid="561" source="house-body2.tsx"/>
- <tileset firstgid="593" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/roof-1.tsx"/>
- <tileset firstgid="605" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/roof-3.tsx"/>
- <tileset firstgid="606" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/roof-4.tsx"/>
- <tileset firstgid="618" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/building-details.tsx"/>
- <tileset firstgid="658" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/roof.tsx"/>
- <tileset firstgid="718" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/roof-2.tsx"/>
- <tileset firstgid="719" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/window.tsx"/>
- <tileset firstgid="734" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/door.tsx"/>
- <tileset firstgid="737" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/tiles/plants.tsx"/>
+ <tileset firstgid="593" source="roof-1.tsx"/>
+ <tileset firstgid="605" source="roof-3.tsx"/>
+ <tileset firstgid="606" source="roof-4.tsx"/>
+ <tileset firstgid="618" source="building-details.tsx"/>
+ <tileset firstgid="658" source="roof.tsx"/>
+ <tileset firstgid="718" source="roof-2.tsx"/>
+ <tileset firstgid="719" source="window.tsx"/>
+ <tileset firstgid="734" source="door.tsx"/>
+ <tileset firstgid="737" source="tiles/plants.tsx"/>
  <tileset firstgid="1249" source="plants16x16.tsx"/>
  <tileset firstgid="1761" source="terrain.tsx"/>
  <tileset firstgid="2785" source="PathAndObjects.tsx"/>
@@ -879,6 +879,23 @@
   <object id="88" name="river15" type="object" x="337.333" y="1191.33" width="162.667" height="14"/>
   <object id="89" name="planter4-1" type="object" x="1352.67" y="931.333" width="18" height="10"/>
   <object id="90" name="planter4-2" type="object" x="1418" y="930" width="15.3333" height="12"/>
+ </objectgroup>
+ <objectgroup id="14" name="characters">
+  <object id="91" name="OldMan" x="174.333" y="212.333" width="14" height="14">
+   <properties>
+    <property name="character" value="OldMan"/>
+    <property name="message" value="Hello"/>
+    <property name="phases" value=""/>
+   </properties>
+  </object>
+  <object id="93" name="Man" x="218.333" y="255.667" width="14" height="14">
+   <properties>
+    <property name="character" value="Townfolk3"/>
+    <property name="message">Hey, you wanna fight?
+Oh, sorry, I thought you were someone else.</property>
+    <property name="phases" value=""/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="13" name="doors">
   <object id="35" name="tocliffs" x="1252.5" y="5.25" width="218" height="119.5">
