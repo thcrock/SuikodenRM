@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" width="100" height="85" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="94">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" width="100" height="85" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="98">
  <tileset firstgid="1" source="tileset_town_multi_v001.tsx"/>
  <tileset firstgid="561" source="house-body2.tsx"/>
  <tileset firstgid="593" source="roof-1.tsx"/>
@@ -881,11 +881,12 @@
   <object id="90" name="planter4-2" type="object" x="1418" y="930" width="15.3333" height="12"/>
  </objectgroup>
  <objectgroup id="14" name="characters">
-  <object id="91" name="OldMan" x="174.333" y="212.333" width="14" height="14">
+  <object id="91" name="OldMan" x="109" y="444.333" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
-    <property name="message" value="Hello"/>
-    <property name="phases" value=""/>
+    <property name="message" value="I like to look at all the gardens on Vine Street. I'd do it all day if I could."/>
+    <property name="phases" value="u-10;p-4;d-20;r-205;u-1;p-4;d-1;r-200;u-1;p-4;d-1;r-400;u-1;p-4;d-1;r-420;p-4;l-820;d-30;p-4;u-30;l-405"/>
+    <property name="speed" type="float" value="30"/>
    </properties>
   </object>
   <object id="93" name="Man" x="218.333" y="255.667" width="14" height="14">
@@ -894,6 +895,30 @@
     <property name="message">Hey, you wanna fight?
 Oh, sorry, I thought you were someone else.</property>
     <property name="phases" value=""/>
+   </properties>
+  </object>
+  <object id="94" name="Lady" x="634.667" y="201.333">
+   <properties>
+    <property name="character" value="Townfolk2"/>
+    <property name="message" value="The daisies in the Hendersons' garden are so nice. If only they would let me in!"/>
+    <property name="phases" value="r-500;d-250;r-210;p-5;l-210;u-250;l-500;p-5"/>
+    <property name="speed" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="96" name="Person" x="1384" y="197.333" width="20" height="24">
+   <properties>
+    <property name="character" value="Townfolk3"/>
+    <property name="message" value="Roundier Haia? Haven't seen him."/>
+    <property name="phases" value="l-250;d-250;l-1000;u-250;r-1250"/>
+    <property name="speed" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="97" name="Gardener" x="596" y="513.333">
+   <properties>
+    <property name="character" value="Townfolk2"/>
+    <property name="message" value="I'm so glad the rain picked up! The flowers are loving it."/>
+    <property name="phases" value="u-25;l-70;d-25;p-10;u-25;r-70;d-25;p-10;"/>
+    <property name="speed" type="float" value="60"/>
    </properties>
   </object>
  </objectgroup>
@@ -918,7 +943,7 @@ Oh, sorry, I thought you were someone else.</property>
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" x="164.816" y="150.613">
+  <object id="1" name="spawn1" x="440.816" y="459.946">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
