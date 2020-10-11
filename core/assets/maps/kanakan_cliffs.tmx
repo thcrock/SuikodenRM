@@ -3,10 +3,10 @@
  <tileset firstgid="1" source="tileset_town_multi_v001.tsx"/>
  <tileset firstgid="561" source="terrain.tsx"/>
  <tileset firstgid="1585" source="house-body2.tsx"/>
- <tileset firstgid="1617" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/roof-3.tsx"/>
- <tileset firstgid="1618" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/building-details.tsx"/>
- <tileset firstgid="1658" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/window.tsx"/>
- <tileset firstgid="1673" source="../../../../../../../home/thcrock/src/SuikodenRM/core/assets/maps/door.tsx"/>
+ <tileset firstgid="1617" source="roof-3.tsx"/>
+ <tileset firstgid="1618" source="building-details.tsx"/>
+ <tileset firstgid="1658" source="window.tsx"/>
+ <tileset firstgid="1673" source="door.tsx"/>
  <layer id="3" name="background" width="40" height="80">
   <data encoding="csv">
 685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,685,
