@@ -16,8 +16,8 @@ import com.orangeegames.suikorm.SuikodenRM;
 
 public class Friend extends GameWorldCharacter {
     BoxWorld boxWorld;
-    Player player;
     float distanceLastTime;
+    boolean initiallyAttached = false;
 
 	public Friend(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
 		super(firstFrame, bw, x, y);
@@ -57,16 +57,19 @@ public class Friend extends GameWorldCharacter {
 
 	public void update(float delta) {
         super.update(delta);
-        this.player = boxWorld.getPlayer();
-        if(player != null && !isInScript) {
-            float distance = player.getPosition().dst2(this.getPosition());
+        if(!initiallyAttached) {
+            this.attachTo(boxWorld.getPlayer());
+            initiallyAttached = true;
+        }
+        if(this.attachedCharacter != null && !isInScript) {
+            float distance = this.attachedCharacter.getPosition().dst2(this.getPosition());
 
             if (distance > distanceLastTime && distance > 1000) {
-                this.setSpeed(player.getSpeed());
-                this.setRight(player.isRight());
-                this.setLeft(player.isLeft());
-                this.setUp(player.isUp());
-                this.setDown(player.isDown());
+                this.setSpeed(this.attachedCharacter.getSpeed());
+                this.setRight(this.attachedCharacter.isRight());
+                this.setLeft(this.attachedCharacter.isLeft());
+                this.setUp(this.attachedCharacter.isUp());
+                this.setDown(this.attachedCharacter.isDown());
             } else if (distance < 250) {
                 this.setSpeed(0);
             }

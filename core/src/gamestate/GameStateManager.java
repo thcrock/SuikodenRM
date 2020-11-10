@@ -42,7 +42,7 @@ public class GameStateManager implements InputProcessor{
 	
 	private void loadState (int state) {
 		if(state == LEVELSTATE) {
-			gameState[state] = new BoxWorld(new Door("kanakan_residential", 1));
+			gameState[state] = new BoxWorld(new Door("kanakan_bars", 1));
 		}
 		if(state == ATTACKSTATE) {
 			//gameState[state] = new FightingState((BoxWorld) gameState[LEVELSTATE]);

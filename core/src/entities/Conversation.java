@@ -33,7 +33,8 @@ public class Conversation {
     Script script;
     int currentActionIndex = -1;
     boolean waiting = false;
-    HashSet<String> triggers;
+    HashSet<String> scriptTriggers;
+    HashSet<String> objectTriggers;
     HashMap<String, Scriptable> characters;
     HashSet<Scriptable> usedCharacters;
     Dialogue dialogue;
@@ -44,13 +45,13 @@ public class Conversation {
     NodeCompleteResult node_complete = null;
     CommandResult command = null;
 
-    public Conversation(String convoName, String onlyTriggerIf) {
+    public Conversation(String convoName, String onlyTriggerIfScript) {
         name = convoName;
-        triggers = new HashSet();
-        if(onlyTriggerIf != null) {
-            String[] trigger = onlyTriggerIf.split("\\|");
+        scriptTriggers = new HashSet();
+        if(onlyTriggerIfScript != null) {
+            String[] trigger = onlyTriggerIfScript.split("\\|");
             for(String t : trigger) {
-                triggers.add(t);
+                scriptTriggers.add(t);
             }
         }
         DialogueData data = new DialogueData(convoName);
@@ -63,7 +64,11 @@ public class Conversation {
     }
 
     public HashSet<String> getTriggers() {
-        return this.triggers;
+        return this.scriptTriggers;
+    }
+
+    public HashSet<String> getObjectTriggers() {
+        return this.objectTriggers;
     }
 
     public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player) {
@@ -190,6 +195,16 @@ public class Conversation {
                     character.startScript();
                 }
                 currentAction.perform(character);
+            } else if(commandName.equals("coupleMovementAndAnimation")) {
+                scripting.CoupleMovementAndAnimation action = new scripting.CoupleMovementAndAnimation();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("hide")) {
                 scripting.Hide action = new scripting.Hide();
                 action.character = params[1];
@@ -203,6 +218,50 @@ public class Conversation {
             } else if(commandName.equals("unhide")) {
                 scripting.UnHide action = new scripting.UnHide();
                 action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("disableCollisions")) {
+                scripting.DisableCollisions action = new scripting.DisableCollisions();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("enableCollisions")) {
+                scripting.EnableCollisions action = new scripting.EnableCollisions();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("attachTo")) {
+                scripting.AttachTo action = new scripting.AttachTo();
+                action.character = params[1];
+                String followedCharName = params[2];
+                action.attachedCharacter = characters.get(followedCharName);
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("detachFrom")) {
+                scripting.DetachFrom action = new scripting.DetachFrom();
+                action.character = params[1];
+                String followedCharName = params[2];
+                action.attachedCharacter = characters.get(followedCharName);
                 currentAction = action;
                 Scriptable character = characters.get(action.character);
                 if(!usedCharacters.contains(character)) {

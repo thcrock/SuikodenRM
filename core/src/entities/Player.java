@@ -12,6 +12,9 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.orangeegames.suikorm.SuikodenRM;
 
 public class Player extends DrawableBox2D implements Scriptable {
@@ -429,7 +432,32 @@ public class Player extends DrawableBox2D implements Scriptable {
     public void decoupleMovementAndAnimation() {
         this.coupleMovementAndAnimation = false;
     }
+    public void coupleMovementAndAnimation() {
+        this.coupleMovementAndAnimation = true;
+    }
     public void hasFinishedTalking() {
         this.currentlyTalking = false;
+    }
+    public void disableCollisions() {
+        body.setType(BodyDef.BodyType.KinematicBody);
+        for (Fixture f : body.getFixtureList()) {
+            Filter filterData = f.getFilterData();
+            filterData.categoryBits = 0x0000;
+            f.setFilterData(filterData);
+        }
+        body.setAwake(false);
+    }
+    public void enableCollisions() {
+        body.setType(BodyDef.BodyType.DynamicBody);
+        for (Fixture f : body.getFixtureList()) {
+            Filter filterData = f.getFilterData();
+            filterData.categoryBits = 0x0001;
+            f.setFilterData(filterData);
+        }
+        body.setAwake(true);
+    }
+    public void attachTo(Scriptable character) {
+    }
+    public void detachFrom(Scriptable character) {
     }
 }

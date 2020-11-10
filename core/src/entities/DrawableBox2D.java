@@ -15,6 +15,7 @@ public abstract class DrawableBox2D extends Box2DSprite implements Comparable<Dr
         boolean hidden = false;
        
         public abstract void interact(Player player);
+	    public void update(float delta) {}
        
         public DrawableBox2D(TextureRegion initialSprite) {
         	super(initialSprite);
@@ -45,5 +46,6 @@ public abstract class DrawableBox2D extends Box2DSprite implements Comparable<Dr
         public Body getBody() {
         	return body;
         }
+
 }
 

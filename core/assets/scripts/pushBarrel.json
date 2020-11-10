@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<detachFrom Renata Mia>>\nMia: ...Let's try standing on this! Maybe we can reach it!\n<<disableCollisions Mia>>\n<<moveUp Mia 30 60>>\nMia: Just...can't...reach it....\n<<moveDown Mia 30 60>>\nRenata: What do we do?\n<<enableCollisions Mia>>\n<<attachTo Renata Mia>>\n",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+]

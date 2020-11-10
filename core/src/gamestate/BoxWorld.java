@@ -47,6 +47,7 @@ import entities.Player;
 import entities.Spawn;
 import entities.StoryScene;
 import entities.Conversation;
+import entities.Barrel;
 
 public class BoxWorld extends GameState {
 
@@ -76,6 +77,7 @@ public class BoxWorld extends GameState {
 	public ArrayList<Spawn> mapSpawns;
 	public static short PLAYER = 0x0001;
 	public static short DOOR = 0x0002;
+    public static short OBJECT = 0x0004;
 	
     Body bodyToDestroy;
 	Door swapDoor;
@@ -143,6 +145,22 @@ public class BoxWorld extends GameState {
 					System.out.println("Test5");
 				}
 			}
+			if(layerTypeString.equals("objects")) {
+				Iterator<MapObject> moIterator = ml.getObjects().iterator();
+				while(moIterator.hasNext()) {
+					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
+                    String objectName = mo.getName();
+                    if(objectName.equals("Barrel")) {
+                        Barrel b = new Barrel(
+                            this,
+                            (mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale,
+
+                            (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale
+                        );
+                        drawableBoxes.add(b);
+                    }
+				}
+			}
             if(layerTypeString.equals("colliders")) {
 				System.out.println("Colliders");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
@@ -196,12 +214,13 @@ public class BoxWorld extends GameState {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
 					
 					String convoName = (String) mo.getProperties().get("convoName");
+                    int triggerMask = mo.getProperties().get("triggerMask", (int)PLAYER, Integer.class);
 					System.out.println(convoName);
 					PolygonShape ps = new PolygonShape();
 					ps.setAsBox((mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().height/2)*SuikodenRM.scale);
 					FixtureDef fixtureScript = new FixtureDef();
 					fixtureScript.filter.categoryBits = DOOR;
-					fixtureScript.filter.maskBits = PLAYER;
+					fixtureScript.filter.maskBits = (short)triggerMask;
 					fixtureScript.isSensor = true;
 					fixtureScript.shape = ps;
 					BodyDef scriptBodyDef = new BodyDef();
@@ -209,8 +228,8 @@ public class BoxWorld extends GameState {
 					Body scriptBody = world.createBody(scriptBodyDef);
 					
 					scriptBody.createFixture(fixtureScript);
-                    String onlyTriggerIf = (String) mo.getProperties().get("onlyTriggerIf");
-					Conversation scene = new Conversation(convoName, onlyTriggerIf);
+                    String onlyTriggerIfScript = (String) mo.getProperties().get("onlyTriggerIfScript");
+					Conversation scene = new Conversation(convoName, onlyTriggerIfScript);
 					scriptBody.setUserData(scene);
 				}
 			}
@@ -433,8 +452,11 @@ public class BoxWorld extends GameState {
                     }
                 }
 				for(GameWorldCharacter gc : characters) {
-					gc.update(delta);
+					//gc.update(delta);
 				}
+                for(DrawableBox2D db2d : drawableBoxes) {
+                    db2d.update(delta);
+                }
 			}
 			
 			//camera.zoom = 5;

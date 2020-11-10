@@ -91,6 +91,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     private int phaseIndex = -1;
     private float pauseSeconds = 0;
     private boolean coupleMovementAndAnimation = true;
+    protected Scriptable attachedCharacter = null;
 
 	public GameWorldCharacter(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
 		super(firstFrame);
@@ -203,6 +204,13 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     }
 	
 	public void update(float delta) {
+        if(this.attachedCharacter != null && isInScript) {
+            this.setSpeed(this.attachedCharacter.getSpeed());
+            this.setRight(this.attachedCharacter.isRight());
+            this.setLeft(this.attachedCharacter.isLeft());
+            this.setUp(this.attachedCharacter.isUp());
+            this.setDown(this.attachedCharacter.isDown());
+        }
 		if(left) {
 			dx = -speed;
 			if(dx < -maxSpeed) {
@@ -617,6 +625,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     public void decoupleMovementAndAnimation() {
         this.coupleMovementAndAnimation = false;
     }
+    public void coupleMovementAndAnimation() {
+        this.coupleMovementAndAnimation = true;
+    }
     public void giveChoices(String[] choices) {}
     public int getCurrentChoice() {
         return -1;
@@ -624,5 +635,17 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     public void setCurrentChoice(int choice) {}
     public void hasFinishedTalking() {
         this.currentlyTalking = false;
+    }
+    public void disableCollisions() {
+        body.setType(BodyDef.BodyType.KinematicBody);
+    }
+    public void enableCollisions() {
+        body.setType(BodyDef.BodyType.DynamicBody);
+    }
+    public void attachTo(Scriptable character) {
+        this.attachedCharacter = character;
+    }
+    public void detachFrom(Scriptable character) {
+        this.attachedCharacter = null;
     }
 }
