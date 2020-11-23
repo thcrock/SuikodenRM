@@ -1,11 +1,18 @@
-SuikodenRM
+Kanakan Stories, Vol 1
 ==========
 
 This is a game created by the SuikodenRM engine.
 
 ## Running
 
-I haven't quite figured out how to package this up yet, but you can run it with gradle. If you have a Java Runtime Environment (JRE) installed (I'm using Java 11), you should be able to clone this repository, navigate to the directory, and type 'gradle run'.
+### With Gradle 
+If you have a Java Runtime Environment (JRE) installed (I'm using Java 11), you should be able to clone this repository, navigate to the directory, and type 'gradle run'.
+
+### Building a JAR
+To build a JAR for wider distribution:
+1. Navigate to desktop/ directory
+2. Run 'gradle dist'
+3. Resulting .jar file (desktop/build/libs/desktop-1.0.jar) should be ready for distribution
 
 ### How to create your own map
 
@@ -31,7 +38,8 @@ Then it's just adding them to your .tmx with adding a new square into the "chara
 
 ### Contact
 
-If you want to tell me anything, please mail me at OrangeeGames [at] gmail.com or go to http://www.suikosource.com/phpBB3/viewtopic.php?f=68&t=13972 and send me a reply.
+Email me at thcsquad [at] gmail.com
+Engine initially created by: OrangeeGames [at] gmail.com
 
 
 
