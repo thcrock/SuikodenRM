@@ -381,8 +381,7 @@ public class BoxWorld extends GameState {
                         currentConversation = null;
                         return;
                     }
-					System.out.println(currentConversation);
-                    currentConversation.initialize(characters, player);
+                    SuikodenRM.gsm.triggerConversation(currentConversation);
                 }
 			}
 			@Override

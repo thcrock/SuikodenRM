@@ -25,13 +25,13 @@ public class Barrel extends DrawableBox2D {
 		body = bw.getWorld().createBody(barrelBody);
 		body.setUserData(this);
         body.setFixedRotation(true);
-        body.setLinearDamping(2);
+        body.setLinearDamping(1.5f);
 		PolygonShape shape = new PolygonShape();
 		shape.setAsBox(10*SuikodenRM.scale, 20*SuikodenRM.scale);
         FixtureDef fdef = new FixtureDef();
         fdef.shape = shape;
         fdef.density = 0.2f;
-        fdef.friction = 0.9f;
+        fdef.friction = 0.8f;
         fdef.restitution = 0.5f;
         fdef.filter.categoryBits = 0x0004;
 		body.createFixture(fdef);
