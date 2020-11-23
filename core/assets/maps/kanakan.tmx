@@ -1292,7 +1292,7 @@
   <object id="32" name="haiaRunPast" x="675" y="867" width="266" height="35.5">
    <properties>
     <property name="convoName" value="haiaRunPast"/>
-    <property name="onlyTriggerIf2" value="fishMonger|fruitStand|bakeryConversation"/>
+    <property name="onlyTriggerIfScript" value="fishMonger|fruitStand|bakeryConversation"/>
    </properties>
   </object>
   <object id="115" name="trespassing" x="1044" y="839.333" width="121.333" height="9.33333">
