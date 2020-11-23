@@ -43,7 +43,6 @@ public class Townfolk2 extends GameWorldCharacter {
                 ImageCache.getFrame("townfolk02", 6), 
 				ImageCache.getFrame("townfolk02", 10), 
 				});
-        System.out.println(this.downAnim);
 		
 		this.currentWalkAnim = this.downAnim;
 		facePicture = ImageCache.getTexture("townfolk02_07");

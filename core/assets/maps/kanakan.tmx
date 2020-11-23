@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="90" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="29" nextobjectid="118">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="90" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="29" nextobjectid="118">
+ <properties>
+  <property name="musicTrackName" value="Kanakan.ogg"/>
+ </properties>
  <tileset firstgid="1" name="dirt" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="tiles/tileset_dirt/tileset1.png" width="48" height="48"/>
  </tileset>
@@ -1289,7 +1292,7 @@
   <object id="32" name="haiaRunPast" x="690" y="867" width="236" height="35.5">
    <properties>
     <property name="convoName" value="haiaRunPast"/>
-    <property name="onlyTriggerIf2" value="fishMonger|fruitStand|bakeryConversation"/>
+    <property name="onlyTriggerIfScript" value="fishMonger|fruitStand|bakeryConversation"/>
    </properties>
   </object>
   <object id="115" name="trespassing" x="1044" y="839.333" width="121.333" height="9.33333">

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" width="90" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="77">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="90" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="78">
+ <properties>
+  <property name="musicTrackName" value="kanakan_bars.ogg"/>
+ </properties>
  <tileset firstgid="1" source="tileset_town_multi_v001.tsx"/>
  <tileset firstgid="561" source="terrain.tsx"/>
  <tileset firstgid="1585" source="tiles/plants.tsx"/>
@@ -335,6 +338,14 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2095,0
 </data>
  </layer>
+ <objectgroup id="17" name="doors">
+  <object id="77" name="toresidential" x="80" y="223.5" width="21" height="161">
+   <properties>
+    <property name="toName" value="kanakan_residential"/>
+    <property name="toSpawnNumber" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <layer id="6" name="2.5" width="90" height="42">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -474,12 +485,11 @@
 </data>
  </layer>
  <objectgroup id="2" name="sketch">
-  <object id="1" name="spawn/exit back to residential" x="105.333" y="261.667" width="79" height="60"/>
   <object id="2" name="river" x="196" y="525" width="1161" height="41"/>
   <object id="26" name="people on boat" x="1109.33" y="534.667" width="208" height="29.3333"/>
  </objectgroup>
  <objectgroup id="8" name="spawns">
-  <object id="29" name="spawn1" x="294.334" y="246.667" width="32.6667" height="14">
+  <object id="29" name="spawn1" x="124.834" y="251.667" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
@@ -515,7 +525,7 @@
     <property name="onlyTriggerIfScript" value="stealChair"/>
    </properties>
   </object>
-  <object id="75" name="stealChair" x="1126.75" y="353.25" width="15.5" height="10.5">
+  <object id="75" name="stealChair" x="1109.75" y="353.25" width="55.5" height="10.5">
    <properties>
     <property name="convoName" value="stealChair"/>
     <property name="onlyTriggerIfScript" value="noticeChair"/>
@@ -528,7 +538,7 @@
   </object>
  </objectgroup>
  <objectgroup id="11" name="characters">
-  <object id="35" name="Renata" x="298.17" y="285.333" width="14" height="14">
+  <object id="35" name="Renata" x="124.67" y="278.333" width="14" height="14">
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>

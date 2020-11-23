@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-up" width="100" height="85" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="107">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="100" height="85" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="109">
+ <properties>
+  <property name="musicTrackName" value="Kanakan.ogg"/>
+ </properties>
  <tileset firstgid="1" source="tileset_town_multi_v001.tsx"/>
  <tileset firstgid="561" source="house-body2.tsx"/>
  <tileset firstgid="593" source="roof-1.tsx"/>
@@ -1003,11 +1006,25 @@ Oh, sorry, I thought you were someone else.</property>
     <property name="toSpawnNumber" value="1"/>
    </properties>
   </object>
+  <object id="108" name="Renata" x="197.667" y="155.667" width="14" height="14">
+   <properties>
+    <property name="character" value="Friend"/>
+    <property name="phases" value=""/>
+    <property name="speed" type="float" value="120"/>
+    <property name="startMessage" type="int" value="0"/>
+    <property name="stopMessage" type="int" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
   <object id="1" name="spawn1" x="152.816" y="129.279" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="107" name="spawn2" x="1286.33" y="695.667" width="32.6667" height="14">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>

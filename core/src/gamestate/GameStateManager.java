@@ -21,6 +21,7 @@ public class GameStateManager implements InputProcessor{
 	GameState[] gameState;
 	SuikodenRM relation;
     HashSet<String> completedScripts;
+    MusicManager musicManager;
 	
 	public int currentState;
 	
@@ -30,19 +31,21 @@ public class GameStateManager implements InputProcessor{
 	public static final int ATTACKSTATE = 2;
 			
 	public GameStateManager (SuikodenRM rel) {
+        musicManager = new MusicManager();
 		gameState = new GameState[NUMGAMESTATES];
 		ImageCache.load();
 		relation = rel;
         completedScripts = new HashSet<String>();
 		
 		currentState = LEVELSTATE;
-		loadState(currentState);
-
+		loadState(currentState, new Door("kanakan", 1));
 	}
 	
-	private void loadState (int state) {
+	private void loadState (int state, Door door) {
 		if(state == LEVELSTATE) {
-			gameState[state] = new BoxWorld(new Door("kanakan_bars", 1));
+            BoxWorld newWorld = new BoxWorld(door);
+		    gameState[currentState] = newWorld; 
+            this.musicManager.playTrack(newWorld.musicTrackName);
 		}
 		if(state == ATTACKSTATE) {
 			//gameState[state] = new FightingState((BoxWorld) gameState[LEVELSTATE]);
@@ -53,12 +56,12 @@ public class GameStateManager implements InputProcessor{
 		gameState[state] = null;
 	}
 	
-	public void setState(int state) {
-		unloadState(state);
-		currentState = state;
-		loadState(state);
-		relation.changeScreen();
-	}
+	//public void setState(int state) {
+		//unloadState(state);
+		//currentState = state;
+		//loadState(state);
+		//relation.changeScreen();
+	//}
 	
 	public void setPauseState() {
 		BoxWorld oldState = (BoxWorld) gameState[currentState];
@@ -101,7 +104,7 @@ public class GameStateManager implements InputProcessor{
 	
 	public void changeWorld(Door door) {
 		unloadState(currentState);
-		gameState[currentState] = new BoxWorld(door);
+        loadState(currentState, door);
 		relation.changeScreen();
 	}
 	

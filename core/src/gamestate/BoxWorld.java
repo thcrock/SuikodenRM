@@ -63,7 +63,7 @@ public class BoxWorld extends GameState {
     ArrayList<Collider> colliders;
     StoryScene currentScene;
 	Conversation currentConversation;
-    Music music;
+    public String musicTrackName;
 
 	
 	boolean disposeThis = false;
@@ -83,6 +83,7 @@ public class BoxWorld extends GameState {
 	Door swapDoor;
 	
 	public BoxWorld(Door fromDoor) {
+        System.out.println("New boxworld");
 		this.fromDoor = fromDoor;
 		
 		foregrounds = new ArrayList<TiledMapTileLayer>();
@@ -97,9 +98,6 @@ public class BoxWorld extends GameState {
 		walkableDoors = new ArrayList<Door>();
 		
 		mapSpawns = new ArrayList<Spawn>();
-        music = Gdx.audio.newMusic(Gdx.files.internal("music/Kanakan.ogg"));
-        music.setLooping(true);
-        music.play();
 		
 		initiate(fromDoor);
 	}
@@ -113,36 +111,31 @@ public class BoxWorld extends GameState {
 		Box2DMapObjectParser parser = new Box2DMapObjectParser(SuikodenRM.scale);
 
 		parser.load(world, map);
+
+        this.musicTrackName = (String) map.getProperties().get("musicTrackName");
 		
 		Iterator<MapLayer> mlIterator = map.getLayers().iterator();
 		while(mlIterator.hasNext()) {
 			MapLayer ml = mlIterator.next();
 			
 			String layerTypeString = ml.getName();
-			System.out.println(layerTypeString);
 		
 			if(layerTypeString.equals("foreground")) {
-				System.out.println("Test1");
 				foregrounds.add((TiledMapTileLayer) ml);
 			}
 			if(layerTypeString.equals("background")) {
-				System.out.println("Test2");
 				backgrounds.add((TiledMapTileLayer) ml);
 			}
 			if(layerTypeString.contains("2.5")) {
-				System.out.println("Test3");
 				objectLayers.add((TiledMapTileLayer) ml);
 			}
 			if(layerTypeString.equals("chests")) {
-				System.out.println("Test4");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
 					AbstractChest ac = new AbstractChest(false, this, (mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale);
 					drawableBoxes.add(ac);
-					System.out.println(mo.getRectangle().x);
 					//AbstractChest ac = new AbstractChest(false, this, 180, 180);
-					System.out.println("Test5");
 				}
 			}
 			if(layerTypeString.equals("objects")) {
@@ -162,7 +155,6 @@ public class BoxWorld extends GameState {
 				}
 			}
             if(layerTypeString.equals("colliders")) {
-				System.out.println("Colliders");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
@@ -182,15 +174,12 @@ public class BoxWorld extends GameState {
 				}
             }
 			if(layerTypeString.equals("doors")) {
-				System.out.println("Doors");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
 					
 					String toName = (String) mo.getProperties().get("toName");
 					Integer toNumber = Integer.parseInt((String) mo.getProperties().get("toSpawnNumber"));
-					System.out.println(toName);
-					System.out.println(toNumber);
 					PolygonShape ps = new PolygonShape();
 					ps.setAsBox((mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().height/2)*SuikodenRM.scale);
 					FixtureDef fixtureDoor = new FixtureDef();
@@ -208,14 +197,12 @@ public class BoxWorld extends GameState {
 				}
 			}
 			if(layerTypeString.equals("scripts")) {
-				System.out.println("Scripts");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
 					
 					String convoName = (String) mo.getProperties().get("convoName");
                     int triggerMask = mo.getProperties().get("triggerMask", (int)PLAYER, Integer.class);
-					System.out.println(convoName);
 					PolygonShape ps = new PolygonShape();
 					ps.setAsBox((mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().height/2)*SuikodenRM.scale);
 					FixtureDef fixtureScript = new FixtureDef();
@@ -234,7 +221,6 @@ public class BoxWorld extends GameState {
 				}
 			}
 			if(layerTypeString.equals("spawns")) {
-				System.out.println("Spawny Time");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
@@ -248,7 +234,6 @@ public class BoxWorld extends GameState {
 				}
 			}
 			if(layerTypeString.equals("characters")) {
-				System.out.println("Character Generation");
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
@@ -286,9 +271,7 @@ public class BoxWorld extends GameState {
                         gc.setConversation(new Conversation(convoName, null));
                     }
                     boolean hidden = mo.getProperties().get("hidden", false, Boolean.class);
-                    System.out.println(hidden);
                     if(hidden) {
-                        System.out.println("I am hiding this character!!!!!!!!!!!!!!");
                         gc.hide();
                     }
 					drawableBoxes.add(gc);
@@ -353,7 +336,6 @@ public class BoxWorld extends GameState {
 					disposeThis = true;
 					swapDoor = door;
 				} else if (bodyA.getUserData() instanceof Conversation || bodyB.getUserData() instanceof Conversation) {
-                    System.out.println("In conversation checker");
                     if(currentConversation != null) {
                         return;
                     }
@@ -363,15 +345,6 @@ public class BoxWorld extends GameState {
                     } else {
                         currentConversation = (Conversation) bodyB.getUserData();
                         bodyToDestroy = bodyB;
-                    }
-                    System.out.println(currentConversation.getTriggers().isEmpty());
-                    System.out.println("convo triggers");
-                    for(String s : currentConversation.getTriggers()) {
-                        System.out.println(s);
-                    }
-                    System.out.println("completed scripts");
-                    for(String s : SuikodenRM.gsm.getCompletedScripts()) {
-                        System.out.println(s);
                     }
                     if(
                         !currentConversation.getTriggers().isEmpty() &&
@@ -553,7 +526,6 @@ public class BoxWorld extends GameState {
 							db2d.interact(player);
 							return true;
 						}
-                        System.out.println(fixture.getUserData());
                         if(fixture.getBody().getUserData() instanceof Collider) {
                             Collider col = ((Collider) fixture.getBody().getUserData());
                             col.interact(player);

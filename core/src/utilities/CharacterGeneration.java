@@ -25,7 +25,6 @@ public class CharacterGeneration {
 
 	
 	public static GameWorldCharacter getWorldCharacter(String name, BoxWorld bw, float x, float y) {
-        System.out.println(name);
 		if(name.equals("Killey")) return new Killey(ImageCache.getFrame("killeyWalkLeft", 2), bw, x, y);
 		else if(name.equals("Leknaat")) return new Leknaat(ImageCache.getFrame("leknaatWalkLeft", 2), bw, x, y);
 		else if(name.equals("Clive")) return new Clive(ImageCache.getFrame("cliveWalkLeft", 2), bw, x, y);
