@@ -1289,10 +1289,10 @@
     <property name="scriptName" value="friendSpar"/>
    </properties>
   </object>
-  <object id="32" name="haiaRunPast" x="690" y="867" width="236" height="35.5">
+  <object id="32" name="haiaRunPast" x="675" y="867" width="266" height="35.5">
    <properties>
     <property name="convoName" value="haiaRunPast"/>
-    <property name="onlyTriggerIfScript" value="fishMonger|fruitStand|bakeryConversation"/>
+    <property name="onlyTriggerIf2" value="fishMonger|fruitStand|bakeryConversation"/>
    </properties>
   </object>
   <object id="115" name="trespassing" x="1044" y="839.333" width="121.333" height="9.33333">
@@ -1307,14 +1307,14 @@
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="117" name="spawn2" type="1" x="834.5" y="1066" width="32" height="8">
+  <object id="117" name="spawn2" type="1" x="831" y="1106" width="32" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="28" name="doors">
-  <object id="116" name="toresidential" x="696" y="1239" width="279" height="33.5">
+  <object id="116" name="toresidential" x="525" y="1167.5" width="660.5" height="111.5">
    <properties>
     <property name="toName" value="kanakan_residential"/>
     <property name="toSpawnNumber" value="1"/>
