@@ -59,32 +59,32 @@ public class Player extends DrawableBox2D implements Scriptable {
     private int currentChoice = -1;
 	
 	private static GameAnimation leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("girlbluehair", 10), 
-			ImageCache.getFrame("girlbluehair", 11), 
-			ImageCache.getFrame("girlbluehair", 12), 
+			ImageCache.getFrame("mia", 10), 
+			ImageCache.getFrame("mia", 11), 
+			ImageCache.getFrame("mia", 12), 
 			});
 	
 	private static GameAnimation upAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("girlbluehair", 1), 
-			ImageCache.getFrame("girlbluehair", 2), 
-			ImageCache.getFrame("girlbluehair", 3), 
+			ImageCache.getFrame("mia", 1), 
+			ImageCache.getFrame("mia", 2), 
+			ImageCache.getFrame("mia", 3), 
 			});
 
 	private static GameAnimation rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("girlbluehair", 4), 
-			ImageCache.getFrame("girlbluehair", 5), 
-			ImageCache.getFrame("girlbluehair", 6), 
+			ImageCache.getFrame("mia", 4), 
+			ImageCache.getFrame("mia", 5), 
+			ImageCache.getFrame("mia", 6), 
 	        });
 	
 	private static GameAnimation downAnim = new GameAnimation(0.2f, new TextureRegion[]{
-			ImageCache.getFrame("girlbluehair", 7), 
-			ImageCache.getFrame("girlbluehair", 8), 
-			ImageCache.getFrame("girlbluehair", 9), 
+			ImageCache.getFrame("mia", 7), 
+			ImageCache.getFrame("mia", 8), 
+			ImageCache.getFrame("mia", 9), 
 			});
 	
 	
 	public Player(Body body) {
-		super(new TextureRegion(ImageCache.getFrame("girlbluehair", 7)));
+		super(new TextureRegion(ImageCache.getFrame("mia", 7)));
 		
 		//sprite = new TextureRegion(ImageCache.getFrame("riouWalkDown", 2));
 		currentWalkAnim = downAnim;
@@ -92,7 +92,7 @@ public class Player extends DrawableBox2D implements Scriptable {
         this.name = "Mia";
 		
 		setAdjustWidth(false);
-        TextureRegion exampleSprite = new TextureRegion(ImageCache.getFrame("girlbluehair", 7));
+        TextureRegion exampleSprite = new TextureRegion(ImageCache.getFrame("mia", 7));
     	setHeight(exampleSprite.getRegionHeight()*SuikodenRM.scale*0.5f);
     	setWidth(exampleSprite.getRegionWidth()*SuikodenRM.scale*0.5f);
     	this.setCenterX(10);
