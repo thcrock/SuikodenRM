@@ -27,31 +27,31 @@ public class Friend extends GameWorldCharacter {
 		name = "Renata";
 		
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("friend", 7), 
-                ImageCache.getFrame("friend", 8), 
-				ImageCache.getFrame("friend", 9), 
+				ImageCache.getFrame("renata", 7), 
+                ImageCache.getFrame("renata", 8), 
+				ImageCache.getFrame("renata", 9), 
 				});
 		
 		this.leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("friend", 10), 
-                ImageCache.getFrame("friend", 11), 
-				ImageCache.getFrame("friend", 12), 
+				ImageCache.getFrame("renata", 10), 
+                ImageCache.getFrame("renata", 11), 
+				ImageCache.getFrame("renata", 12), 
 				});
 		
 		this.upAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("friend", 1), 
-                ImageCache.getFrame("friend", 2), 
-				ImageCache.getFrame("friend", 3), 
+				ImageCache.getFrame("renata", 1), 
+                ImageCache.getFrame("renata", 2), 
+				ImageCache.getFrame("renata", 3), 
 				});
 
 		this.rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
-				ImageCache.getFrame("friend", 4), 
-                ImageCache.getFrame("friend", 5), 
-				ImageCache.getFrame("friend", 6), 
+				ImageCache.getFrame("renata", 4), 
+                ImageCache.getFrame("renata", 5), 
+				ImageCache.getFrame("renata", 6), 
 				});
 		
 		this.currentWalkAnim = this.downAnim;
-		facePicture = ImageCache.getTexture("friend_7");
+		facePicture = ImageCache.getTexture("renata_7");
 		messages.add("Hey M! Great match!");
 	}
 
