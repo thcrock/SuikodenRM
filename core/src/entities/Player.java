@@ -86,6 +86,7 @@ public class Player extends DrawableBox2D implements Scriptable {
 	public Player(Body body) {
 		super(new TextureRegion(ImageCache.getFrame("mia", 7)));
 		
+        this.facePicture = new TextureRegion(ImageCache.getFrame("miaface", 1));
 		//sprite = new TextureRegion(ImageCache.getFrame("riouWalkDown", 2));
 		currentWalkAnim = downAnim;
 		this.body = body;
@@ -341,12 +342,12 @@ public class Player extends DrawableBox2D implements Scriptable {
     public void animationFrame(String textureName, int index) {
 		this.setRegion(ImageCache.getFrame(textureName, index));
     }
-    public void sayMessage(String message, String speakerOverrideName) {
+    public void sayMessage(String message, String speakerOverrideName, String speakerOverridePicture) {
         messages.add(message);
         this.startMessage = messages.size() - 1;
         this.stopMessage = messages.size();
         currentlyTalking = true;
-		SuikodenRM.gsm.setMessage(this, speakerOverrideName);
+		SuikodenRM.gsm.setMessage(this, speakerOverrideName, speakerOverridePicture);
     }
     public void giveChoices(String[] choices) {
         currentlyTalking = true;

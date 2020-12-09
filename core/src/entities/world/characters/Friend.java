@@ -26,6 +26,8 @@ public class Friend extends GameWorldCharacter {
 		
 		name = "Renata";
 		
+        this.facePicture = new TextureRegion(ImageCache.getFrame("renataface", 1));
+        System.out.println("Set face picture");
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
 				ImageCache.getFrame("renata", 7), 
                 ImageCache.getFrame("renata", 8), 
@@ -51,7 +53,6 @@ public class Friend extends GameWorldCharacter {
 				});
 		
 		this.currentWalkAnim = this.downAnim;
-		facePicture = ImageCache.getTexture("renata_7");
 		messages.add("Hey M! Great match!");
 	}
 

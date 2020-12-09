@@ -1162,7 +1162,7 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="13" name="Shopkeeper" x="383.917" y="140.583" width="14" height="14">
+  <object id="13" name="Baker" x="383.917" y="140.583" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
     <property name="convoName" value="bakeryConversation"/>
@@ -1197,7 +1197,7 @@
     <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
-  <object id="17" name="Fisher" x="181.58" y="142.333" width="14" height="14">
+  <object id="17" name="Fishmonger" x="181.58" y="142.333" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk2"/>
     <property name="convoName" value="fishMonger"/>
@@ -1286,7 +1286,6 @@
   <object id="23" name="fightscene" x="149.583" y="850.833" width="37.5" height="22.5">
    <properties>
     <property name="convoName" value="challenge"/>
-    <property name="scriptName" value="friendSpar"/>
    </properties>
   </object>
   <object id="32" name="haiaRunPast" x="675" y="867" width="266" height="35.5">

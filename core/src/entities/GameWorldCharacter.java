@@ -170,7 +170,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             SuikodenRM.gsm.triggerConversation(triggeredConversation);
             this.triggeredConversation = null;
         } else {
-		    SuikodenRM.gsm.setMessage(this, null);
+		    SuikodenRM.gsm.setMessage(this, null, null);
         }
 	}
 	
@@ -179,6 +179,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	}
 	
 	public TextureRegion getFacePicture() {
+        System.out.println("Getting face picture");
 		return facePicture;
 	}
 	
@@ -615,12 +616,12 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.startMessage = messages.size() - 1;
         this.stopMessage = messages.size();
     }
-    public void sayMessage(String message, String speakerOverrideName) {
+    public void sayMessage(String message, String speakerOverrideName, String speakerOverridePicture) {
         messages.add(message);
         this.startMessage = messages.size() - 1;
         this.stopMessage = messages.size();
         currentlyTalking = true;
-		SuikodenRM.gsm.setMessage(this, speakerOverrideName);
+		SuikodenRM.gsm.setMessage(this, speakerOverrideName, speakerOverridePicture);
     }
     public void decoupleMovementAndAnimation() {
         this.coupleMovementAndAnimation = false;

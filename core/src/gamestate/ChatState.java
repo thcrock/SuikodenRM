@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -46,8 +47,8 @@ public class ChatState extends GameState {
 	int TXT_SPEED = STD_TEXT_SPEED;
 	
 	// Character
-	int PORTRAIT_WIDTH = 56*2;
-	int PORTRAIT_HEIGHT = 64*2;
+	int PORTRAIT_WIDTH = 139;
+	int PORTRAIT_HEIGHT = 139;
 	boolean textHalt = false;
 	boolean textName = false;
 	int stringPosition = 0;
@@ -57,7 +58,7 @@ public class ChatState extends GameState {
     private Scriptable scriptable;
 	
 	
-	public ChatState(BoxWorld ls, int state, Scriptable character, String speakerOverrideName) {
+	public ChatState(BoxWorld ls, int state, Scriptable character, String speakerOverrideName, String speakerOverridePicture) {
 		this.levelState = ls;
         this.scriptable = character;
 		spriteBatch = (SpriteBatch) ls.mapRenderer.getBatch();
@@ -73,8 +74,14 @@ public class ChatState extends GameState {
 			textName = true;
 		}
 		
-        if(character.getFacePicture() != null) {
+        if(speakerOverridePicture != null) {
+	        TextureRegion facePicture;
+            i = new Image(new TextureRegion(ImageCache.getFrame(speakerOverridePicture, 1)));
+        } else if(character.getFacePicture() != null) {
+            System.out.println("face picture is not null!");
             i = new Image(character.getFacePicture());
+        } else {
+            System.out.println("face picture is null!");
         }
 	}
 
@@ -190,8 +197,8 @@ public class ChatState extends GameState {
 			if( i != null) {
 				i.setWidth(PORTRAIT_WIDTH);
 				i.setHeight(PORTRAIT_HEIGHT);
-				i.setX(leftUpperChatWindow.getX() + 10);
-				i.setY(leftUpperChatWindow.getY() + leftUpperChatWindow.getHeight() + 20);
+				i.setX(leftUpperChatWindow.getX() - 8);
+				i.setY(leftUpperChatWindow.getY() + leftUpperChatWindow.getHeight());
 				stage.addActor(i);
 			}
 			

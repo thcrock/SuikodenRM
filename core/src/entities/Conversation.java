@@ -327,19 +327,35 @@ public class Conversation {
             String[] lineParts = line.getText().split(":");
             Scriptable speaker;
             String overrideName;
+            String overridePicture = null;
             if(lineParts.length == 1) {
                 speaker = player;
                 overrideName = "Mia";
-                speaker.sayMessage(lineParts[0], overrideName);
+                speaker.sayMessage(lineParts[0], overrideName, null);
             } else {
-                if(characters.containsKey(lineParts[0])) {
-                    speaker = characters.get(lineParts[0]);
-                    overrideName = lineParts[0];
+                String[] nameParts = lineParts[0].split("-");
+                if(nameParts.length == 1) {
+                    // no custom face picture
+                    if(characters.containsKey(lineParts[0])) {
+                        speaker = characters.get(lineParts[0]);
+                        overrideName = lineParts[0];
+                    } else {
+                        speaker = player;
+                        overrideName = lineParts[0];
+                    }
                 } else {
-                    speaker = player;
-                    overrideName = lineParts[0];
+                    // custom face picture
+                    overridePicture = nameParts[1];
+
+                    if(characters.containsKey(nameParts[0])) {
+                        speaker = characters.get(nameParts[0]);
+                        overrideName = nameParts[0];
+                    } else {
+                        speaker = player;
+                        overrideName = nameParts[0];
+                    }
                 }
-                speaker.sayMessage(lineParts[1], overrideName);
+                speaker.sayMessage(lineParts[1], overrideName, overridePicture);
             } 
             line = null;
         } else if(option != null) {
