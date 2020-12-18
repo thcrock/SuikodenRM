@@ -1283,7 +1283,7 @@
  </objectgroup>
  <objectgroup id="23" name="dumpingground"/>
  <objectgroup id="9" name="scripts">
-  <object id="23" name="fightscene" x="149.583" y="850.833" width="37.5" height="22.5">
+  <object id="23" name="fightscene" x="149.583" y="850.833" width="13.5" height="22.5">
    <properties>
     <property name="convoName" value="challenge"/>
    </properties>

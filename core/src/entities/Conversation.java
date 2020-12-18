@@ -107,6 +107,7 @@ public class Conversation {
 
 		//check if next result is a command
 		if(command == null && dialogue.isNextCommand()){
+            node_complete = null;
 			command = dialogue.getNextAsCommand();
 			//arbitrary code to execute command
             String params[] = command.getCommand().split("\\s+");

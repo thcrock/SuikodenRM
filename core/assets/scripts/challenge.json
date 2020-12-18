@@ -2,7 +2,57 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveLeft Mia 10 30>>\n<<moveUp Renata 10 50>>\n<<moveRight Renata 50 50>>\n<<moveRight Mia 1 20>>\n<<moveLeft Renata 1 20>>\n<<pauseFor Renata 1>>\n<<decoupleMovementAndAnimation Renata>>\n<<decoupleMovementAndAnimation Mia>>\nGirl 1-miafiercefight:Here we go!\nGirl 2-renatafightface: You can't guard me!\n<<moveLeft Renata 15 125>>\n<<moveLeft Mia 15 125>>\n<<moveRight Renata 10 90>>\nGirl 2-renatafightface: Take that!\n<<moveRight Mia 10 90>>\n<<moveRight Mia 25 120>>\n<<moveRight Renata 10 60>>\n<<moveLeft Mia 10 90>>\nGirl 1-miahappyfight: Ha ha!\n<<moveLeft Renata 10 60>>\n<<moveLeft Renata 10 90>>\n<<moveLeft Mia 35 50>>\nGirl 1-miafallingface: Ahhhhhh!\nGirl 2-renatascaredface: I've got you Mia!\n<<moveLeft Renata 40 120>>\n<<moveRight Mia 5 20>>\n<<moveRight Renata 10 20>>\nMia: *huff*...Renata, you got me...\nRenata-renatasmilingface: Of course I did! It wouldn't be as fun to win if you got a broken arm!\n<<moveRight Mia 3 30>>\n<<moveLeft Renata 3 30>>\n<<pauseFor Renata 1>>\n<<moveRight Renata 8 30>>\nMia: Ok, that's enough fencing for now.\nRenata: Yeah, I'm hungry!\n<<attachTo Renata Mia>>",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveLeft Mia 10 30>>\n<<moveUp Renata 10 50>>\n<<moveRight Renata 40 50>>\n<<moveRight Mia 1 20>>\n<<moveLeft Renata 1 20>>\n<<pauseFor Renata 1>>\n<<decoupleMovementAndAnimation Renata>>\n<<decoupleMovementAndAnimation Mia>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\nGirl 1-miafiercefight:Here we go!\nGirl 2-renatafightface: You can't guard me!\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 3 60>>\n<<moveRight Mia 3 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<animationFrame Mia mia 18>>\n<<pauseFor Renata 0.7>>\n[[jumpback]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "jumpback",
+		"tags": "",
+		"body": "<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<moveRight Renata 3 60>>\n<<moveLeft Mia 3 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n<<pauseFor Renata 0.7>>\n[[miahits]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "miahits",
+		"tags": "",
+		"body": "<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<moveRight Mia 3 60>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 19>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 19>>\n<<moveRight Renata 4 60>>\n<<pauseFor Renata 0.7>>\nGirl 1-miahappyfight: Ha ha!\n[[jumpback2]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "jumpback2",
+		"tags": "",
+		"body": "<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<moveLeft Mia 3 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n<<pauseFor Renata 0.7>>\n[[renatahits]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "renatahits",
+		"tags": "",
+		"body": "<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveRight Mia 4 60>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 17>>\n<<moveLeft Renata 3 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 19>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Mia 16 90>>\n<<pauseFor Renata 0.7>>\n[[save]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "save",
+		"tags": "",
+		"body": "Girl 1-miafallingface: Ahhhhhh!\nGirl 2-renatascaredface: I've got you Mia!\n<<moveLeft Renata 28 120>>\n<<moveRight Mia 5 20>>\n<<moveRight Renata 10 20>>\n<<animationFrame Mia mia 4>>\n<<animationFrame Renata renata 10>>\nMia: *huff*...Renata, you got me...\nRenata-renatasmilingface: Of course I did! It wouldn't be as fun to win if you got a broken arm!\n<<moveRight Mia 3 30>>\n<<moveLeft Renata 3 30>>\n<<pauseFor Renata 1>>\n<<moveRight Renata 8 30>>\nMia: Ok, that's enough fencing for now.\nRenata: Yeah, I'm hungry!\n<<attachTo Renata Mia>>",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -10,3 +60,4 @@
 		"colorID": 1
 	}
 ]
+		//"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveLeft Mia 10 30>>\n<<moveUp Renata 10 50>>\n<<moveRight Renata 50 50>>\n<<moveRight Mia 1 20>>\n<<moveLeft Renata 1 20>>\n<<pauseFor Renata 1>>\n<<decoupleMovementAndAnimation Renata>>\n<<decoupleMovementAndAnimation Mia>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\nGirl 1-miafiercefight:Here we go!\nGirl 2-renatafightface: You can't guard me!\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 18>>\n<<moveLeft Renata 15 125>>\n<<moveLeft Mia 15 125>>\n<<moveRight Renata 10 90>>\nGirl 2-renatafightface: Take that!\n<<moveRight Mia 10 90>>\n<<moveRight Mia 25 120>>\n<<moveRight Renata 10 60>>\n<<moveLeft Mia 10 90>>\nGirl 1-miahappyfight: Ha ha!\n<<moveLeft Renata 10 60>>\n<<moveLeft Renata 10 90>>\n<<moveLeft Mia 35 50>>\nGirl 1-miafallingface: Ahhhhhh!\nGirl 2-renatascaredface: I've got you Mia!\n<<moveLeft Renata 40 120>>\n<<moveRight Mia 5 20>>\n<<moveRight Renata 10 20>>\nMia: *huff*...Renata, you got me...\nRenata-renatasmilingface: Of course I did! It wouldn't be as fun to win if you got a broken arm!\n<<moveRight Mia 3 30>>\n<<moveLeft Renata 3 30>>\n<<pauseFor Renata 1>>\n<<moveRight Renata 8 30>>\nMia: Ok, that's enough fencing for now.\nRenata: Yeah, I'm hungry!\n<<attachTo Renata Mia>>",
