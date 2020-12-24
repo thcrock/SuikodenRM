@@ -27,11 +27,11 @@ enum Direction { Right, Left, Down, Up, Pause, Stop };
 
 class Phase {
     public Direction direction;
-    public int distance;
+    public float distance;
     public float secondsPause;
     public Float speed;
 
-    public Phase(Direction direction, int distance, float secondsPause, Float speed) {
+    public Phase(Direction direction, float distance, float secondsPause, Float speed) {
         this.direction = direction;
         this.distance = distance;
         this.secondsPause = secondsPause;
@@ -87,7 +87,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     private float checkpointY;
     private float targetX;
     private float targetY;
+    private Phase[] loopingPhases;
+    private Phase[] scenePhases;
     private Phase[] phases;
+    protected boolean phasesShouldLoop;
     private int phaseIndex = -1;
     private float pauseSeconds = 0;
     private boolean coupleMovementAndAnimation = true;
@@ -125,13 +128,15 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	}
 	
     public void setPhases(String phaseText) {
-        this.phases = this.phaseListFromText(phaseText);
+        this.loopingPhases = this.phaseListFromText(phaseText);
         this.startX = this.getPosition().x;
         this.startY = this.getPosition().y;
         this.checkpointX = this.startX;
         this.checkpointY = this.startY;
         this.targetX = this.checkpointX;
         this.targetY = this.checkpointY;
+        this.phases = this.loopingPhases;
+        this.phasesShouldLoop = true;
         this.nextPhase();
     }
 	public void draw(Batch spriteBatch) {
@@ -508,7 +513,11 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             return;
         }
         if (phaseIndex+1 >= this.phases.length) {
-            phaseIndex = 0;
+            if (this.phasesShouldLoop) {
+                phaseIndex = 0;
+            } else {
+                return;
+            }
         } else {
             phaseIndex++;
         }
@@ -536,7 +545,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.stop();
         }
     }
-    public void moveRight(int distance, float speed) {
+    public void moveRight(float distance, float speed) {
         this.currentlyPaused = false;
         this.setRight(true);
         this.setLeft(false);
@@ -550,7 +559,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         }
         this.targetX = this.checkpointX + distance;
     }
-    public void moveLeft(int distance, float speed) {
+    public void moveLeft(float distance, float speed) {
         this.currentlyPaused = false;
         this.setLeft(true);
         this.setRight(false);
@@ -564,7 +573,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         }
         this.targetX = this.checkpointX - distance;
     }
-    public void moveUp(int distance, float speed) {
+    public void moveUp(float distance, float speed) {
         this.currentlyPaused = false;
         this.setRight(false);
         this.setLeft(false);
@@ -578,7 +587,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         }
         this.targetY = this.checkpointY + distance;
     }
-    public void moveDown(int distance, float speed) {
+    public void moveDown(float distance, float speed) {
         this.currentlyPaused = false;
         this.setRight(false);
         this.setLeft(false);
@@ -592,6 +601,46 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         }
         this.targetY = this.checkpointY - distance;
     }
+
+    public void moveToX(float x, float speed) {
+        this.scenePhases = new Phase[1];
+        if(this.getPosition().x > x) {
+           this.scenePhases[0] = new Phase(Direction.Left, this.getPosition().x - x, 0, speed); 
+        } else {
+           this.scenePhases[0] = new Phase(Direction.Right, x - this.getPosition().x, 0, speed); 
+        }
+
+        this.phases = scenePhases;
+        this.phasesShouldLoop = false;
+        this.phaseIndex = -1;
+        this.nextPhase();
+    }
+
+    public void moveToY(float y, float speed) {
+        System.out.println("moving to y " + y);
+        this.scenePhases = new Phase[1];
+        if(this.getPosition().y < y) {
+           this.scenePhases[0] = new Phase(Direction.Up, y - this.getPosition().y, 0, speed); 
+        } else {
+           this.scenePhases[0] = new Phase(Direction.Down, this.getPosition().y - y, 0, speed); 
+        }
+        System.out.println("distance = " + this.scenePhases[0].distance);
+        System.out.println("My position = " + this.getPosition().y);
+        System.out.println("Target position = " + y);
+        this.phases = scenePhases;
+        this.phasesShouldLoop = false;
+        this.phaseIndex = -1;
+        this.nextPhase();
+    }
+    public void moveToX(Scriptable target, float xOffset, float speed) {
+        Vector2 targetPosition = target.getPosition();
+        this.moveToX(targetPosition.x + xOffset, speed);
+    }
+    public void moveToY(Scriptable target, float yOffset, float speed) {
+        Vector2 targetPosition = target.getPosition();
+        this.moveToY(targetPosition.y + yOffset, speed);
+    }
+
     public void stop() {
         this.setRight(false);
         this.setLeft(false);

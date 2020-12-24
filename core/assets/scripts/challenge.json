@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveLeft Mia 10 30>>\n<<moveUp Renata 10 50>>\n<<moveRight Renata 40 50>>\n<<moveRight Mia 1 20>>\n<<moveLeft Renata 1 20>>\n<<pauseFor Renata 1>>\n<<decoupleMovementAndAnimation Renata>>\n<<decoupleMovementAndAnimation Mia>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\nGirl 1-miafiercefight:Here we go!\nGirl 2-renatafightface: You can't guard me!\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 3 60>>\n<<moveRight Mia 3 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<animationFrame Mia mia 18>>\n<<pauseFor Renata 0.7>>\n[[jumpback]]",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveToX Renata Mia 35 60>>\n<<moveToY Renata Mia 0 60>>\n<<moveRight Mia 1 20>>\n<<moveLeft Renata 1 20>>\n<<pauseFor Renata 1>>\n<<decoupleMovementAndAnimation Renata>>\n<<decoupleMovementAndAnimation Mia>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\nGirl 1-miafiercefight:Here we go!\nGirl 2-renatafightface: You can't guard me!\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 3 60>>\n<<moveRight Mia 3 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<animationFrame Mia mia 18>>\n<<pauseFor Renata 0.7>>\n[[jumpback]]",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -22,7 +22,7 @@
 	{
 		"title": "miahits",
 		"tags": "",
-		"body": "<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<moveRight Mia 3 60>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 19>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 19>>\n<<moveRight Renata 4 60>>\n<<pauseFor Renata 0.7>>\nGirl 1-miahappyfight: Ha ha!\n[[jumpback2]]",
+		"body": "<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<moveRight Mia 8 60>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 19>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 19>>\n<<moveRight Renata 4 60>>\n<<pauseFor Renata 0.7>>\nGirl 1-miahappyfight: Ha ha!\n[[jumpback2]]",
 		"position": {
 			"x": 793,
 			"y": 505

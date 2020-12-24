@@ -163,6 +163,34 @@ public class Conversation {
                     character.startScript();
                 }
                 currentAction.perform(character);
+            } else if(commandName.equals("moveToX")) {
+                scripting.MoveToX action = new scripting.MoveToX();
+                String targetCharName = params[2];
+                action.target = characters.get(targetCharName);
+                action.xOffset = Float.parseFloat(params[3]);
+                action.speed = Float.parseFloat(params[4]);
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("moveToY")) {
+                scripting.MoveToY action = new scripting.MoveToY();
+                String targetCharName = params[2];
+                action.target = characters.get(targetCharName);
+                action.yOffset = Float.parseFloat(params[3]);
+                action.speed = Float.parseFloat(params[4]);
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("pauseFor")) {
                 scripting.PauseFor action = new scripting.PauseFor();
                 action.seconds = Float.parseFloat(params[2]);

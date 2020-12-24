@@ -96,8 +96,8 @@ public class Player extends DrawableBox2D implements Scriptable {
         TextureRegion exampleSprite = new TextureRegion(ImageCache.getFrame("mia", 7));
     	setHeight(exampleSprite.getRegionHeight()*SuikodenRM.scale*0.5f);
     	setWidth(exampleSprite.getRegionWidth()*SuikodenRM.scale*0.5f);
-    	this.setCenterX(10);
-    	this.setCenterY(10);
+    	//this.setCenterX(10);
+    	//this.setCenterY(10);
 	}
 	
 	public void draw(Batch spriteBatch) {
@@ -278,7 +278,7 @@ public class Player extends DrawableBox2D implements Scriptable {
 		getTexture().dispose();
 	}
 
-    public void moveRight(int distance, float speed) {
+    public void moveRight(float distance, float speed) {
         this.setRight(true);
         this.setLeft(false);
         this.setUp(false);
@@ -291,7 +291,7 @@ public class Player extends DrawableBox2D implements Scriptable {
         }
         this.targetX = this.checkpointX + distance;
     }
-    public void moveLeft(int distance, float speed) {
+    public void moveLeft(float distance, float speed) {
         this.setLeft(true);
         this.setRight(false);
         this.setUp(false);
@@ -304,7 +304,7 @@ public class Player extends DrawableBox2D implements Scriptable {
         }
         this.targetX = this.checkpointX - distance;
     }
-    public void moveUp(int distance, float speed) {
+    public void moveUp(float distance, float speed) {
         this.setRight(false);
         this.setLeft(false);
         this.setUp(true);
@@ -317,7 +317,7 @@ public class Player extends DrawableBox2D implements Scriptable {
         }
         this.targetY = this.checkpointY + distance;
     }
-    public void moveDown(int distance, float speed) {
+    public void moveDown(float distance, float speed) {
         this.setRight(false);
         this.setLeft(false);
         this.setUp(false);
@@ -455,5 +455,11 @@ public class Player extends DrawableBox2D implements Scriptable {
     public void attachTo(Scriptable character) {
     }
     public void detachFrom(Scriptable character) {
+    }
+    public void moveToX(Scriptable target, float xOffset, float speed) {
+        // not implemented yet
+    }
+    public void moveToY(Scriptable target, float yOffset, float speed) {
+        // not implemented yet
     }
 }

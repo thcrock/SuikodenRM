@@ -19,10 +19,12 @@ public interface Scriptable {
 	public boolean isDown();
 	public Vector2 getPosition();
 	public float getSpeed();
-    public void moveRight(int distance, float speed);
-    public void moveLeft(int distance, float speed);
-    public void moveUp(int distance, float speed);
-    public void moveDown(int distance, float speed);
+    public void moveRight(float distance, float speed);
+    public void moveLeft(float distance, float speed);
+    public void moveUp(float distance, float speed);
+    public void moveDown(float distance, float speed);
+    public void moveToX(Scriptable character, float xOffset, float speed);
+    public void moveToY(Scriptable character, float yOffset, float speed);
     public void pauseFor(float seconds);
     public void animationFrame(String textureName, int index);
     public void sayMessage(String message, String speakerOverrideName, String speakerOverridePicture);
