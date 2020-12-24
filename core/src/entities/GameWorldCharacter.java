@@ -356,28 +356,28 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         return hasReachedTarget();
     }
 
-    protected void setFaceDown() {
+    public void setFaceDown() {
         this.currentWalkAnim = this.downAnim;
         this.setRegion(this.downAnim.getKeyFrame(animTime, true));
         this.setWidth(this.downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
         this.setHeight(this.downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
         currentDirection = faceDOWN;
     }
-    protected void setFaceUp() {
+    public void setFaceUp() {
         this.currentWalkAnim = this.upAnim;
         this.setRegion(this.upAnim.getKeyFrame(animTime, true));
         this.setWidth(this.upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
         this.setHeight(this.upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
         currentDirection = faceUP;
     }
-    protected void setFaceRight() {
+    public void setFaceRight() {
         this.currentWalkAnim = this.rightAnim;
         this.setRegion(this.rightAnim.getKeyFrame(animTime, true));
         this.setWidth(this.rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
         this.setHeight(this.rightAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
         currentDirection = faceRIGHT;
     }
-    protected void setFaceLeft() {
+    public void setFaceLeft() {
         this.currentWalkAnim = this.leftAnim;
         this.setRegion(this.leftAnim.getKeyFrame(animTime, true));
         this.setWidth(this.leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);

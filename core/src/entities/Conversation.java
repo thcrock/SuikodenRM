@@ -214,6 +214,46 @@ public class Conversation {
                     character.startScript();
                 }
                 currentAction.perform(character);
+            } else if(commandName.equals("faceUp")) {
+                scripting.FaceUp action = new scripting.FaceUp();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("faceDown")) {
+                scripting.FaceDown action = new scripting.FaceDown();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("faceLeft")) {
+                scripting.FaceLeft action = new scripting.FaceLeft();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("faceRight")) {
+                scripting.FaceRight action = new scripting.FaceRight();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else if(commandName.equals("decoupleMovementAndAnimation")) {
                 scripting.DecoupleMovementAndAnimation action = new scripting.DecoupleMovementAndAnimation();
                 action.character = params[1];

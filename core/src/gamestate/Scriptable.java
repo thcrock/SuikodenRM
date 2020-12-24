@@ -23,6 +23,10 @@ public interface Scriptable {
     public void moveLeft(float distance, float speed);
     public void moveUp(float distance, float speed);
     public void moveDown(float distance, float speed);
+    public void setFaceRight();
+    public void setFaceLeft();
+    public void setFaceUp();
+    public void setFaceDown();
     public void moveToX(Scriptable character, float xOffset, float speed);
     public void moveToY(Scriptable character, float yOffset, float speed);
     public void pauseFor(float seconds);
