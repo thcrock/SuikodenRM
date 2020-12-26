@@ -67,10 +67,10 @@ public class Friend extends GameWorldCharacter {
 
             if (distance > distanceLastTime && distance > 1000) {
                 this.setSpeed(this.attachedCharacter.getSpeed());
-                this.setRight(this.attachedCharacter.isRight());
-                this.setLeft(this.attachedCharacter.isLeft());
-                this.setUp(this.attachedCharacter.isUp());
-                this.setDown(this.attachedCharacter.isDown());
+                this.setRight(this.attachedCharacter.movingRight());
+                this.setLeft(this.attachedCharacter.movingLeft());
+                this.setUp(this.attachedCharacter.movingUp());
+                this.setDown(this.attachedCharacter.movingDown());
             } else if (distance < 250) {
                 this.setSpeed(0);
             }

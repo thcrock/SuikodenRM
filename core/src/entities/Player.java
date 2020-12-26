@@ -123,12 +123,12 @@ public class Player extends DrawableBox2D implements Scriptable {
 			dx = 0;
 		}
 		
-		if(up) {
+		if(up && (!right && !left)) {
 			dy += speed;
 			if(dy > speed)
 				dy = speed;
 		}
-		else if(down) {
+		else if(down && (!right && !left)) {
 			dy -= speed;
 			if(dy < -speed)
 				dy = -speed;
@@ -141,7 +141,7 @@ public class Player extends DrawableBox2D implements Scriptable {
 		
 		animTime += Gdx.graphics.getDeltaTime();
         if(coupleMovementAndAnimation) {
-            if(isUp()) {
+            if(movingUp()) {
                 this.setSpeed(maxSpeed);
                 currentWalkAnim = upAnim;
                 this.setRegion(upAnim.getKeyFrame(animTime, true));
@@ -149,7 +149,7 @@ public class Player extends DrawableBox2D implements Scriptable {
                 this.setHeight(upAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
                 currentDirection = faceUP;
             }
-            else if(isDown()) {
+            else if(movingDown()) {
                 this.setSpeed(maxSpeed);
                 currentWalkAnim = downAnim;
                 this.setRegion(downAnim.getKeyFrame(animTime, true));
@@ -157,7 +157,7 @@ public class Player extends DrawableBox2D implements Scriptable {
                 this.setHeight(downAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
                 currentDirection = faceDOWN;
             }
-            else if(isLeft()) {
+            else if(movingLeft()) {
                 this.setSpeed(maxSpeed);
                 currentWalkAnim = leftAnim;
                 this.setRegion(leftAnim.getKeyFrame(animTime, true));
@@ -165,7 +165,7 @@ public class Player extends DrawableBox2D implements Scriptable {
                 this.setHeight(leftAnim.getKeyFrame(animTime, true).getRegionHeight()*SuikodenRM.scale*0.5f);
                 currentDirection = faceLEFT;
             }
-            else if(isRight()) {
+            else if(movingRight()) {
                 this.setSpeed(maxSpeed);
                 currentWalkAnim = rightAnim;
                 this.setRegion(rightAnim.getKeyFrame(animTime, true));
@@ -205,6 +205,10 @@ public class Player extends DrawableBox2D implements Scriptable {
 		return left;
 	}
 
+    public boolean movingLeft() {
+        return dx < 0;
+    }
+
 	public void setLeft(boolean left) {
 		this.left = left;
 		if(!left && currentWalkAnim == leftAnim) {
@@ -215,6 +219,10 @@ public class Player extends DrawableBox2D implements Scriptable {
 	public boolean isRight() {
 		return right;
 	}
+
+    public boolean movingRight() {
+        return dx > 0;
+    }
 
 	public void setRight(boolean right) {
 		this.right = right;
@@ -227,6 +235,10 @@ public class Player extends DrawableBox2D implements Scriptable {
 		return up;
 	}
 
+    public boolean movingUp() {
+        return dy > 0;
+    }
+
 	public void setUp(boolean up) {
 		this.up = up;
 		if(!up && currentWalkAnim == upAnim) {
@@ -237,6 +249,10 @@ public class Player extends DrawableBox2D implements Scriptable {
 	public boolean isDown() {
 		return down;
 	}
+
+    public boolean movingDown() {
+        return dy < 0;
+    }
 
 	public void setDown(boolean down) {
 		this.down = down;
@@ -486,9 +502,9 @@ public class Player extends DrawableBox2D implements Scriptable {
     public void detachFrom(Scriptable character) {
     }
     public void moveToX(Scriptable target, float xOffset, float speed) {
-        // not implemented yet
+        // not implemented yet, or maybe ever because we shouldn't need it
     }
     public void moveToY(Scriptable target, float yOffset, float speed) {
-        // not implemented yet
+        // not implemented yet, or maybe ever because we shouldn't need it
     }
 }

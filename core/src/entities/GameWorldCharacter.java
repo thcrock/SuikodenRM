@@ -409,6 +409,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 		return left;
 	}
 
+    public boolean movingLeft() {
+        return dx < 0;
+    }
+
 	public void setLeft(boolean left) {
 		this.left = left;
 		if(!left && this.currentWalkAnim == leftAnim) {
@@ -419,6 +423,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	public boolean isRight() {
 		return right;
 	}
+
+    public boolean movingRight() {
+        return dx > 0;
+    }
 
 	public void setRight(boolean right) {
 		this.right = right;
@@ -431,6 +439,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 		return up;
 	}
 
+    public boolean movingUp() {
+        return dy > 0;
+    }
+
 	public void setUp(boolean up) {
 		this.up = up;
 		if(!up && this.currentWalkAnim == upAnim) {
@@ -441,6 +453,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	public boolean isDown() {
 		return down;
 	}
+
+    public boolean movingDown() {
+        return dy < 0;
+    }
 
 	public void setDown(boolean down) {
 		this.down = down;
