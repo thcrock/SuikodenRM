@@ -22,6 +22,7 @@ public class GameStateManager implements InputProcessor{
 	SuikodenRM relation;
     HashSet<String> completedScripts;
     MusicManager musicManager;
+    String helpPrompt;
 	
 	public int currentState;
 	
@@ -63,6 +64,14 @@ public class GameStateManager implements InputProcessor{
 		//relation.changeScreen();
 	//}
 	
+    public void setHelpPrompt(String helpPrompt) {
+        this.helpPrompt = helpPrompt;
+    }
+
+    public String getHelpPrompt() {
+        return this.helpPrompt;
+    }
+
 	public void setPauseState() {
 		BoxWorld oldState = (BoxWorld) gameState[currentState];
 		int oldStateNumber = currentState;

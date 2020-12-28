@@ -24,6 +24,7 @@ import com.kyper.yarn.Dialogue.OptionResult;
 import com.kyper.yarn.Dialogue.NodeCompleteResult;
 import com.kyper.yarn.Dialogue.Options;
 import com.kyper.yarn.DialogueData;
+import com.orangeegames.suikorm.SuikodenRM;
 
 
 public class Conversation {
@@ -331,6 +332,21 @@ public class Conversation {
                 action.character = params[1];
                 String followedCharName = params[2];
                 action.attachedCharacter = characters.get(followedCharName);
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("setHelpPrompt")) {
+                scripting.SetHelpPrompt action = new scripting.SetHelpPrompt();
+                action.helpPrompt = String.join(" ", java.util.Arrays.copyOfRange(params, 1, params.length));
+                currentAction = action;
+                currentAction.perform(null);
+            } else if(commandName.equals("showHelpPrompt")) {
+                scripting.ShowHelpPrompt action = new scripting.ShowHelpPrompt();
+                action.character = params[1];
                 currentAction = action;
                 Scriptable character = characters.get(action.character);
                 if(!usedCharacters.contains(character)) {

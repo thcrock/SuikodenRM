@@ -72,7 +72,7 @@
 	{
 		"title": "exit",
 		"tags": "",
-		"body": "<<detachFrom Renata Mia>>\n<<pauseFor Fruitmonger 1>>\n<<moveDown Mia 1 1>>\n<<moveRight Renata 60 60>>\nRenata: I bet I could cut this watermelon with my sword!\nMia: I bet that would get you into Roundier Haia's school!\n<<moveDown FruitClerk 30 140>>\nFruitClerk: Hey! You break it you pay for it!\n<<moveDown Renata 20 150>>\n<<moveLeft Renata 100 150>>\n<<moveDown Mia 20 80>>\n<<moveLeft Mia 60 80>>\nRenata: hahahahahahaha!!!<<attachTo Renata Mia>>\n",
+		"body": "<<detachFrom Renata Mia>>\n<<pauseFor Fruitmonger 1>>\n<<moveDown Mia 1 1>>\n<<moveRight Renata 60 60>>\nRenata: I bet I could cut this watermelon with my sword!\nMia: I bet that would get you into Roundier Haia's school!\n<<moveDown FruitClerk 30 140>>\nFruitClerk: Hey! You break it you pay for it!\n<<moveDown Renata 20 150>>\n<<moveLeft Renata 100 150>>\n<<moveDown Mia 20 80>>\n<<moveLeft Mia 60 80>>\nRenata: hahahahahahaha!!!<<attachTo Renata Mia>>\n<<setHelpPrompt We can't go in there!>>",
 		"position": {
 			"x": 1420,
 			"y": 51

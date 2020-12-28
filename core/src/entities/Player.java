@@ -109,6 +109,10 @@ public class Player extends DrawableBox2D implements Scriptable {
     }
 
 	public void update2(float delta) {
+        //System.out.println("left = " + left);
+        //System.out.println("right = " + right);
+        //System.out.println("down = " + down);
+        //System.out.println("up = " + up);
 		if(left) {
 			dx -= speed;
 			if(dx < -maxSpeed)
@@ -185,7 +189,6 @@ public class Player extends DrawableBox2D implements Scriptable {
             this.setLeft(false);
             this.setUp(false);
             this.setDown(false);
-            this.setSpeed(0.0f);
         }
         if(this.pauseSeconds > 0) {
             this.pauseSeconds -= delta;
@@ -456,7 +459,8 @@ public class Player extends DrawableBox2D implements Scriptable {
         this.setLeft(false);
         this.setUp(false);
         this.setDown(false);
-        this.setSpeed(0.0f);
+        this.setSpeed(maxSpeed);
+        this.currentlyPaused = false;
         this.coupleMovementAndAnimation = true;
     }
 	public TextureRegion getFacePicture() {

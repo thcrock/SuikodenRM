@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Baker: Hey girls, be careful! I saw your fall, Mia. You could've really gotten hurt out there!\nMia: I know, but we'll never get into Roundier Haia's school without practicing!\nBaker: You have plenty of time for that. You won't be old enough to get in until you're sixteen, anyway.\nRenata: If we're good enough, I bet we'll get in sooner!\nBaker: Well, I am happy you girls are so driven.\nBaker: The rolls are extra fresh this morning. Would you like any?\nBoth girls: Yeah! They smell so good!\n<<decoupleMovementAndAnimation Mia>>\n<<moveUp Mia 3 10>>\n<<pauseFor Mia 1>>\n<<moveDown Mia 3 10>>\nMia: Thanks! See you later!\nBaker: Bye! Be careful!",
+		"body": "Baker: Hey girls, be careful! I saw your fall, Mia. You could've really gotten hurt out there!\nMia: I know, but we'll never get into Roundier Haia's school without practicing!\nBaker: You have plenty of time for that. You won't be old enough to get in until you're sixteen, anyway.\nRenata: If we're good enough, I bet we'll get in sooner!\nBaker: Well, I am happy you girls are so driven.\nBaker: The rolls are extra fresh this morning. Would you like any?\nBoth girls: Yeah! They smell so good!\n<<decoupleMovementAndAnimation Mia>>\n<<moveUp Mia 3 10>>\n<<pauseFor Mia 1>>\n<<moveDown Mia 3 10>>\nMia: Thanks! See you later!\nBaker: Bye! Be careful!\n<<setHelpPrompt We can't go in there!>>",
 		"position": {
 			"x": 860,
 			"y": 371

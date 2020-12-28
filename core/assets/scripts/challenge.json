@@ -52,7 +52,7 @@
 	{
 		"title": "save",
 		"tags": "",
-		"body": "Girl 1-miafallingface: Ahhhhhh!\nGirl 2-renatascaredface: I've got you Mia!\n<<moveLeft Renata 28 120>>\n<<moveRight Mia 5 20>>\n<<moveRight Renata 10 20>>\n<<animationFrame Mia mia 4>>\n<<animationFrame Renata renata 10>>\nMia: *huff*...Renata, you got me...\nRenata-renatasmilingface: Of course I did! It wouldn't be as fun to win if you got a broken arm!\n<<moveRight Mia 3 30>>\n<<moveLeft Renata 3 30>>\n<<pauseFor Renata 1>>\n<<moveRight Renata 8 30>>\nMia: Ok, that's enough fencing for now.\nRenata: Yeah, I'm hungry!\n<<attachTo Renata Mia>>",
+		"body": "Girl 1-miafallingface: Ahhhhhh!\nGirl 2-renatascaredface: I've got you Mia!\n<<moveLeft Renata 28 120>>\n<<moveRight Mia 5 20>>\n<<moveRight Renata 10 20>>\n<<animationFrame Mia mia 4>>\n<<animationFrame Renata renata 10>>\nMia: *huff*...Renata, you got me...\nRenata-renatasmilingface: Of course I did! It wouldn't be as fun to win if you got a broken arm!\n<<moveRight Mia 3 30>>\n<<moveLeft Renata 3 30>>\n<<pauseFor Renata 1>>\n<<moveRight Renata 8 30>>\nMia: Ok, that's enough fencing for now.\nRenata: Yeah, I'm hungry!\n<<attachTo Renata Mia>>\n<<enableCollisions Renata>>\n<<enableCollisions Mia>>\n<<setHelpPrompt What are you doing? Let's go get food.>>",
 		"position": {
 			"x": 793,
 			"y": 505
