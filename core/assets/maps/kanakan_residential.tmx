@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="100" height="85" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="110">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="100" height="85" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="113">
  <properties>
   <property name="musicTrackName" value="Kanakan.ogg"/>
  </properties>
@@ -731,7 +731,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="10" name="foreground" width="100" height="85" visible="0">
+ <layer id="10" name="foreground" width="100" height="85">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -820,8 +820,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="3" name="sketch" visible="0"/>
- <objectgroup id="12" name="box2D" visible="0">
+ <objectgroup id="3" name="sketch"/>
+ <objectgroup id="12" name="box2D">
   <object id="7" name="forestwall" type="object" x="221.939" y="18.1818" width="1252.85" height="32.3939"/>
   <object id="27" name="house1-1" type="object" x="262" y="93" width="118" height="79"/>
   <object id="29" name="house1-2" type="object" x="387" y="95" width="251" height="79"/>
@@ -884,7 +884,19 @@
   <object id="90" name="planter4-2" type="object" x="1418" y="930" width="15.3333" height="12"/>
   <object id="106" type="object" x="1455.33" y="863.333" width="33.3333" height="32"/>
  </objectgroup>
- <objectgroup id="14" name="characters" visible="0">
+ <objectgroup id="15" name="scripts">
+  <object id="111" name="findHaia" x="148" y="130" width="40.6667" height="16.6667">
+   <properties>
+    <property name="convoName" value="findHaia"/>
+   </properties>
+  </object>
+  <object id="112" name="haiawhichway" x="592.667" y="176" width="18.6667" height="80.6667">
+   <properties>
+    <property name="convoName" value="haiawhichway"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="14" name="characters">
   <object id="91" name="OldMan" x="109" y="444.333" width="14" height="14">
    <properties>
     <property name="character" value="OldMan"/>
@@ -1003,7 +1015,7 @@ Oh, sorry, I thought you were someone else.</property>
   </object>
  </objectgroup>
  <objectgroup id="13" name="doors">
-  <object id="37" name="tocliffs" x="127" y="4.25" width="99" height="116.5">
+  <object id="37" name="tomarket" x="127" y="4.25" width="99" height="116.5">
    <properties>
     <property name="toName" value="kanakan"/>
     <property name="toSpawnNumber" value="2"/>
@@ -1016,7 +1028,7 @@ Oh, sorry, I thought you were someone else.</property>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="2" name="spawns" visible="0">
+ <objectgroup id="2" name="spawns">
   <object id="1" name="spawn1" x="152.816" y="129.279" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
