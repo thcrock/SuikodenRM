@@ -491,7 +491,7 @@
   <object id="26" name="people on boat" x="1109.33" y="534.667" width="208" height="29.3333"/>
  </objectgroup>
  <objectgroup id="8" name="spawns">
-  <object id="29" name="spawn1" x="176.334" y="240.667" width="32.6667" height="14">
+  <object id="29" name="spawn1" x="161.334" y="295.167" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
@@ -539,7 +539,7 @@
     <property name="convoName" value="noticeRope"/>
    </properties>
   </object>
-  <object id="78" name="inbars" x="178.5" y="236" width="29.5" height="22.5">
+  <object id="78" name="inbars" x="164" y="290" width="29.5" height="22.5">
    <properties>
     <property name="convoName" value="inbars"/>
    </properties>
@@ -551,15 +551,6 @@
   </object>
  </objectgroup>
  <objectgroup id="11" name="characters">
-  <object id="35" name="Renata" x="181.17" y="267.833" width="14" height="14">
-   <properties>
-    <property name="character" value="Friend"/>
-    <property name="phases" value=""/>
-    <property name="speed" type="float" value="120"/>
-    <property name="startMessage" type="int" value="0"/>
-    <property name="stopMessage" type="int" value="1"/>
-   </properties>
-  </object>
   <object id="37" name="Chair" x="938.75" y="371.75" width="14" height="14">
    <properties>
     <property name="character" value="Chair"/>

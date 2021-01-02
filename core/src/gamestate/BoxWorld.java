@@ -253,14 +253,15 @@ public class BoxWorld extends GameState {
 					
 					float x = (mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale;
 					float y = (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale;
-					
+                    String name = mo.getName();
 					GameWorldCharacter gc = CharacterGeneration.getWorldCharacter(
                         (String) mo.getProperties().get("character"),
                         this,
                         x,
                         y
                     );
-                    gc.setName(mo.getName());
+                    gc.setName(name);
+					
                     Integer start = mo.getProperties().get("startMessage", Integer.class);
                     Integer end = mo.getProperties().get("stopMessage", Integer.class);
                     if(start != null && end != null) {
@@ -327,6 +328,10 @@ public class BoxWorld extends GameState {
 		
 		player = new Player(body);
         drawableBoxes.add(player);
+
+	    GameWorldCharacter friend = CharacterGeneration.getWorldCharacter("Friend", this, playerX, playerY + 20);
+        drawableBoxes.add(friend);
+        characters.add(friend);
 		
 		world.setContactListener(new ContactListener() {
 

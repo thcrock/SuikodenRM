@@ -1272,15 +1272,6 @@
     <property name="stopMessage" type="int" value="4"/>
    </properties>
   </object>
-  <object id="22" name="Renata" x="322.129" y="827.568" width="14" height="14">
-   <properties>
-    <property name="character" value="Friend"/>
-    <property name="phases" value=""/>
-    <property name="speed" type="float" value="120"/>
-    <property name="startMessage" type="int" value="0"/>
-    <property name="stopMessage" type="int" value="1"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup id="23" name="dumpingground"/>
  <objectgroup id="9" name="scripts">
