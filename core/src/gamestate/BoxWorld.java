@@ -18,6 +18,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g3d.decals.Decal;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -52,6 +53,7 @@ import entities.Barrel;
 public class BoxWorld extends GameState {
 
 	World world;
+    TiledMap map;
 	public OrthogonalCustomRenderer mapRenderer;
 	//public OrthogonalTiledMapRenderer mapRenderer;
 	Box2DDebugRenderer box2drenderer;
@@ -64,6 +66,8 @@ public class BoxWorld extends GameState {
     StoryScene currentScene;
 	Conversation currentConversation;
     public String musicTrackName;
+    int mapPixelWidth;
+    int mapPixelHeight;
 
 	
 	boolean disposeThis = false;
@@ -107,7 +111,16 @@ public class BoxWorld extends GameState {
 	public void initiate(Door door) {
 		world = new World(new Vector2(0, 0), true);
 		camera = new OrthographicCamera();
-		TiledMap map = new TmxMapLoader().load("maps/" + door.toMapName + ".tmx");
+		map = new TmxMapLoader().load("maps/" + door.toMapName + ".tmx");
+        MapProperties prop = map.getProperties();
+
+        int mapWidth = prop.get("width", Integer.class);
+        int mapHeight = prop.get("height", Integer.class);
+        int tilePixelWidth = prop.get("tilewidth", Integer.class);
+        int tilePixelHeight = prop.get("tileheight", Integer.class);
+
+        mapPixelWidth = mapWidth * tilePixelWidth;
+        mapPixelHeight = mapHeight * tilePixelHeight;
 		Box2DMapObjectParser parser = new Box2DMapObjectParser(SuikodenRM.scale);
 
 		parser.load(world, map);
@@ -369,6 +382,8 @@ public class BoxWorld extends GameState {
 		//mapRenderer = new OrthogonalTiledMapRenderer(map);
 		box2drenderer = new Box2DDebugRenderer();
 		box2drenderer.setDrawAABBs(true);
+        camera.position.set(player.getBody().getPosition().x, player.getBody().getPosition().y, 0);
+
 	}
 
     public void triggerConversation(Conversation conversation) {
@@ -432,7 +447,14 @@ public class BoxWorld extends GameState {
 			}
 			
 			//camera.zoom = 5;
-			camera.position.set(player.getBody().getPosition().x + 7.9f*SuikodenRM.scale, player.getBody().getPosition().y - 50*SuikodenRM.scale, 0);
+            if (
+                player.getBody().getPosition().x >= 0 + camera.viewportWidth/2
+                && player.getBody().getPosition().x <= 0 + mapPixelWidth-camera.viewportWidth/2
+                && player.getBody().getPosition().y >= 0 + camera.viewportHeight/2
+                && player.getBody().getPosition().y <= 0 + mapPixelHeight-camera.viewportHeight/2
+            ) {
+                camera.position.set(player.getBody().getPosition().x, player.getBody().getPosition().y, 0);
+            }
 			camera.update();
 			
 			camera.rotate(rotation);

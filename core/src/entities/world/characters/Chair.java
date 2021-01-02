@@ -16,7 +16,7 @@ import com.orangeegames.suikorm.SuikodenRM;
 public class Chair extends GameWorldCharacter {
 
 	public Chair(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
-		super(firstFrame, bw, x, y);
+		super(firstFrame, bw, x, y, 15.6f);
 		
 		name = "Chair";
 		

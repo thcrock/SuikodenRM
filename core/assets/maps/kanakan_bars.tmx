@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="90" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="78">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="90" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="86">
  <properties>
   <property name="musicTrackName" value="kanakan_bars.ogg"/>
  </properties>
@@ -167,10 +167,10 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,429,430,431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,437,438,447,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,445,446,447,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,453,454,455,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -198,7 +198,10 @@
 </data>
  </layer>
  <objectgroup id="7" name="objects">
-  <object id="28" name="Barrel" type=" " x="848" y="251" width="26" height="29"/>
+  <object id="28" name="Barrel" type=" " x="1012.5" y="224" width="26" height="29"/>
+  <object id="79" name="Barrel" type=" " x="1012.5" y="255" width="26" height="29"/>
+  <object id="80" name="Barrel" type=" " x="1050.5" y="224.5" width="26" height="29"/>
+  <object id="81" name="Barrel" type=" " x="1050.5" y="255.5" width="26" height="29"/>
  </objectgroup>
  <layer id="13" name="2.5" width="90" height="42">
   <data encoding="csv">
@@ -485,11 +488,10 @@
 </data>
  </layer>
  <objectgroup id="2" name="sketch">
-  <object id="2" name="river" x="196" y="525" width="1161" height="41"/>
   <object id="26" name="people on boat" x="1109.33" y="534.667" width="208" height="29.3333"/>
  </objectgroup>
  <objectgroup id="8" name="spawns">
-  <object id="29" name="spawn1" x="124.834" y="251.667" width="32.6667" height="14">
+  <object id="29" name="spawn1" x="176.334" y="240.667" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
@@ -504,7 +506,8 @@
   <object id="70" name="wall1" type="object" x="2.5" y="385" width="187.5" height="49"/>
   <object id="71" name="wall2" type="object" x="177.5" y="435.5" width="13" height="80.5"/>
   <object id="72" name="robinsonsbarrels" type="object" x="211" y="464.5" width="46" height="46"/>
-  <object id="74" name="barrels" type="object" x="908.5" y="238" width="46" height="47.5"/>
+  <object id="84" name="Wall" type="object" x="839.5" y="171" width="37" height="32"/>
+  <object id="85" name="river" type="object" x="189" y="522" width="1161" height="41"/>
  </objectgroup>
  <objectgroup id="10" name="scripts">
   <object id="31" name="pushBarrel" x="852.5" y="196.917" width="7" height="10.5">
@@ -519,7 +522,7 @@
     <property name="onlyTriggerIfScript" value="pushBarrel"/>
    </properties>
   </object>
-  <object id="73" name="climbChair" x="849" y="236" width="15" height="16.5">
+  <object id="73" name="climbChair" x="849" y="240" width="11" height="3">
    <properties>
     <property name="convoName" value="climbChair"/>
     <property name="onlyTriggerIfScript" value="stealChair"/>
@@ -531,14 +534,24 @@
     <property name="onlyTriggerIfScript" value="noticeChair"/>
    </properties>
   </object>
-  <object id="76" name="noticerope" x="799.5" y="226.5" width="117" height="64">
+  <object id="76" name="noticerope" x="836" y="222.5" width="47.5" height="29">
    <properties>
     <property name="convoName" value="noticeRope"/>
    </properties>
   </object>
+  <object id="78" name="inbars" x="178.5" y="236" width="29.5" height="22.5">
+   <properties>
+    <property name="convoName" value="inbars"/>
+   </properties>
+  </object>
+  <object id="83" name="end" x="841" y="1.5" width="49.5" height="19.5">
+   <properties>
+    <property name="convoName" value="end"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="11" name="characters">
-  <object id="35" name="Renata" x="124.67" y="278.333" width="14" height="14">
+  <object id="35" name="Renata" x="181.17" y="267.833" width="14" height="14">
    <properties>
     <property name="character" value="Friend"/>
     <property name="phases" value=""/>

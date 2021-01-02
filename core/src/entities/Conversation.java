@@ -354,6 +354,36 @@ public class Conversation {
                     character.startScript();
                 }
                 currentAction.perform(character);
+            } else if(commandName.equals("moveToBackground")) {
+                scripting.MoveToBackground action = new scripting.MoveToBackground();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("moveToForeground")) {
+                scripting.MoveToForeground action = new scripting.MoveToForeground();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("resetSorting")) {
+                scripting.ResetSorting action = new scripting.ResetSorting();
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
             } else {
                 System.out.println("unknown command " + commandName);
             }

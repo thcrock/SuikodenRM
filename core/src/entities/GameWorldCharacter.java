@@ -96,9 +96,8 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     private boolean coupleMovementAndAnimation = true;
     protected Scriptable attachedCharacter = null;
 
-	public GameWorldCharacter(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
+	public GameWorldCharacter(TextureRegion firstFrame, BoxWorld bw, float x, float y, float height) {
 		super(firstFrame);
-		
 		BodyDef gameCharacter = new BodyDef();
 		gameCharacter.type = BodyDef.BodyType.KinematicBody;
 		gameCharacter.position.set(new Vector2(x, y));
@@ -108,7 +107,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         this.body = body;
 		
 		Vector2[] vec = new Vector2[4];
-		vec[0] = new Vector2(7.8f*SuikodenRM.scale, 7.8f*SuikodenRM.scale);
+		vec[0] = new Vector2(7.8f*SuikodenRM.scale, height*SuikodenRM.scale);
 		vec[1] = new Vector2(0f*SuikodenRM.scale, 3.9f*SuikodenRM.scale);
 		vec[2] = new Vector2(7.8f*SuikodenRM.scale, 0f*SuikodenRM.scale);
 		vec[3] = new Vector2(15.6f*SuikodenRM.scale, 3.9f*SuikodenRM.scale);
@@ -126,6 +125,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 
 		this.setCenterX(this.getOriginX()*SuikodenRM.scale-4*SuikodenRM.scale);
 	}
+	public GameWorldCharacter(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
+        this(firstFrame, bw, x, y, 7.8f);
+    }
 	
     public void setPhases(String phaseText) {
         this.loopingPhases = this.phaseListFromText(phaseText);

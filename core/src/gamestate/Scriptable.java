@@ -48,4 +48,7 @@ public interface Scriptable {
     public void enableCollisions();
     public void detachFrom(Scriptable character);
     public void attachTo(Scriptable character);
+    public void moveToBackground();
+    public void moveToForeground();
+    public void resetSorting();
 }
