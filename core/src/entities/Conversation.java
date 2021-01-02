@@ -344,6 +344,11 @@ public class Conversation {
                 action.helpPrompt = String.join(" ", java.util.Arrays.copyOfRange(params, 1, params.length));
                 currentAction = action;
                 currentAction.perform(null);
+            } else if(commandName.equals("setBgMusic")) {
+                scripting.SetBgMusic action = new scripting.SetBgMusic();
+                action.musicTrackName = params[1];
+                currentAction = action;
+                currentAction.perform(null);
             } else if(commandName.equals("showHelpPrompt")) {
                 scripting.ShowHelpPrompt action = new scripting.ShowHelpPrompt();
                 action.character = params[1];

@@ -64,6 +64,10 @@ public class GameStateManager implements InputProcessor{
 		//relation.changeScreen();
 	//}
 	
+    public void setBackgroundMusic(String musicTrackName) {
+        this.musicManager.playTrack(musicTrackName);
+    }
+
     public void setHelpPrompt(String helpPrompt) {
         this.helpPrompt = helpPrompt;
     }
