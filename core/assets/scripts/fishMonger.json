@@ -22,7 +22,7 @@
 	{
 		"title": "chosefish",
 		"tags": "",
-		"body": "Fishmonger: There you go. I'm so glad you wanted some fish!\nRenata: Why else would we come to a fish stand?\nFishmonger: I know! but the last lady who came by didn't even want to eat any fish! she was just looking for a sindar ruin. they aren't even real! I told her that and she just left without saying anything.\n[[Maybe they are!|r1]]\n[[Sounds fishy.|r2]]",
+		"body": "Fishmonger: There you go. I'm so glad you wanted some fish!\nRenata: Why else would we come to a fish stand?\nFishmonger: I know! Tell that to the last lady who came by! She was more interested in Sindar Ruins.\nRenata: Sindar Ruins?\nFishmonger: I didn't think they existed, but she seems convinced there's one right here in Kanakan.\n[[Maybe she's right!|r1]]\n[[Sounds fishy.|r2]]",
 		"position": {
 			"x": 0,
 			"y": 0

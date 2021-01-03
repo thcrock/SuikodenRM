@@ -12,6 +12,7 @@ import entities.world.characters.Townfolk2;
 import entities.world.characters.Townfolk3;
 import entities.world.characters.Townfolk4;
 import entities.world.characters.OldMan;
+import entities.world.characters.Barrel;
 import entities.world.characters.Chair;
 import entities.world.characters.Dog;
 import entities.world.characters.Friend;
@@ -39,6 +40,7 @@ public class CharacterGeneration {
 		else if(name.equals("Fisherman")) return new Fisherman(ImageCache.getFrame("fishing", 1), bw, x, y);
 		else if(name.equals("Haia")) return new Haia(ImageCache.getFrame("haia", 1), bw, x, y);
 		else if(name.equals("Chair")) return new Chair(ImageCache.getFrame("chair", 1), bw, x, y);
+		else if(name.equals("Barrel")) return new Barrel(ImageCache.getFrame("barrel", 1), bw, x, y);
 		return null;
 	}
 	

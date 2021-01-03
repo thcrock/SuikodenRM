@@ -13,11 +13,11 @@ barrel
   index: 0
 barrel
   rotate: false
-  xy: 217, 138
-  size: 20, 25
-  orig: 20, 25
+  xy: 949, 637
+  size: 40, 50
+  orig: 40, 50
   offset: 0, 0
-  index: -1
+  index: 1
 boat
   rotate: false
   xy: 281, 387
@@ -27,7 +27,7 @@ boat
   index: -1
 buttondown
   rotate: false
-  xy: 217, 25
+  xy: 217, 5
   size: 16, 16
   split: 7, 7, 7, 7
   orig: 16, 16
@@ -35,7 +35,7 @@ buttondown
   index: -1
 buttoneggstra
   rotate: false
-  xy: 217, 25
+  xy: 217, 5
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -364,7 +364,7 @@ highlanderFightingAttack
   index: 6
 highlanderFightingAttack
   rotate: false
-  xy: 987, 514
+  xy: 987, 512
   size: 30, 60
   orig: 30, 60
   offset: 0, 0
@@ -385,7 +385,7 @@ highlanderFightingIdle
   index: 2
 highlanderFightingIdle
   rotate: false
-  xy: 987, 576
+  xy: 987, 574
   size: 31, 61
   orig: 31, 61
   offset: 0, 0
@@ -455,25 +455,18 @@ killeyFightingAttack
   index: 10
 killeyWalkDown
   rotate: false
-  xy: 949, 639
+  xy: 991, 639
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
   index: 1
 player
   rotate: false
-  xy: 949, 639
+  xy: 991, 639
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
   index: -1
-killeyWalkDown
-  rotate: false
-  xy: 975, 639
-  size: 24, 48
-  orig: 24, 48
-  offset: 0, 0
-  index: 2
 leftupperchat
   rotate: false
   xy: 126, 10
@@ -492,21 +485,21 @@ upleftchat
   index: -1
 leknaatWalkLeft
   rotate: false
-  xy: 217, 90
+  xy: 217, 117
   size: 19, 46
   orig: 19, 46
   offset: 0, 0
   index: 1
 leknaatWalkLeft
   rotate: false
-  xy: 217, 43
+  xy: 217, 70
   size: 19, 45
   orig: 19, 45
   offset: 0, 0
   index: 2
 leknaatWalkLeft
   rotate: false
-  xy: 1001, 642
+  xy: 217, 23
   size: 19, 45
   orig: 19, 45
   offset: 0, 0
@@ -522,7 +515,7 @@ menuSelected
   index: -1
 metatag
   rotate: false
-  xy: 217, 7
+  xy: 988, 219
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -654,7 +647,7 @@ player1
   index: -1
 player2
   rotate: false
-  xy: 988, 219
+  xy: 1006, 219
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -718,14 +711,14 @@ uprightchat
   index: -1
 shop
   rotate: false
-  xy: 1006, 219
+  xy: 925, 646
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 shop
   rotate: false
-  xy: 925, 646
+  xy: 999, 742
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -1207,56 +1200,56 @@ killeyWalkDown
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
-  index: 3
-killeyWalkLeft
+  index: 2
+killeyWalkDown
   rotate: false
   xy: 997, 674
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
-  index: 1
+  index: 3
 killeyWalkLeft
   rotate: false
   xy: 983, 599
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
-  index: 2
+  index: 1
 killeyWalkLeft
   rotate: false
   xy: 976, 345
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
-  index: 3
-killeyWalkUp
+  index: 2
+killeyWalkLeft
   rotate: false
   xy: 976, 295
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
-  index: 1
+  index: 3
 killeyWalkUp
   rotate: false
   xy: 994, 121
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
-  index: 2
+  index: 1
 killeyWalkUp
   rotate: false
   xy: 994, 71
   size: 24, 48
   orig: 24, 48
   offset: 0, 0
-  index: 3
-leknaatWalkDown
+  index: 2
+killeyWalkUp
   rotate: false
-  xy: 994, 23
-  size: 24, 46
-  orig: 24, 46
+  xy: 994, 21
+  size: 24, 48
+  orig: 24, 48
   offset: 0, 0
-  index: 1
+  index: 3
 mia
   rotate: false
   xy: 855, 432
@@ -1986,7 +1979,7 @@ cliveWalkDown
   index: 2
 cliveWalkUp
   rotate: false
-  xy: 225, 16
+  xy: 251, 16
   size: 18, 44
   orig: 18, 44
   offset: 0, 0
@@ -2035,35 +2028,42 @@ killeyFightingAttack
   index: 5
 leknaatWalkDown
   rotate: false
-  xy: 174, 15
+  xy: 96, 14
+  size: 24, 46
+  orig: 24, 46
+  offset: 0, 0
+  index: 1
+leknaatWalkDown
+  rotate: false
+  xy: 200, 15
   size: 24, 45
   orig: 24, 45
   offset: 0, 0
   index: 2
 leknaatWalkDown
   rotate: false
-  xy: 200, 14
+  xy: 226, 14
   size: 23, 46
   orig: 23, 46
   offset: 0, 0
   index: 3
 leknaatWalkUp
   rotate: false
-  xy: 96, 14
+  xy: 122, 14
   size: 24, 46
   orig: 24, 46
   offset: 0, 0
   index: 1
 leknaatWalkUp
   rotate: false
-  xy: 122, 14
+  xy: 148, 14
   size: 24, 46
   orig: 24, 46
   offset: 0, 0
   index: 2
 leknaatWalkUp
   rotate: false
-  xy: 148, 14
+  xy: 174, 14
   size: 24, 46
   orig: 24, 46
   offset: 0, 0
@@ -2203,28 +2203,28 @@ renata
   index: 19
 riouWalkDown
   rotate: false
-  xy: 245, 16
+  xy: 271, 16
   size: 18, 44
   orig: 18, 44
   offset: 0, 0
   index: 1
 riouWalkDown
   rotate: false
-  xy: 265, 16
+  xy: 291, 16
   size: 18, 44
   orig: 18, 44
   offset: 0, 0
   index: 3
 riouWalkLeft
   rotate: false
-  xy: 285, 17
+  xy: 311, 17
   size: 18, 43
   orig: 18, 43
   offset: 0, 0
   index: 3
 riouWalkUp
   rotate: false
-  xy: 305, 17
+  xy: 331, 17
   size: 18, 43
   orig: 18, 43
   offset: 0, 0
