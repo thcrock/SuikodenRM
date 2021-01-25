@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="100" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="103">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="100" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="104">
  <properties>
   <property name="musicTrackName" value="kanakan_bars.ogg"/>
  </properties>
@@ -343,7 +343,7 @@
     <property name="toSpawnNumber" value="2"/>
    </properties>
   </object>
-  <object id="102" name="toforest" x="948.5" y="-0.5" width="139" height="98.5">
+  <object id="102" name="toforest" x="179.167" y="-0.5" width="1423" height="98.5">
    <properties>
     <property name="toName" value="forest1"/>
     <property name="toSpawnNumber" value="1"/>
@@ -492,6 +492,11 @@
   <object id="29" name="spawn1" x="321.334" y="295.167" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="103" name="spawnFromForest" x="1002" y="116" width="44" height="38">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>
