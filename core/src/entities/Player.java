@@ -146,7 +146,9 @@ public class Player extends DrawableBox2D implements Scriptable {
 		animTime += Gdx.graphics.getDeltaTime();
         if(coupleMovementAndAnimation) {
             if(movingUp()) {
-                this.setSpeed(maxSpeed);
+                if(!isInScript) {
+                    this.setSpeed(maxSpeed);
+                }
                 currentWalkAnim = upAnim;
                 this.setRegion(upAnim.getKeyFrame(animTime, true));
                 this.setWidth(upAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
@@ -154,7 +156,9 @@ public class Player extends DrawableBox2D implements Scriptable {
                 currentDirection = faceUP;
             }
             else if(movingDown()) {
-                this.setSpeed(maxSpeed);
+                if(!isInScript) {
+                    this.setSpeed(maxSpeed);
+                }
                 currentWalkAnim = downAnim;
                 this.setRegion(downAnim.getKeyFrame(animTime, true));
                 this.setWidth(downAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
@@ -162,7 +166,9 @@ public class Player extends DrawableBox2D implements Scriptable {
                 currentDirection = faceDOWN;
             }
             else if(movingLeft()) {
-                this.setSpeed(maxSpeed);
+                if(!isInScript) {
+                    this.setSpeed(maxSpeed);
+                }
                 currentWalkAnim = leftAnim;
                 this.setRegion(leftAnim.getKeyFrame(animTime, true));
                 this.setWidth(leftAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
@@ -170,7 +176,9 @@ public class Player extends DrawableBox2D implements Scriptable {
                 currentDirection = faceLEFT;
             }
             else if(movingRight()) {
-                this.setSpeed(maxSpeed);
+                if(!isInScript) {
+                    this.setSpeed(maxSpeed);
+                }
                 currentWalkAnim = rightAnim;
                 this.setRegion(rightAnim.getKeyFrame(animTime, true));
                 this.setWidth(rightAnim.getKeyFrame(animTime, true).getRegionWidth()*SuikodenRM.scale*0.5f);
