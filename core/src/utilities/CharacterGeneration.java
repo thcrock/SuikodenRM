@@ -18,6 +18,7 @@ import entities.world.characters.Dog;
 import entities.world.characters.Friend;
 import entities.world.characters.Kid1;
 import entities.world.characters.Fisherman;
+import entities.world.characters.BirdRed;
 import entities.world.characters.Killey;
 import entities.world.characters.Leknaat;
 import gamestate.BoxWorld;
@@ -41,6 +42,7 @@ public class CharacterGeneration {
 		else if(name.equals("Haia")) return new Haia(ImageCache.getFrame("haia", 1), bw, x, y);
 		else if(name.equals("Chair")) return new Chair(ImageCache.getFrame("chair", 1), bw, x, y);
 		else if(name.equals("Barrel")) return new Barrel(ImageCache.getFrame("barrel", 1), bw, x, y);
+		else if(name.equals("BirdRed")) return new BirdRed(ImageCache.getFrame("bird_red", 1), bw, x, y);
 		return null;
 	}
 	

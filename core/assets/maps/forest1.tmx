@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="80" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="91">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="80" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="97">
  <properties>
   <property name="musicTrackName" value="WildBirds.mp3"/>
  </properties>
@@ -359,6 +359,50 @@
   <object id="90" name="cloakscene" x="563" y="1048.67" width="52" height="33">
    <properties>
     <property name="convoName" value="cloak"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="11" name="characters">
+  <object id="91" name="bird" x="376.667" y="1043.67" width="17.3333" height="13.3333">
+   <properties>
+    <property name="character" value="BirdRed"/>
+    <property name="phases" value="r-1000;l-1000"/>
+    <property name="speed" type="float" value="120"/>
+   </properties>
+  </object>
+  <object id="92" name="bird" x="54.3333" y="876.333" width="17.3333" height="13.3333">
+   <properties>
+    <property name="character" value="BirdRed"/>
+    <property name="phases" value="r-1000;l-1000"/>
+    <property name="speed" type="float" value="120"/>
+   </properties>
+  </object>
+  <object id="93" name="bird" x="904.333" y="734.333" width="17.3333" height="13.3333">
+   <properties>
+    <property name="character" value="BirdRed"/>
+    <property name="phases" value="r-1000;l-1000"/>
+    <property name="speed" type="float" value="120"/>
+   </properties>
+  </object>
+  <object id="94" name="bird" x="647.333" y="573.333" width="17.3333" height="13.3333">
+   <properties>
+    <property name="character" value="BirdRed"/>
+    <property name="phases" value="r-1000;l-1000"/>
+    <property name="speed" type="float" value="120"/>
+   </properties>
+  </object>
+  <object id="95" name="bird" x="389.333" y="340.333" width="17.3333" height="13.3333">
+   <properties>
+    <property name="character" value="BirdRed"/>
+    <property name="phases" value="r-1000;l-1000"/>
+    <property name="speed" type="float" value="120"/>
+   </properties>
+  </object>
+  <object id="96" name="bird" x="698.333" y="174.333" width="17.3333" height="13.3333">
+   <properties>
+    <property name="character" value="BirdRed"/>
+    <property name="phases" value="r-1000;l-1000"/>
+    <property name="speed" type="float" value="120"/>
    </properties>
   </object>
  </objectgroup>

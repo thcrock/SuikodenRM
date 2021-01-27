@@ -186,7 +186,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	}
 	
 	public TextureRegion getFacePicture() {
-        System.out.println("Getting face picture");
 		return facePicture;
 	}
 	
@@ -213,7 +212,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
 	
 	public void update(float delta) {
         if(this.attachedCharacter != null && isInScript) {
-            System.out.println("setting speed to attached character");
             this.setSpeed(this.attachedCharacter.getSpeed());
             this.setRight(this.attachedCharacter.isRight());
             this.setLeft(this.attachedCharacter.isLeft());
@@ -221,14 +219,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.setDown(this.attachedCharacter.isDown());
         }
 		if(left) {
-            System.out.println("left");
-            System.out.println(speed);
-            System.out.println(maxSpeed);
 			dx = -speed;
 			if(dx < -maxSpeed) {
 				dx = -maxSpeed;
             }
-            System.out.println(dx);
 		}
 		else if(right) {
 			dx = speed;
@@ -237,7 +231,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             }
 		}
 		else {
-            //System.out.println("dx set to 0 for some reason");
 			dx = 0;
 		}
 		
@@ -258,7 +251,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.currentlyPaused = false;
         }
 		
-       // System.out.println("setting velocity to " + dx);
 		this.body.setLinearVelocity(new Vector2(dx, dy));
 		
 		animTime += Gdx.graphics.getDeltaTime();
@@ -305,7 +297,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.nextPhase();
         }
         if(isInScript && this.hasReachedTarget()) {
-            System.out.println("has reached target");
             this.setRight(false);
             this.setLeft(false);
             this.setUp(false);
@@ -325,9 +316,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         }
         if(this.isLeft()) {
             if(this.getPosition().x <= this.targetX) {
-                System.out.println(this.getPosition().x);
-                System.out.println(this.targetX);
-                System.out.println("reached left target");
                 return true;
             }
         }
@@ -601,9 +589,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.checkpointX = this.getPosition().x;
         }
         this.targetX = this.checkpointX - distance;
-        System.out.println("moving left");
-        System.out.println(this.checkpointX);
-        System.out.println(this.targetX);
     }
     public void moveUp(float distance, float speed) {
         this.currentlyPaused = false;
@@ -649,7 +634,6 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     }
 
     public void moveToY(float y, float speed) {
-        System.out.println("moving to y " + y);
         this.scenePhases = new Phase[1];
         if(this.getPosition().y < y) {
            this.scenePhases[0] = new Phase(Direction.Up, y - this.getPosition().y, 0, speed); 
