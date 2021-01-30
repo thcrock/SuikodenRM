@@ -455,10 +455,14 @@ public class BoxWorld extends GameState {
             if (
                 player.getBody().getPosition().x >= 0 + camera.viewportWidth/2
                 && player.getBody().getPosition().x <= 0 + mapPixelWidth-camera.viewportWidth/2
-                && player.getBody().getPosition().y >= 0 + camera.viewportHeight/2
+            ) {
+                camera.position.x = player.getBody().getPosition().x;
+            }
+            if (
+                player.getBody().getPosition().y >= 0 + camera.viewportHeight/2
                 && player.getBody().getPosition().y <= 0 + mapPixelHeight-camera.viewportHeight/2
             ) {
-                camera.position.set(player.getBody().getPosition().x, player.getBody().getPosition().y, 0);
+                camera.position.y = player.getBody().getPosition().y;
             }
 			camera.update();
 			

@@ -1,0 +1,76 @@
+{
+    "maps": [
+        {
+            "fileName": ".",
+            "height": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "fileName": "kanakan_residential.tmx",
+            "height": 1360,
+            "width": 1760,
+            "x": -1,
+            "y": 0
+        },
+        {
+            "fileName": "forest1.tmx",
+            "height": 1280,
+            "width": 1280,
+            "x": 2190,
+            "y": -800
+        },
+        {
+            "fileName": "kanakan.tmx",
+            "height": 1440,
+            "width": 1680,
+            "x": -803,
+            "y": -1456
+        },
+        {
+            "fileName": "kanakan_bars.tmx",
+            "height": 672,
+            "width": 1600,
+            "x": 1740,
+            "y": 480
+        },
+        {
+            "fileName": "forestdeadend.tmx",
+            "height": 480,
+            "width": 384,
+            "x": 1787,
+            "y": 0
+        },
+        {
+            "fileName": "forest2.tmx",
+            "height": 1600,
+            "width": 1280,
+            "x": 890,
+            "y": -1616
+        },
+        {
+            "fileName": "forest3.tmx",
+            "height": 800,
+            "width": 1600,
+            "x": 2201,
+            "y": -1648
+        },
+        {
+            "fileName": "forest4.tmx",
+            "height": 640,
+            "width": 640,
+            "x": 3832,
+            "y": -1504
+        },
+        {
+            "fileName": "ruinsentrance.tmx",
+            "height": 640,
+            "width": 640,
+            "x": 2663,
+            "y": -2304
+        }
+    ],
+    "onlyShowAdjacentMaps": false,
+    "type": "world"
+}
