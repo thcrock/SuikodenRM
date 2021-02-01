@@ -31,24 +31,28 @@ public class Friend extends GameWorldCharacter {
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
 				ImageCache.getFrame("renata", 7), 
                 ImageCache.getFrame("renata", 8), 
+				ImageCache.getFrame("renata", 7), 
 				ImageCache.getFrame("renata", 9), 
 				});
 		
 		this.leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
 				ImageCache.getFrame("renata", 10), 
                 ImageCache.getFrame("renata", 11), 
+				ImageCache.getFrame("renata", 10), 
 				ImageCache.getFrame("renata", 12), 
 				});
 		
 		this.upAnim = new GameAnimation(0.2f, new TextureRegion[]{
 				ImageCache.getFrame("renata", 1), 
                 ImageCache.getFrame("renata", 2), 
+				ImageCache.getFrame("renata", 1), 
 				ImageCache.getFrame("renata", 3), 
 				});
 
 		this.rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
 				ImageCache.getFrame("renata", 4), 
-                ImageCache.getFrame("renata", 5), 
+				ImageCache.getFrame("renata", 5), 
+				ImageCache.getFrame("renata", 4), 
 				ImageCache.getFrame("renata", 6), 
 				});
 		

@@ -467,6 +467,8 @@ public class Player extends DrawableBox2D implements Scriptable {
         this.setLeft(false);
         this.setUp(false);
         this.setDown(false);
+        this.targetY = 0f;
+        this.targetX = 0f;
         this.setSpeed(maxSpeed);
         this.currentlyPaused = false;
         this.coupleMovementAndAnimation = true;
