@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="110" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="121">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="110" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="123">
  <properties>
   <property name="musicTrackName" value="WildBirds.mp3"/>
  </properties>
  <tileset firstgid="1" source="terrain.tsx"/>
  <tileset firstgid="1025" source="treebig.tsx"/>
  <tileset firstgid="1026" source="tiles/plants.tsx"/>
- <layer id="3" name="background" width="110" height="50" visible="0">
+ <layer id="3" name="background" width="110" height="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,
 296,296,296,296,296,296,296,296,296,0,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,
@@ -381,6 +381,16 @@
   <object id="5" name="spawn1" x="329.682" y="493.917" width="34.697" height="39.4242">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="121" name="spawn2" x="1610.65" y="334.288" width="34.697" height="39.4242">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="122" name="spawn3" x="954.651" y="638.288" width="34.697" height="39.4242">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
    </properties>
   </object>
  </objectgroup>

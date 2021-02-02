@@ -58,16 +58,16 @@
         },
         {
             "fileName": "forest4.tmx",
-            "height": 640,
+            "height": 1280,
             "width": 640,
-            "x": 3832,
-            "y": -1504
+            "x": 3976,
+            "y": -2288
         },
         {
             "fileName": "ruinsentrance.tmx",
             "height": 640,
-            "width": 640,
-            "x": 2663,
+            "width": 960,
+            "x": 2903,
             "y": -2304
         }
     ],
