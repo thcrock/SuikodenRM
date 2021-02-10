@@ -26,7 +26,6 @@ public abstract class DrawableBox2D extends Box2DSprite implements Comparable<Dr
        
         public void draw(Batch spriteBatch) {
             if(hidden) {
-                System.out.println("Character is hidden, not rendering");
                 return;
             }
         	this.draw(spriteBatch, body);

@@ -130,6 +130,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     }
 	
     public void setPhases(String phaseText) {
+        if(phaseText == null) {
+            return;
+        }
         this.loopingPhases = this.phaseListFromText(phaseText);
         this.startX = this.getPosition().x;
         this.startY = this.getPosition().y;

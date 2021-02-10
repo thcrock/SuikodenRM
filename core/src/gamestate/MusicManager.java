@@ -10,8 +10,6 @@ public class MusicManager {
     String musicTrackName = null;
 
     public void playTrack(String musicTrack) {
-        System.out.println(musicTrack);
-        System.out.println(this.musicTrackName);
         if(!musicTrack.equals(this.musicTrackName)) {
             if(this.music != null) {
                 System.out.println("Stopping");

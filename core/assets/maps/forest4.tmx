@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="40" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="65">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="40" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="66">
  <properties>
   <property name="musicTrackName" value="WildBirds.mp3"/>
  </properties>
@@ -357,7 +357,15 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="8" name="characters"/>
+ <objectgroup id="8" name="characters">
+  <object id="65" name="bird" x="19.3333" y="322.333" width="17.3333" height="13.3333">
+   <properties>
+    <property name="character" value="BirdRed"/>
+    <property name="phases" value="r-1000;l-1000"/>
+    <property name="speed" type="float" value="120"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup id="9" name="box2D">
   <object id="6" type="object" x="17" y="1203" width="28.5" height="32"/>
   <object id="7" type="object" x="79.75" y="1202.5" width="28.5" height="32"/>
@@ -420,7 +428,7 @@
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="62" x="143" y="174" width="25" height="23">
+  <object id="62" x="216" y="200" width="25" height="23" rotation="180">
    <properties>
     <property name="spawnNumber" type="int" value="2"/>
    </properties>

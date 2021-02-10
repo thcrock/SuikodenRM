@@ -15,6 +15,7 @@ import scripting.MoveDown;
 import scripting.PauseFor;
 import scripting.AnimationFrame;
 import scripting.DecoupleMovementAndAnimation;
+import scripting.ShowLayer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Json;
 import com.kyper.yarn.Dialogue;
@@ -389,6 +390,11 @@ public class Conversation {
                     character.startScript();
                 }
                 currentAction.perform(character);
+            } else if(commandName.equals("showLayer")) {
+                scripting.ShowLayer action = new scripting.ShowLayer();
+                action.tagToShow = params[1];
+                currentAction = action;
+                currentAction.perform(null);
             } else {
                 System.out.println("unknown command " + commandName);
             }

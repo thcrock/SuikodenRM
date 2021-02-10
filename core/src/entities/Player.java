@@ -101,6 +101,9 @@ public class Player extends DrawableBox2D implements Scriptable {
 	}
 	
 	public void draw(Batch spriteBatch) {
+        if(hidden) {
+            return;
+        }
 		this.draw(spriteBatch, body);
 	}
 	

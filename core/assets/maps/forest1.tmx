@@ -351,7 +351,7 @@
 </data>
  </layer>
  <objectgroup id="8" name="scripts">
-  <object id="74" name="leaves" x="747" y="912.5" width="51" height="30.5">
+  <object id="74" name="leaves" x="749" y="849" width="73" height="120">
    <properties>
     <property name="convoName" value="noticeLeaves"/>
    </properties>

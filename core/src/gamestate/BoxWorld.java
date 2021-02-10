@@ -391,6 +391,15 @@ public class BoxWorld extends GameState {
 
 	}
 
+    public void showLayersWithTag(String tagToShow) {
+        for(TiledMapTileLayer background : backgrounds) {
+            String tag = (String) background.getProperties().get("tag");
+            if(tagToShow.equals(tag)) {
+                background.setVisible(true);
+            }
+        }
+    }
+
     public void triggerConversation(Conversation conversation) {
         currentConversation = conversation;
         currentConversation.initialize(characters, player);
@@ -453,14 +462,14 @@ public class BoxWorld extends GameState {
 			
 			//camera.zoom = 5;
             if (
-                player.getBody().getPosition().x >= 0 + camera.viewportWidth/2
-                && player.getBody().getPosition().x <= 0 + mapPixelWidth-camera.viewportWidth/2
+                player.getBody().getPosition().x >= 0 + camera.viewportWidth/3
+                && player.getBody().getPosition().x <= 0 + mapPixelWidth-camera.viewportWidth/3
             ) {
                 camera.position.x = player.getBody().getPosition().x;
             }
             if (
-                player.getBody().getPosition().y >= 0 + camera.viewportHeight/2
-                && player.getBody().getPosition().y <= 0 + mapPixelHeight-camera.viewportHeight/2
+                player.getBody().getPosition().y >= 0 + camera.viewportHeight/3
+                && player.getBody().getPosition().y <= 0 + mapPixelHeight-camera.viewportHeight/3
             ) {
                 camera.position.y = player.getBody().getPosition().y;
             }
@@ -474,7 +483,9 @@ public class BoxWorld extends GameState {
 			mapRenderer.getBatch().begin();
 			
 			for(TiledMapTileLayer background : backgrounds) {
-				mapRenderer.renderTileLayer(background);
+                if(background.isVisible()) { 
+				    mapRenderer.renderTileLayer(background);
+                }
 			}
 			
             mapRenderer.renderTileLayer(objectLayers, drawableBoxes);

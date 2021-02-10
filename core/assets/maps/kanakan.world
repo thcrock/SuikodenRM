@@ -65,10 +65,10 @@
         },
         {
             "fileName": "ruinsentrance.tmx",
-            "height": 640,
-            "width": 960,
-            "x": 2903,
-            "y": -2304
+            "height": 800,
+            "width": 1040,
+            "x": 2935,
+            "y": -2464
         }
     ],
     "onlyShowAdjacentMaps": false,

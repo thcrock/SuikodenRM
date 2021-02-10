@@ -161,7 +161,16 @@ public class GameStateManager implements InputProcessor{
         } else {
             System.out.println("current state not BoxWorld, skipping convo");
         }
+    }
 
+    public void showLayersWithTag(String tag) {
+        GameState gs = gameState[currentState];
+        if(gs instanceof BoxWorld) {
+            BoxWorld bw = (BoxWorld) gs;
+            bw.showLayersWithTag(tag);
+        } else {
+            System.out.println("current state not BoxWorld, can't show layers");
+        }
     }
 
     public HashSet<String> getCompletedScripts() {
