@@ -20,7 +20,6 @@ import entities.world.characters.Kid1;
 import entities.world.characters.Fisherman;
 import entities.world.characters.BirdRed;
 import entities.world.characters.Rabbit;
-import entities.world.characters.RuinsFloor;
 import entities.world.characters.Invisible;
 import entities.world.characters.Killey;
 import entities.world.characters.Leknaat;
@@ -48,7 +47,6 @@ public class CharacterGeneration {
 		else if(name.equals("Barrel")) return new Barrel(ImageCache.getFrame("barrel", 1), bw, x, y);
 		else if(name.equals("BirdRed")) return new BirdRed(ImageCache.getFrame("bird_red", 1), bw, x, y);
 		else if(name.equals("Rabbit")) return new Rabbit(ImageCache.getFrame("rabbit", 1), bw, x, y);
-		else if(name.equals("RuinsFloor")) return new RuinsFloor(ImageCache.getFrame("ruins_stone", 1), bw, x, y);
 		return new Invisible(ImageCache.getFrame("chair", 1), bw, x, y);
 	}
 	
