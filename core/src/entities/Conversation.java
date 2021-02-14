@@ -395,6 +395,12 @@ public class Conversation {
                 action.tagToShow = params[1];
                 currentAction = action;
                 currentAction.perform(null);
+            } else if(commandName.equals("toMap")) {
+                scripting.ToMap action = new scripting.ToMap();
+                action.toName = params[1];
+                action.toSpawnNumber = Integer.parseInt(params[2]);
+                currentAction = action;
+                currentAction.perform(null);
             } else {
                 System.out.println("unknown command " + commandName);
             }
