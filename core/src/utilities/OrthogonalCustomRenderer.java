@@ -226,6 +226,9 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 		for(int i = 0; i < drawableBoxes.size(); i++) {
 			DrawableBox2D db2d = drawableBoxes.get(i);
 			for(TiledMapTileLayer layer : layers) {
+                if(!layer.isVisible()) {
+                    continue;
+                }
 				final Color batchColor = batch.getColor();
 				final float color = Color.toFloatBits(batchColor.r, batchColor.g,
 						batchColor.b, batchColor.a * layer.getOpacity());

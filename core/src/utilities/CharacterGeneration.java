@@ -21,6 +21,9 @@ import entities.world.characters.Fisherman;
 import entities.world.characters.BirdRed;
 import entities.world.characters.Rabbit;
 import entities.world.characters.Invisible;
+import entities.world.characters.Petal;
+import entities.world.characters.Stone;
+import entities.world.characters.Skeleton;
 import entities.world.characters.Killey;
 import entities.world.characters.Leknaat;
 import gamestate.BoxWorld;
@@ -47,6 +50,9 @@ public class CharacterGeneration {
 		else if(name.equals("Barrel")) return new Barrel(ImageCache.getFrame("barrel", 1), bw, x, y);
 		else if(name.equals("BirdRed")) return new BirdRed(ImageCache.getFrame("bird_red", 1), bw, x, y);
 		else if(name.equals("Rabbit")) return new Rabbit(ImageCache.getFrame("rabbit", 1), bw, x, y);
+		else if(name.equals("Petal")) return new Petal(ImageCache.getFrame("petal", 1), bw, x, y);
+		else if(name.equals("Stone")) return new Stone(ImageCache.getFrame("stone", 1), bw, x, y);
+		else if(name.equals("Skeleton")) return new Skeleton(ImageCache.getFrame("skeleton", 1), bw, x, y);
 		return new Invisible(ImageCache.getFrame("chair", 1), bw, x, y);
 	}
 	

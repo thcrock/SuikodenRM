@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Mia: Here we go!\n<<showLayer fixedpedestal>>",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	}
+]
