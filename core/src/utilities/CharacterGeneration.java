@@ -24,6 +24,7 @@ import entities.world.characters.Invisible;
 import entities.world.characters.Petal;
 import entities.world.characters.Stone;
 import entities.world.characters.Skeleton;
+import entities.world.characters.Sword;
 import entities.world.characters.Killey;
 import entities.world.characters.Leknaat;
 import gamestate.BoxWorld;
@@ -53,6 +54,7 @@ public class CharacterGeneration {
 		else if(name.equals("Petal")) return new Petal(ImageCache.getFrame("petal", 1), bw, x, y);
 		else if(name.equals("Stone")) return new Stone(ImageCache.getFrame("stone", 1), bw, x, y);
 		else if(name.equals("Skeleton")) return new Skeleton(ImageCache.getFrame("skeleton", 1), bw, x, y);
+		else if(name.equals("Sword")) return new Sword(ImageCache.getFrame("sword", 1), bw, x, y);
 		return new Invisible(ImageCache.getFrame("chair", 1), bw, x, y);
 	}
 	

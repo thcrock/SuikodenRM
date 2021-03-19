@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="40" height="48" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="6">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="40" height="48" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="8">
  <tileset firstgid="1" source="terrain_atlas.tsx"/>
  <tileset firstgid="4097" source="pedestal.tsx"/>
  <layer id="1" name="background" width="40" height="48">
@@ -85,9 +85,21 @@
     <property name="speed" type="float" value="120"/>
    </properties>
   </object>
+  <object id="6" name="sword" x="151.333" y="304.833" width="17.3333" height="13.3333">
+   <properties>
+    <property name="character" value="Sword"/>
+    <property name="phases" value=""/>
+    <property name="speed" type="float" value="120"/>
+   </properties>
+  </object>
+  <object id="7" name="PedestalCheckpoint" x="283.625" y="337.25" width="12.75" height="12.5">
+   <properties>
+    <property name="character" value="PedestalCheckpoint"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="6" name="scripts">
-  <object id="2" name="placePetal" x="310.625" y="330.625" width="31.75" height="21.75">
+  <object id="2" name="placePetal" x="245.125" y="309.125" width="89.25" height="50.25">
    <properties>
     <property name="convoName" value="placePetal"/>
    </properties>

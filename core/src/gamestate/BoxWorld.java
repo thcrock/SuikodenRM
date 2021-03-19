@@ -515,24 +515,24 @@ public class BoxWorld extends GameState {
 	public void resume() {
 		Input input = Gdx.input;
 		if(input.isKeyPressed(Keys.W)) {
-			player.setUp(true);
+			player.setUpFromInput(true);
 		} else {
-			player.setUp(false);
+			player.setUpFromInput(false);
 		}
 		if(input.isKeyPressed(Keys.A)) {
-			player.setLeft(true);
+			player.setLeftFromInput(true);
 		} else {
-			player.setLeft(false);
+			player.setLeftFromInput(false);
 		}
 		if(input.isKeyPressed(Keys.S)) {
-			player.setDown(true);
+			player.setDownFromInput(true);
 		} else {
-			player.setDown(false);
+			player.setDownFromInput(false);
 		}
 		if(input.isKeyPressed(Keys.D)) {
-			player.setRight(true);
+			player.setRightFromInput(true);
 		} else {
-			player.setRight(false);
+			player.setRightFromInput(false);
 		}
 	}
 
@@ -549,10 +549,10 @@ public class BoxWorld extends GameState {
 	@Override
 	public void keyPressed(int k) {
 		if(!disposeThis) {
-			if(k == Keys.W) player.setUp(true);
-			if(k == Keys.A) player.setLeft(true);
-			if(k == Keys.S) player.setDown(true);
-			if(k == Keys.D) player.setRight(true);
+			if(k == Keys.W) player.setUpFromInput(true);
+			if(k == Keys.A) player.setLeftFromInput(true);
+			if(k == Keys.S) player.setDownFromInput(true);
+			if(k == Keys.D) player.setRightFromInput(true);
 			if(k == Keys.ESCAPE) {
 				SuikodenRM.gsm.setPauseState();
 			}
@@ -623,10 +623,10 @@ public class BoxWorld extends GameState {
 	@Override
 	public void keyReleased(int k) {
 		if(!disposeThis) {
-			if(k == Keys.W) player.setUp(false);
-			if(k == Keys.A) player.setLeft(false);
-			if(k == Keys.S) player.setDown(false);
-			if(k == Keys.D) player.setRight(false);
+			if(k == Keys.W) player.setUpFromInput(false);
+			if(k == Keys.A) player.setLeftFromInput(false);
+			if(k == Keys.S) player.setDownFromInput(false);
+			if(k == Keys.D) player.setRightFromInput(false);
 			if(k == Keys.LEFT) camera.rotate(10f, 0, 1, 0);
 			if(k == Keys.UP) camera.rotate(10f, 1, 0, 0);
 			if(k == Keys.DOWN) camera.rotate(10f, -1, 0, 0);

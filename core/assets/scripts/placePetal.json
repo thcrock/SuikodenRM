@@ -2,7 +2,37 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Mia: Here we go!\n<<showLayer fixedpedestal>>",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<moveToY Mia PedestalCheckpoint 0 60>>\n<<moveToY Renata PedestalCheckpoint -30 60>>\n<<moveToX Mia PedestalCheckpoint 30 60>>\n<<moveToX Renata PedestalCheckpoint -20 60>>\n<<faceLeft Mia>>\n<<faceUp Renata>>\n[[inspect]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "inspect",
+		"tags": "",
+		"body": "Renata: Hmm, what is this?\n[[preparetoclimb]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "preparetoclimb",
+		"tags": "",
+		"body": "Renata: Okay, let's climb!\n<<moveToY Renata Mia -20 40>>\n<<moveToX Renata Mia 5 40>>\n<<moveUp Renata 1 10>>\n[[climb]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "climb",
+		"tags": "",
+		"body": "Renata: Up we go!\n<<moveToForeground Renata>>\n<<moveUp Renata 15 20>>\n<<moveUp Renata 30 60>>\nMia: Ow!\n<<faceLeft Renata>>",
 		"position": {
 			"x": 0,
 			"y": 0
