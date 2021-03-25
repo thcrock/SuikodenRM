@@ -173,6 +173,26 @@ public class GameStateManager implements InputProcessor{
         }
     }
 
+    public void hideLayersWithTag(String tag) {
+        GameState gs = gameState[currentState];
+        if(gs instanceof BoxWorld) {
+            BoxWorld bw = (BoxWorld) gs;
+            bw.hideLayersWithTag(tag);
+        } else {
+            System.out.println("current state not BoxWorld, can't show layers");
+        }
+    }
+
+    public void disableCollidersWithTag(String tag) {
+        GameState gs = gameState[currentState];
+        if(gs instanceof BoxWorld) {
+            BoxWorld bw = (BoxWorld) gs;
+            bw.disableCollidersWithTag(tag);
+        } else {
+            System.out.println("current state not BoxWorld, can't disable colliders");
+        }
+    }
+
     public HashSet<String> getCompletedScripts() {
         return completedScripts;
     }

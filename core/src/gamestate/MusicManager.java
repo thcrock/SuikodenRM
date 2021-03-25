@@ -11,6 +11,9 @@ public class MusicManager {
 
     public void playTrack(String musicTrack) {
         if(musicTrack == null) {
+            if(this.music != null) {
+                this.music.stop();
+            }
             return;
         }
 

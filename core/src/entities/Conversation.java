@@ -345,6 +345,10 @@ public class Conversation {
                 action.helpPrompt = String.join(" ", java.util.Arrays.copyOfRange(params, 1, params.length));
                 currentAction = action;
                 currentAction.perform(null);
+            } else if(commandName.equals("stopBgMusic")) {
+                scripting.StopBgMusic action = new scripting.StopBgMusic();
+                currentAction = action;
+                currentAction.perform(null);
             } else if(commandName.equals("setBgMusic")) {
                 scripting.SetBgMusic action = new scripting.SetBgMusic();
                 action.musicTrackName = params[1];
@@ -393,6 +397,16 @@ public class Conversation {
             } else if(commandName.equals("showLayer")) {
                 scripting.ShowLayer action = new scripting.ShowLayer();
                 action.tagToShow = params[1];
+                currentAction = action;
+                currentAction.perform(null);
+            } else if(commandName.equals("hideLayer")) {
+                scripting.HideLayer action = new scripting.HideLayer();
+                action.tagToHide = params[1];
+                currentAction = action;
+                currentAction.perform(null);
+            } else if(commandName.equals("disableCollider")) {
+                scripting.DisableCollider action = new scripting.DisableCollider();
+                action.tagToDisable = params[1];
                 currentAction = action;
                 currentAction.perform(null);
             } else if(commandName.equals("toMap")) {

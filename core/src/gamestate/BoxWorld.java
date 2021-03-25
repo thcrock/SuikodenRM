@@ -171,19 +171,10 @@ public class BoxWorld extends GameState {
 				Iterator<MapObject> moIterator = ml.getObjects().iterator();
 				while(moIterator.hasNext()) {
 					RectangleMapObject mo = (RectangleMapObject) moIterator.next();
-					
-					String message = (String) mo.getProperties().get("message");
-					PolygonShape ps = new PolygonShape();
-					ps.setAsBox((mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().height/2)*SuikodenRM.scale);
-					FixtureDef fixture = new FixtureDef();
-					fixture.shape = ps;
-					BodyDef bodyDef = new BodyDef();
-					bodyDef.position.set(new Vector2((mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale, (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale));
-					Body body = world.createBody(bodyDef);
-					
-					body.createFixture(fixture);
-					Collider newCollider = new Collider(message);
-					body.setUserData(newCollider);
+				    String message = (String) mo.getProperties().get("message");	
+				    String tag = (String) mo.getProperties().get("tag");	
+					Collider newCollider = new Collider(this, mo.getRectangle().x, mo.getRectangle().y, mo.getRectangle().height, mo.getRectangle().width, message, tag);
+                    colliders.add(newCollider);
 				}
             }
 			if(layerTypeString.equals("doors")) {
@@ -399,6 +390,24 @@ public class BoxWorld extends GameState {
             }
         }
     }
+
+    public void hideLayersWithTag(String tagToShow) {
+        for(TiledMapTileLayer background : backgrounds) {
+            String tag = (String) background.getProperties().get("tag");
+            if(tagToShow.equals(tag)) {
+                background.setVisible(false);
+            }
+        }
+    }
+
+    public void disableCollidersWithTag(String tagToDisable) {
+        for(Collider collider : colliders) {
+            if(tagToDisable.equals(collider.tag)) {
+                collider.disableBody();
+            }
+        }
+    }
+
 
     public void triggerConversation(Conversation conversation) {
         currentConversation = conversation;
