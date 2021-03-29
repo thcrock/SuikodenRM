@@ -39,7 +39,7 @@ public class GameStateManager implements InputProcessor{
         completedScripts = new HashSet<String>();
 		
 		currentState = LEVELSTATE;
-		loadState(currentState, new Door("ruinsescaperoom", 1));
+		loadState(currentState, new Door("ruinslobby", 1));
 	}
 	
 	private void loadState (int state, Door door) {

@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<hideLayer water1>>\n<<pauseFor Mia 1.0>>\n<<hideLayer water2>>",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	}
+]
