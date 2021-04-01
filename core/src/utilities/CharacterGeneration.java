@@ -25,6 +25,7 @@ import entities.world.characters.Petal;
 import entities.world.characters.Stone;
 import entities.world.characters.Skeleton;
 import entities.world.characters.Sword;
+import entities.world.characters.FurFur;
 import entities.world.characters.Killey;
 import entities.world.characters.Leknaat;
 import gamestate.BoxWorld;
@@ -44,7 +45,7 @@ public class CharacterGeneration {
 		else if(name.equals("OldMan")) return new OldMan(ImageCache.getFrame("oldman", 7), bw, x, y);
 		else if(name.equals("Dog")) return new Dog(ImageCache.getFrame("dog_run", 1), bw, x, y);
 		else if(name.equals("Kid1")) return new Kid1(ImageCache.getFrame("kid1", 1), bw, x, y);
-		else if(name.equals("Friend")) return new Friend(ImageCache.getFrame("girlbluehair", 4), bw, x, y);
+		else if(name.equals("Friend")) return new Friend(ImageCache.getFrame("renata", 4), bw, x, y);
 		else if(name.equals("Fisherman")) return new Fisherman(ImageCache.getFrame("fishing", 1), bw, x, y);
 		else if(name.equals("Haia")) return new Haia(ImageCache.getFrame("haia", 1), bw, x, y);
 		else if(name.equals("Chair")) return new Chair(ImageCache.getFrame("chair", 1), bw, x, y);
@@ -55,6 +56,7 @@ public class CharacterGeneration {
 		else if(name.equals("Stone")) return new Stone(ImageCache.getFrame("stone", 1), bw, x, y);
 		else if(name.equals("Skeleton")) return new Skeleton(ImageCache.getFrame("skeleton", 1), bw, x, y);
 		else if(name.equals("Sword")) return new Sword(ImageCache.getFrame("sword", 1), bw, x, y);
+		else if(name.equals("FurFur")) return new FurFur(ImageCache.getFrame("furfur", 1), bw, x, y);
 		return new Invisible(ImageCache.getFrame("chair", 1), bw, x, y);
 	}
 	

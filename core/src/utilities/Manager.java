@@ -11,7 +11,7 @@ public class Manager extends AssetManager{
 	public static final int ROT_UP = 180;
 	public static final int ROT_DOWN = 0;
 	
-	public static Party party = new Party();
+	public static Party party = null;
 	public static Inventory inventory = new Inventory();
 	
 	public void init() {

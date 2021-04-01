@@ -156,6 +156,9 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     }
 	
 	public void interact(Player player) {
+        if(player.IsInScript()) {
+            return;
+        }
 		if(moveable) {
 			TextureRegion tr = null;
 			float diffX = this.getBody().getPosition().x - player.getBody().getPosition().x;

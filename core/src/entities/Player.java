@@ -104,6 +104,10 @@ public class Player extends DrawableBox2D implements Scriptable {
     	//this.setCenterY(10);
 	}
 	
+    public boolean IsInScript() {
+        return isInScript;
+    }
+
 	public void draw(Batch spriteBatch) {
         if(hidden) {
             return;
@@ -204,6 +208,9 @@ public class Player extends DrawableBox2D implements Scriptable {
             this.setLeft(false);
             this.setUp(false);
             this.setDown(false);
+        }
+        if(this.currentlyPaused == true && this.pauseSeconds <= 0) {
+            this.currentlyPaused = false;
         }
         if(this.pauseSeconds > 0) {
             this.pauseSeconds -= delta;
@@ -496,10 +503,13 @@ public class Player extends DrawableBox2D implements Scriptable {
         this.currentlyTalking = false;
     }
     public boolean hasFinishedAction() {
+        System.out.println("has finished action?");
         if(this.currentlyPaused == true) {
+            System.out.println("checking paused");
             return this.pauseSeconds <= 0;
         }
         if(this.currentlyTalking == true) {
+            System.out.println("checking talking");
             if(SuikodenRM.gsm.PAUSED) {
                 return false;
             } else {
@@ -508,8 +518,10 @@ public class Player extends DrawableBox2D implements Scriptable {
             }
         }
         if(!right && !left && !up && !down) {
+            System.out.println("not moving so yes");
             return true;
         }
+        System.out.println("going with has reached target");
         return hasReachedTarget();
     }
     private boolean hasReachedTarget() {
