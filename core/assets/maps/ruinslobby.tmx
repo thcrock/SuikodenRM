@@ -198,7 +198,7 @@
   </object>
  </objectgroup>
  <objectgroup id="10" name="characters">
-  <object id="24" name="FurFur" x="327.697" y="522.698" width="13.2727" height="13.2727">
+  <object id="24" name="FurFur" x="326.697" y="526.365" width="13.2727" height="13.2727">
    <properties>
     <property name="character" value="FurFur"/>
     <property name="hidden" type="bool" value="true"/>
@@ -243,7 +243,7 @@
     <property name="character" value="Haia"/>
     <property name="hidden" type="bool" value="true"/>
     <property name="phases" value=""/>
-    <property name="speed" type="float" value="120"/>
+    <property name="speed" type="float" value="220"/>
    </properties>
   </object>
   <object id="31" name="StairsEntrance" x="158.697" y="502.03" width="13.2727" height="13.2727">
@@ -267,7 +267,7 @@
   <object id="10" type="object" x="465" y="230" width="562.666" height="10.6667"/>
   <object id="11" type="object" x="450.334" y="240" width="14.6663" height="223.333"/>
   <object id="12" type="object" x="180" y="470.667" width="285.333" height="10.6667"/>
-  <object id="13" type="object" x="272.334" y="538.333" width="266" height="3.6667"/>
+  <object id="13" type="object" x="273.334" y="542" width="266" height="3.6667"/>
   <object id="14" type="object" x="562.667" y="309" width="14.6663" height="201.333"/>
   <object id="15" type="object" x="261.334" y="547" width="14.6663" height="252.666"/>
   <object id="16" type="object" x="82.6669" y="82.3335" width="14.6663" height="730"/>

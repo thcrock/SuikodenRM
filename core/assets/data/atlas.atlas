@@ -879,126 +879,126 @@ filter: Nearest,Nearest
 repeat: none
 bird_red
   rotate: false
-  xy: 844, 923
+  xy: 894, 923
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 7
 bird_red
   rotate: false
-  xy: 878, 923
+  xy: 928, 923
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 8
 bird_red
   rotate: false
-  xy: 912, 923
+  xy: 962, 923
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 9
 bird_red
   rotate: false
-  xy: 946, 923
+  xy: 76, 41
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 10
 bird_red
   rotate: false
-  xy: 980, 923
+  xy: 110, 41
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 11
 bird_red
   rotate: false
-  xy: 76, 41
+  xy: 176, 73
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 12
 bird_red
   rotate: false
-  xy: 110, 41
+  xy: 210, 73
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 13
 bird_red
   rotate: false
-  xy: 176, 73
+  xy: 324, 269
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 14
 bird_red
   rotate: false
-  xy: 210, 73
+  xy: 358, 269
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 15
 bird_red
   rotate: false
-  xy: 324, 269
+  xy: 894, 889
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 16
 bird_red
   rotate: false
-  xy: 358, 269
+  xy: 928, 889
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 17
 bird_red
   rotate: false
-  xy: 844, 889
+  xy: 962, 889
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 18
 bird_red
   rotate: false
-  xy: 878, 889
+  xy: 244, 73
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 19
 bird_red
   rotate: false
-  xy: 912, 889
+  xy: 392, 269
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 20
 bird_red
   rotate: false
-  xy: 946, 889
+  xy: 70, 7
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 21
 bird_red
   rotate: false
-  xy: 980, 889
+  xy: 104, 7
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 22
 bird_red
   rotate: false
-  xy: 244, 73
+  xy: 164, 39
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 23
 bird_red
   rotate: false
-  xy: 392, 269
+  xy: 198, 39
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
@@ -1194,275 +1194,282 @@ mia
   orig: 48, 64
   offset: 0, 0
   index: 19
+mia
+  rotate: false
+  xy: 348, 369
+  size: 48, 64
+  orig: 48, 64
+  offset: 0, 0
+  index: 20
 rabbit
   rotate: false
-  xy: 70, 7
+  xy: 232, 39
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 1
 rabbit
   rotate: false
-  xy: 70, 7
+  xy: 232, 39
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 6
 rabbit
   rotate: false
-  xy: 104, 7
+  xy: 266, 39
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 2
 rabbit
   rotate: false
-  xy: 104, 7
+  xy: 266, 39
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 7
 rabbit
   rotate: false
-  xy: 164, 39
+  xy: 164, 5
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 3
 rabbit
   rotate: false
-  xy: 164, 39
+  xy: 164, 5
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 8
 rabbit
   rotate: false
-  xy: 198, 39
+  xy: 198, 5
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 4
 rabbit
   rotate: false
-  xy: 198, 39
+  xy: 198, 5
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 9
 rabbit
   rotate: false
-  xy: 232, 39
+  xy: 232, 5
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 5
 rabbit
   rotate: false
-  xy: 232, 39
+  xy: 232, 5
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 10
 rabbit
   rotate: false
-  xy: 266, 39
+  xy: 266, 5
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 11
 rabbit
   rotate: false
-  xy: 266, 39
+  xy: 266, 5
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 16
 rabbit
   rotate: false
-  xy: 164, 5
+  xy: 720, 785
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 12
 rabbit
   rotate: false
-  xy: 164, 5
+  xy: 720, 785
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 17
 rabbit
   rotate: false
-  xy: 198, 5
+  xy: 754, 786
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 13
 rabbit
   rotate: false
-  xy: 198, 5
+  xy: 754, 786
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 18
 rabbit
   rotate: false
-  xy: 232, 5
+  xy: 836, 857
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 14
 rabbit
   rotate: false
-  xy: 232, 5
+  xy: 836, 857
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 19
 rabbit
   rotate: false
-  xy: 266, 5
+  xy: 836, 823
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 15
 rabbit
   rotate: false
-  xy: 266, 5
+  xy: 836, 823
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 20
 renata
   rotate: false
-  xy: 348, 369
+  xy: 422, 465
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 1
 renata
   rotate: false
-  xy: 422, 465
+  xy: 472, 465
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 2
 renata
   rotate: false
-  xy: 472, 465
+  xy: 522, 465
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 3
 renata
   rotate: false
-  xy: 522, 465
+  xy: 620, 793
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 4
 renata
   rotate: false
-  xy: 620, 793
+  xy: 670, 793
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 5
 renata
   rotate: false
-  xy: 670, 793
+  xy: 176, 107
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 6
 renata
   rotate: false
-  xy: 176, 107
+  xy: 226, 107
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 7
 renata
   rotate: false
-  xy: 226, 107
+  xy: 324, 303
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 8
 renata
   rotate: false
-  xy: 324, 303
+  xy: 374, 303
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 9
 renata
   rotate: false
-  xy: 374, 303
+  xy: 546, 695
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 10
 renata
   rotate: false
-  xy: 546, 695
+  xy: 546, 629
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 11
 renata
   rotate: false
-  xy: 546, 629
+  xy: 546, 563
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 12
 renata
   rotate: false
-  xy: 546, 563
+  xy: 596, 695
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 13
 renata
   rotate: false
-  xy: 596, 695
+  xy: 596, 629
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 14
 renata
   rotate: false
-  xy: 596, 629
+  xy: 596, 563
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 15
 renata
   rotate: false
-  xy: 596, 563
+  xy: 694, 891
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 16
 renata
   rotate: false
-  xy: 694, 891
+  xy: 744, 891
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 17
 renata
   rotate: false
-  xy: 744, 891
+  xy: 794, 891
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: 18
 renata
   rotate: false
-  xy: 794, 891
+  xy: 844, 891
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
@@ -1476,63 +1483,63 @@ riouWalkDown
   index: 1
 riouWalkDown
   rotate: false
-  xy: 418, 419
-  size: 18, 44
-  orig: 18, 44
-  offset: 0, 0
-  index: 3
-riouWalkDown
-  rotate: false
-  xy: 471, 421
+  xy: 996, 866
   size: 18, 42
   orig: 18, 42
   offset: 0, 0
   index: 2
+riouWalkDown
+  rotate: false
+  xy: 740, 820
+  size: 18, 44
+  orig: 18, 44
+  offset: 0, 0
+  index: 3
 riouWalkLeft
   rotate: false
-  xy: 418, 373
+  xy: 760, 820
   size: 17, 44
   orig: 17, 44
   offset: 0, 0
   index: 1
 riouWalkLeft
   rotate: false
-  xy: 424, 327
+  xy: 779, 820
   size: 15, 44
   orig: 15, 44
   offset: 0, 0
   index: 2
 riouWalkLeft
   rotate: false
-  xy: 491, 420
+  xy: 796, 821
   size: 18, 43
   orig: 18, 43
   offset: 0, 0
   index: 3
 riouWalkUp
   rotate: false
-  xy: 398, 420
+  xy: 996, 910
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 1
 riouWalkUp
   rotate: false
-  xy: 398, 373
+  xy: 720, 819
   size: 18, 45
   orig: 18, 45
   offset: 0, 0
   index: 3
 riouWalkUp
   rotate: false
-  xy: 511, 420
+  xy: 816, 821
   size: 18, 43
   orig: 18, 43
   offset: 0, 0
   index: 2
 stone
   rotate: false
-  xy: 438, 432
+  xy: 870, 856
   size: 31, 31
   orig: 31, 31
   offset: 0, 0

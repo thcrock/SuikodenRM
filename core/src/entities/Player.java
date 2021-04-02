@@ -61,6 +61,7 @@ public class Player extends DrawableBox2D implements Scriptable {
 	protected String name;
     private boolean coupleMovementAndAnimation = true;
     private int currentChoice = -1;
+    protected Scriptable attachedCharacter = null;
 	
 	private static GameAnimation leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
 			ImageCache.getFrame("mia", 10), 
@@ -120,10 +121,13 @@ public class Player extends DrawableBox2D implements Scriptable {
     }
 
 	public void update2(float delta) {
-        //System.out.println("left = " + left);
-        //System.out.println("right = " + right);
-        //System.out.println("down = " + down);
-        //System.out.println("up = " + up);
+        if(this.attachedCharacter != null && isInScript) {
+            this.setSpeed(this.attachedCharacter.getSpeed());
+            this.setRight(this.attachedCharacter.isRight());
+            this.setLeft(this.attachedCharacter.isLeft());
+            this.setUp(this.attachedCharacter.isUp());
+            this.setDown(this.attachedCharacter.isDown());
+        }
 		if(left) {
 			dx -= speed;
 			if(dx < -maxSpeed)
@@ -503,13 +507,10 @@ public class Player extends DrawableBox2D implements Scriptable {
         this.currentlyTalking = false;
     }
     public boolean hasFinishedAction() {
-        System.out.println("has finished action?");
         if(this.currentlyPaused == true) {
-            System.out.println("checking paused");
             return this.pauseSeconds <= 0;
         }
         if(this.currentlyTalking == true) {
-            System.out.println("checking talking");
             if(SuikodenRM.gsm.PAUSED) {
                 return false;
             } else {
@@ -518,10 +519,8 @@ public class Player extends DrawableBox2D implements Scriptable {
             }
         }
         if(!right && !left && !up && !down) {
-            System.out.println("not moving so yes");
             return true;
         }
-        System.out.println("going with has reached target");
         return hasReachedTarget();
     }
     private boolean hasReachedTarget() {
@@ -601,8 +600,10 @@ public class Player extends DrawableBox2D implements Scriptable {
         body.setAwake(true);
     }
     public void attachTo(Scriptable character) {
+        this.attachedCharacter = character;
     }
     public void detachFrom(Scriptable character) {
+        this.attachedCharacter = null;
     }
     public void moveToX(Scriptable target, float xOffset, float speed) {
         Vector2 targetPosition = target.getPosition();
@@ -633,9 +634,6 @@ public class Player extends DrawableBox2D implements Scriptable {
         } else {
            this.scenePhases[0] = new Phase(Direction.Down, this.getPosition().y - y, 0, speed); 
         }
-        System.out.println("distance = " + this.scenePhases[0].distance);
-        System.out.println("My position = " + this.getPosition().y);
-        System.out.println("Target position = " + y);
         this.phases = scenePhases;
         this.phasesShouldLoop = false;
         this.phaseIndex = -1;

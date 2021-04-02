@@ -52,7 +52,7 @@
 	{
 		"title": "miaschoice",
 		"tags": "",
-		"body": "Mia-miaworriedface: ...\n<<setBgMusic ThemeOfHeroism.mp3>>\nMia-miaangryface: I've got you Renata!!\n<<disableCollisions Mia>>\n<<moveToY Mia Renata 0 100>>\n<<moveToX Mia Renata 30 100>>\nMia-miaangryface: Renata! Hold your shoulders still!\nRenata-renataworriedface: Wha...?\n<<moveToX Mia Renata 15 100>>\n<<decoupleMovementAndAnimation Mia>>\n<<moveUp Mia 15 100>>\n<<moveToX Mia Renata 0 100>>\n<<moveDown Mia 4 80>>\n<<pauseFor Mia 0.1>>\n<<moveUp Mia 5 100>>\n<<moveLeft Mia 20 100>>\n<<faceRight Mia>>\n<<moveLeft Mia 30 100>>\n<<moveDown Mia 10 80>>\n[[weunite]]",
+		"body": "Mia-miaworriedface: ...\n<<setBgMusic ThemeOfHeroism.mp3>>\nMia-miaangryface: I've got you Renata!!\n<<disableCollisions Mia>>\n<<moveToY Mia Renata 0 100>>\n<<moveToX Mia Renata 30 100>>\nMia-miaangryface: Renata! Hold your shoulders still!\nRenata-renataworriedface: Wha...?\n<<moveToX Mia Renata 15 100>>\n<<decoupleMovementAndAnimation Mia>>\n<<moveUp Mia 15 100>>\n<<moveToX Mia Renata 0 100>>\n<<moveDown Mia 2 80>>\n<<pauseFor Mia 0.1>>\n<<moveUp Mia 4 100>>\n<<moveLeft Mia 20 100>>\n<<faceRight Mia>>\n<<moveLeft Mia 30 100>>\n<<moveDown Mia 10 80>>\n[[weunite]]",
 		"position": {
 			"x": 0,
 			"y": 0
@@ -102,7 +102,7 @@
 	{
 		"title": "ohnoes",
 		"tags": "",
-		"body": "<<attachTo FurFur3 FurFur2>>\n<<attachTo FurFur4 FurFur2>>\n<<unhide FurFur2>>\n<<unhide FurFur3>>\n<<unhide FurFur4>>\n<<moveRight FurFur2 100 30>>\n<<faceLeft Mia>>\n<<faceRight Renata>>\nMia-miaworriedface: Um....\nRenata: I don't think we can take all those by ourselves...\n[[herecomeshaia]]",
+		"body": "<<attachTo FurFur3 FurFur2>>\n<<attachTo FurFur4 FurFur2>>\n<<unhide FurFur2>>\n<<unhide FurFur3>>\n<<unhide FurFur4>>\n<<setBgMusic SindarinBuleria.mp3>>\n<<moveRight FurFur2 100 30>>\n<<faceLeft Mia>>\n<<faceLeft Renata>>\n<<decoupleMovementAndAnimation Mia>>\n<<decoupleMovementAndAnimation Renata>>\n<<animationFrame Mia mia 20>>\n<<animationFrame Renata renata 14>>\n<<moveRight Mia 10 20>>\n<<moveRight Renata 10 20>>\nMia-miaworriedface: Um....\nRenata: I don't think we can take all those by ourselves...\n[[herecomeshaia]]",
 		"position": {
 			"x": 0,
 			"y": 0
@@ -112,7 +112,17 @@
 	{
 		"title": "herecomeshaia",
 		"tags": "",
-		"body": "<<unhide Haia>>\n<<moveDown Haia 150 120>>",
+		"body": "<<unhide Haia>>\n<<moveDown Haia 150 70>>\n<<decoupleMovementAndAnimation Haia>>\n<<moveUp Haia 10 100>>\n<<moveDown Haia 10 100>>\n<<coupleMovementAndAnimation Haia>>\n<<moveToX Haia StairsEntrance 0 100>>\n<<moveToY Haia StairsEntrance 0 100>>\n<<moveRight Haia 40 80>>\n<<moveToY Haia FurFur2 0 80>>\n<<faceRight Haia>>\n<<pauseFor Haia 0.5>>\n<<faceRight Haia>>\n<<decoupleMovementAndAnimation Haia>>\n<<moveToX Haia FurFur2 30 220>>\n<<hide FurFur4>>\n<<hide FurFur3>>\n<<hide FurFur2>>\n<<coupleMovementAndAnimation Haia>>\n<<moveLeft Haia 1 10>>\n<<pauseFor Haia 0.5>>\n<<moveRight Haia 20 80>>\n[[theexplanation]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "theexplanation",
+		"tags": "",
+		"body": "Haia: What are you girls doing in here?!?!?! This is a dangerous place!\nRenata: We......saw you looking worried and thought you needed help and thought if we helped you we could-\nHaia: Help me by getting lost in an ancient ruin full of monsters?\nHaia: You know what? Let's just get out of here.\n<<coupleMovementAndAnimation Renata>>\n<<coupleMovementAndAnimation Mia>>\n<<attachTo Mia Haia>>\n<<attachTo Renata Haia>>\n<<moveLeft Haia 100 40>>\n<<toMap ruinsentrance 3>>",
 		"position": {
 			"x": 0,
 			"y": 0
