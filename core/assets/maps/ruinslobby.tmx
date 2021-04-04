@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="70" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="32">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="70" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="35">
  <properties>
   <property name="musicTrackName" value="SindarinBuleria.mp3"/>
  </properties>
@@ -259,6 +259,21 @@
   <object id="8" name="drain" x="593.042" y="484.542" width="47.25" height="50.25">
    <properties>
     <property name="convoName" value="drainfight"/>
+   </properties>
+  </object>
+  <object id="32" name="intoRuinsLobby" x="863.042" y="705.208" width="47.25" height="50.25">
+   <properties>
+    <property name="convoName" value="intoRuinsLobby"/>
+   </properties>
+  </object>
+  <object id="33" name="noticeWater" x="590.708" y="326.875" width="425.917" height="50.25">
+   <properties>
+    <property name="convoName" value="noticeWater"/>
+   </properties>
+  </object>
+  <object id="34" name="noticeRuinsExit" x="280.375" y="551.542" width="45.25" height="38.25">
+   <properties>
+    <property name="convoName" value="noticeRuinsExit"/>
    </properties>
   </object>
  </objectgroup>
