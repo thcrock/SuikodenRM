@@ -389,6 +389,12 @@ public class BoxWorld extends GameState {
                 background.setVisible(true);
             }
         }
+        for(TiledMapTileLayer layer : objectLayers) {
+            String tag = (String) layer.getProperties().get("tag");
+            if(tagToShow.equals(tag)) {
+                layer.setVisible(true);
+            }
+        }
     }
 
     public void hideLayersWithTag(String tagToShow) {
@@ -396,6 +402,12 @@ public class BoxWorld extends GameState {
             String tag = (String) background.getProperties().get("tag");
             if(tagToShow.equals(tag)) {
                 background.setVisible(false);
+            }
+        }
+        for(TiledMapTileLayer layer : objectLayers) {
+            String tag = (String) layer.getProperties().get("tag");
+            if(tagToShow.equals(tag)) {
+                layer.setVisible(false);
             }
         }
     }

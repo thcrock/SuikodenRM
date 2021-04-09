@@ -28,6 +28,7 @@ import entities.world.characters.Sword;
 import entities.world.characters.FurFur;
 import entities.world.characters.Killey;
 import entities.world.characters.Leknaat;
+import entities.world.characters.Lorelai;
 import gamestate.BoxWorld;
 
 public class CharacterGeneration {
@@ -57,6 +58,7 @@ public class CharacterGeneration {
 		else if(name.equals("Skeleton")) return new Skeleton(ImageCache.getFrame("skeleton", 1), bw, x, y);
 		else if(name.equals("Sword")) return new Sword(ImageCache.getFrame("sword", 1), bw, x, y);
 		else if(name.equals("FurFur")) return new FurFur(ImageCache.getFrame("furfur", 1), bw, x, y);
+		else if(name.equals("Lorelai")) return new Lorelai(ImageCache.getFrame("lorelai", 2), bw, x, y);
 		return new Invisible(ImageCache.getFrame("chair", 1), bw, x, y);
 	}
 	
