@@ -1,0 +1,82 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<faceRight Haia>>\n<<faceLeft Mia>>\n<<faceLeft Renata>>\nHaia: That's all for today.\n<<moveLeft Haia 160 80>>\n<<hide Haia>>\n<<faceDown Renata>>\n<<faceUp Mia>>\n[[getinplace]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "getinplace",
+		"tags": "",
+		"body": "Renata-renatasmilingface: Wanna practice that move?\nMia-miasmileface: I think I've got it down now.\n<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveToY Renata Target -15 40>>\n<<moveToX Renata Target 30 40>>\n<<moveToX Mia Target 30 40>>\n<<moveToY Mia Target -30 40>>\n<<decoupleMovementAndAnimation Mia>>\n<<decoupleMovementAndAnimation Renata>>\n<<faceLeft Mia>>\n<<faceLeft Renata>>\n<<animationFrame Mia mia 20>>\n<<animationFrame Renata renata 14>>\n[[miasjump]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "miasjump",
+		"tags": "",
+		"body": "Mia-miafiercefight: Let's go!\n<<coupleMovementAndAnimation Mia>>\n<<coupleMovementAndAnimation Renata>>\n<<moveLeft Renata 10 60>>\n<<moveToX Mia Renata 10 80>>\n<<moveToY Mia Renata 0 80>>\n<<faceLeft Mia>>\n<<pauseFor Mia 0.5>>\n<<decoupleMovementAndAnimation Mia>>\n<<moveUp Mia 15 100>>\n<<moveToX Mia Renata 0 100>>\n<<decoupleMovementAndAnimation Renata>>\n<<moveDown Mia 2 80>>\n<<pauseFor Mia 0.1>>\n<<moveUp Mia 4 80>>\n<<moveLeft Mia 20 80>>\n<<faceRight Mia>>\n<<moveLeft Mia 30 100>>\n<<moveDown Mia 10 80>>\n[[miahits]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "miahits",
+		"tags": "",
+		"body": "<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveRight Mia 8 60>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 16>>\n<<moveLeft Mia 8 60>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 14>>\n[[renatahitsnow]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "renatahitsnow",
+		"tags": "",
+		"body": "<<moveToX Renata Target 5 80>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 3 60>>\n<<animationFrame Renata renata 16>>\n<<pauseFor Renata 0.05>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<moveRight Renata 3 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<pauseFor Renata 0.05>>\n[[backandforth]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "backandforth",
+		"tags": "",
+		"body": "<<animationFrame Mia mia 14>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n[[goback]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "goback",
+		"tags": "",
+		"body": "<<coupleMovementAndAnimation Mia>>\n<<moveToY Mia Target -30 140>>\n<<moveToX Mia Target 28 140>>\n<<moveToX Renata Target 30 80>>\n<<faceLeft Mia>>\n<<faceLeft Renata>>\n<<pauseFor Mia 0.05>>\n<<animationFrame Mia mia 20>>\n<<animationFrame Renata renata 14>>\n<<pauseFor Mia 0.5>>\n<<faceUp Mia>>\n<<faceDown Renata>>\n[[celebration]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "celebration",
+		"tags": "",
+		"body": "Renata-renatahappyface: Yes!!!\n<<decoupleMovementAndAnimation Mia>>\n<<decoupleMovementAndAnimation Renata>>\n<<moveUp Renata 10 80>>\n<<moveDown Renata 10 80>>\n<<moveUp Mia 10 80>>\n<<moveDown Mia 10 80>>\nMia-mialaughingface: Haha!\n<<toMap endCredits 1>>",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	}
+]
