@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="40" height="48" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="41">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="40" height="48" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="41">
  <properties>
+  <property name="displayName" value="Sindar Ruins"/>
   <property name="musicTrackName" value="SindarinBuleria.mp3"/>
  </properties>
  <tileset firstgid="1" source="terrain_atlas.tsx"/>

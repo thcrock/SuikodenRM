@@ -23,6 +23,7 @@ public class GameStateManager implements InputProcessor{
     HashSet<String> completedScripts;
     MusicManager musicManager;
     String helpPrompt;
+    Door nextDoor;
 	
 	public int currentState;
 	
@@ -39,7 +40,7 @@ public class GameStateManager implements InputProcessor{
         completedScripts = new HashSet<String>();
 		
 		currentState = LEVELSTATE;
-		loadState(currentState, new Door("dojo", 1));
+		loadState(currentState, new Door("forest1", 1));
 	}
 	
 	private void loadState (int state, Door door) {
@@ -116,10 +117,24 @@ public class GameStateManager implements InputProcessor{
 	}
 	
 	public void changeWorld(Door door) {
-		unloadState(currentState);
-        loadState(currentState, door);
-		relation.changeScreen();
+        if (this.nextDoor == null) {
+            this.nextDoor = door;
+            GameState gs = gameState[currentState];
+            if(gs instanceof BoxWorld) {
+                BoxWorld oldState = (BoxWorld) gs;
+                oldState.fadeOut();
+            } else {
+                System.out.println("current state not BoxWorld, skipping info");
+            }
+        }
 	}
+
+    public void fadeFinished() {
+		unloadState(currentState);
+        loadState(currentState, this.nextDoor);
+		relation.changeScreen();
+        this.nextDoor = null;
+    }
 	
 	public void setInfo(String infoString) {
         GameState gs = gameState[currentState];

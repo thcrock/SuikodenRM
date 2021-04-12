@@ -8,6 +8,7 @@ import java.util.Collections;
 import net.dermetfan.gdx.physics.box2d.Box2DMapObjectParser;
 import utilities.CharacterGeneration;
 import utilities.OrthogonalCustomRenderer;
+import utilities.Fade;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.g3d.decals.Decal;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
@@ -57,6 +59,7 @@ public class BoxWorld extends GameState {
 	public OrthogonalCustomRenderer mapRenderer;
 	//public OrthogonalTiledMapRenderer mapRenderer;
 	Box2DDebugRenderer box2drenderer;
+    ShapeRenderer shapeRenderer;
 	public OrthographicCamera camera;
 	Player player;
 	ArrayList<TiledMapTileLayer> foregrounds, backgrounds, objectLayers;
@@ -68,6 +71,8 @@ public class BoxWorld extends GameState {
     public String musicTrackName;
     int mapPixelWidth;
     int mapPixelHeight;
+	private Fade fade;
+    private Popup popup;
 
 	
 	boolean disposeThis = false;
@@ -113,6 +118,8 @@ public class BoxWorld extends GameState {
 		camera = new OrthographicCamera();
 		map = new TmxMapLoader().load("maps/" + door.toMapName + ".tmx");
         MapProperties prop = map.getProperties();
+        shapeRenderer = new ShapeRenderer();
+		fade = new Fade();
 
         int mapWidth = prop.get("width", Integer.class);
         int mapHeight = prop.get("height", Integer.class);
@@ -126,6 +133,7 @@ public class BoxWorld extends GameState {
 		parser.load(world, map);
 
         this.musicTrackName = (String) map.getProperties().get("musicTrackName");
+        String popupName = (String) map.getProperties().get("displayName", null);
 		
 		Iterator<MapLayer> mlIterator = map.getLayers().iterator();
 		while(mlIterator.hasNext()) {
@@ -379,6 +387,9 @@ public class BoxWorld extends GameState {
 		box2drenderer = new Box2DDebugRenderer();
 		box2drenderer.setDrawAABBs(true);
         camera.position.set(player.getBody().getPosition().x, player.getBody().getPosition().y, 0);
+        if (popupName != null) {
+            popup = new Popup(this, popupName);
+        }
 
 	}
 
@@ -424,6 +435,11 @@ public class BoxWorld extends GameState {
     public void triggerConversation(Conversation conversation) {
         currentConversation = conversation;
         currentConversation.initialize(characters, player);
+    }
+
+    public void fadeOut() {
+        System.out.println("set direction");
+        this.fade.setDirection(true);
     }
 	
 	@Override
@@ -519,9 +535,14 @@ public class BoxWorld extends GameState {
 			if(SuikodenRM.debug) {
 				box2drenderer.render(world, camera.combined);
 			}
+            if(popup != null) {
+                popup.update(delta);
+                popup.render(delta);
+            }
 		} else {
 			SuikodenRM.gsm.changeWorld(swapDoor);
 		}
+        fade.render(delta, shapeRenderer);
 	}
 
 	@Override
@@ -529,7 +550,10 @@ public class BoxWorld extends GameState {
 		camera.viewportWidth = width/2*SuikodenRM.scale;
 		camera.viewportHeight = height/2*SuikodenRM.scale;
 		camera.update();
-		
+
+        if(popup != null) {
+            popup.resize(width, height);
+        }
 	}
 
 	@Override
