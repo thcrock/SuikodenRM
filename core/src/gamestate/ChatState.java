@@ -94,7 +94,6 @@ public class ChatState extends GameState {
 		stage.draw();
 		spriteBatch.end();
 		deltaText += delta*TXT_SPEED;
-		
 		if(deltaText < tryText.get(stringPosition).length() && !textHalt) {
 			if(!(underChatWindow.getHeight() < underChatWindow.getMaxHeight())) {
 				underChatWindow.setText(tryText.get(stringPosition).subSequence(0, (int) deltaText)); 

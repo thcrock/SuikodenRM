@@ -51,11 +51,6 @@ public class ChoiceState extends GameState {
 	Label leftUpperInfoWindow;
 	Label rightUpperInfoWindow;
 	
-	// Text
-	int STD_TEXT_SPEED = 30;
-	int PRESS_BUTTON_TEXT_SPEED = 50;
-	int TXT_SPEED = STD_TEXT_SPEED;
-	
 	// Character
 	int PORTRAIT_WIDTH = 56*2;
 	int PORTRAIT_HEIGHT = 64*2;
@@ -67,6 +62,7 @@ public class ChoiceState extends GameState {
 	CharacterWindow cw;
 	
 	Image characterImage;
+    boolean choiceStarted = false;
 	
 	public ChoiceState(BoxWorld ls, int state, String[] myChoices, Scriptable myCharacter) {
 		this.levelState = ls;
@@ -215,15 +211,14 @@ public class ChoiceState extends GameState {
 
 	@Override
 	public void keyPressed(int k) {
-		TXT_SPEED = PRESS_BUTTON_TEXT_SPEED;
 		if(k == Keys.Q) SuikodenRM.gsm.unpauseState(returnState);
 		if(k == Keys.ESCAPE) SuikodenRM.gsm.unpauseState(returnState);
+        if(k == Keys.ENTER) choiceStarted = true;
 		
 	}
 
 	@Override
 	public void keyReleased(int k) {
-		TXT_SPEED = STD_TEXT_SPEED;
 		updateMainMenu(k);
 	}
 
@@ -255,10 +250,13 @@ public class ChoiceState extends GameState {
 		
 		int choice = mainWindowRow + mainWindowColumn;
 
-		if(k == Keys.ENTER) {
+        // We don't want somebody who pressed the enter key before the choices loaded
+        // but released after they loaded accidentally pick one
+        // So the choiceStarted variable needs to be triggered too
+		if(k == Keys.ENTER && choiceStarted) {
 			System.out.println(choice);
             this.character.setCurrentChoice(choice);
-            System.out.println("exiting from choice state");
+            choiceStarted = false;
 			SuikodenRM.gsm.unpauseState(returnState);
 		} else {
 			((Label) mainContainer.getActor().getChildren().items[choice]).setStyle(hoverButton);

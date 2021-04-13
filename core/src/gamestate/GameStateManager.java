@@ -40,7 +40,7 @@ public class GameStateManager implements InputProcessor{
         completedScripts = new HashSet<String>();
 		
 		currentState = LEVELSTATE;
-		loadState(currentState, new Door("kanakan", 1));
+		loadState(currentState, new Door("forest3", 1));
 	}
 	
 	private void loadState (int state, Door door) {
@@ -154,13 +154,17 @@ public class GameStateManager implements InputProcessor{
 	public void setMessage(Scriptable character, String speakerOverrideName, String speakerOverridePicture) {
         GameState gs = gameState[currentState];
         if(gs instanceof BoxWorld) {
-            BoxWorld oldState = (BoxWorld) gs;
-            int oldStateNumber = currentState;
-            gameState[currentState].pause();
-            currentState = MENUSTATE;
-            PAUSED = true;
-            gameState[currentState] = new ChatState(oldState, oldStateNumber, character, speakerOverrideName, speakerOverridePicture);
-            relation.changeScreen();
+            if(character.getMessages().size() > 0) {
+                BoxWorld oldState = (BoxWorld) gs;
+                int oldStateNumber = currentState;
+                gameState[currentState].pause();
+                currentState = MENUSTATE;
+                PAUSED = true;
+                gameState[currentState] = new ChatState(oldState, oldStateNumber, character, speakerOverrideName, speakerOverridePicture);
+                relation.changeScreen();
+            } else {
+                System.out.println("No messages to show, skipping message");
+            }
         } else {
             System.out.println("current state not BoxWorld, skipping message");
         }
@@ -265,4 +269,8 @@ public class GameStateManager implements InputProcessor{
 	public GameState getScreen() {
 		return gameState[currentState];
 	}
+
+    public void setMusicVolume(float volume) {
+        musicManager.setVolume(volume);
+    }
 }

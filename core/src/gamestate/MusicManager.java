@@ -11,7 +11,7 @@ public class MusicManager {
     String nextTrackName = null;
     float FACTOR = 0.5f;
     float volume = 1;
-    boolean isPlaying = true;
+    boolean isFadingIn = true;
 
     public void playTrack(String musicTrack) {
         if(musicTrack == null) {
@@ -32,13 +32,18 @@ public class MusicManager {
             this.music.play();
             this.volume = 0;
             this.music.setVolume(volume);
-            this.isPlaying = true;
+            this.isFadingIn = true;
         }
     }
 
+    public void setVolume(float volume) {
+        this.music.setVolume(volume);
+    }
+
     public void update(float delta) {
-        if (this.isPlaying) {
+        if (this.isFadingIn) {
             if (volume > 1) {
+                this.isFadingIn = false;
                 return; 
             }
             volume += delta * FACTOR;

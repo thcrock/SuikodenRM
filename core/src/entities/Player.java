@@ -129,12 +129,12 @@ public class Player extends DrawableBox2D implements Scriptable {
             this.setDown(this.attachedCharacter.isDown());
         }
 		if(left) {
-			dx -= speed;
+			dx = -speed;
 			if(dx < -maxSpeed)
 				dx = -maxSpeed;
 		}
 		else if(right) {
-			dx += speed;
+			dx = speed;
 			if(dx > maxSpeed)
 				dx = maxSpeed;
 		}
@@ -143,12 +143,12 @@ public class Player extends DrawableBox2D implements Scriptable {
 		}
 		
 		if(up && (!right && !left)) {
-			dy += speed;
+			dy = speed;
 			if(dy > speed)
 				dy = speed;
 		}
 		else if(down && (!right && !left)) {
-			dy -= speed;
+			dy = -speed;
 			if(dy < -speed)
 				dy = -speed;
 		}

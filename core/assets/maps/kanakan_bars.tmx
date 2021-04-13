@@ -534,7 +534,7 @@
     <property name="onlyTriggerIfScript" value="stealChair"/>
    </properties>
   </object>
-  <object id="75" name="stealChair" x="1269.75" y="353.25" width="55.5" height="10.5">
+  <object id="75" name="stealChair" x="1269.75" y="358.917" width="55.5" height="4.83333">
    <properties>
     <property name="convoName" value="stealChair"/>
     <property name="onlyTriggerIfScript" value="noticeChair"/>
@@ -545,7 +545,7 @@
     <property name="convoName" value="noticeRope"/>
    </properties>
   </object>
-  <object id="78" name="inbars" x="323.5" y="291" width="29.5" height="22.5">
+  <object id="78" name="inbars" x="283.5" y="249" width="29.5" height="22.5">
    <properties>
     <property name="convoName" value="inbars"/>
    </properties>
@@ -794,6 +794,7 @@
    <properties>
     <property name="character" value="Barrel"/>
     <property name="convoName" value="pushBarrel"/>
+    <property name="maxSpeed" type="float" value="120"/>
     <property name="phases" value=""/>
     <property name="speed" type="float" value="120"/>
     <property name="startMessage" type="int" value="0"/>

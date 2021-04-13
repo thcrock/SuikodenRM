@@ -415,6 +415,11 @@ public class Conversation {
                 action.toSpawnNumber = Integer.parseInt(params[2]);
                 currentAction = action;
                 currentAction.perform(null);
+            } else if(commandName.equals("setMusicVolume")) {
+                scripting.SetMusicVolume action = new scripting.SetMusicVolume();
+                action.volume = Float.parseFloat(params[1]);
+                currentAction = action;
+                currentAction.perform(null);
             } else {
                 System.out.println("unknown command " + commandName);
             }

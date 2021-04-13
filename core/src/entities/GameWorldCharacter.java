@@ -302,7 +302,7 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
         if(!isInScript && this.currentlyPaused == true && this.pauseSeconds <= 0) {
             this.nextPhase();
         }
-        if(isInScript && this.hasReachedTarget()) {
+        if(isInScript && this.attachedCharacter == null && this.hasReachedTarget()) {
             this.setRight(false);
             this.setLeft(false);
             this.setUp(false);
