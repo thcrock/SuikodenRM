@@ -438,7 +438,6 @@ public class BoxWorld extends GameState {
     }
 
     public void fadeOut() {
-        System.out.println("set direction");
         this.fade.setDirection(true);
     }
 	
@@ -598,10 +597,14 @@ public class BoxWorld extends GameState {
 			if(k == Keys.A) player.setLeftFromInput(true);
 			if(k == Keys.S) player.setDownFromInput(true);
 			if(k == Keys.D) player.setRightFromInput(true);
+			if(k == Keys.UP) player.setUpFromInput(true);
+			if(k == Keys.LEFT) player.setLeftFromInput(true);
+			if(k == Keys.DOWN) player.setDownFromInput(true);
+			if(k == Keys.RIGHT) player.setRightFromInput(true);
 			if(k == Keys.ESCAPE) {
 				SuikodenRM.gsm.setPauseState();
 			}
-			if(k == Keys.Q) {
+			if(k == Keys.Q || k == Keys.ENTER) {
 				QueryCallback callback = new QueryCallback() {
 					@Override
 					public boolean reportFixture(Fixture fixture) {
@@ -672,10 +675,10 @@ public class BoxWorld extends GameState {
 			if(k == Keys.A) player.setLeftFromInput(false);
 			if(k == Keys.S) player.setDownFromInput(false);
 			if(k == Keys.D) player.setRightFromInput(false);
-			if(k == Keys.LEFT) camera.rotate(10f, 0, 1, 0);
-			if(k == Keys.UP) camera.rotate(10f, 1, 0, 0);
-			if(k == Keys.DOWN) camera.rotate(10f, -1, 0, 0);
-			if(k == Keys.RIGHT) camera.rotate(10f, 0, -1, 0);
+			if(k == Keys.LEFT) player.setLeftFromInput(false);
+			if(k == Keys.UP) player.setUpFromInput(false);
+			if(k == Keys.DOWN) player.setDownFromInput(false);
+			if(k == Keys.RIGHT) player.setRightFromInput(false);
 			if(k == Keys.PLUS) zoom -= 0.1f;
 			if(k == Keys.MINUS) zoom += 0.1f;
 			if(k == Keys.COMMA) rotation += 1.0f;
