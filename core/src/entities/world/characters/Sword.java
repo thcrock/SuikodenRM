@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.orangeegames.suikorm.SuikodenRM;
 
 
@@ -39,5 +40,8 @@ public class Sword extends GameWorldCharacter {
 		
 		this.currentWalkAnim = this.downAnim;
 		facePicture = ImageCache.getTexture("sword_1");
+        for (Fixture fix : getBody().getFixtureList()) {
+            fix.setSensor(true);
+        }
 	}
 }

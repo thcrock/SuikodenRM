@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.orangeegames.suikorm.SuikodenRM;
+import com.badlogic.gdx.physics.box2d.Fixture;
 
 
 public class Invisible extends GameWorldCharacter {
@@ -39,5 +40,8 @@ public class Invisible extends GameWorldCharacter {
 		this.currentWalkAnim = this.downAnim;
 		facePicture = ImageCache.getTexture("chair_1");
         this.hide();
+        for (Fixture fix : getBody().getFixtureList()) {
+            fix.setSensor(true);
+        }
 	}
 }

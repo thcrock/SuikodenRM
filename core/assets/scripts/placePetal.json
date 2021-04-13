@@ -22,7 +22,7 @@
 	{
 		"title": "climb",
 		"tags": "",
-		"body": "Mia: Up we go!\n<<moveToForeground Mia>>\n<<moveUp Mia 15 20>>\n<<moveUp Mia 20 60>>\nRenata: Ow!\n<<faceLeft Mia>>\n<<pauseFor Mia 0.5>>\n<<showLayer fixedPedestal>>\n<<hideLayer brokenpedestal>>\nMia: Woohoo!\n[[open]]",
+		"body": "Mia: Up we go!\n<<moveToForeground Mia>>\n<<moveUp Mia 15 20>>\n<<moveUp Mia 20 60>>\nRenata: Ow!\n<<faceLeft Mia>>\n<<pauseFor Mia 0.5>>\n<<showLayer fixedpedestal>>\n<<hideLayer brokenpedestal>>\nMia: Woohoo!\n[[open]]",
 		"position": {
 			"x": 0,
 			"y": 0

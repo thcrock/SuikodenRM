@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<moveToY Mia Stone -90 60>>\n<<faceLeft Mia>>\n<<faceUp Renata>>\n<<moveToX Sword Renata 5 60>>\n<<moveToY Sword Renata 10 60>>\nMia: That spot up there looks different.\nRenata: Watch this!\n<<unhide Sword>>\n<<moveUp Renata 5 80>>\n<<moveUp Sword 100 600>>\n[[thefall]]",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Sword>>\n<<moveToY Mia Stone -90 60>>\n<<faceLeft Mia>>\n<<faceUp Renata>>\n<<moveToX Renata Sword -5 60>>\n<<moveToY Renata Sword -5 60>>\nMia: That spot up there looks different.\nRenata: Watch this!\n<<unhide Sword>>\n<<moveUp Renata 5 80>>\n<<moveUp Sword 100 600>>\n[[thefall]]",
 		"position": {
 			"x": 0,
 			"y": 0
