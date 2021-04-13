@@ -27,7 +27,6 @@ public class Friend extends GameWorldCharacter {
 		name = "Renata";
 		
         this.facePicture = new TextureRegion(ImageCache.getFrame("renataface", 1));
-        System.out.println("Set face picture");
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
 				ImageCache.getFrame("renata", 7), 
                 ImageCache.getFrame("renata", 8), 
@@ -76,7 +75,73 @@ public class Friend extends GameWorldCharacter {
                 this.setUp(this.attachedCharacter.movingUp());
                 this.setDown(this.attachedCharacter.movingDown());
             } else if (distance < 250) {
-                this.setSpeed(0);
+                boolean isAboveAttached = this.attachedCharacter.getPosition().y < this.getPosition().y;
+                boolean isLeftFromAttached = this.attachedCharacter.getPosition().x > this.getPosition().x;
+                if(this.attachedCharacter.isUp()) {
+                    if(isAboveAttached && isLeftFromAttached) {
+                        this.setRight(false);
+                        this.setLeft(true);
+                        this.setUp(false);
+                        this.setDown(false);
+                        this.setSpeed(60);
+                    } else if(isAboveAttached) {
+                        this.setRight(true);
+                        this.setLeft(false);
+                        this.setUp(false);
+                        this.setDown(false);
+                        this.setSpeed(60);
+                    } else {
+                        this.setSpeed(0);
+                    }
+                } else if (this.attachedCharacter.isRight()) {
+                    if(!isLeftFromAttached && isAboveAttached) {
+                        this.setRight(false);
+                        this.setLeft(false);
+                        this.setUp(true);
+                        this.setDown(false);
+                        this.setSpeed(60);
+                    } else if(!isLeftFromAttached) {
+                        this.setRight(false);
+                        this.setLeft(false);
+                        this.setUp(false);
+                        this.setDown(true);
+                        this.setSpeed(60);
+                    } else {
+                        this.setSpeed(0);
+                    }
+                } else if (this.attachedCharacter.isDown()) {
+                    if(!isAboveAttached && !isLeftFromAttached) {
+                        this.setRight(true);
+                        this.setLeft(false);
+                        this.setUp(false);
+                        this.setDown(false);
+                        this.setSpeed(60);
+                    } else if(!isAboveAttached) {
+                        this.setRight(false);
+                        this.setLeft(true);
+                        this.setUp(false);
+                        this.setDown(false);
+                        this.setSpeed(60);
+                    } else {
+                        this.setSpeed(0);
+                    }
+                } else if (this.attachedCharacter.isLeft()) {
+                    if(isLeftFromAttached && isAboveAttached) {
+                        this.setRight(false);
+                        this.setLeft(false);
+                        this.setUp(true);
+                        this.setDown(false);
+                        this.setSpeed(60);
+                    } else if(isLeftFromAttached) {
+                        this.setRight(false);
+                        this.setLeft(false);
+                        this.setUp(false);
+                        this.setDown(true);
+                        this.setSpeed(60);
+                    } else {
+                        this.setSpeed(0);
+                    }
+                }
             }
             distanceLastTime = distance;
         }

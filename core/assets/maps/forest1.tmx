@@ -357,7 +357,7 @@
     <property name="convoName" value="noticeLeaves"/>
    </properties>
   </object>
-  <object id="90" name="cloakscene" x="564.5" y="1047.67" width="52" height="33">
+  <object id="90" name="cloakscene" x="564.5" y="1048.17" width="52" height="33">
    <properties>
     <property name="convoName" value="cloak"/>
    </properties>
