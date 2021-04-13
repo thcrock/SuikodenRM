@@ -40,7 +40,7 @@ public class GameStateManager implements InputProcessor{
         completedScripts = new HashSet<String>();
 		
 		currentState = LEVELSTATE;
-		loadState(currentState, new Door("forest1", 1));
+		loadState(currentState, new Door("kanakan", 1));
 	}
 	
 	private void loadState (int state, Door door) {
@@ -213,8 +213,7 @@ public class GameStateManager implements InputProcessor{
     }
 
 	public void update(float delta){
-        System.out.println("updating " + gameState[currentState]);
-		gameState[currentState].update(delta);
+        musicManager.update(delta);
 	}
 	
 	@Override

@@ -475,7 +475,7 @@ public class BoxWorld extends GameState {
 	public void render(float delta) {
 		if(!disposeThis) {
 			Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
-			
+		    SuikodenRM.gsm.update(delta);
 			if(!GameStateManager.PAUSED) {
                 if(bodyToDestroy != null) {
                     world.destroyBody(bodyToDestroy);
