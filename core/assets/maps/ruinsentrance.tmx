@@ -346,8 +346,8 @@
   <object id="16" type="object" x="762" y="74" width="34" height="41"/>
   <object id="17" type="object" x="3" y="26" width="1049" height="46"/>
   <object id="18" type="object" x="325" y="77" width="94" height="95"/>
-  <object id="19" type="object" x="482" y="83" width="90" height="86"/>
-  <object id="20" type="object" x="420" y="79.3333" width="60.6667" height="55"/>
+  <object id="19" type="object" x="481.333" y="77" width="90" height="86"/>
+  <object id="20" type="object" x="420" y="79.3333" width="60.6667" height="55.3333"/>
   <object id="21" type="object" x="431.333" y="173.333" width="3.33333" height="98.3333"/>
   <object id="22" type="object" x="464" y="174.667" width="2.66667" height="95.6667"/>
   <object id="23" type="object" x="420" y="169.667" width="12.3333" height="3"/>
@@ -402,7 +402,7 @@
     <property name="convoName" value="noticeRuins"/>
    </properties>
   </object>
-  <object id="51" name="exitRuins" x="423.833" y="86.8333" width="54.3333" height="47.6667">
+  <object id="51" name="exitRuins" x="429.5" y="97.8333" width="37" height="26">
    <properties>
     <property name="convoName" value="exitRuin"/>
    </properties>

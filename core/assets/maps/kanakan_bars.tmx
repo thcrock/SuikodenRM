@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="100" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="104">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="100" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="105">
  <properties>
   <property name="displayName" value="Nightlife District"/>
   <property name="musicTrackName" value="kanakan_bars.ogg"/>
@@ -520,6 +520,7 @@
   <object id="90" name="bar" type="object" x="1328.5" y="374" width="30.5" height="41"/>
   <object id="91" name="table" type="object" x="1386" y="373.5" width="108.5" height="35.5"/>
   <object id="92" name="building" type="object" x="1185.5" y="420.5" width="315.5" height="87.5"/>
+  <object id="104" name="rightwall" type="object" x="1501.33" y="221.333" width="19.6667" height="229"/>
  </objectgroup>
  <objectgroup id="10" name="scripts">
   <object id="39" name="noticeChair" x="1099" y="337.75" width="15.5" height="10.5">
