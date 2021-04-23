@@ -363,6 +363,11 @@ public class BoxWorld extends GameState {
                         currentConversation = (Conversation) bodyB.getUserData();
                         bodyToDestroy = bodyB;
                     }
+                    if(SuikodenRM.gsm.getCompletedScripts().contains(currentConversation.name)) {
+                        bodyToDestroy = null;
+                        currentConversation = null;
+                        return;
+                    }
                     if(
                         !currentConversation.getTriggers().isEmpty() &&
                         Collections.disjoint(currentConversation.getTriggers(), SuikodenRM.gsm.getCompletedScripts())

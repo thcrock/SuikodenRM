@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="110" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="134">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="110" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="150">
  <properties>
   <property name="displayName" value="Kanakan Neighborhoods"/>
   <property name="musicTrackName" value="KanakanMarket.mp3"/>
@@ -910,23 +910,23 @@
   <object id="68" name="fence1-2" type="object" x="434" y="1070" width="604" height="17.3333"/>
   <object id="69" name="fence1-3" type="object" x="1040.67" y="1071.33" width="701.333" height="26.6667"/>
   <object id="70" name="fence1-4" type="object" x="434.667" y="1088.67" width="12.6667" height="56"/>
-  <object id="71" name="river1" x="142.233" y="444.723" width="10.6667" height="71.0926" rotation="318.944"/>
-  <object id="72" name="river2" type="object" x="190" y="500" width="13.3333" height="53.3333"/>
+  <object id="71" name="river1" x="109.233" y="1.223" width="10.6667" height="415.093"/>
+  <object id="72" name="river2" type="object" x="185" y="500" width="18.3333" height="53.3333"/>
   <object id="73" x="192.667" y="554.667" height="0.666667"/>
-  <object id="74" name="river3" type="object" x="196.227" y="559.864" width="12" height="34.6667" rotation="315.423"/>
-  <object id="76" name="river4" type="object" x="222" y="586" width="10.6667" height="53.3333"/>
-  <object id="77" name="river5" type="object" x="225.601" y="643.965" width="12" height="70.6667" rotation="318.941"/>
-  <object id="78" name="river6" type="object" x="269.333" y="699.333" width="10.6667" height="25.3333"/>
-  <object id="79" name="river7" type="object" x="269.298" y="722.206" width="8.66667" height="28.6667" rotation="36.1861"/>
+  <object id="74" name="river3" type="object" x="202.727" y="553.864" width="19.5" height="25.1667"/>
+  <object id="76" name="river4" type="object" x="222" y="571.5" width="10.6667" height="67.8333"/>
+  <object id="77" name="river5" type="object" x="225.601" y="643.965" width="12" height="17.1667"/>
+  <object id="78" name="river6" type="object" x="265.333" y="679.833" width="14.6667" height="44.8333"/>
+  <object id="79" name="river7" type="object" x="269.298" y="722.206" width="8.66667" height="28.6667"/>
   <object id="80" name="river8" type="object" x="258.667" y="756" width="8" height="38"/>
-  <object id="81" name="river9" type="object" x="263.225" y="798.088" width="12.6667" height="103.333" rotation="317.16"/>
-  <object id="82" name="river10" type="object" x="335.333" y="877.333" width="11.3333" height="85.3333"/>
-  <object id="83" name="river11" type="object" x="340.897" y="966.204" width="16.6667" height="125.927" rotation="332.105"/>
+  <object id="81" name="river9" type="object" x="268.725" y="793.088" width="12.6667" height="17.833"/>
+  <object id="82" name="river10" type="object" x="335.333" y="868.333" width="11.3333" height="94.3333"/>
+  <object id="83" name="river11" type="object" x="340.897" y="966.204" width="16.6667" height="15.927"/>
   <object id="84" x="364.667" y="1087.33" width="0.666667" height="0.666667"/>
-  <object id="85" name="river12" type="object" x="396" y="1082" width="13.3333" height="37.3333"/>
-  <object id="86" name="river13" type="object" x="402.098" y="1126.53" width="10" height="45.3333" rotation="317.919"/>
-  <object id="87" name="river14" type="object" x="422.536" y="1163.68" width="14" height="126.667" rotation="341.107"/>
-  <object id="88" name="river15" type="object" x="481.333" y="1271.33" width="162.667" height="14"/>
+  <object id="85" name="river12" type="object" x="396" y="1058.5" width="13.3333" height="60.8333"/>
+  <object id="86" name="river13" type="object" x="410.098" y="1120.03" width="10" height="17.3333"/>
+  <object id="87" name="river14" type="object" x="422.536" y="1163.68" width="24" height="126.667"/>
+  <object id="88" name="river15" type="object" x="448.833" y="1271.33" width="195.167" height="14"/>
   <object id="89" name="planter4-1" type="object" x="1496.67" y="1011.33" width="18" height="10"/>
   <object id="90" name="planter4-2" type="object" x="1562" y="1010" width="15.3333" height="12"/>
   <object id="106" type="object" x="1595.33" y="943.333" width="39.3333" height="32"/>
@@ -1030,6 +1030,22 @@
     <property name="message" value="Locked"/>
    </properties>
   </object>
+  <object id="134" name="river3" type="object" x="121.5" y="415.167" width="12" height="20.6667"/>
+  <object id="135" name="river3" type="object" x="135" y="434.667" width="12" height="20.6667"/>
+  <object id="136" name="river3" type="object" x="148.5" y="448.667" width="12" height="20.6667"/>
+  <object id="137" name="river3" type="object" x="163" y="463.667" width="12" height="20.6667"/>
+  <object id="138" name="river3" type="object" x="176.5" y="477.167" width="12" height="20.6667"/>
+  <object id="139" name="river5" type="object" x="239" y="655.417" width="12" height="17.1667"/>
+  <object id="140" name="river5" type="object" x="253" y="666.917" width="12" height="17.1667"/>
+  <object id="141" name="river9" type="object" x="282.667" y="807.583" width="12.6667" height="17.833"/>
+  <object id="142" name="river9" type="object" x="297.167" y="821.583" width="12.6667" height="17.833"/>
+  <object id="143" name="river9" type="object" x="312.167" y="834.583" width="12.6667" height="17.833"/>
+  <object id="144" name="river9" type="object" x="326.167" y="850.083" width="12.6667" height="17.833"/>
+  <object id="145" name="river11" type="object" x="353.667" y="983.037" width="16.6667" height="15.927"/>
+  <object id="146" name="river11" type="object" x="360.167" y="1001.04" width="16.6667" height="15.927"/>
+  <object id="147" name="river11" type="object" x="369.167" y="1019.04" width="16.6667" height="15.927"/>
+  <object id="148" name="river11" type="object" x="381.667" y="1039.04" width="16.6667" height="15.927"/>
+  <object id="149" name="river11" type="object" x="418.667" y="1140.04" width="16.6667" height="15.927"/>
  </objectgroup>
  <objectgroup id="15" name="scripts">
   <object id="111" name="findHaia" x="319.5" y="263" width="40.6667" height="16.6667">
@@ -1157,7 +1173,7 @@
   </object>
  </objectgroup>
  <objectgroup id="13" name="doors">
-  <object id="37" name="tomarket" x="271" y="84.25" width="99" height="116.5">
+  <object id="37" name="tomarket" x="121.5" y="-0.25" width="248.5" height="201">
    <properties>
     <property name="toName" value="kanakan"/>
     <property name="toSpawnNumber" value="2"/>

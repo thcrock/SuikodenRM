@@ -139,7 +139,7 @@ public class InfoState extends GameState {
 	@Override
 	public void keyPressed(int k) {
 		TXT_SPEED = PRESS_BUTTON_TEXT_SPEED;
-		if(k == Keys.Q) SuikodenRM.gsm.unpauseState(returnState);
+		if(k == Keys.Q || k == Keys.ENTER) SuikodenRM.gsm.unpauseState(returnState);
 		if(k == Keys.ESCAPE) SuikodenRM.gsm.unpauseState(returnState);
 	}
 

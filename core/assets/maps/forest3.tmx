@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="110" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="123">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="110" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="123">
  <properties>
   <property name="musicTrackName" value="WildBirds.mp3"/>
  </properties>
@@ -344,7 +344,7 @@
     <property name="convoName" value="seeTracksAgain"/>
    </properties>
   </object>
-  <object id="120" name="scared by rabbit" x="764.25" y="334.75" width="9.5" height="72">
+  <object id="120" name="scared by rabbit" x="764.25" y="300.75" width="9.5" height="264">
    <properties>
     <property name="convoName" value="scaredByRabbit"/>
    </properties>

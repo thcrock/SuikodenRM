@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<moveLeft Barrel1 20 60>>\nBartender: You can't be old enough to drink! What are you doing here?\n<<moveToX Renata Chair 0 60>>\n<<moveToY Renata Chair 15 60>>\n[[Can I have some juice? |juice]]\n[[Can I have some food? |food]]\n[[Can I have some beer? |beer]]\n",
+		"body": "<<moveLeft Barrel1 20 60>>\n<<faceDown Mia>>\n<<pauseFor Mia 1.0>>\nBartender: You can't be old enough to drink! What are you doing here?\n<<moveToX Renata Chair 0 60>>\n<<moveToY Renata Chair 15 60>>\n[[Can I have some juice? |juice]]\n[[Can I have some food? |food]]\n[[Can I have some beer? |beer]]\n",
 		"position": {
 			"x": 0,
 			"y": 0

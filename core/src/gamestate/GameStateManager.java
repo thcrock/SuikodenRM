@@ -33,6 +33,10 @@ public class GameStateManager implements InputProcessor{
 	public static final int ATTACKSTATE = 2;
 			
 	public GameStateManager (SuikodenRM rel) {
+        String startingMap = System.getProperty("startingMap");
+        if(startingMap == null) {
+            startingMap = "kanakan";
+        }
         musicManager = new MusicManager();
 		gameState = new GameState[NUMGAMESTATES];
 		ImageCache.load();
@@ -40,7 +44,7 @@ public class GameStateManager implements InputProcessor{
         completedScripts = new HashSet<String>();
 		
 		currentState = LEVELSTATE;
-		loadState(currentState, new Door("kanakan", 1));
+		loadState(currentState, new Door(startingMap, 1));
 	}
 	
 	private void loadState (int state, Door door) {
