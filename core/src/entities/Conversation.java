@@ -6,6 +6,7 @@ import java.lang.String;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Random;
 import scripting.Script;
 import scripting.Action;
 import scripting.MoveRight;
@@ -40,6 +41,8 @@ public class Conversation {
     HashMap<String, Scriptable> characters;
     HashSet<Scriptable> usedCharacters;
     Dialogue dialogue;
+    DialogueData data;
+    Random rand;
     Action currentAction = null;
     //class variables
     LineResult line = null;
@@ -56,7 +59,9 @@ public class Conversation {
                 scriptTriggers.add(t);
             }
         }
-        DialogueData data = new DialogueData(convoName);
+        rand = new Random();
+        data = new DialogueData(convoName);
+        data.put("$randomstate", rand.nextInt(3));
         dialogue = new Dialogue(data);
         dialogue.loadFile("scripts/" + convoName + ".json",false,false,null);
     }
@@ -96,8 +101,10 @@ public class Conversation {
                 s.startScript();
             }
         }
+        int nextint = rand.nextInt(3);
+        data.put("$randomstate", nextint);
 
-        if(waiting && currentAction != null) {
+        if(waiting && currentAction != null && option == null) {
             if(characters.get(currentAction.character).hasFinishedAction()) {
                 waiting = false;
                 currentAction = null;
@@ -108,6 +115,14 @@ public class Conversation {
         }
 
 		//check if next result is a command
+        if(command == null) {
+            System.out.println("Command is null");
+            if(dialogue.isNextCommand()) {
+                System.out.println("next is command");
+            } else {
+                System.out.println("next is not command");
+            }
+        }
 		if(command == null && dialogue.isNextCommand()){
             node_complete = null;
 			command = dialogue.getNextAsCommand();
@@ -427,6 +442,7 @@ public class Conversation {
             if(currentAction.needsWait) {
                 waiting = true;
             } else {
+                waiting = false;
                 command = null;
             }
 			//here well just print it out to console
@@ -451,6 +467,9 @@ public class Conversation {
         */
 
         Scriptable player = characters.get("Mia");
+        System.out.println("checkig on waiting");
+        System.out.println(waiting);
+        System.out.println(option);
         if(waiting && option != null) {
             if(player.getCurrentChoice() != -1) {
                 option.choose(player.getCurrentChoice());
@@ -469,7 +488,7 @@ public class Conversation {
 	        //check that there currently is no options and next result is options
 			option = dialogue.getNextAsOptions();
             node_complete = null;
-            System.out.println(option);
+            System.out.println(" option is " + option);
 	    }
 
 	   //check that there is no line and next result is node compelte
@@ -480,9 +499,14 @@ public class Conversation {
             String overrideName;
             String overridePicture = null;
             if(lineParts.length == 1) {
-                speaker = player;
-                overrideName = "Mia";
-                speaker.sayMessage(lineParts[0], overrideName, null);
+                if(lineParts[0].equals("Noop")) {
+                    System.out.println("found noop");
+                } else {
+                    System.out.println("no noop" + lineParts[0]);
+                    speaker = player;
+                    overrideName = "Mia";
+                    speaker.sayMessage(lineParts[0], overrideName, null);
+                }
             } else {
                 String[] nameParts = lineParts[0].split("-");
                 if(nameParts.length == 1) {
@@ -517,8 +541,9 @@ public class Conversation {
                 items[i] = s;
                 i++;
             }
-            player.giveChoices(items);
             waiting = true;
+            System.out.println("set waiting to true");
+            player.giveChoices(items);
         }
         if(line == null && option == null && command == null) {
             System.out.println("no line or option");

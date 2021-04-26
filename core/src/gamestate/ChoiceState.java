@@ -52,8 +52,8 @@ public class ChoiceState extends GameState {
 	Label rightUpperInfoWindow;
 	
 	// Character
-	int PORTRAIT_WIDTH = 56*2;
-	int PORTRAIT_HEIGHT = 64*2;
+	int PORTRAIT_WIDTH = 139;
+	int PORTRAIT_HEIGHT = 139;
 	boolean b = false;
 	int stringPosition = 0;
 	
@@ -161,11 +161,15 @@ public class ChoiceState extends GameState {
 		
 		((Label) mainContainer.getActor().getChildren().items[0]).setStyle(hoverButton);
 		
-		//characterImage = new Image();
-		//characterImage.setWidth(PORTRAIT_WIDTH);
-		//characterImage.setHeight(PORTRAIT_HEIGHT);
-		//characterImage.setX(itemContainer.getX() + itemContainer.getWidth() - PORTRAIT_WIDTH - 20);
-		//characterImage.setY(itemContainer.getY() + itemContainer.getHeight() - 20);
+        if(character.getFacePicture() != null) {
+            System.out.println("face picture is not null!");
+            characterImage = new Image(character.getFacePicture());
+            characterImage.setWidth(PORTRAIT_WIDTH);
+            characterImage.setHeight(PORTRAIT_HEIGHT);
+            characterImage.setX(leftUpperInfoWindow.getX() - 8);
+            characterImage.setY(leftUpperInfoWindow.getY() + leftUpperInfoWindow.getHeight());
+            stage.addActor(characterImage);
+        }
 	}
 
 	@Override

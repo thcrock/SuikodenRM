@@ -37,7 +37,12 @@ public class MusicManager {
     }
 
     public void setVolume(float volume) {
-        this.music.setVolume(volume);
+        if(volume >= 0.99) {
+            this.isFadingIn = true;
+        } else {
+            this.volume = volume;
+            this.music.setVolume(volume);
+        }
     }
 
     public void update(float delta) {
