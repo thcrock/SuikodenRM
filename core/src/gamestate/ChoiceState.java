@@ -147,6 +147,7 @@ public class ChoiceState extends GameState {
         rightUpperInfoWindow.setY(mainContainer.getY() + mainContainer.getHeight());
 		table1.pad(10);
         for(String s : choices) {
+            System.out.println(s);
             table1.row();
 
             Label choice = new Label(s, origButton);
@@ -246,10 +247,14 @@ public class ChoiceState extends GameState {
 		((Label) mainContainer.getActor().getChildren().items[mainWindowRow + mainWindowColumn]).setStyle(origButton);
 		
 		if(k == Keys.UP) {
-			mainWindowRow = mainWindowRow - 1;
+            if (mainWindowRow > 0) {
+			    mainWindowRow = mainWindowRow - 1;
+            }
 		}
 		if(k == Keys.DOWN) {
-			mainWindowRow = mainWindowRow + 1;
+            if(choices.size() > mainWindowRow + 1) {
+                mainWindowRow = mainWindowRow + 1;
+            }
 		}
 		
 		int choice = mainWindowRow + mainWindowColumn;

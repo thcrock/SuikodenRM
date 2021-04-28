@@ -51,4 +51,5 @@ public interface Scriptable {
     public void moveToBackground();
     public void moveToForeground();
     public void resetSorting();
+    public void stop();
 }

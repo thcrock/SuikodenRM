@@ -41,7 +41,6 @@ public class Conversation {
     HashMap<String, Scriptable> characters;
     HashSet<Scriptable> usedCharacters;
     Dialogue dialogue;
-    DialogueData data;
     Random rand;
     Action currentAction = null;
     //class variables
@@ -59,11 +58,6 @@ public class Conversation {
                 scriptTriggers.add(t);
             }
         }
-        rand = new Random();
-        data = new DialogueData(convoName);
-        data.put("$randomstate", rand.nextInt(3));
-        dialogue = new Dialogue(data);
-        dialogue.loadFile("scripts/" + convoName + ".json",false,false,null);
     }
 
     public boolean isOver() {
@@ -79,6 +73,11 @@ public class Conversation {
     }
 
     public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player) {
+        rand = new Random();
+        DialogueData data = SuikodenRM.gsm.getDialogueData();
+        data.put("$randomstate", rand.nextInt(3));
+        dialogue = new Dialogue(data);
+        dialogue.loadFile("scripts/" + name + ".json",false,false,null);
         characters = new HashMap<String, Scriptable>();
         System.out.println("initializing");
         for (Scriptable s : inputcharacters) {
@@ -102,7 +101,7 @@ public class Conversation {
             }
         }
         int nextint = rand.nextInt(3);
-        data.put("$randomstate", nextint);
+        SuikodenRM.gsm.getDialogueData().put("$randomstate", nextint);
 
         if(waiting && currentAction != null && option == null) {
             if(characters.get(currentAction.character).hasFinishedAction()) {
@@ -211,6 +210,16 @@ public class Conversation {
             } else if(commandName.equals("pauseFor")) {
                 scripting.PauseFor action = new scripting.PauseFor();
                 action.seconds = Float.parseFloat(params[2]);
+                action.character = params[1];
+                currentAction = action;
+                Scriptable character = characters.get(action.character);
+                if(!usedCharacters.contains(character)) {
+                    usedCharacters.add(character);
+                    character.startScript();
+                }
+                currentAction.perform(character);
+            } else if(commandName.equals("stop")) {
+                scripting.Stop action = new scripting.Stop();
                 action.character = params[1];
                 currentAction = action;
                 Scriptable character = characters.get(action.character);

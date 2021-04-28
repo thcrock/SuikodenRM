@@ -13,6 +13,7 @@ import entities.Conversation;
 import fighting.FightingState;
 import fighting.FightingTestState;
 import menus.ChoiceState;
+import com.kyper.yarn.DialogueData;
 
 public class GameStateManager implements InputProcessor{
 
@@ -24,6 +25,7 @@ public class GameStateManager implements InputProcessor{
     MusicManager musicManager;
     String helpPrompt;
     Door nextDoor;
+    DialogueData data;
 	
 	public int currentState;
 	
@@ -37,6 +39,7 @@ public class GameStateManager implements InputProcessor{
         if(startingMap == null) {
             startingMap = "kanakan";
         }
+        data = new DialogueData("thewholegame");
         musicManager = new MusicManager();
 		gameState = new GameState[NUMGAMESTATES];
 		ImageCache.load();
@@ -57,6 +60,10 @@ public class GameStateManager implements InputProcessor{
 			//gameState[state] = new FightingState((BoxWorld) gameState[LEVELSTATE]);
 		}
 	}
+
+    public DialogueData getDialogueData() {
+        return data;
+    }
 	
 	private void unloadState(int state) {
 		gameState[state] = null;
