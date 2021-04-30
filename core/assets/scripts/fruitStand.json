@@ -52,7 +52,7 @@
 	{
 		"title": "melon",
 		"tags": "",
-		"body": "Fruitmonger: Thank you!\n[exit]",
+		"body": "Fruitmonger: Thank you!\n[[exit]]",
 		"position": {
 			"x": 1200,
 			"y": 151
@@ -62,7 +62,7 @@
 	{
 		"title": "bananas",
 		"tags": "",
-		"body": "Fruitmonger: That's bananas!\n[exit]",
+		"body": "Fruitmonger: That's bananas!\n[[exit]]",
 		"position": {
 			"x": 1420,
 			"y": 151

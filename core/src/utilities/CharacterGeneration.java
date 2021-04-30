@@ -29,12 +29,13 @@ import entities.world.characters.FurFur;
 import entities.world.characters.Killey;
 import entities.world.characters.Leknaat;
 import entities.world.characters.Lorelai;
+import entities.world.characters.Townfolk;
 import gamestate.BoxWorld;
 
 public class CharacterGeneration {
 
 	
-	public static GameWorldCharacter getWorldCharacter(String name, BoxWorld bw, float x, float y) {
+	public static GameWorldCharacter getWorldCharacter(String name, BoxWorld bw, float x, float y, String sprite) {
         System.out.println(name);
 		if(name.equals("Killey")) return new Killey(ImageCache.getFrame("killeyWalkLeft", 2), bw, x, y);
 		else if(name.equals("Leknaat")) return new Leknaat(ImageCache.getFrame("leknaatWalkLeft", 2), bw, x, y);
@@ -59,6 +60,7 @@ public class CharacterGeneration {
 		else if(name.equals("Sword")) return new Sword(ImageCache.getFrame("sword", 1), bw, x, y);
 		else if(name.equals("FurFur")) return new FurFur(ImageCache.getFrame("furfur", 1), bw, x, y);
 		else if(name.equals("Lorelai")) return new Lorelai(ImageCache.getFrame("lorelai", 2), bw, x, y);
+		else if(name.equals("Townfolk")) return new Townfolk(ImageCache.getFrame(sprite, 2), bw, x, y, name, sprite);
 		return new Invisible(ImageCache.getFrame("chair", 1), bw, x, y);
 	}
 	

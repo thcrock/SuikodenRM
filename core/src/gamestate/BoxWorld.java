@@ -253,11 +253,13 @@ public class BoxWorld extends GameState {
 					float x = (mo.getRectangle().x + mo.getRectangle().width/2)*SuikodenRM.scale;
 					float y = (mo.getRectangle().y + mo.getRectangle().height/2)*SuikodenRM.scale;
                     String name = mo.getName();
+                    String sprite = mo.getProperties().get("sprite", String.class);
 					GameWorldCharacter gc = CharacterGeneration.getWorldCharacter(
                         (String) mo.getProperties().get("character"),
                         this,
                         x,
-                        y
+                        y,
+                        sprite
                     );
                     gc.setName(name);
 					
@@ -328,7 +330,7 @@ public class BoxWorld extends GameState {
 		player = new Player(body);
         drawableBoxes.add(player);
 
-	    GameWorldCharacter friend = CharacterGeneration.getWorldCharacter("Friend", this, playerX, playerY + 20);
+	    GameWorldCharacter friend = CharacterGeneration.getWorldCharacter("Friend", this, playerX, playerY + 20, null);
         drawableBoxes.add(friend);
         characters.add(friend);
 		
