@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="105" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="29" nextobjectid="167">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="105" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="29" nextobjectid="179">
  <properties>
   <property name="displayName" value="Kanakan City Market"/>
   <property name="musicTrackName" value="KanakanMarket.mp3"/>
@@ -904,7 +904,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1770,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1142,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1790,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1140,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1094,1094,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1142,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1063,1063,0,0,0,1157,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1289,7 +1289,7 @@
     <property name="stopMessage" type="int" value="1"/>
    </properties>
   </object>
-  <object id="19" name="Fruit Clerk" x="985.666" y="266" width="14" height="14">
+  <object id="19" name="FruitClerk" x="985.666" y="266" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk1"/>
     <property name="phases" value="l-1;p-10;d-10-120;p-1;r-1;p-1;u-10;l-1;p-1.6"/>
@@ -1390,7 +1390,7 @@ I definitely didn't spill wine on my last one. I need a new rug for a totally di
  </objectgroup>
  <objectgroup id="23" name="dumpingground"/>
  <objectgroup id="9" name="scripts">
-  <object id="23" name="fightscene" x="374.416" y="1020.5" width="13.5" height="22.5">
+  <object id="23" name="fightscene" x="371.916" y="1007.5" width="13.5" height="22.5">
    <properties>
     <property name="convoName" value="challenge"/>
    </properties>
@@ -1415,9 +1415,64 @@ I definitely didn't spill wine on my last one. I need a new rug for a totally di
     <property name="convoName" value="helpPrompt"/>
    </properties>
   </object>
+  <object id="167" x="1220" y="249.5" width="71" height="28">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="169" x="1235.5" y="353" width="39.5" height="28">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="170" x="1318.5" y="265.5" width="17.5" height="16.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="171" x="1319.75" y="299.25" width="17.5" height="16.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="172" x="1319.25" y="330.75" width="17.5" height="16.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="173" x="1320.25" y="359.75" width="17.5" height="16.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="174" x="1381.75" y="250.25" width="18.5" height="20.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="175" x="1382.75" y="281.25" width="18.5" height="20.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="176" x="1380.75" y="313.75" width="18.5" height="20.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="177" x="1381.75" y="345.75" width="18.5" height="20.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
+  <object id="178" x="1380.75" y="374.25" width="18.5" height="20.5">
+   <properties>
+    <property name="convoName" value="stepOnFlowers"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="376.789" y="1025.78" width="8.36364" height="8">
+  <object id="1" name="spawn1" type="1" x="374.289" y="1017.78" width="8.36364" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
@@ -1469,7 +1524,7 @@ I definitely didn't spill wine on my last one. I need a new rug for a totally di
   <object id="71" type="object" x="849" y="867" width="13" height="11.5"/>
   <object id="72" type="object" x="1057" y="864.5" width="13.5" height="13"/>
   <object id="73" name="fruitstand" type="object" x="806" y="308.5" width="69.5" height="9"/>
-  <object id="74" name="bakerstand" type="object" x="598" y="307.5" width="68" height="10"/>
+  <object id="74" name="bakerstand" type="object" x="598" y="304.833" width="68" height="10"/>
   <object id="75" name="fishstand" type="object" x="402.5" y="310" width="71.5" height="8.5"/>
   <object id="76" name="topleftcoast" type="object" x="308" y="244.5" width="11.5" height="49.5"/>
   <object id="77" name="northpier" type="object" x="277.5" y="290.5" width="30" height="6"/>

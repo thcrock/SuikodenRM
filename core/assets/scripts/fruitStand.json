@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Fruitmonger: Hey girls! How was the sparring today?\n<<set $needsfood to 0>>\n[[I won! |lying]]\n[[Somebody snuck a barrel behind me!|deflecting]]",
+		"body": "Fruitmonger: Hey girls! How was the sparring today?\n<<set $needsfood to 0>>\n[[I won! |lying]]\n[[Somebody snuck a cliff behind me!|deflecting]]",
 		"position": {
 			"x": 860,
 			"y": 371
@@ -12,7 +12,7 @@
 	{
 		"title": "lying",
 		"tags": "",
-		"body": "Renata: Nuh uh!\n[[choosing]]",
+		"body": "<<if $miawins eq 0>>\nRenata: Nuh uh!\n<<else>>\nRenata: For now!\n<<endif>>\n[[choosing]]",
 		"position": {
 			"x": 860,
 			"y": 371
