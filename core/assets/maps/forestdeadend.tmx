@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-up" width="24" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="2">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="24" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="10">
  <tileset firstgid="1" source="terrain.tsx"/>
  <tileset firstgid="1025" source="tileset_town_multi_v001.tsx"/>
  <tileset firstgid="1585" source="treebig.tsx"/>
- <layer id="1" name="background" width="24" height="30">
+ <layer id="1" name="background" width="24" height="32">
   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 1610613805,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,
 296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,
 296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,
@@ -37,8 +39,10 @@
 296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296
 </data>
  </layer>
- <layer id="2" name="background" width="24" height="30">
+ <layer id="2" name="background" width="24" height="32">
   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 1610613805,0,0,0,0,0,0,360,0,0,0,0,0,0,360,0,0,360,360,0,0,0,0,0,
 1610613805,0,0,0,360,0,0,0,0,0,0,0,0,0,360,0,0,0,0,0,0,0,0,0,
@@ -71,9 +75,11 @@
 1610613805,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541,3221226541
 </data>
  </layer>
- <layer id="3" name="2.5" width="24" height="30">
+ <layer id="3" name="2.5" width="24" height="32">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,
+1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,
+1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,1077,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -106,12 +112,27 @@
 </data>
  </layer>
  <objectgroup id="4" name="spawns">
-  <object id="1" name="spawn" x="181" y="178" width="40" height="46">
+  <object id="1" name="spawn" x="181" y="210" width="40" height="46">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="5" name="doors"/>
- <objectgroup id="6" name="box2D"/>
+ <objectgroup id="5" name="doors">
+  <object id="9" name="toforest1" x="309.333" y="49.6665" width="28" height="433.334">
+   <properties>
+    <property name="toName" value="forest1"/>
+    <property name="toSpawnNumber" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="box2D">
+  <object id="2" type="object" x="18.6667" y="34" width="384.667" height="14.6667"/>
+  <object id="3" type="object" x="16" y="34" width="8.66667" height="462.667"/>
+  <object id="4" type="object" x="25.3333" y="484" width="374" height="14"/>
+  <object id="5" type="object" x="88.6667" y="262" width="25.3333" height="24.6667"/>
+  <object id="6" type="object" x="284" y="301.667" width="25.3333" height="24.6667"/>
+  <object id="7" type="object" x="155.333" y="435.667" width="25.3333" height="24.6667"/>
+  <object id="8" type="object" x="219.333" y="125.667" width="25.3333" height="24.6667"/>
+ </objectgroup>
 </map>

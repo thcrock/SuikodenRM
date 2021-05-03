@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="80" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="111">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="80" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="114">
  <properties>
   <property name="displayName" value="Forest"/>
   <property name="musicTrackName" value="WildBirds.mp3"/>
@@ -351,7 +351,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="4" name="2.5" width="80" height="80" visible="0">
+ <layer id="4" name="2.5" width="80" height="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -441,7 +441,7 @@
     <property name="convoName" value="noticeLeaves"/>
    </properties>
   </object>
-  <object id="90" name="cloakscene" x="564.5" y="1048.17" width="52" height="33">
+  <object id="90" name="cloakscene" x="547.833" y="1048.84" width="52" height="33">
    <properties>
     <property name="convoName" value="cloak"/>
    </properties>
@@ -590,13 +590,13 @@
     <property name="toSpawnNumber" value="2"/>
    </properties>
   </object>
-  <object id="87" name="todeadend" x="154.667" y="386.667" width="28" height="758.667">
+  <object id="87" name="todeadend" x="154.667" y="450.667" width="28" height="694.667">
    <properties>
     <property name="toName" value="forestdeadend"/>
     <property name="toSpawnNumber" value="1"/>
    </properties>
   </object>
-  <object id="88" name="tonext" x="130.667" y="106.667" width="26.6667" height="278.667">
+  <object id="88" name="tonext" x="130.667" y="106.667" width="26.6667" height="348.667">
    <properties>
     <property name="toName" value="forest2"/>
     <property name="toSpawnNumber" value="1"/>
@@ -604,7 +604,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" x="574.317" y="1058.68" width="32.6667" height="14">
+  <object id="1" name="spawn1" x="554.317" y="1058.68" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
@@ -612,6 +612,16 @@
   <object id="97" name="spawn from forest3" x="968.667" y="70" width="28.6667" height="26">
    <properties>
     <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="112" name="spawn2" x="211.667" y="325" width="32.6667" height="14">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="113" name="spawn4" x="211.667" y="1043" width="32.6667" height="14">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
    </properties>
   </object>
  </objectgroup>

@@ -23,6 +23,9 @@ import static com.badlogic.gdx.graphics.g2d.Batch.Y4;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.lang.Integer;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -220,12 +223,15 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 	
 	
 	public void renderTileLayer(ArrayList<TiledMapTileLayer> layers, ArrayList<DrawableBox2D> drawableBoxes) {
-		
+	    HashMap<TiledMapTileLayer, HashSet<Integer>> renderedRows = new HashMap<TiledMapTileLayer, HashSet<Integer>>();
 		Collections.sort(drawableBoxes);
 		unitScale = SuikodenRM.scale;
 		for(int i = 0; i < drawableBoxes.size(); i++) {
 			DrawableBox2D db2d = drawableBoxes.get(i);
 			for(TiledMapTileLayer layer : layers) {
+                if(!renderedRows.containsKey(layer)) {
+                    renderedRows.put(layer, new HashSet<Integer>());
+                }
                 if(!layer.isVisible()) {
                     continue;
                 }
@@ -245,8 +251,10 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 			
 				// <-- To here, nothing has changed from the original OrthogonalTiledMapRenderer
 				
-				final int row2 = Math.min(layerHeight, (int) ((viewBounds.y
-						+ viewBounds.height) / layerTileHeight)); 
+
+				final int row2 = Math.min(layerHeight, (int)((viewBounds.y + viewBounds.height) / layerTileHeight)); 
+				//final int row2 =  (int) ((viewBounds.y + viewBounds.height) / layerTileHeight); 
+						
 				
 				// Instead of looking into the first row first, we look into the last row first.
 				// Didn't find a good way to work around this.
@@ -260,7 +268,9 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
                 if(i == 0) {
                     previousRow = row2;
                 } else {
-				    previousRow = Math.min(row2, (int)((drawableBoxes.get(i-1).getBody().getPosition().y)/layerTileHeight));
+                    float numerator = drawableBoxes.get(i-1).getBody().getPosition().y;
+                    float denominator = layerTileHeight;
+				    previousRow = Math.min(row2, (int)((numerator)/denominator));
                 }
 
 				
@@ -271,6 +281,12 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 				// Once again, instead of going from the beginning to the end, we go
 				// from the end to the beginning
 				for (int row = previousRow; row > playersRow; row--) {
+                    if(renderedRows.get(layer).contains(row)) {
+                        System.out.println("Skipping row " + row);
+                        continue;
+                    } else {
+                        renderedRows.get(layer).add(row); 
+                    }
 					float x = xStart;
 					for (int col = col1; col < col2; col++) {
 						final TiledMapTileLayer.Cell cell = layer.getCell(col, row);

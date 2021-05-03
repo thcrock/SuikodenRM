@@ -22,24 +22,28 @@ public class Townfolk3 extends GameWorldCharacter {
 		name = "Townfolk3";
 		
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
+				ImageCache.getFrame("townfolk03", 3), 
                 ImageCache.getFrame("townfolk03", 7), 
 				ImageCache.getFrame("townfolk03", 3), 
 				ImageCache.getFrame("townfolk03", 11), 
 				});
 		
 		this.leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
+				ImageCache.getFrame("townfolk03", 4), 
                 ImageCache.getFrame("townfolk03", 8), 
 				ImageCache.getFrame("townfolk03", 4), 
 				ImageCache.getFrame("townfolk03", 12), 
 				});
 		
 		this.upAnim = new GameAnimation(0.2f, new TextureRegion[]{
+				ImageCache.getFrame("townfolk03", 1), 
                 ImageCache.getFrame("townfolk03", 5), 
 				ImageCache.getFrame("townfolk03", 1), 
 				ImageCache.getFrame("townfolk03", 9), 
 				});
 
 		this.rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
+				ImageCache.getFrame("townfolk03", 2), 
                 ImageCache.getFrame("townfolk03", 6), 
 				ImageCache.getFrame("townfolk03", 2), 
 				ImageCache.getFrame("townfolk03", 10), 
