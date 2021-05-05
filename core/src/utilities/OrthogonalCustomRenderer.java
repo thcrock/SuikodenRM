@@ -80,7 +80,7 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 		final float layerTileWidth = layer.getTileWidth() * unitScale;
 		final float layerTileHeight = layer.getTileHeight() * unitScale;
 
-		final int col1 = Math.max(0, (int) (viewBounds.x / layerTileWidth));
+		final int col1 = (int) Math.max(0, (int) (viewBounds.x / layerTileWidth) - (layerTileWidth*4));
 		final int col2 = Math.min(layerWidth, (int) ((viewBounds.x
 				+ viewBounds.width + layerTileWidth) / layerTileWidth));
 
@@ -245,7 +245,7 @@ public class OrthogonalCustomRenderer extends BatchTiledMapRenderer {
 				final float layerTileWidth = layer.getTileWidth() * unitScale;
 				final float layerTileHeight = layer.getTileHeight() * unitScale;
 		
-				final int col1 = (int) Math.max(0, (int) (viewBounds.x / layerTileWidth) - layerTileWidth);
+				final int col1 = (int) Math.max(0, (int) (viewBounds.x / layerTileWidth) - (layerTileWidth*4));
 				final int col2 = Math.min(layerWidth, (int) ((viewBounds.x
 						+ viewBounds.width + layerTileWidth) / layerTileWidth));
 			

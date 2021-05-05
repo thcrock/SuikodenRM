@@ -23,7 +23,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.orangeegames.suikorm.SuikodenRM;
 
-enum Direction { Right, Left, Down, Up, Pause, Stop };
+enum Direction { Right, Left, Down, Up, Pause, Stop, Hide, Show };
 
 class Phase {
     public Direction direction;
@@ -525,6 +525,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
                 phases[i] = new Phase(Direction.Pause, 0, Float.parseFloat(parts[1]), speed);
             } else if(parts[0].equals("s")) {
                 phases[i] = new Phase(Direction.Stop, 0, 0, 0f);
+            } else if(parts[0].equals("h")) {
+                phases[i] = new Phase(Direction.Hide, 0, 0, 0f);
+            } else if(parts[0].equals("g")) {
+                phases[i] = new Phase(Direction.Show, 0, 0, 0f);
             } else {
             }
         }
@@ -566,6 +570,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
             this.checkpointY = this.targetY;
         } else if(phase.direction == Direction.Stop) {
             this.stop();
+        } else if(phase.direction == Direction.Show) {
+            this.unhide();
+        } else if(phase.direction == Direction.Hide) {
+            this.hide();
         }
     }
     public void moveRight(float distance, float speed) {
