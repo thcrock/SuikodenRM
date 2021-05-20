@@ -14,39 +14,39 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.orangeegames.suikorm.SuikodenRM;
 
 
-public class BirdRed extends GameWorldCharacter {
+public class Bird extends GameWorldCharacter {
 
-	public BirdRed(TextureRegion firstFrame, BoxWorld bw, float x, float y) {
+	public Bird(TextureRegion firstFrame, BoxWorld bw, float x, float y, String sprite) {
 		super(firstFrame, bw, x, y);
 		
-		name = "BirdRed";
+		name = "Bird";
 		
 		this.downAnim = new GameAnimation(0.2f, new TextureRegion[]{
-                ImageCache.getFrame("bird_red", 7), 
-				ImageCache.getFrame("bird_red", 8), 
-                ImageCache.getFrame("bird_red", 7), 
-                ImageCache.getFrame("bird_red", 9), 
+                ImageCache.getFrame(sprite, 7), 
+				ImageCache.getFrame(sprite, 8), 
+                ImageCache.getFrame(sprite, 7), 
+                ImageCache.getFrame(sprite, 9), 
 				});
 		
 		this.leftAnim = new GameAnimation(0.2f, new TextureRegion[]{
-                ImageCache.getFrame("bird_red", 1), 
-				ImageCache.getFrame("bird_red", 2), 
-                ImageCache.getFrame("bird_red", 1), 
-                ImageCache.getFrame("bird_red", 3), 
+                ImageCache.getFrame(sprite, 1), 
+				ImageCache.getFrame(sprite, 2), 
+                ImageCache.getFrame(sprite, 1), 
+                ImageCache.getFrame(sprite, 3), 
 				});
 		
 		this.upAnim = new GameAnimation(0.2f, new TextureRegion[]{
-                ImageCache.getFrame("bird_red", 4), 
-				ImageCache.getFrame("bird_red", 5), 
-                ImageCache.getFrame("bird_red", 4), 
-                ImageCache.getFrame("bird_red", 6), 
+                ImageCache.getFrame(sprite, 4), 
+				ImageCache.getFrame(sprite, 5), 
+                ImageCache.getFrame(sprite, 4), 
+                ImageCache.getFrame(sprite, 6), 
 				});
 
 		this.rightAnim = new GameAnimation(0.2f, new TextureRegion[]{
-                ImageCache.getFrame("bird_red", 10), 
-				ImageCache.getFrame("bird_red", 11), 
-                ImageCache.getFrame("bird_red", 10), 
-                ImageCache.getFrame("bird_red", 12), 
+                ImageCache.getFrame(sprite, 10), 
+				ImageCache.getFrame(sprite, 11), 
+                ImageCache.getFrame(sprite, 10), 
+                ImageCache.getFrame(sprite, 12), 
 				});
 		
 		this.currentWalkAnim = this.upAnim;

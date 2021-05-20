@@ -865,30 +865,34 @@
  <objectgroup id="10" name="characters">
   <object id="208" name="bird" x="95.3333" y="1297.33" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_red"/>
    </properties>
   </object>
   <object id="209" name="bird" x="332.667" y="1014.67" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_blue"/>
    </properties>
   </object>
   <object id="210" name="bird" x="210" y="744" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_yellow"/>
    </properties>
   </object>
   <object id="211" name="bird" x="11.3333" y="241.333" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_red"/>
    </properties>
   </object>
  </objectgroup>

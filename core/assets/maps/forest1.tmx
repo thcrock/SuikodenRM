@@ -450,44 +450,50 @@
  <objectgroup id="11" name="characters">
   <object id="91" name="bird" x="376.667" y="1043.67" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_red"/>
    </properties>
   </object>
   <object id="92" name="bird" x="54.3333" y="876.333" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_yellow"/>
    </properties>
   </object>
   <object id="93" name="bird" x="904.333" y="734.333" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_blue"/>
    </properties>
   </object>
   <object id="94" name="bird" x="647.333" y="573.333" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_red"/>
    </properties>
   </object>
   <object id="95" name="bird" x="389.333" y="340.333" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_yellow"/>
    </properties>
   </object>
   <object id="96" name="bird" x="698.333" y="174.333" width="17.3333" height="13.3333">
    <properties>
-    <property name="character" value="BirdRed"/>
+    <property name="character" value="Bird"/>
     <property name="phases" value="r-1000;l-1000"/>
     <property name="speed" type="float" value="120"/>
+    <property name="sprite" value="bird_blue"/>
    </properties>
   </object>
  </objectgroup>
@@ -604,7 +610,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" x="554.317" y="1058.68" width="32.6667" height="14">
+  <object id="1" name="spawn1" x="557.65" y="1057.35" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
