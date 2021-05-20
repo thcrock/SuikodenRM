@@ -83,7 +83,7 @@ boy_brownhair
   index: 4
 buttondown
   rotate: false
-  xy: 432, 2
+  xy: 500, 2
   size: 16, 16
   split: 7, 7, 7, 7
   orig: 16, 16
@@ -91,7 +91,7 @@ buttondown
   index: -1
 buttoneggstra
   rotate: false
-  xy: 432, 2
+  xy: 500, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -201,6 +201,20 @@ dog_run
   orig: 66, 39
   offset: 0, 0
   index: 5
+fish
+  rotate: false
+  xy: 432, 2
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: 1
+fish
+  rotate: false
+  xy: 466, 2
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: 2
 fishing
   rotate: false
   xy: 567, 365
@@ -513,7 +527,7 @@ lorelai
   index: 3
 metatag
   rotate: false
-  xy: 450, 2
+  xy: 518, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -650,7 +664,7 @@ player1
   index: -1
 player2
   rotate: false
-  xy: 468, 2
+  xy: 536, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -763,14 +777,14 @@ riouWalkUp
   index: 3
 shop
   rotate: false
-  xy: 486, 2
+  xy: 554, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 shop
   rotate: false
-  xy: 504, 2
+  xy: 990, 462
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

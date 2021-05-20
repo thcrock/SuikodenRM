@@ -37,7 +37,7 @@ public class GameStateManager implements InputProcessor{
 	public GameStateManager (SuikodenRM rel) {
         String startingMap = System.getProperty("startingMap");
         if(startingMap == null) {
-            startingMap = "forest1";
+            startingMap = "kanakan";
         }
         data = new DialogueData("thewholegame");
         musicManager = new MusicManager();
