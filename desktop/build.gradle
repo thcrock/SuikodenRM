@@ -15,7 +15,7 @@ task run(dependsOn: classes, type: JavaExec) {
 }
 
 task packsprites(dependsOn: classes, type: JavaExec) {
-    main = "utilities.MyPacker"
+    main = "com.orangeegames.suikorm.desktop.MyPacker"
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
     workingDir = project.assetsDir

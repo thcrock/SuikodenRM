@@ -1,8 +1,8 @@
 
 atlas.png
-size: 1024,1024
+size: 1024, 1024
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Nearest, Nearest
 repeat: none
 barrel
   rotate: false
@@ -130,7 +130,7 @@ chair
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
-  index: 6
+  index: 8
 chair
   rotate: false
   xy: 646, 2
@@ -144,7 +144,7 @@ chair
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
-  index: 8
+  index: 6
 chair
   rotate: false
   xy: 712, 2
@@ -843,9 +843,9 @@ upperchat
   index: -1
 
 atlas2.png
-size: 1024,1024
+size: 1024, 1024
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Nearest, Nearest
 repeat: none
 bird_blue
   rotate: false
@@ -2041,9 +2041,9 @@ townfolk01
   index: 10
 
 atlas3.png
-size: 1024,1024
+size: 1024, 1024
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Nearest, Nearest
 repeat: none
 bird_red
   rotate: false
@@ -2366,7 +2366,7 @@ chair
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
-  index: 14
+  index: 12
 chair
   rotate: false
   xy: 668, 928
@@ -2380,14 +2380,14 @@ chair
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
-  index: 12
+  index: 15
 chair
   rotate: false
   xy: 668, 928
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
-  index: 15
+  index: 14
 chair
   rotate: false
   xy: 668, 928
@@ -3386,9 +3386,9 @@ townfolk04
   index: 12
 
 atlas4.png
-size: 1024,512
+size: 1024, 512
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Nearest, Nearest
 repeat: none
 atlas/player
   rotate: false

@@ -1,4 +1,4 @@
-package utilities;
+package com.orangeegames.suikorm.desktop;
 
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 import java.lang.Runtime;
