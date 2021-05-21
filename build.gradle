@@ -65,8 +65,8 @@ project(":html") {
         api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
         api "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources" 
-        api 'net.dermetfan.libgdx-utils:libgdx-utils:0.9.0:sources'
-    	api 'net.dermetfan.libgdx-utils:libgdx-utils-box2d:0.9.0:sources'
+        api "com.github.tommyettinger:libgdx-utils:0.13.7:sources"
+        api "com.github.tommyettinger:libgdx-utils-box2d:0.13.7:sources"
     }
 }
 
@@ -83,8 +83,8 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-        compile 'net.dermetfan.libgdx-utils:libgdx-utils:0.9.0'
-    	compile 'net.dermetfan.libgdx-utils:libgdx-utils-box2d:0.9.0'
+        compile "com.github.tommyettinger:libgdx-utils:0.13.7"
+        compile "com.github.tommyettinger:libgdx-utils-box2d:0.13.7"
     }
 }
 
