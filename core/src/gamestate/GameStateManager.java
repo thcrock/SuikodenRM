@@ -12,10 +12,9 @@ import entities.GameWorldCharacter;
 import entities.Conversation;
 import fighting.FightingState;
 import fighting.FightingTestState;
-import menus.ChoiceState;
 import com.kyper.yarn.DialogueData;
 
-public class GameStateManager implements InputProcessor{
+public class GameStateManager implements InputProcessor {
 
 	public static boolean PAUSED = false;
 	
@@ -35,7 +34,7 @@ public class GameStateManager implements InputProcessor{
 	public static final int ATTACKSTATE = 2;
 			
 	public GameStateManager (SuikodenRM rel) {
-        String startingMap = System.getProperty("startingMap");
+        String startingMap = System.getProperty("startingMap", null);
         if(startingMap == null) {
             startingMap = "kanakan";
         }
@@ -272,11 +271,14 @@ public class GameStateManager implements InputProcessor{
 		return false;
 	}
 
-	@Override
 	public boolean scrolled(int amount) {
 		return false;
 	}
 	
+	public boolean scrolled(float amountX, float amountY) {
+		return false;
+	}
+
 	public GameState getScreen() {
 		return gameState[currentState];
 	}

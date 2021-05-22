@@ -1,4 +1,4 @@
-package menus;
+package gamestate;
 
 import entities.GameCharacter;
 import gamestate.BoxWorld;
@@ -58,8 +58,6 @@ public class ChoiceState extends GameState {
 	int stringPosition = 0;
 	
 	private Stage stage;
-	
-	CharacterWindow cw;
 	
 	Image characterImage;
     boolean choiceStarted = false;

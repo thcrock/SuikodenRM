@@ -27,9 +27,13 @@ allprojects {
     }
 
     repositories {
+        mavenLocal()
         mavenCentral()
+        google()
+        maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+        maven { url "https://jitpack.io"}
     }
 }
 
@@ -67,6 +71,8 @@ project(":html") {
         api "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources" 
         api "com.github.tommyettinger:libgdx-utils:0.13.7:sources"
         api "com.github.tommyettinger:libgdx-utils-box2d:0.13.7:sources"
+        api 'com.github.tommyettinger:formic:0.1.4:sources'
+        api 'com.github.tommyettinger:regexodus:0.1.12:sources'
     }
 }
 
@@ -85,6 +91,9 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
         compile "com.github.tommyettinger:libgdx-utils:0.13.7"
         compile "com.github.tommyettinger:libgdx-utils-box2d:0.13.7"
+    	implementation 'com.github.EsotericSoftware:jsonbeans:0.9'
+        implementation 'com.github.tommyettinger:formic:0.1.4'
+        implementation 'com.github.tommyettinger:regexodus:0.1.12'
     }
 }
 

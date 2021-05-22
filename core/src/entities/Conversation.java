@@ -1,6 +1,7 @@
 package entities;
 
 import gamestate.Scriptable;
+import java.io.IOException;
 
 import java.lang.String;
 import java.util.ArrayList;
@@ -72,12 +73,18 @@ public class Conversation {
         return this.objectTriggers;
     }
 
-    public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player) {
+    public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player){
         rand = new Random();
         DialogueData data = SuikodenRM.gsm.getDialogueData();
         data.put("$randomstate", rand.nextInt(3));
         dialogue = new Dialogue(data);
-        dialogue.loadFile("scripts/" + name + ".json",false,false,null);
+        try {
+            dialogue.loadFile("scripts/" + name + ".json",false,false,null);
+        } catch (IOException ex) {
+            System.out.println("error!");
+            return;
+        }
+
         characters = new HashMap<String, Scriptable>();
         System.out.println("initializing");
         for (Scriptable s : inputcharacters) {
@@ -544,7 +551,7 @@ public class Conversation {
             line = null;
         } else if(option != null) {
             System.out.println("choices");
-            String[] items = new String[option.getOptions().size];
+            String[] items = new String[option.getOptions().size()];
             int i = 0;
             for (String s: option.getOptions()) {
                 items[i] = s;
