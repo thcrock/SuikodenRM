@@ -8,10 +8,10 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
-import regexodus.Matcher;
-import regexodus.Pattern;
-//import java.util.regex.Matcher;
-//import java.util.regex.Pattern;
+//import regexodus.Matcher;
+//import regexodus.Pattern;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import com.badlogic.gdx.Gdx;
 
 public class Lexer {
@@ -52,56 +52,55 @@ public class Lexer {
 	private void createStates() {
 		HashMap<TokenType, String> patterns = new HashMap<Lexer.TokenType, String>();
 
-		patterns.put(TokenType.Text, ".*");
+        patterns.put(TokenType.Text, ".*");
 
-		patterns.put(TokenType.Number, "\\-?[0-9]+(\\.[0-9+])?");
-		patterns.put(TokenType.Str, "\"([^\"\"\\\\]*(?:\\.[^\"\"\\\\]*)*)\"");
-		patterns.put(TokenType.TagMarker, "\\#");
-		patterns.put(TokenType.LeftParen, "\\(");
-		patterns.put(TokenType.RightParen, "\\)");
-		patterns.put(TokenType.EqualTo, "(==|is(?!\\w)|eq(?!\\w))");
-		patterns.put(TokenType.EqualToOrAssign, "(=|to(?!\\w))");
-		patterns.put(TokenType.NotEqualTo, "(\\!=|neq(?!\\w))");
-		patterns.put(TokenType.GreaterThanOrEqualTo, "(>=|gte(?!\\w))");
-		patterns.put(TokenType.GreaterThan, "(>|gt(?!\\w))");
-		patterns.put(TokenType.LessThanOrEqualTo, "(<=|lte(?!\\w))");
-		patterns.put(TokenType.LessThan, "(<|lt(?!\\w))");
-		patterns.put(TokenType.AddAssign, "\\+=");
-		patterns.put(TokenType.MinusAssign, "\\-=");
-		patterns.put(TokenType.MultiplyAssign, "\\*=");
-		patterns.put(TokenType.DivideAssign, "\\/=");
-		patterns.put(TokenType.Add, "\\+");
-		patterns.put(TokenType.Minus, "\\-");
-		patterns.put(TokenType.Multiply, "\\*");
-		patterns.put(TokenType.Divide, "\\/");
-		patterns.put(TokenType.Modulo, "\\%");
-		patterns.put(TokenType.And, "(\\&\\&|and(?!\\w))");
-		patterns.put(TokenType.Or, "(\\|\\||or(?!\\w))");
-		patterns.put(TokenType.Xor, "(\\^|xor(?!\\w))");
-		patterns.put(TokenType.Not, "(\\!|not(?!\\w))");
-		patterns.put(TokenType.Variable, "\\$([A-Za-z0-9_\\.])+");
-		patterns.put(TokenType.Comma, "\\,");
-		patterns.put(TokenType.True, "true(?!\\w)");
-		patterns.put(TokenType.False, "false(?!\\w)");
-		patterns.put(TokenType.Null, "null(?!\\w)");
+        patterns.put(TokenType.Number, "-?[0-9]+(\\.[0-9+])?");
+        patterns.put(TokenType.Str, "\"([^\"\"\\\\]*(?:\\.[^\"\"\\\\]*)*)\"");
+        patterns.put(TokenType.TagMarker, "#");
+        patterns.put(TokenType.LeftParen, "\\(");
+        patterns.put(TokenType.RightParen, "\\)");
+        patterns.put(TokenType.EqualTo, "(==|is(?!\\w)|eq(?!\\w))");
+        patterns.put(TokenType.EqualToOrAssign, "(=|to(?!\\w))");
+        patterns.put(TokenType.NotEqualTo, "(!=|neq(?!\\w))");
+        patterns.put(TokenType.GreaterThanOrEqualTo, "(>=|gte(?!\\w))");
+        patterns.put(TokenType.GreaterThan, "(>|gt(?!\\w))");
+        patterns.put(TokenType.LessThanOrEqualTo, "(<=|lte(?!\\w))");
+        patterns.put(TokenType.LessThan, "(<|lt(?!\\w))");
+        patterns.put(TokenType.AddAssign, "\\+=");
+        patterns.put(TokenType.MinusAssign, "-=");
+        patterns.put(TokenType.MultiplyAssign, "\\*=");
+        patterns.put(TokenType.DivideAssign, "/=");
+        patterns.put(TokenType.Add, "\\+");
+        patterns.put(TokenType.Minus, "-");
+        patterns.put(TokenType.Multiply, "\\*");
+        patterns.put(TokenType.Divide, "/");
+        patterns.put(TokenType.Modulo, "%");
+        patterns.put(TokenType.And, "(&&|and(?!\\w))");
+        patterns.put(TokenType.Or, "(\\|\\||or(?!\\w))");
+        patterns.put(TokenType.Xor, "(\\^|xor(?!\\w))");
+        patterns.put(TokenType.Not, "(!|not(?!\\w))");
+        patterns.put(TokenType.Variable, "\\$([A-Za-z0-9_.])+");
+        patterns.put(TokenType.Comma, ",");
+        patterns.put(TokenType.True, "true(?!\\w)");
+        patterns.put(TokenType.False, "false(?!\\w)");
+        patterns.put(TokenType.Null, "null(?!\\w)");
 
-		patterns.put(TokenType.BeginCommand, "\\<\\<");
-		patterns.put(TokenType.EndCommand, "\\>\\>");
+        patterns.put(TokenType.BeginCommand, "<<");
+        patterns.put(TokenType.EndCommand, ">>");
 
-		patterns.put(TokenType.OptionStart, "\\[\\[");
-		patterns.put(TokenType.OptionEnd, "\\]\\]");
-		patterns.put(TokenType.OptionDelimit, "\\|");
+        patterns.put(TokenType.OptionStart, "\\[\\[");
+        patterns.put(TokenType.OptionEnd, "]]");
+        patterns.put(TokenType.OptionDelimit, "\\|");
 
-		patterns.put(TokenType.Identifier, "[a-zA-Z0-9_:\\.]+");
+        patterns.put(TokenType.Identifier, "[a-zA-Z0-9_:.]+");
 
-		patterns.put(TokenType.If, "if(?!\\w)");
-		patterns.put(TokenType.Else, "else(?!\\w)");
-		patterns.put(TokenType.ElseIf, "elseif(?!\\w)");
-		patterns.put(TokenType.EndIf, "endif(?!\\w)");
-		patterns.put(TokenType.Set, "set(?!\\w)");
+        patterns.put(TokenType.If, "if(?!\\w)");
+        patterns.put(TokenType.Else, "else(?!\\w)");
+        patterns.put(TokenType.ElseIf, "elseif(?!\\w)");
+        patterns.put(TokenType.EndIf, "endif(?!\\w)");
+        patterns.put(TokenType.Set, "set(?!\\w)");
 
-		patterns.put(TokenType.ShortcutOption, "\\-\\>\\s*");
-
+        patterns.put(TokenType.ShortcutOption, "->\\s*");
 		//compound states
 		String shortcut_option = SHORTCUT + DASH + OPTION;
 		String shortcut_option_tag = shortcut_option + DASH + TAG;
@@ -301,11 +300,15 @@ public class Lexer {
 				Matcher myMatch = rule.altRegex.match(line,column_number);
 				Matcher match = rule.regex.match(line);
                 if(match == null) {
+                    Gdx.app.log("lexer regex", rule.regex.toString());
                     Gdx.app.log("lexer match", "is null");
                 }
 				
 
 				if (!myMatch.find(0)) {
+        			Gdx.app.log("lexer line colno", StringUtils.format("%d", column_number));
+                    Gdx.app.log("lexer regex", rule.regex.toString());
+                    Gdx.app.log("lexer match", "is null");
 					continue;
                 }
                 Gdx.app.log("lexer line", line);
@@ -341,7 +344,6 @@ public class Lexer {
 
 					column_number = text_start_index;
 
-
 					match.find(0);
 
 					//TODO: ====
@@ -358,6 +360,8 @@ public class Lexer {
 				}
 
 				column_number+=token_text.length();
+        		Gdx.app.log("lexer end of loop colno", "added length");
+        		Gdx.app.log("lexer end of loop colno", StringUtils.format("%d", column_number));
 
 
 
@@ -402,8 +406,11 @@ public class Lexer {
 
 			Matcher last_white_space = whitespace.match(line);
 			if(last_white_space.find(column_number)) {
+        		Gdx.app.log("lexer end of loop colno", "last whitespace");
 				column_number=last_white_space.end();
 			}
+
+        	Gdx.app.log("lexer end of loop colno", StringUtils.format("%d", column_number));
 		}
 
 		TokenList list_to_return = new TokenList(new ArrayList<>(line_tokens_stack));
