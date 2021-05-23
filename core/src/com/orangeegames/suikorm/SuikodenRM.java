@@ -5,6 +5,7 @@ import utilities.Manager;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Application;
 
 public class SuikodenRM extends Game {
 	public static GameStateManager gsm;
@@ -18,6 +19,7 @@ public class SuikodenRM extends Game {
 		manager = new Manager();
 		manager.init();
 		Gdx.input.setInputProcessor(gsm);
+        Gdx.app.setLogLevel(Application.LOG_INFO);
 		setScreen(gsm.getScreen());
 	}
 

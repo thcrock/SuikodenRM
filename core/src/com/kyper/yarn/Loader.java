@@ -9,8 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import regexodus.Matcher;
+//import java.util.regex.Matcher;
 
-import com.badlogic.gdx.utils.Json;
+import com.esotericsoftware.jsonbeans.Json;
 import com.kyper.yarn.Lexer.Regex;
 import com.kyper.yarn.Lexer.Token;
 import com.kyper.yarn.Lexer.TokenList;
@@ -18,6 +19,7 @@ import com.kyper.yarn.Lexer.TokeniserException;
 import com.kyper.yarn.Loader.NodeInfo.Position;
 import com.kyper.yarn.Parser.Node;
 import com.kyper.yarn.Program.ParseException;
+import com.badlogic.gdx.Gdx;
 
 public class Loader {
 	public enum NodeFormat {
@@ -98,6 +100,7 @@ public class Loader {
 		if (format == NodeFormat.Unkown) {
 			format = getFormatFromFileName(file_name);
 		}
+        Gdx.app.log("loader", "start");
 
 		//final parsed nodes that were in file
 		HashMap<String, Node> nodes = new HashMap<String, Parser.Node>();
@@ -107,6 +110,7 @@ public class Loader {
 		List<NodeInfo> infos = getNodesFromText(text, format);
 		
 		//for soem weird reason its not used wtf
+        Gdx.app.log("loader", StringUtils.format("node infos: %d", infos.size()));
 		
 		int nodes_loaded = 0;
 
@@ -181,6 +185,8 @@ public class Loader {
 		if(include!=null)
 			compiler.program.include(include);
 
+        Gdx.app.log("loader", StringUtils.format("nodes loaded: %d", nodes_loaded));
+        Gdx.app.log("loader", "end");
 		return compiler.program;
 	}
 
@@ -217,10 +223,13 @@ public class Loader {
 			break;
 		case Json:
 			//parse it as json
+            Gdx.app.log("loader", "json parse");
 			Json json = new Json();
 			try {
+                Gdx.app.log("loader", "try nodes");
 				nodes = json.fromJson(ArrayList.class, Loader.NodeInfo.class, text);
 			} catch (Exception e) {
+                Gdx.app.log("loadererror", e.getMessage());
 				if(e instanceof SerializationException) {
 					dialogue.error_logger.log("Error parsing Yarn input: " + e.getMessage());
 				}else if(e instanceof ClassCastException) {

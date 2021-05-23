@@ -74,29 +74,42 @@ public class Conversation {
     }
 
     public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player){
+        Gdx.app.log("convo", "initializing");
         rand = new Random();
+        Gdx.app.log("convo", "random");
         DialogueData data = SuikodenRM.gsm.getDialogueData();
+        Gdx.app.log("convo", "dialogue data");
         data.put("$randomstate", rand.nextInt(3));
+        Gdx.app.log("convo", "random state");
         dialogue = new Dialogue(data);
+        Gdx.app.log("convo", "dialogue");
         try {
+            Gdx.app.log("convo", "trying to load file");
             dialogue.loadFile("scripts/" + name + ".json",false,false,null);
+            Gdx.app.log("convo", "loaded file");
         } catch (IOException ex) {
+            Gdx.app.log("convo", "file load error");
             System.out.println("error!");
             return;
         }
 
+        Gdx.app.log("convo", "characters");
         characters = new HashMap<String, Scriptable>();
-        System.out.println("initializing");
+        Gdx.app.log("convo", "start put characters");
         for (Scriptable s : inputcharacters) {
             System.out.println(s.getName());
             characters.put(s.getName(), s);
         }
+        Gdx.app.log("convo", "put mia");
         characters.put("Mia", player);
+        Gdx.app.log("convo", "used chars");
         usedCharacters = new HashSet<Scriptable>();
+        Gdx.app.log("convo", "add player");
         usedCharacters.add(player);
     }
 
     public void update(float delta) {
+        Gdx.app.log("update", "start");
         if(over) {
             return;
         }
@@ -122,8 +135,10 @@ public class Conversation {
 
 		//check if next result is a command
         if(command == null) {
+            Gdx.app.log("update", "check if next result is command");
             System.out.println("Command is null");
             if(dialogue.isNextCommand()) {
+                Gdx.app.log("update", "next result is command");
                 System.out.println("next is command");
             } else {
                 System.out.println("next is not command");
@@ -131,7 +146,9 @@ public class Conversation {
         }
 		if(command == null && dialogue.isNextCommand()){
             node_complete = null;
+            Gdx.app.log("update", "get next as command");
 			command = dialogue.getNextAsCommand();
+            Gdx.app.log("update", "got next as command");
 			//arbitrary code to execute command
             String params[] = command.getCommand().split("\\s+");
 			for (int i = 0; i < params.length; i++) {
@@ -576,6 +593,7 @@ public class Conversation {
                 node_complete = dialogue.getNextAsComplete();
             }
         }
+        Gdx.app.log("update", "end");
 
         /*if(waiting) {
             if(characters.get(script.actions.get(currentActionIndex).character).hasFinishedAction()) {

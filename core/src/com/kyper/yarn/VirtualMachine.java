@@ -9,6 +9,8 @@ import com.kyper.yarn.Library.FunctionInfo;
 import com.kyper.yarn.Program.Instruction;
 import com.kyper.yarn.Program.Node;
 
+import com.badlogic.gdx.Gdx;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -101,7 +103,9 @@ public class VirtualMachine {
 	 */
 	protected void runNext() {
 
+        Gdx.app.log("vm", "in run next");
 		if (execution_state == ExecutionState.WaitingOnOptionSelection) {
+            Gdx.app.log("vm", "state is waiting on option");
 			dialogue.error_logger.log("Cannot continue running dialogue. Still waiting on option selection.");
 			//execution_state = ExecutionState.Stopped;
 			setExecutionState(ExecutionState.Stopped);
@@ -110,18 +114,26 @@ public class VirtualMachine {
 		}
 
 		if (execution_state == ExecutionState.Stopped)
+            Gdx.app.log("vm", "set to running");
 			setExecutionState(ExecutionState.Running);
 
 
 
 
+        Gdx.app.log("vm", "get instruction");
+        if(current_node == null) {
+            Gdx.app.log("vm", "node is null");
+        }
+        Gdx.app.log("vm", "get instruction");
 		Instruction current_instruction = current_node.instructions.get(state.program_counter);
 
+        Gdx.app.log("vm", "run instruction");
 		runInstruction(current_instruction);
 
 		//DEBUG instruction sets ---
 		//System.out.println(current_instruction.toString(program, dialogue.library));
 
+        Gdx.app.log("vm", "inc prog count");
 		state.program_counter++;
 
 		if (state.program_counter >= current_node.instructions.size()) {

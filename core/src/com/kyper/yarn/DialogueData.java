@@ -2,7 +2,7 @@ package com.kyper.yarn;
 
 import java.util.HashMap;
 
-import com.badlogic.gdx.utils.Json;
+import com.esotericsoftware.jsonbeans.Json;
 import com.kyper.yarn.Dialogue.VariableStorage;
 import com.kyper.yarn.Value.Type;
 

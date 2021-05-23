@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import regexodus.Matcher;
 import regexodus.Pattern;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
+import com.badlogic.gdx.Gdx;
 
 public class Lexer {
 
@@ -59,10 +62,10 @@ public class Lexer {
 		patterns.put(TokenType.EqualTo, "(==|is(?!\\w)|eq(?!\\w))");
 		patterns.put(TokenType.EqualToOrAssign, "(=|to(?!\\w))");
 		patterns.put(TokenType.NotEqualTo, "(\\!=|neq(?!\\w))");
-		patterns.put(TokenType.GreaterThanOrEqualTo, "(\\>=|gte(?!\\w))");
-		patterns.put(TokenType.GreaterThan, "(\\>|gt(?!\\w))");
-		patterns.put(TokenType.LessThanOrEqualTo, "(\\<=|lte(?!\\w))");
-		patterns.put(TokenType.LessThan, "(\\<|lt(?!\\w))");
+		patterns.put(TokenType.GreaterThanOrEqualTo, "(>=|gte(?!\\w))");
+		patterns.put(TokenType.GreaterThan, "(>|gt(?!\\w))");
+		patterns.put(TokenType.LessThanOrEqualTo, "(<=|lte(?!\\w))");
+		patterns.put(TokenType.LessThan, "(<|lt(?!\\w))");
 		patterns.put(TokenType.AddAssign, "\\+=");
 		patterns.put(TokenType.MinusAssign, "\\-=");
 		patterns.put(TokenType.MultiplyAssign, "\\*=");
@@ -235,6 +238,7 @@ public class Lexer {
 	public TokenList tokeniseLine(String line, int line_number) {
 		ArrayDeque<Token> line_tokens_stack = new ArrayDeque<Token>();
 
+        Gdx.app.log("lexer current state", current_state.toString());
 		//replace tabs with four spaces
 		line = line.replaceAll("\t", "    ");
 
@@ -276,8 +280,10 @@ public class Lexer {
 			}
 		}
 
+        Gdx.app.log("lexer line tokens stack", line_tokens_stack.toString());
 		//now we start finding tokens
 		int column_number = this_indentation;
+        Gdx.app.log("lexer line colno", StringUtils.format("%d", column_number));
 
 		Regex whitespace = WHITESPACE;
 
@@ -294,10 +300,17 @@ public class Lexer {
 
 				Matcher myMatch = rule.altRegex.match(line,column_number);
 				Matcher match = rule.regex.match(line);
+                if(match == null) {
+                    Gdx.app.log("lexer match", "is null");
+                }
 				
 
-				if (!myMatch.find(0))
+				if (!myMatch.find(0)) {
 					continue;
+                }
+                Gdx.app.log("lexer line", line);
+                Gdx.app.log("lexer regex", rule.regex.toString());
+
 				String token_text;
 
 				if (rule.type == TokenType.Text) {
@@ -333,6 +346,7 @@ public class Lexer {
 
 					//TODO: ====
 					//THIS IS PROBABLY WRONG
+                    Gdx.app.log("match group", match.group());
 					int text_end_index = match.start()+match.group().length();
 					token_text = line.substring(text_start_index,text_end_index);
 					//token_text = token_text. ? token_text.startsWith("\\s") : ;
@@ -619,6 +633,10 @@ public class Lexer {
 			track_next_indentation = false;
 
 		}
+
+        public String toString() {
+            return StringUtils.format("name: %s, patterns: %s, token_rules: %s", name, patterns.toString(), token_rules.toString());
+        }
 
 		public TokenRule addTransition(TokenType type, String enter_state, boolean delimits_text) {
 
