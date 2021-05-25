@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<disableCollisions Mia>>\n<<set $needsfood to 0>>\nBaker: Hey girls, were you sparring again? Do be careful.\nMia: We won't get into Roundier Haia's school without practicing!\nBaker: You have plenty of time for that. You won't be old enough to get in until you're sixteen, anyway.\nRenata: If we're good enough, I bet we'll get in sooner!\nBaker: Well, I am happy you girls are so driven.\nBaker: The rolls are extra fresh this morning. Would you like any?\nBoth girls: Yeah! They smell so good!\n<<decoupleMovementAndAnimation Mia>>\n<<moveUp Mia 3 10>>\n<<pauseFor Mia 1>>\n<<moveDown Mia 3 10>>\nMia: Thanks! See you later!\nBaker: Bye! Be careful!\n<<enableCollisions Mia>>\n<<setHelpPrompt We can't go in there!>>",
+		"position": {
+			"x": 860,
+			"y": 371
+		},
+		"colorID": 0
+	}
+]

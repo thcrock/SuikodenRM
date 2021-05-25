@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<moveToY Renata UnderRope -20 60>>\n<<moveToX Renata UnderRope 15 60>>\n<<moveToY Mia UnderRope -20 60>>\n<<moveToX Mia UnderRope -10 60>>\n<<pauseFor Renata 0.3>>\n<<faceRight Renata>>\n<<faceUp Mia>>\nMia: Oh, look at that!\nRenata: Oh yeah! What could be in these barrels? Could Haia be hid-\nMia: No, the rope on the wall.\n<<faceUp Renata>>\nRenata: I knew that.\n<<faceRight Mia>>\nMia: Also, wine. The barrels are for wine.\n<<faceUp Mia>>\nRenata: OK OK I get it, what about the rope?\nMia: What is a rope doing on that wall?\nRenata: Someone could climb over it.\nMia: Do you think Roundier Haia climbed up there?\nRenata-renatasmilingface: Maybe he has a secret hideout?\nMia: I don't know where else he could have gone. He's not at one of these bars.\nRenata: Let's see if we can climb over the wall using the rope too.\nMia: It's too high for us to reach, so we'll have to stand on something.\n<<enableCollisions Renata>>\n<<enableCollisions Mia>>",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+]

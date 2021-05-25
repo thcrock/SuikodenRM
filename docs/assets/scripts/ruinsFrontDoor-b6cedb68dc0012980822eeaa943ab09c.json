@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<detachFrom Renata Mia>>\n<<moveToX Renata Mia -15 50>>\n<<moveToY Renata Mia 0 50>>\nRenata: This looks like the door!\n<<moveUp Renata 25 30>>\n<<pauseFor Renata 1.0>>\n<<faceDown Renata>>\nRenata: I can't get it to budge.\nMia: What if we both push?\n<<faceUp Renata>>\n<<moveUp Mia 25 30>>\n<<pauseFor Mia 1.0>>\nMia: Nope.\nRenata: Maybe there's another way in?\n<<attachTo Renata Mia>>",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	}
+]

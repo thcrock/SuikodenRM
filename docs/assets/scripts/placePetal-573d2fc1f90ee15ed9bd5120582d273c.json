@@ -1,0 +1,52 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<moveToY Mia PedestalCheckpoint 0 60>>\n<<moveToY Renata PedestalCheckpoint -30 60>>\n<<moveToX Mia PedestalCheckpoint 30 60>>\n<<moveToX Renata PedestalCheckpoint -20 60>>\n<<faceLeft Mia>>\n<<faceUp Renata>>\n[[preparetoclimb]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "preparetoclimb",
+		"tags": "",
+		"body": "Renata: Ok, let's put this up there.\n<<moveToY Renata Mia 0 40>>\n<<moveToX Renata Mia -10 40>>\n<<pauseFor Renata 0.1>>\n<<faceLeft Renata>>\n<<moveToY Mia Renata -20 40>>\n<<moveToX Mia Renata 0 40>>\n<<moveUp Mia 1 10>>\n[[climb]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "climb",
+		"tags": "",
+		"body": "Mia: Up we go!\n<<moveToForeground Mia>>\n<<moveUp Mia 15 20>>\n<<moveUp Mia 20 60>>\nRenata: Ow!\n<<faceLeft Mia>>\n<<pauseFor Mia 0.5>>\n<<showLayer fixedpedestal>>\n<<hideLayer brokenpedestal>>\nMia: Woohoo!\n[[open]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "open",
+		"tags": "",
+		"body": "<<hideLayer door1>>\n<<pauseFor Mia 1.0>>\n<<hideLayer door2>>\n<<pauseFor Mia 1.0>>\n<<hideLayer door3>>\n<<pauseFor Mia 1.0>>\n<<hideLayer door4>>\nRenata: Wow!\n<<disableCollider door>>\n[[cleanup]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "cleanup",
+		"tags": "",
+		"body": "<<attachTo Renata Mia>>\n<<enableCollisions Mia>>",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	}
+]
