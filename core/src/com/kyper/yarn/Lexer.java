@@ -8,10 +8,10 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
-//import regexodus.Matcher;
-//import regexodus.Pattern;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import regexodus.Matcher;
+import regexodus.Pattern;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
 import com.badlogic.gdx.Gdx;
 
 public class Lexer {
@@ -287,6 +287,7 @@ public class Lexer {
 		Regex whitespace = WHITESPACE;
 
 		while (column_number < line.length()) {
+            Gdx.app.log("lexer line length", StringUtils.format("%d", line.length()));
 
 			//if we are about to hit a line comment, abort processing line
 			//asap
@@ -305,7 +306,8 @@ public class Lexer {
                 }
 				
 
-				if (!myMatch.find(0)) {
+                myMatch.setPosition(0);
+				if (!myMatch.find()) {
         			Gdx.app.log("lexer line colno", StringUtils.format("%d", column_number));
                     Gdx.app.log("lexer regex", rule.regex.toString());
                     Gdx.app.log("lexer match", "is null");
@@ -344,7 +346,8 @@ public class Lexer {
 
 					column_number = text_start_index;
 
-					match.find(0);
+                    match.setPosition(0);
+					match.find();
 
 					//TODO: ====
 					//THIS IS PROBABLY WRONG
@@ -405,7 +408,8 @@ public class Lexer {
 			}
 
 			Matcher last_white_space = whitespace.match(line);
-			if(last_white_space.find(column_number)) {
+            last_white_space.setPosition(column_number);
+			if(last_white_space.find()) {
         		Gdx.app.log("lexer end of loop colno", "last whitespace");
 				column_number=last_white_space.end();
 			}

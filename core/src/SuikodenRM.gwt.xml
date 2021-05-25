@@ -3,6 +3,5 @@
 <module>
     <source path="com/orangeegames/suikorm" />
     <source path="com/kyper/yarn" />
-    <source path="com/esotericsoftware/jsonbeans" />
     <extend-configuration-property name="gdx.reflect.include" value="com.kyper.yarn" />
 </module>
