@@ -237,7 +237,6 @@ public class Lexer {
 	public TokenList tokeniseLine(String line, int line_number) {
 		ArrayDeque<Token> line_tokens_stack = new ArrayDeque<Token>();
 
-        Gdx.app.log("lexer current state", current_state.toString());
 		//replace tabs with four spaces
 		line = line.replaceAll("\t", "    ");
 
@@ -279,15 +278,12 @@ public class Lexer {
 			}
 		}
 
-        Gdx.app.log("lexer line tokens stack", line_tokens_stack.toString());
 		//now we start finding tokens
 		int column_number = this_indentation;
-        Gdx.app.log("lexer line colno", StringUtils.format("%d", column_number));
 
 		Regex whitespace = WHITESPACE;
 
 		while (column_number < line.length()) {
-            Gdx.app.log("lexer line length", StringUtils.format("%d", line.length()));
 
 			//if we are about to hit a line comment, abort processing line
 			//asap
@@ -300,21 +296,12 @@ public class Lexer {
 
 				Matcher myMatch = rule.altRegex.match(line,column_number);
 				Matcher match = rule.regex.match(line);
-                if(match == null) {
-                    Gdx.app.log("lexer regex", rule.regex.toString());
-                    Gdx.app.log("lexer match", "is null");
-                }
 				
 
                 myMatch.setPosition(0);
 				if (!myMatch.find()) {
-        			Gdx.app.log("lexer line colno", StringUtils.format("%d", column_number));
-                    Gdx.app.log("lexer regex", rule.regex.toString());
-                    Gdx.app.log("lexer match", "is null");
 					continue;
                 }
-                Gdx.app.log("lexer line", line);
-                Gdx.app.log("lexer regex", rule.regex.toString());
 
 				String token_text;
 
@@ -351,7 +338,6 @@ public class Lexer {
 
 					//TODO: ====
 					//THIS IS PROBABLY WRONG
-                    Gdx.app.log("match group", match.group());
 					int text_end_index = match.start()+match.group().length();
 					token_text = line.substring(text_start_index,text_end_index);
 					//token_text = token_text. ? token_text.startsWith("\\s") : ;
@@ -363,10 +349,6 @@ public class Lexer {
 				}
 
 				column_number+=token_text.length();
-        		Gdx.app.log("lexer end of loop colno", "added length");
-        		Gdx.app.log("lexer end of loop colno", StringUtils.format("%d", column_number));
-
-
 
 				//if this was a string, lop off the quotes at the start and end
 				//and un-escape the quotes and slashes
@@ -410,11 +392,9 @@ public class Lexer {
 			Matcher last_white_space = whitespace.match(line);
             last_white_space.setPosition(column_number);
 			if(last_white_space.find()) {
-        		Gdx.app.log("lexer end of loop colno", "last whitespace");
 				column_number=last_white_space.end();
 			}
 
-        	Gdx.app.log("lexer end of loop colno", StringUtils.format("%d", column_number));
 		}
 
 		TokenList list_to_return = new TokenList(new ArrayList<>(line_tokens_stack));

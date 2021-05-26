@@ -2,11 +2,22 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<detachFrom Renata Mia>>\n<<moveToX Renata Mia -15 40>>\n<<moveUp Mia 15 40>>\n<<moveToY Renata Mia 0 40>>\nMia: His trail goes...off this cliff?\nRenata: I think we can hop this. Let's go!\n<<decoupleMovementAndAnimation Renata>>\n<<moveDown Renata 5 10>>\n<<moveUp Renata 5 60>>\n<<coupleMovementAndAnimation Renata>>\n<<moveUp Renata 10 60>>\n<<faceLeft Mia>>\nMia-miaangryface: Hey!\n<<faceRight Renata>>\nRenata: What?\nMia-miaangryface: You'll break your leg!\nRenata: Ok, fine. Let's look for another way down.<<attachTo Renata Mia>>",
+		"body": "<<detachFrom Renata Mia>>\n<<moveToX Renata Mia -15 40>>\n<<moveUp Mia 15 40>>\n<<moveToY Renata Mia 0 40>>\nMia: His trail goes...off this cliff?\nRenata: I think we can hop this. Let's go!\n<<decoupleMovementAndAnimation Renata>>\n<<moveDown Renata 5 10>>\n<<moveUp Renata 5 60>>\n<<coupleMovementAndAnimation Renata>>\n<<moveUp Renata 10 60>>\n<<faceLeft Mia>>\nMia-miaangryface: Hey!\n<<faceRight Renata>>\nRenata: What?\nMia-miaangryface: You'll break your leg!\nRenata: Ok, fine. Let's look for another way down.<<attachTo Renata Mia>>\n[[end]]",
 		"position": {
 			"x": 206,
 			"y": 378
 		},
 		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
 	}
+
 ]

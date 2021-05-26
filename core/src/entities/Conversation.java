@@ -109,7 +109,6 @@ public class Conversation {
     }
 
     public void update(float delta) {
-        Gdx.app.log("update", "start");
         if(over) {
             return;
         }

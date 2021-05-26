@@ -2,11 +2,22 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Renata: Hey! There he is!\n<<moveRight Haia 250 220>>\nRenata: Let's follow!\n<<moveRight Haia 150 220>>",
+		"body": "Renata: Hey! There he is!\n<<moveRight Haia 250 220>>\nRenata: Let's follow!\n<<moveRight Haia 150 220>>\n[[end]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
 		"position": {
 			"x": 793,
 			"y": 505
 		},
 		"colorID": 1
 	}
+
 ]

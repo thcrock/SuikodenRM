@@ -2,11 +2,22 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Bartender: Hey! You're too young to go in there!",
+		"body": "Bartender: Hey! You're too young to go in there!\n[[end]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
 		"position": {
 			"x": 793,
 			"y": 505
 		},
 		"colorID": 1
 	}
+
 ]

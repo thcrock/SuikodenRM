@@ -100,7 +100,6 @@ public class Loader {
 		if (format == NodeFormat.Unkown) {
 			format = getFormatFromFileName(file_name);
 		}
-        Gdx.app.log("loader", "start");
 
 		//final parsed nodes that were in file
 		HashMap<String, Node> nodes = new HashMap<String, Parser.Node>();
@@ -110,7 +109,6 @@ public class Loader {
 		List<NodeInfo> infos = getNodesFromText(text, format);
 		
 		//for soem weird reason its not used wtf
-        Gdx.app.log("loader", StringUtils.format("node infos: %d", infos.size()));
 		
 		int nodes_loaded = 0;
 
@@ -185,8 +183,6 @@ public class Loader {
 		if(include!=null)
 			compiler.program.include(include);
 
-        Gdx.app.log("loader", StringUtils.format("nodes loaded: %d", nodes_loaded));
-        Gdx.app.log("loader", "end");
 		return compiler.program;
 	}
 
@@ -223,13 +219,10 @@ public class Loader {
 			break;
 		case Json:
 			//parse it as json
-            Gdx.app.log("loader", "json parse");
 			Json json = new Json();
 			try {
-                Gdx.app.log("loader", "try nodes");
 				nodes = json.fromJson(ArrayList.class, Loader.NodeInfo.class, text);
 			} catch (Exception e) {
-                Gdx.app.log("loadererror", e.getMessage());
 				if(e instanceof SerializationException) {
 					dialogue.error_logger.log("Error parsing Yarn input: " + e.getMessage());
 				}else if(e instanceof ClassCastException) {
@@ -244,7 +237,8 @@ public class Loader {
 
 			//we use a regex to match either \r\n or \n line endings
 			Matcher match = new Regex("---(\r\n|\r|\n)").match(text);
-			if (!match.find(0)) {
+            match.setPosition(0);
+			if (!match.find()) {
 				dialogue.error_logger.log("Error parsing input: text appears corrupt(no header)");
 				break;
 			}

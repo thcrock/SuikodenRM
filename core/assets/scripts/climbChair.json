@@ -2,11 +2,22 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Renata: Okay, let's climb this thing!\n<<moveToBackground Chair>>\n<<detachFrom Chair Renata>>\n<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<moveUp Mia 20 60>>\nMia: Easy does it....\n<<moveUp Mia 40 20>>\n<<moveUp Mia 40 90>>\n<<moveDown Mia 20 120>>\n<<moveRight Renata 10 60>>\n<<moveRight Mia 40 60>>\n<<moveUp Renata 20 60>>\n<<moveUp Renata 40 20>>\n<<moveUp Renata 40 90>>\n<<moveDown Renata 20 120>>\n<<enableCollisions Renata>>\n<<enableCollisions Mia>>\n<<attachTo Renata Mia>>\nRenata: We made it over!",
+		"body": "Renata: Okay, let's climb this thing!\n<<moveToBackground Chair>>\n<<detachFrom Chair Renata>>\n<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<moveUp Mia 20 60>>\nMia: Easy does it....\n<<moveUp Mia 40 20>>\n<<moveUp Mia 40 90>>\n<<moveDown Mia 20 120>>\n<<moveRight Renata 10 60>>\n<<moveRight Mia 40 60>>\n<<moveUp Renata 20 60>>\n<<moveUp Renata 40 20>>\n<<moveUp Renata 40 90>>\n<<moveDown Renata 20 120>>\n<<enableCollisions Renata>>\n<<enableCollisions Mia>>\n<<attachTo Renata Mia>>\nRenata: We made it over!\n[[end]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
 		"position": {
 			"x": 793,
 			"y": 505
 		},
 		"colorID": 1
 	}
+
 ]

@@ -2,11 +2,22 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Renata: Uh....which way did he go?\nMia: I don't know.\nRenata: What should we do?",
+		"body": "Renata: Uh....which way did he go?\nMia: I don't know.\nRenata: What should we do?\n[[end]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
 		"position": {
 			"x": 793,
 			"y": 505
 		},
 		"colorID": 1
 	}
+
 ]

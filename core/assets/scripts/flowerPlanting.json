@@ -12,12 +12,23 @@
 	{
 		"title": "exit",
 		"tags": "",
-		"body": "Gardener: Thank you! I think they'll look great.",
+		"body": "Gardener: Thank you! I think they'll look great.\n[[end]]",
 		"position": {
 			"x": 980,
 			"y": 151
 		},
 		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
 	}
+
 	
 ]

@@ -34,10 +34,6 @@ public class GameStateManager implements InputProcessor {
 	public static final int ATTACKSTATE = 2;
 			
 	public GameStateManager (SuikodenRM rel) {
-        String startingMap = System.getProperty("startingMap", null);
-        if(startingMap == null) {
-            startingMap = "kanakan";
-        }
         data = new DialogueData("thewholegame");
         musicManager = new MusicManager();
 		gameState = new GameState[NUMGAMESTATES];
@@ -45,10 +41,26 @@ public class GameStateManager implements InputProcessor {
 		relation = rel;
         completedScripts = new HashSet<String>();
 		
-		currentState = LEVELSTATE;
-		loadState(currentState, new Door(startingMap, 1));
+		currentState = MENUSTATE;
+        loadState(currentState, null);
 	}
 	
+    public void mainMenuStart() {
+        loadStartingMap();
+    }
+    private void loadStartingMap() {
+        String startingMap = System.getProperty("startingMap", null);
+        if(startingMap == null) {
+            startingMap = "kanakan_bars";
+        }
+        currentState = LEVELSTATE;
+		loadState(currentState, new Door(startingMap, 1));
+        System.out.println("done loading map");
+        unloadState(MENUSTATE);
+        relation.changeScreen();
+        System.out.println("unloaded main menu");
+    }
+
 	private void loadState (int state, Door door) {
 		if(state == LEVELSTATE) {
             BoxWorld newWorld = new BoxWorld(door);
@@ -58,6 +70,9 @@ public class GameStateManager implements InputProcessor {
 		if(state == ATTACKSTATE) {
 			//gameState[state] = new FightingState((BoxWorld) gameState[LEVELSTATE]);
 		}
+        if(state == MENUSTATE) {
+            gameState[state] = new MainMenuState();
+        } 
 	}
 
     public DialogueData getDialogueData() {

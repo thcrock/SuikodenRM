@@ -1613,7 +1613,7 @@ I definitely didn't spill wine on my last one. I need a new rug for a totally di
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="375.623" y="1014.45" width="8.36364" height="8">
+  <object id="1" name="spawn1" type="1" x="393.873" y="1015.2" width="8.36364" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
@@ -1779,17 +1779,17 @@ I definitely didn't spill wine on my last one. I need a new rug for a totally di
     <property name="message" value="Flowers"/>
    </properties>
   </object>
-  <object id="161" name="itembench" type="object" x="411.5" y="445.5" width="89.5" height="39">
+  <object id="161" name="itembench" type="object" x="411.5" y="451.25" width="89.5" height="33.25">
    <properties>
     <property name="message" value="Items"/>
    </properties>
   </object>
-  <object id="162" name="itembench" type="object" x="412.25" y="510" width="89.5" height="39">
+  <object id="162" name="itembench" type="object" x="412.25" y="514" width="89.5" height="35">
    <properties>
     <property name="message" value="Items"/>
    </properties>
   </object>
-  <object id="163" name="itembench" type="object" x="412.75" y="572.5" width="89.5" height="39">
+  <object id="163" name="itembench" type="object" x="412.75" y="579" width="89.5" height="32.5">
    <properties>
     <property name="message" value="Items"/>
    </properties>

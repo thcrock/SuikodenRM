@@ -2,11 +2,22 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<detachFrom Renata Mia>>\n<<moveDown Renata 1 60>>\nRenata: Hey, look at that chair. Nobody's using it! The bartender surely couldn't mind if we....borrowed it, would he?\nMia: I bet he would.\nRenata: C'mon, you go distract him while I go take it.\nMia: What do I do?\nRenata: I don't know, just make something up?\nMia-miaworriedface: I...don't have a good feeling about this.",
+		"body": "<<detachFrom Renata Mia>>\n<<moveDown Renata 1 60>>\nRenata: Hey, look at that chair. Nobody's using it! The bartender surely couldn't mind if we....borrowed it, would he?\nMia: I bet he would.\nRenata: C'mon, you go distract him while I go take it.\nMia: What do I do?\nRenata: I don't know, just make something up?\nMia-miaworriedface: I...don't have a good feeling about this.\n[[end]]",
 		"position": {
 			"x": 0,
 			"y": 0
 		},
 		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
 	}
+
 ]

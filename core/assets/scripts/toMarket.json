@@ -2,11 +2,22 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Luis: You've got to try the baker's bread today!\n<<faceUp Luis>>\nLuis: Up there, by the northern edge of the market.\n<<faceLeft Luis>>\nMia: Thanks!",
+		"body": "Luis: You've got to try the baker's bread today!\n<<faceUp Luis>>\nLuis: Up there, by the northern edge of the market.\n<<faceLeft Luis>>\nMia: Thanks!\n[[end]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
 		"position": {
 			"x": 793,
 			"y": 505
 		},
 		"colorID": 1
 	}
+
 ]
