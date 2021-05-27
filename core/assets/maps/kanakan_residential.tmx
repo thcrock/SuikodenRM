@@ -2,7 +2,7 @@
 <map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="110" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="176">
  <properties>
   <property name="displayName" value="Kanakan Neighborhoods"/>
-  <property name="musicTrackName" value="KanakanMarket.mp3"/>
+  <property name="musicTrackName" value="kanakan_market.mp3"/>
  </properties>
  <tileset firstgid="1" source="tileset_town_multi_v001.tsx"/>
  <tileset firstgid="561" source="house-body2.tsx"/>

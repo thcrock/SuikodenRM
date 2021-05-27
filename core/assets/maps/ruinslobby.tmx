@@ -206,7 +206,7 @@
     <property name="speed" type="float" value="40"/>
    </properties>
   </object>
-  <object id="25" name="stairs" x="566.03" y="524.03" width="13.2727" height="13.2727">
+  <object id="25" name="stairs" x="566.03" y="520.575" width="13.2727" height="13.2727">
    <properties>
     <property name="character" value="stairs"/>
     <property name="hidden" type="bool" value="true"/>

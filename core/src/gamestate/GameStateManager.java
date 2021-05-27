@@ -51,7 +51,7 @@ public class GameStateManager implements InputProcessor {
     private void loadStartingMap() {
         String startingMap = System.getProperty("startingMap", null);
         if(startingMap == null) {
-            startingMap = "kanakan_bars";
+            startingMap = "kanakan";
         }
         currentState = LEVELSTATE;
 		loadState(currentState, new Door(startingMap, 1));

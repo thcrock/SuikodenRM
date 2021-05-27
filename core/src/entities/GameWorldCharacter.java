@@ -6,6 +6,7 @@ import gamestate.Scriptable;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Float;
+import java.lang.Math;
 
 import animations.GameAnimation;
 import animations.ImageCache;
@@ -650,13 +651,10 @@ public abstract class GameWorldCharacter extends DrawableBox2D implements Script
     public void moveToY(float y, float speed) {
         this.scenePhases = new Phase[1];
         if(this.getPosition().y < y) {
-           this.scenePhases[0] = new Phase(Direction.Up, y - this.getPosition().y, 0, speed); 
+           this.scenePhases[0] = new Phase(Direction.Up, (float)(Math.ceil(y - this.getPosition().y)), 0, speed); 
         } else {
-           this.scenePhases[0] = new Phase(Direction.Down, this.getPosition().y - y, 0, speed); 
+           this.scenePhases[0] = new Phase(Direction.Down, (float)(Math.ceil(this.getPosition().y - y)), 0, speed); 
         }
-        System.out.println("distance = " + this.scenePhases[0].distance);
-        System.out.println("My position = " + this.getPosition().y);
-        System.out.println("Target position = " + y);
         this.phases = scenePhases;
         this.phasesShouldLoop = false;
         this.phaseIndex = -1;

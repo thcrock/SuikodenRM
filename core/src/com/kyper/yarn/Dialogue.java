@@ -156,7 +156,6 @@ public class Dialogue {
 		}
 
 
-        Gdx.app.log("dialogue load", "about to start program " + text);
 		program = loader.load(text, library, file_name, program, show_tokens, show_tree, only_consider, format);
 	}
 
@@ -322,13 +321,10 @@ public class Dialogue {
 			if(option_handler != null) option_handler.handle(options);
 		});
 
-        Gdx.app.log("dialoguestart", "about to start VM");
 		if (!vm.setNode(start)) {
-            Gdx.app.log("dialoguestart", "VM failed");
 			return false;
 		}
 
-        Gdx.app.log("dialoguestart", "VM worked");
 		return true;
 	}
 
@@ -341,9 +337,7 @@ public class Dialogue {
 	 *
 	 */
 	 public boolean update() {
-        Gdx.app.log("dialogue", "update");
 		if (vm != null && !execution_complete && vm.getExecutionState() != ExecutionState.WaitingOnOptionSelection) {
-            Gdx.app.log("dialogue", "vm run next");
 			vm.runNext();
 
 			return true;
@@ -384,7 +378,6 @@ public class Dialogue {
 	 * @return
 	 */
 	public RunnerResult checkNext() {
-        Gdx.app.log("dialogue", "check next");
 		if (next_result == null)
 			populateNext();
 		return next_result;
@@ -414,7 +407,6 @@ public class Dialogue {
 	 * @return
 	 */
 	public boolean isNextCommand() {
-        Gdx.app.log("dialogue", "check next?");
 		return checkNext() instanceof CommandResult;
 	}
 
@@ -469,7 +461,6 @@ public class Dialogue {
 
 	// we update the vm until the next result is no longer null
 	private void populateNext() {
-        Gdx.app.log("dialogue", "update?");
 		while (next_result == null)
 			if (!update())
 				break;
