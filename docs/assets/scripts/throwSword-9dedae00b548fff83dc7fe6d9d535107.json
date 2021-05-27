@@ -1,0 +1,83 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Sword>>\n<<moveToY Mia Stone -90 60>>\n<<faceLeft Mia>>\n<<faceUp Renata>>\n<<moveToX Renata Sword -5 60>>\n<<moveToY Renata Sword -5 60>>\nMia: That spot up there looks different.\nRenata: Watch this!\n<<unhide Sword>>\n<<moveUp Renata 5 80>>\n<<moveUp Sword 100 600>>\n[[thefall]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "thefall",
+		"tags": "",
+		"body": "<<unhide Stone>>\n<<moveDown Stone 50 100>>\n<<moveRight Mia 20 100>>\n<<moveLeft Renata 20 100>>\n<<faceUp Renata>>\n<<moveDown Stone 50 100>>\n<<stopBgMusic>>\n<<faceLeft Mia>>\n<<moveUp Stone 3 40\n<<moveDown Stone 1 40>>\n[[thefight]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "thefight",
+		"tags": "",
+		"body": "Mia-miaangryface: What was that all about?!?!\nRenata: I was trying to get it down!\nMia-miaangryface: Look at how big that stone was! It could've killed me!\n<<faceUp Mia>>\nMia-miafumingface: You keep doing this!\n<<decoupleMovementAndAnimation Mia>>\n<<moveUp Mia 10 50>>\n<<moveDown Mia 10 50>>\nMia-miafumingface: The river!\n<<moveUp Mia 10 50>>\n<<moveDown Mia 10 50>>\nMia-miafumingface: Falling through this hole!\n<<moveUp Mia 10 50>>\n<<unhide Petal>>\n<<moveDown Petal 30 120>>\n<<moveDown Mia 10 50>>\n<<moveDown Petal 20 120>>\nMia-miafumingface: The journal!\n<<moveDown Petal 30 120>>\n<<moveUp Mia 10 50>>\n<<moveDown Mia 10 50>>\nMia-miafumingface: You're going to get us killed!\n[[theapology]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "theapology",
+		"tags": "",
+		"body": "<<setBgMusic ThemeOfForgiveness.mp3>>\n<<pauseFor Renata 1.0>>\nRenata-renatasorryface: I....\n<<moveToX Renata Mia 0 60>>\n<<moveToY Renata Mia -10 60>>\n<<pauseFor Renata 1.0>>\nRenata-renatasorryface: I.....don't know what to say....\n<<pauseFor Renata 1.0>>\nRenata-renatasorryface: I'm a terrible friend...\n<<pauseFor Mia 1.0>>\nMia-miaangryface: ......\nMia-miaangryface: ...no......\n<<pauseFor Mia 1.0>>\n<<faceDown Mia>>\nMia-miaangryface: ...you were just trying to get us out of here....\n<<pauseFor Renata 1.0>>\nRenata-renatasorryface: I just get....so excited...\n<<pauseFor Mia 1.0>>\nMia-miaangryface: ...I know....\n[[thememories]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "thememories",
+		"tags": "",
+		"body": "<<pauseFor Mia 1.0>>\nMia: Remember last year when the bullies cornered me?\nRenata: ...yeah?\nMia: When you picked up the log and started smacking them with it?\nRenata-renatahappyface: Haha!\nRenata: That was fun.\nMia: ...you've always had my back. I love you, Nata!\n<<decoupleMovementAndAnimation Renata>>\n<<moveDown Mia 3 10>>\n<<moveUp Renata 3 10>>\nRenata: I'll be more careful, okay?\n<<moveDown Renata 3 10>>\n<<moveUp Mia 3 10>>\n[[thefind]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "thefind",
+		"tags": "",
+		"body": "<<moveLeft Renata 5 10>>\n<<faceLeft Renata>>\nRenata: What's that?\n<<faceLeft Mia>>\n<<pauseFor Renata 1.0>>\nMia: It looks like a petal!\nRenata: Could it be the last one?\n<<disableCollisions Mia>>\n<<moveToX Mia Petal 0 60>>\n<<hide Petal>>\nMia: Let's try it!\n[[thecleanup]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "thecleanup",
+		"tags": "",
+		"body": "<<enableCollisions Mia>>\n<<attachTo Renata Mia>>\n[[end]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]

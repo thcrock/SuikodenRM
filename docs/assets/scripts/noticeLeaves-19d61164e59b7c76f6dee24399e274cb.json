@@ -1,0 +1,23 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Renata: Hey, look at these leaves.\nMia: What about them?\nRenata: Some of them look trampled on.\nMia: Oh, yeah. Like some of them are smashed into ground, and I can see some dirt under it.\nRenata: That must be where Haia was walking!\n[[end]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]
