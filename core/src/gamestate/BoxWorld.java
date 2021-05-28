@@ -293,7 +293,6 @@ public class BoxWorld extends GameState {
 					characters.add(gc);
 				}
 			}
-			
 		}
 		
 		BodyDef playerDef = new BodyDef();
