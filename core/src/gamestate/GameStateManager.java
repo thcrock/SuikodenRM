@@ -51,7 +51,7 @@ public class GameStateManager implements InputProcessor {
     private void loadStartingMap() {
         String startingMap = System.getProperty("startingMap", null);
         if(startingMap == null) {
-            startingMap = "kanakan";
+            startingMap = "miashouse";
         }
         currentState = LEVELSTATE;
 		loadState(currentState, new Door(startingMap, 1));
@@ -128,6 +128,16 @@ public class GameStateManager implements InputProcessor {
 		PAUSED = true;
 		currentState = MENUSTATE;
 		gameState[currentState] = new ChoiceState(oldState, 0, choices, character);
+		relation.changeScreen();
+    }
+
+    public void setImageState(String imageName) {
+		BoxWorld oldState = (BoxWorld) gameState[currentState];
+		int oldStateNumber = currentState;
+		gameState[currentState].pause();
+		PAUSED = true;
+		currentState = MENUSTATE;
+		gameState[currentState] = new ImageState(imageName);
 		relation.changeScreen();
     }
 	

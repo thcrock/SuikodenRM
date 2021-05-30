@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="110" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="176">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="110" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="178">
  <properties>
   <property name="displayName" value="Kanakan Neighborhoods"/>
   <property name="musicTrackName" value="kanakan_market.mp3"/>
@@ -1167,11 +1167,6 @@
     <property name="message" value="Locked"/>
    </properties>
   </object>
-  <object id="123" name="door" type="object" x="769.667" y="752" width="28.6667" height="4">
-   <properties>
-    <property name="message" value="Locked"/>
-   </properties>
-  </object>
   <object id="124" name="door" type="object" x="896" y="732.667" width="28.6667" height="4">
    <properties>
     <property name="message" value="Locked"/>
@@ -1455,6 +1450,12 @@
     <property name="toSpawnNumber" value="1"/>
    </properties>
   </object>
+  <object id="177" name="miashouse" x="770.083" y="749.167" width="28.5" height="7.66667">
+   <properties>
+    <property name="toName" value="miashouse"/>
+    <property name="toSpawnNumber" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
   <object id="1" name="spawn1" x="321.213" y="264.653" width="32.6667" height="14">
@@ -1465,6 +1466,11 @@
   <object id="107" name="spawn2" x="1433.66" y="714.334" width="32.6667" height="14">
    <properties>
     <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="176" x="769.333" y="758.667" width="30.6667" height="14.3333">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
    </properties>
   </object>
  </objectgroup>

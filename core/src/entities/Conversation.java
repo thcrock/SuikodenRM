@@ -450,6 +450,11 @@ public class Conversation {
                 action.volume = Float.parseFloat(params[1]);
                 currentAction = action;
                 currentAction.perform(null);
+            } else if(commandName.equals("showImage")) {
+                scripting.ShowImage action = new scripting.ShowImage();
+                action.imageName = params[1];
+                currentAction = action;
+                currentAction.perform(null);
             } else {
                 System.out.println("unknown command " + commandName);
             }
