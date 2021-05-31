@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="100" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="19" nextobjectid="106">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-up" width="100" height="42" tilewidth="16" tileheight="16" infinite="0" nextlayerid="19" nextobjectid="106">
  <properties>
   <property name="displayName" value="Nightlife District"/>
   <property name="musicTrackName" value="kanakan_bars.ogg"/>
@@ -545,11 +545,13 @@
   <object id="76" name="noticerope" x="993.5" y="222.5" width="47.5" height="71">
    <properties>
     <property name="convoName" value="noticeRope"/>
+    <property name="onlyTriggerIfScript" value="haiaRunPast"/>
    </properties>
   </object>
   <object id="78" name="inbars" x="322" y="289.5" width="29.5" height="22.5">
    <properties>
     <property name="convoName" value="inbars"/>
+    <property name="onlyTriggerIfScript" value="haiaRunPast"/>
    </properties>
   </object>
   <object id="83" name="end" x="829.5" y="73" width="441" height="19.5">

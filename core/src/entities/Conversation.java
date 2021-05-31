@@ -33,6 +33,7 @@ import com.orangeegames.suikorm.SuikodenRM;
 public class Conversation {
     boolean started = false;
     boolean over = false;
+    public boolean repeatable = false;
     public String name;
     Script script;
     int currentActionIndex = -1;
@@ -50,8 +51,9 @@ public class Conversation {
     NodeCompleteResult node_complete = null;
     CommandResult command = null;
 
-    public Conversation(String convoName, String onlyTriggerIfScript) {
+    public Conversation(String convoName, String onlyTriggerIfScript, boolean repeatable) {
         name = convoName;
+        this.repeatable = repeatable;
         scriptTriggers = new HashSet();
         if(onlyTriggerIfScript != null) {
             String[] trigger = onlyTriggerIfScript.split("\\|");
@@ -74,6 +76,7 @@ public class Conversation {
     }
 
     public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player){
+        System.out.println("initializing convo");
         rand = new Random();
         DialogueData data = SuikodenRM.gsm.getDialogueData();
         data.put("$randomstate", rand.nextInt(3));
@@ -87,12 +90,13 @@ public class Conversation {
 
         characters = new HashMap<String, Scriptable>();
         for (Scriptable s : inputcharacters) {
-            System.out.println(s.getName());
             characters.put(s.getName(), s);
         }
         characters.put("Mia", player);
         usedCharacters = new HashSet<Scriptable>();
         usedCharacters.add(player);
+        started = false;
+        over = false;
     }
 
     public void update(float delta) {

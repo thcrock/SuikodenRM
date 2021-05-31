@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="105" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="30" nextobjectid="194">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="105" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="30" nextobjectid="194">
  <properties>
   <property name="displayName" value="Kanakan City Market"/>
   <property name="musicTrackName" value="kanakan_market.mp3"/>
@@ -1613,7 +1613,7 @@ I definitely didn't spill wine on my last one. I need a new rug for a totally di
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="375.54" y="1014.87" width="8.36364" height="8">
+  <object id="1" name="spawn1" type="1" x="374.873" y="1013.87" width="8.36364" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>

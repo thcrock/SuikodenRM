@@ -228,7 +228,8 @@ public class BoxWorld extends GameState {
 					
 					scriptBody.createFixture(fixtureScript);
                     String onlyTriggerIfScript = (String) mo.getProperties().get("onlyTriggerIfScript");
-					Conversation scene = new Conversation(convoName, onlyTriggerIfScript);
+                    boolean repeatable = mo.getProperties().get("repeatable", false, Boolean.class);
+					Conversation scene = new Conversation(convoName, onlyTriggerIfScript, repeatable);
 					scriptBody.setUserData(scene);
 				}
 			}
@@ -283,7 +284,7 @@ public class BoxWorld extends GameState {
                     }
                     String convoName = mo.getProperties().get("convoName", String.class);
                     if(convoName != null) {
-                        gc.setConversation(new Conversation(convoName, null));
+                        gc.setConversation(new Conversation(convoName, null, false));
                     }
                     boolean hidden = mo.getProperties().get("hidden", false, Boolean.class);
                     if(hidden) {
@@ -359,12 +360,21 @@ public class BoxWorld extends GameState {
                     }
                     if(bodyA.getUserData() instanceof Conversation) {
                         currentConversation = (Conversation) bodyA.getUserData();
-                        bodyToDestroy = bodyA;
+                        if(currentConversation.repeatable) {
+                            bodyToDestroy = null;
+                        } else {
+                            bodyToDestroy = bodyA;
+                        }
                     } else {
                         currentConversation = (Conversation) bodyB.getUserData();
-                        bodyToDestroy = bodyB;
+                        if(currentConversation.repeatable) {
+                            bodyToDestroy = null;
+                        } else {
+                            bodyToDestroy = bodyB;
+                        }
                     }
-                    if(SuikodenRM.gsm.getCompletedScripts().contains(currentConversation.name)) {
+                    if(!currentConversation.repeatable && SuikodenRM.gsm.getCompletedScripts().contains(currentConversation.name)) {
+                        System.out.println("completed, not triggering");
                         bodyToDestroy = null;
                         currentConversation = null;
                         return;

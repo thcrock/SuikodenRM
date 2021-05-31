@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-up" width="110" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="178">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-up" width="110" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="184">
  <properties>
   <property name="displayName" value="Kanakan Neighborhoods"/>
   <property name="musicTrackName" value="kanakan_market.mp3"/>
@@ -1152,11 +1152,6 @@
     <property name="message" value="Locked"/>
    </properties>
   </object>
-  <object id="120" name="door" type="object" x="386.333" y="801" width="28.6667" height="4">
-   <properties>
-    <property name="message" value="Locked"/>
-   </properties>
-  </object>
   <object id="121" name="door" type="object" x="513.666" y="779.667" width="28.6667" height="4">
    <properties>
     <property name="message" value="Locked"/>
@@ -1259,6 +1254,7 @@
   <object id="111" name="findHaia" x="319.5" y="263" width="40.6667" height="16.6667">
    <properties>
     <property name="convoName" value="findHaia"/>
+    <property name="onlyTriggerIfScript" value="haiaRunPast"/>
    </properties>
   </object>
   <object id="112" name="haiawhichway" x="736.667" y="256" width="18.6667" height="80.6667">
@@ -1269,6 +1265,18 @@
   <object id="133" name="seeHaia" x="1206.67" y="703.333" width="24.6667" height="124.667">
    <properties>
     <property name="convoName" value="seeHaia"/>
+   </properties>
+  </object>
+  <object id="182" x="378.667" y="800.333" width="45.6667" height="22.3333">
+   <properties>
+    <property name="convoName" value="noTimeForHome"/>
+    <property name="repeatable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="183" x="762.167" y="751.5" width="45.6667" height="22.3333">
+   <properties>
+    <property name="convoName" value="noTimeForHome"/>
+    <property name="repeatable" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>
@@ -1456,6 +1464,12 @@
     <property name="toSpawnNumber" value="1"/>
    </properties>
   </object>
+  <object id="179" name="renatashouse" x="385.417" y="799.167" width="28.5" height="7.66667">
+   <properties>
+    <property name="toName" value="renatashouse"/>
+    <property name="toSpawnNumber" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
   <object id="1" name="spawn1" x="321.213" y="264.653" width="32.6667" height="14">
@@ -1471,6 +1485,11 @@
   <object id="176" x="769.333" y="758.667" width="30.6667" height="14.3333">
    <properties>
     <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="178" x="385" y="806.833" width="30.6667" height="14.3333">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
    </properties>
   </object>
  </objectgroup>

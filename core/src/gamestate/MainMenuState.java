@@ -133,6 +133,7 @@ public class MainMenuState extends GameState {
 
 	@Override
 	public void keyPressed(int k) {
+        SuikodenRM.gsm.mainMenuStart();
 	}
 
 	@Override
