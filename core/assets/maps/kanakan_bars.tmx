@@ -507,11 +507,11 @@
   <object id="30" name="Wall" type="object" x="1037.5" y="178.5" width="466.5" height="43.5"/>
   <object id="32" name="Wall" type="object" x="162.25" y="175.25" width="837.5" height="43.5"/>
   <object id="65" name="javys" type="object" x="805" y="408.5" width="233.5" height="104.5"/>
-  <object id="66" name="robinsons" type="object" x="451" y="414.5" width="121" height="98.5"/>
+  <object id="66" name="rosas" type="object" x="451" y="414.5" width="121" height="98.5"/>
   <object id="69" name="robinsonstable" type="object" x="585" y="456" width="109" height="31"/>
   <object id="70" name="wall1" type="object" x="162.5" y="385" width="187.5" height="49"/>
   <object id="71" name="wall2" type="object" x="337.5" y="435.5" width="13" height="80.5"/>
-  <object id="72" name="robinsonsbarrels" type="object" x="371" y="464.5" width="46" height="46"/>
+  <object id="72" name="rosas" type="object" x="371" y="464.5" width="46" height="46"/>
   <object id="84" name="Wall" type="object" x="1001" y="174.5" width="37" height="47"/>
   <object id="85" name="river" type="object" x="349" y="522" width="1161" height="41"/>
   <object id="86" name="table" type="object" x="810.5" y="345.5" width="109.5" height="31.5"/>
@@ -520,7 +520,7 @@
   <object id="89" name="bar" type="object" x="1265" y="365.5" width="61" height="27"/>
   <object id="90" name="bar" type="object" x="1328.5" y="374" width="30.5" height="41"/>
   <object id="91" name="table" type="object" x="1386" y="373.5" width="108.5" height="35.5"/>
-  <object id="92" name="building" type="object" x="1185.5" y="420.5" width="315.5" height="87.5"/>
+  <object id="92" name="Cristianos" type="object" x="1185.5" y="420.5" width="315.5" height="87.5"/>
   <object id="104" name="rightwall" type="object" x="1501.33" y="221.333" width="19.6667" height="229"/>
  </objectgroup>
  <objectgroup id="10" name="scripts">
@@ -552,11 +552,6 @@
    <properties>
     <property name="convoName" value="inbars"/>
     <property name="onlyTriggerIfScript" value="haiaRunPast"/>
-   </properties>
-  </object>
-  <object id="83" name="end" x="829.5" y="73" width="441" height="19.5">
-   <properties>
-    <property name="convoName" value="end"/>
    </properties>
   </object>
   <object id="93" name="barentrance" x="1331.5" y="508" width="27" height="6">
@@ -608,7 +603,7 @@
    <properties>
     <property name="character" value="Townfolk4"/>
     <property name="face" value="d"/>
-    <property name="message" value="I love drinking at Javy's. No hipsters like at Robinson's."/>
+    <property name="message" value="I love drinking at Javy's. No hipsters like at Rosa's."/>
     <property name="phases" value=""/>
     <property name="speed" type="float" value="60"/>
    </properties>
@@ -662,7 +657,7 @@
   <object id="48" name="Bargoer" x="617.75" y="457.25" width="16.6667" height="6">
    <properties>
     <property name="character" value="Townfolk1"/>
-    <property name="message" value="I like the vibe down here at Robinson's. Not like the hipsters over at Tipson's."/>
+    <property name="message" value="I like the vibe down here at Rosa's. Not like the hipsters over at Cristianos's."/>
     <property name="phases" value=""/>
     <property name="speed" type="float" value="60"/>
    </properties>
@@ -679,6 +674,7 @@
   <object id="50" name="Bargoer" x="585.084" y="501.25" width="16" height="5.75">
    <properties>
     <property name="character" value="Townfolk"/>
+    <property name="convoName" value="rosasPatron"/>
     <property name="face" value="u"/>
     <property name="message" value="I think I saw Roundier Haia come through here. He looked like he was in a hurry."/>
     <property name="phases" value=""/>
@@ -777,6 +773,7 @@
   <object id="62" name="Bargoer" x="1387.75" y="419.25" width="16" height="5.75">
    <properties>
     <property name="character" value="Townfolk2"/>
+    <property name="convoName" value="cristianosPatron"/>
     <property name="face" value="u"/>
     <property name="message" value="Have I seen Roundier Haia? Nop"/>
     <property name="phases" value=""/>
