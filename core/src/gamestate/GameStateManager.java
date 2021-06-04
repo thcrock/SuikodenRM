@@ -28,10 +28,11 @@ public class GameStateManager implements InputProcessor {
 	
 	public int currentState;
 	
-	public static final int NUMGAMESTATES = 3;
+	public static final int NUMGAMESTATES = 4;
 	public static final int LEVELSTATE = 0;
 	public static final int MENUSTATE = 1;
 	public static final int ATTACKSTATE = 2;
+    public static final int CREDITSTATE = 3;
 			
 	public GameStateManager (SuikodenRM rel) {
         data = new DialogueData("thewholegame");
@@ -41,7 +42,7 @@ public class GameStateManager implements InputProcessor {
 		relation = rel;
         completedScripts = new HashSet<String>();
 		
-		currentState = MENUSTATE;
+		currentState = CREDITSTATE;
         loadState(currentState, null);
 	}
 	
@@ -73,6 +74,9 @@ public class GameStateManager implements InputProcessor {
         if(state == MENUSTATE) {
             gameState[state] = new MainMenuState();
         } 
+        if(state == CREDITSTATE) {
+            gameState[state] = new CreditsState();
+        }
 	}
 
     public DialogueData getDialogueData() {

@@ -1,0 +1,23 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<if $chasinghaia eq 1>>\nBargoer: I think I saw Roundier Haia come through here. He looked like he was in a hurry.\n<<else>>\nBargoer: Rosa's has a great selection but I don't think they have anything for kids!\n<<endif>>\n[[end]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]
