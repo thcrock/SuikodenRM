@@ -116,6 +116,8 @@ public class BoxWorld extends GameState {
 	public void initiate(Door door) {
 		world = new World(new Vector2(0, 0), true);
 		camera = new OrthographicCamera();
+        System.out.println(door);
+        System.out.println(door.toMapName);
 		map = new TmxMapLoader().load("maps/" + door.toMapName + ".tmx");
         MapProperties prop = map.getProperties();
         shapeRenderer = new ShapeRenderer();

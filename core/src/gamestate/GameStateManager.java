@@ -42,7 +42,8 @@ public class GameStateManager implements InputProcessor {
 		relation = rel;
         completedScripts = new HashSet<String>();
 		
-		currentState = CREDITSTATE;
+		currentState = MENUSTATE;
+
         loadState(currentState, null);
 	}
 	
@@ -52,7 +53,7 @@ public class GameStateManager implements InputProcessor {
     private void loadStartingMap() {
         String startingMap = System.getProperty("startingMap", null);
         if(startingMap == null) {
-            startingMap = "kanakan_residential";
+            startingMap = "kanakan";
         }
         currentState = LEVELSTATE;
 		loadState(currentState, new Door(startingMap, 1));
