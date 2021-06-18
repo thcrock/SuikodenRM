@@ -53,7 +53,7 @@ public class GameStateManager implements InputProcessor {
     private void loadStartingMap() {
         String startingMap = System.getProperty("startingMap", null);
         if(startingMap == null) {
-            startingMap = "kanakan";
+            startingMap = "dojo";
         }
         currentState = LEVELSTATE;
 		loadState(currentState, new Door(startingMap, 1));
@@ -146,6 +146,16 @@ public class GameStateManager implements InputProcessor {
 		relation.changeScreen();
     }
 	
+    public void setCreditsState() {
+		BoxWorld oldState = (BoxWorld) gameState[currentState];
+		int oldStateNumber = currentState;
+		gameState[currentState].pause();
+		PAUSED = true;
+		currentState = CREDITSTATE;
+		gameState[currentState] = new CreditsState();
+		relation.changeScreen();
+    }
+
 	public void unpauseState(int state) {
         System.out.println("unloading state. before: " + currentState);
 		unloadState(currentState);

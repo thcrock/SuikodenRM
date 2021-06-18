@@ -46,7 +46,7 @@ public class MusicManager {
     }
 
     public void update(float delta) {
-        if (this.isFadingIn) {
+        if (this.isFadingIn && this.music != null) {
             if (volume > 1) {
                 this.isFadingIn = false;
                 return; 

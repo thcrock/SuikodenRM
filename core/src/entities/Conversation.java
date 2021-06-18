@@ -459,6 +459,10 @@ public class Conversation {
                 action.imageName = params[1];
                 currentAction = action;
                 currentAction.perform(null);
+            } else if(commandName.equals("showCredits")) {
+                scripting.ShowCredits action = new scripting.ShowCredits();
+                currentAction = action;
+                currentAction.perform(null);
             } else {
                 System.out.println("unknown command " + commandName);
             }

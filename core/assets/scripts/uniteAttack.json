@@ -72,7 +72,7 @@
 	{
 		"title": "celebration",
 		"tags": "",
-		"body": "Renata-renatahappyface: Yes!!!\n<<decoupleMovementAndAnimation Mia>>\n<<decoupleMovementAndAnimation Renata>>\n<<moveUp Renata 10 80>>\n<<moveDown Renata 10 80>>\n<<moveUp Mia 10 80>>\n<<moveDown Mia 10 80>>\nMia-mialaughingface: Haha!\n<<toMap endCredits 1>>\n[[end]]",
+		"body": "Renata-renatahappyface: Yes!!!\n<<decoupleMovementAndAnimation Mia>>\n<<decoupleMovementAndAnimation Renata>>\n<<moveUp Renata 10 80>>\n<<moveDown Renata 10 80>>\n<<moveUp Mia 10 80>>\n<<moveDown Mia 10 80>>\nMia-mialaughingface: Haha!\n<<showCredits>>\n[[end]]",
 		"position": {
 			"x": 0,
 			"y": 0
