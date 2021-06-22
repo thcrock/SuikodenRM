@@ -342,8 +342,6 @@ public class Dialogue {
 
 			return true;
 		}else if(vm.getExecutionState() == ExecutionState.WaitingOnOptionSelection) {
-
-			 System.out.println("hey");
 		}
 		return false;
 	}

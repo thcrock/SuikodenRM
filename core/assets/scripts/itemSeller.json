@@ -12,7 +12,8 @@
 	{
 		"title": "nomoney",
 		"tags": "",
-		"body": "ItemSeller: That'll be 100 potch.\nRenata: 100 potch? Who has that kind of money?\nItemSeller: People who go around fighting monsters, I guess.\nItemSeller: We get a lot of those around here.\nItemSeller: A lady actually came through earlier today and bought a bunch. She had a huge scythe, looked like she meant business.\nItemSeller: She even bought some of the blue stuff, come to think of it.\nItemSeller: Anyway, I probably shouldn't be selling these to kids.\nItemSeller: Now where did I get that blue stuff...\n<<attachTo Renata Mia>>\n<<enableCollisions Renata>>\n[[end]]",
+		"body": "ItemSeller: That'll be 100 potch.\nRenata: 100 potch? Who has that kind of money?\nItemSeller: People who go around fighting monsters, I guess.\nRenata: Do you get a lot of those around here?\nItemSeller: We do, actually.\nItemSeller: A lady actually came through earlier today and bought a bunch. She had a huge scythe, looked like she meant business.\nItemSeller: She even bought some of the blue stuff, come to think of it.\nItemSeller: Anyways, I probably shouldn't be selling these to kids.\nMia: We're off to get some food anyway.\nItemSeller: The rolls at the bakery are great today!\n<<attachTo Renata Mia>>\n<<enableCollisions Renata>>\n[[end]]",
+
 		"position": {
 			"x": 793,
 			"y": 505

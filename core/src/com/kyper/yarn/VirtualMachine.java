@@ -118,7 +118,6 @@ public class VirtualMachine {
 
 
 		Instruction current_instruction = current_node.instructions.get(state.program_counter);
-
 		runInstruction(current_instruction);
 
 		//DEBUG instruction sets ---
@@ -419,10 +418,12 @@ public class VirtualMachine {
 		 * push a value on to the value stack
 		 */
 		public void pushValue(Object o) {
-			if (o instanceof Value)
+			if (o instanceof Value) {
 				stack.add((Value) o);
-			else
+            }
+			else {
 				stack.add(new Value(o));
+            }
 		}
 
 		/**

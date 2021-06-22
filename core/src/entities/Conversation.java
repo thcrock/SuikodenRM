@@ -76,7 +76,6 @@ public class Conversation {
     }
 
     public void initialize(ArrayList<GameWorldCharacter> inputcharacters, Player player){
-        System.out.println("initializing convo");
         rand = new Random();
         DialogueData data = SuikodenRM.gsm.getDialogueData();
         data.put("$randomstate", rand.nextInt(3));
@@ -495,9 +494,6 @@ public class Conversation {
         */
 
         Scriptable player = characters.get("Mia");
-        System.out.println("checkig on waiting");
-        System.out.println(waiting);
-        System.out.println(option);
         if(waiting && option != null) {
             if(player.getCurrentChoice() != -1) {
                 option.choose(player.getCurrentChoice());

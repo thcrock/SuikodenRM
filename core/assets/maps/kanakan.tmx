@@ -1281,7 +1281,7 @@
   <object id="7" name="Woman" x="672.5" y="431.5" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk2"/>
-    <property name="message" value="Have you seen Izan? I've been looking for him."/>
+    <property name="message" value="Have you seen my son Izan? I've been looking for him."/>
     <property name="phases" value="l-20;p-1;r-40;p-4;l-20;p-1.2"/>
     <property name="speed" type="float" value="60"/>
    </properties>
@@ -1345,9 +1345,8 @@
    <properties>
     <property name="character" value="OldMan"/>
     <property name="face" value="u"/>
+    <property name="message" value="Is there anything better than a fresh fish?"/>
     <property name="phases" value=""/>
-    <property name="startMessage" type="int" value="2"/>
-    <property name="stopMessage" type="int" value="3"/>
    </properties>
   </object>
   <object id="15" name="Man" x="1277.66" y="471.333" width="14" height="14">
@@ -1443,20 +1442,18 @@
   </object>
   <object id="157" name="Rug Seller" x="407.75" y="781.75" width="14" height="14">
    <properties>
-    <property name="character" value="Townfolk"/>
+    <property name="character" value="Townfolk4"/>
     <property name="face" value="u"/>
     <property name="message" value="I sell only the finest rugs at my shop. Mostly local rugs, and I just got in a couple pieces from Dunan."/>
     <property name="phases" value="u-5;p-4;d-5;r-40;u-5;p-15;d-5;l-40"/>
     <property name="speed" type="float" value="15"/>
-    <property name="sprite" value="man_balding"/>
    </properties>
   </object>
   <object id="158" name="Maria" x="463.5" y="912" width="14" height="14">
    <properties>
     <property name="character" value="Townfolk"/>
     <property name="face" value="u"/>
-    <property name="message">I need a new rug.
-I definitely didn't spill wine on my last one. I need a new rug for a totally different reason.</property>
+    <property name="message" value="Isn't the weather wonderful today?"/>
     <property name="phases" value="u-5;p-4;d-5;l-40;u-5;p-15;d-5;r-40"/>
     <property name="speed" type="float" value="15"/>
     <property name="sprite" value="lady_bluehair"/>
@@ -1545,6 +1542,7 @@ I definitely didn't spill wine on my last one. I need a new rug for a totally di
   <object id="32" name="haiaRunPast" x="945.334" y="1117.67" width="174.333" height="35.5">
    <properties>
     <property name="convoName" value="haiaRunPast"/>
+    <property name="onlyTriggerIfScript" value="fruitStand|bakeryConversation|fishMonger"/>
    </properties>
   </object>
   <object id="115" name="trespassing" x="912" y="1232.5" width="4.16633" height="25.5">
@@ -1614,7 +1612,7 @@ I definitely didn't spill wine on my last one. I need a new rug for a totally di
   </object>
  </objectgroup>
  <objectgroup id="2" name="spawns">
-  <object id="1" name="spawn1" type="1" x="374.873" y="1013.87" width="8.36364" height="8">
+  <object id="1" name="spawn1" type="1" x="373.873" y="1014.2" width="8.36364" height="8">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>

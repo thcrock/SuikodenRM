@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<set $stepped_on_flowers to 1>>\n[[end]]",
+		"body": "Noop\n<<set $steppedonflowers to 1>>\n[[end]]",
 		"position": {
 			"x": 793,
 			"y": 505
