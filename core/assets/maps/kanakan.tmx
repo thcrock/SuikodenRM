@@ -1343,10 +1343,11 @@
   </object>
   <object id="14" name="Fish Lover" x="363.163" y="355.917" width="14" height="14">
    <properties>
-    <property name="character" value="OldMan"/>
-    <property name="face" value="u"/>
+    <property name="character" value="Townfolk"/>
+    <property name="face" value="d"/>
     <property name="message" value="Is there anything better than a fresh fish?"/>
     <property name="phases" value=""/>
+    <property name="sprite" value="lady_old"/>
    </properties>
   </object>
   <object id="15" name="Man" x="1277.66" y="471.333" width="14" height="14">

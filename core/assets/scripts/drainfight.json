@@ -122,7 +122,7 @@
 	{
 		"title": "theexplanation",
 		"tags": "",
-		"body": "Haia: What are you girls doing in here?!?!?! This is a dangerous place!\nRenata: We......saw you looking worried and thought you needed help and thought if we helped you we could-\nHaia: Help me by getting lost in an ancient ruin full of monsters?\nHaia: You know what? Let's just get out of here.\n<<coupleMovementAndAnimation Renata>>\n<<coupleMovementAndAnimation Mia>>\n<<attachTo Mia Haia>>\n<<attachTo Renata Haia>>\n<<moveLeft Haia 100 40>>\n<<toMap ruinsentrance 3>>\n[[end]]",
+		"body": "Haia: What are you girls doing in here?!?!?! This is a dangerous place!\nRenata: We......saw you looking worried and thought you needed help and thought if we helped you we could-\nHaia: Help me by getting lost in an ancient ruin full of monsters?\n<<faceRight Mia>>\nMia: Told you.\n<<faceLeft Mia>>\nHaia: You know what? Let's just get out of here.\n<<coupleMovementAndAnimation Renata>>\n<<coupleMovementAndAnimation Mia>>\n<<attachTo Mia Haia>>\n<<attachTo Renata Haia>>\n<<moveLeft Haia 100 40>>\n<<toMap ruinsentrance 3>>\n[[end]]",
 		"position": {
 			"x": 0,
 			"y": 0

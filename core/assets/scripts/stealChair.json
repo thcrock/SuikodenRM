@@ -12,7 +12,7 @@
 	{
 		"title": "juice",
 		"tags": "",
-		"body": "<<attachTo Chair Renata>>\n<<moveLeft Renata 30 30>>\nBartender: Fresh out of juice. Can't you find somewhere else to get juice than a bar?\n[[startmoving]]",
+		"body": "<<attachTo Chair Renata>>\n<<moveLeft Renata 30 30>>\nBartender: Fresh out of juice. Can't you find somewhere else to get juice than a bar?\nBartender: Or maybe the hipsters at Cristiano's will have some.\n[[startmoving]]",
 		"position": {
 			"x": 0,
 			"y": 0
@@ -22,7 +22,7 @@
 	{
 		"title": "food",
 		"tags": "",
-		"body": "<<attachTo Chair Renata>>\n<<moveLeft Renata 30 30>>\nBartender: We don't have food here. I think Javy's might have food. That's their kinda vibe. Hipster nonsense.\n[[startmoving]]",
+		"body": "<<attachTo Chair Renata>>\n<<moveLeft Renata 30 30>>\nBartender: We don't have food here.\nBartender: I think Javy's might have food. That's their kinda vibe. Hipster nonsense.\n[[startmoving]]",
 		"position": {
 			"x": 0,
 			"y": 0
@@ -32,7 +32,7 @@
 	{
 		"title": "beer",
 		"tags": "",
-		"body": "<<attachTo Chair Renata>>\n<<moveLeft Renata 30 30>>\nBartender: No! I just told you you're not old enough to drink!\n[[startmoving]]",
+		"body": "<<attachTo Chair Renata>>\n<<moveLeft Renata 30 30>>\nBartender: No! I just told you you're not old enough to drink! Maybe the hipsters at Javy's will serve you some!\nBartender: ...But you didn't hear that from me!\n[[startmoving]]",
 		"position": {
 			"x": 0,
 			"y": 0
@@ -42,7 +42,7 @@
 	{
 		"title": "startmoving",
 		"tags": "",
-		"body": "<<moveUp Renata 15 40>>\nMia: Ok, um....\n<<moveUp Renata 15 40>>\n<<detachFrom Chair Renata>>\n<<animationFrame Chair chair 4>>\n<<moveDown Renata 1 60>>\n<<decoupleMovementAndAnimation Renata>>\n<<moveUp Renata 5 100>>\n<<moveDown Renata 5 100>>\n<<moveLeft Bartender 1 10>>\n<<moveRight Bartender 1 10>>\n<<moveUp Bartender 1 10>>\nBartender: What was that?\n<<coupleMovementAndAnimation Renata>>\n<<moveLeft Renata 15 60>>\n<<moveDown Renata 15 60>>\n<<moveRight Renata 1 30>>\n<<attachTo Chair Renata>>\n<<decoupleMovementAndAnimation Renata>>\n<<moveLeft Renata 20 20>>\n[[How's...business? |business]]\n[[Nice day, huh? |weather]]\n[[What's your favorite...color? |color]]",
+		"body": "<<moveUp Renata 15 40>>\nMia: Ok, um....\n<<moveUp Renata 15 40>>\n<<detachFrom Chair Renata>>\n<<animationFrame Chair chair 4>>\n<<moveDown Renata 1 60>>\n<<decoupleMovementAndAnimation Renata>>\n<<moveUp Renata 5 100>>\n<<moveDown Renata 5 100>>\n<<moveLeft Bartender 1 10>>\n<<moveRight Bartender 1 10>>\n<<moveUp Bartender 1 10>>\nBartender: What was that sound?\n<<coupleMovementAndAnimation Renata>>\n<<moveLeft Renata 15 60>>\n<<moveDown Renata 15 60>>\n<<moveRight Renata 1 30>>\n<<attachTo Chair Renata>>\n<<decoupleMovementAndAnimation Renata>>\n<<moveLeft Renata 20 20>>\n[[How....is...business? |business]]\n[[...hipsters, probably? |hipsters]]\n[[Uh...what's your favorite...color? |color]]",
 		"position": {
 			"x": 0,
 			"y": 0
@@ -60,9 +60,9 @@
 		"colorID": 0
 	},
 	{
-		"title": "weather",
+		"title": "hipsters",
 		"tags": "",
-		"body": "<<moveLeft Renata 20 20>>\nBartender: Uh, yeah, pretty good. It gets butts in seats, and then it's raining money!\n<<moveLeft Renata 20 20>>\n<<faceLeft Mia>>\n<<pauseFor Mia 0.3>>\n<<faceDown Mia>>\n<<moveLeft Renata 10 60>>\n<<moveUp Renata 100 120>>\n<<faceLeft Mia>>\n<<pauseFor Mia 0.3>>\n<<faceDown Mia>>\nMia: Uh, thank you!\n[[end]]",
+		"body": "<<moveLeft Renata 20 20>>\nBartender: Yeah, probably.\nBartender: Sorry, what were we talking about?\n<<moveLeft Renata 20 20>>\n<<faceLeft Mia>>\n<<pauseFor Mia 0.3>>\n<<faceDown Mia>>\n<<moveLeft Renata 10 60>>\n<<moveUp Renata 100 120>>\n<<faceLeft Mia>>\n<<pauseFor Mia 0.3>>\n<<faceDown Mia>>\nMia: Uh, nothing. Thank you!\n[[end]]",
 		"position": {
 			"x": 0,
 			"y": 0

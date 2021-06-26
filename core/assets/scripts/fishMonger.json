@@ -12,7 +12,7 @@
 	{
 		"title": "choosefish",
 		"tags": "",
-		"body": "Fishmonger: This morning's bounty was a gift. I have some sea grouper, rock whitefish, and salmon.\n[[Sea Grouper|chosefish]]\n[[Rock Whitefish|chosefish]]\n[[Salmon|chosefish]]",
+		"body": "Fishmonger: This morning's bounty was a gift. I have some sea grouper, yellowtail snapper, and salmon.\n[[Sea Grouper|chosefish]]\n[[Yellowtail Snapper|chosefish]]\n[[Salmon|chosefish]]",
 		"position": {
 			"x": 0,
 			"y": 0

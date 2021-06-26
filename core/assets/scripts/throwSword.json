@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Sword>>\n<<moveToY Mia Stone -90 60>>\n<<faceLeft Mia>>\n<<faceUp Renata>>\n<<moveToX Renata Sword -5 60>>\n<<moveToY Renata Sword -5 60>>\nMia: That spot up there looks different.\nRenata: Watch this!\n<<unhide Sword>>\n<<moveUp Renata 5 80>>\n<<moveUp Sword 100 600>>\n[[thefall]]",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Sword>>\n<<moveToY Mia Stone -90 60>>\n<<faceLeft Mia>>\n<<faceUp Renata>>\n<<moveToX Renata Sword -5 60>>\n<<moveToY Renata Sword -5 60>>\n<<faceUp Mia>>\nMia: That spot up there looks different.\nRenata: Watch this!\n<<unhide Sword>>\n<<moveUp Renata 5 80>>\n<<moveUp Sword 100 600>>\n[[thefall]]",
 		"position": {
 			"x": 0,
 			"y": 0
@@ -42,7 +42,7 @@
 	{
 		"title": "thememories",
 		"tags": "",
-		"body": "<<pauseFor Mia 1.0>>\nMia: Remember last year when the bullies cornered me?\nRenata: ...yeah?\nMia: When you picked up the log and started smacking them with it?\nRenata-renatahappyface: Haha!\nRenata: That was fun.\nMia: ...you've always had my back. I love you, Nata!\n<<decoupleMovementAndAnimation Renata>>\n<<moveDown Mia 3 10>>\n<<moveUp Renata 3 10>>\nRenata: I'll be more careful, okay?\n<<moveDown Renata 3 10>>\n<<moveUp Mia 3 10>>\n[[thefind]]",
+		"body": "<<pauseFor Mia 1.0>>\nMia: Remember last year when the bullies cornered me?\nRenata: ...yeah?\nMia: When you picked up the log and started smacking them with it?\nRenata-renatahappyface: Haha!\nRenata: That was fun.\n<<faceUp Renata>>\nMia: ...you've always had my back. I love you, Nata!\n<<decoupleMovementAndAnimation Renata>>\n<<moveDown Mia 3 10>>\n<<moveUp Renata 3 10>>\nRenata: I'll be more careful, okay?\n<<moveDown Renata 3 10>>\n<<moveUp Mia 3 10>>\n[[thefind]]",
 		"position": {
 			"x": 0,
 			"y": 0

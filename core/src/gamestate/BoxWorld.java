@@ -515,17 +515,19 @@ public class BoxWorld extends GameState {
 			}
 			
 			//camera.zoom = 5;
-            if (
-                player.getBody().getPosition().x >= 0 + camera.viewportWidth/3
-                && player.getBody().getPosition().x <= 0 + mapPixelWidth-camera.viewportWidth/3
-            ) {
-                camera.position.x = player.getBody().getPosition().x;
-            }
-            if (
-                player.getBody().getPosition().y >= 0 + camera.viewportHeight/3
-                && player.getBody().getPosition().y <= 0 + mapPixelHeight-camera.viewportHeight/3
-            ) {
-                camera.position.y = player.getBody().getPosition().y;
+            if (!player.IsInScript()) {
+                if (
+                    player.getBody().getPosition().x >= 0 + camera.viewportWidth/3
+                    && player.getBody().getPosition().x <= 0 + mapPixelWidth-camera.viewportWidth/3
+                ) {
+                    camera.position.x = player.getBody().getPosition().x;
+                }
+                if (
+                    player.getBody().getPosition().y >= 0 + camera.viewportHeight/3
+                    && player.getBody().getPosition().y <= 0 + mapPixelHeight-camera.viewportHeight/3
+                ) {
+                    camera.position.y = player.getBody().getPosition().y;
+                }
             }
 			camera.update();
 			

@@ -12,7 +12,7 @@
 	{
 		"title": "choice",
 		"tags": "",
-		"body": "Gardener: Hey girls! Can you help me? I'm trying to decide what to plant here. Zinnias, orchid, or blue ginger?\n[[Zinnias|thanks]]\n[[Orchid|thanks]]\n[[Blue Ginger|thanks]]",
+		"body": "Gardener: Hey girls! Can you help me? I'm trying to decide what to plant here. Mariposa, Sword Lily, or Dahlia??\n[[Mariposa|thanks]]\n[[Sword Lily|thanks]]\n[[Mariposa|thanks]]",
 		"position": {
 			"x": 980,
 			"y": 151
