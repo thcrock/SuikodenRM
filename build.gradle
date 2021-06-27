@@ -19,7 +19,7 @@ allprojects {
     version = '1.0'
     ext {
         appName = 'SuikodenRM'
-        gdxVersion = '1.9.14'
+        gdxVersion = '1.9.13'
         gdxControllersVersion = '1.9.11'
         roboVMVersion = '2.3.8'
         box2DLightsVersion = '1.3'
