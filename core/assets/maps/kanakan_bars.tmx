@@ -640,7 +640,7 @@
   <object id="40" name="Bargoer" x="810.333" y="346.917" width="14" height="5.75">
    <properties>
     <property name="character" value="Townfolk"/>
-    <property name="message" value=""/>
+    <property name="message" value="Roundier Haia? Yeah, I saw him run by"/>
     <property name="phases" value=""/>
     <property name="speed" type="float" value="60"/>
     <property name="sprite" value="man_balding"/>

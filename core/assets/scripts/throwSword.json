@@ -42,7 +42,7 @@
 	{
 		"title": "thememories",
 		"tags": "",
-		"body": "<<pauseFor Mia 1.0>>\nMia: Remember last year when the bullies cornered me?\nRenata: ...yeah?\nMia: When you picked up the log and started smacking them with it?\nRenata-renatahappyface: Haha!\nRenata: That was fun.\n<<faceUp Renata>>\nMia: ...you've always had my back. I love you, Nata!\n<<decoupleMovementAndAnimation Renata>>\n<<moveDown Mia 3 10>>\n<<moveUp Renata 3 10>>\nRenata: I'll be more careful, okay?\n<<moveDown Renata 3 10>>\n<<moveUp Mia 3 10>>\n[[thefind]]",
+		"body": "<<pauseFor Mia 1.0>>\nMia: Remember last year when the bullies cornered me?\nRenata: ...yeah?\nMia: When you picked up the log and started smacking them with it?\nRenata-renatahappyface: Haha!\nRenata: That was fun.\n<<faceUp Renata>>\nMia: ...you've always had my back. I love you, Renata!\n<<decoupleMovementAndAnimation Renata>>\n<<moveDown Mia 3 10>>\n<<moveUp Renata 3 10>>\nRenata: I'll be more careful, okay?\n<<moveDown Renata 3 10>>\n<<moveUp Mia 3 10>>\n[[thefind]]",
 		"position": {
 			"x": 0,
 			"y": 0
