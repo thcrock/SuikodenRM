@@ -1,0 +1,182 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<setBgMusic ThemeOfFriendship.mp3>>\nGirl 2-renatasmilingface: Let's go again!\nGirl 1: I'm hungry. Win by two?\nGirl 2-renatasmilingface: You're on.\n<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveToX Renata Mia 35 60>>\n<<moveToY Renata Mia 0 60>>\n<<moveRight Mia 1 20>>\n<<moveLeft Renata 1 20>>\n<<pauseFor Renata 0.1>>\n<<decoupleMovementAndAnimation Renata>>\n<<decoupleMovementAndAnimation Mia>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\n<<set $balance to 0>>\nGirl 1-miafiercefight:Here we go!\nGirl 2-renatafightface: Prepare to lose, Mia!\n[[miachoice]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "miachoice",
+		"tags": "",
+		"body": "Noop\n[[Attack|miaattack]]\n[[Parry|miaparry]]\n[[Big Attack!|miadespattack]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "whatsthescore",
+		"tags": "",
+		"body": "Noop\n<<if $balance eq 0>>\nMia: We're tied!\n<<elseif $balance eq -1>>\nRenata: 1 for me!\n<<elseif $balance < -1>>\n<<set $miawins to 0>>\n[[save]]\n<<elseif $balance eq 1>>\nMia: 1 for me!\n<<elseif $balance > 1>>\n<<set $miawins to 1>>\n[[miawins]]\n<<else>>\nNoop\n<<endif>>\n<<animationFrame Mia mia 14>>\n[[miachoice]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "miaattack",
+		"tags": "",
+		"body": "Noop\n<<if $randomstate eq 0>>\n[[attackattack]]\n<<elseif $randomstate eq 1>>\n[[attackparry]]\n<<else>>\n[[attackdesp]]\n<<endif>>",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "miaparry",
+		"tags": "",
+		"body": "Noop\n<<if $randomstate eq 0>>\n[[parryattack]]\n<<elseif $randomstate eq 1>>\n[[parryparry]]\n<<else>>\n[[parrydesp]]\n<<endif>>",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "miadespattack",
+		"tags": "",
+		"body": "Noop\n<<if $randomstate eq 0>>\n[[despattack]]\n<<elseif $randomstate eq 1>>\n[[despparry]]\n<<else>>\n[[despdesp]]\n<<endif>>",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "attackattack",
+		"tags": "R-4 M+4 R+4 M-4 = 0",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<moveRight Mia 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<animationFrame Mia mia 18>>\n<<pauseFor Renata 0.7>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<moveRight Renata 4 60>>\n<<moveLeft Mia 4 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n[[miachoice]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "attackparry",
+		"tags": "R-2 M+6 R+5 M-3 = R+3 M+3",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 2 60>>\n<<moveRight Mia 6 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 18>>\n<<pauseFor Renata 0.7>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 16>>\n<<moveRight Renata 5 60>>\n<<moveLeft Mia 3 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n<<set $balance to $balance + 1>>\n[[whatsthescore]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "attackdesp",
+		"tags": "R-8 M+4 M-7 R+5 = R-3 M-3",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 8 90>>\n<<moveRight Mia 4 60>>\n<<animationFrame Renata renata 16>>\n<<pauseFor Renata 0.2>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<animationFrame Mia mia 19>>\n<<moveLeft Mia 7 90>>\n<<animationFrame Renata renata 16>>\n<<moveRight Renata 5 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\nMia-miafiercefight: Argh!\n<<set $balance to $balance - 1>>\nRenata: You can't guard me!\n[[whatsthescore]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "parryattack",
+		"tags": "",
+		"body": "<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 6 60>>\n<<moveRight Mia 2 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<pauseFor Renata 0.7>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<moveRight Renata 3 60>>\n<<moveLeft Mia 5 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n<<set $balance to $balance - 1>>\n[[whatsthescore]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "parryparry",
+		"tags": "",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<moveRight Mia 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<pauseFor Renata 0.7>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<moveRight Renata 4 60>>\n<<moveLeft Mia 4 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n[[miachoice]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "parrydesp",
+		"tags": "",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 8 90>>\n<<moveRight Mia 2 60>>\n<<animationFrame Renata renata 16>>\n<<pauseFor Renata 0.2>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<pauseFor Mia 0.1>>\n<<animationFrame Mia mia 17>>\n<<moveRight Mia 4 90>>\n<<animationFrame Mia mia 18>>\n<<animationFrame Renata renata 19>>\n<<moveRight Renata 11 90>>\n<<animationFrame Mia mia 16>>\n<<moveLeft Mia 3 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 14>>\nRenata-renatafightface: Argh!\n<<set $balance to $balance + 1>>\n<<animationFrame Renata renata 14>>\nMia-miafiercefight: Ha!\n[[whatsthescore]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "despattack",
+		"tags": "",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 15>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveRight Mia 8 90>>\n<<moveLeft Renata 4 60>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.2>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 18>>\n<<animationFrame Renata renata 19>>\n<<moveRight Renata 7 90>>\n<<animationFrame Mia mia 16>>\n<<moveLeft Mia 5 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 14>>\nRenata-renatafightface: Argh!\n<<set $balance to $balance + 1>>\n<<animationFrame Renata renata 14>>\nMia: Take that!\n[[whatsthescore]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "despparry",
+		"tags": "",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 15>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveRight Mia 8 90>>\n<<moveLeft Renata 2 60>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.2>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 18>>\n<<pauseFor Mia 0.1>>\n<<animationFrame Renata renata 17>>\n<<moveLeft Renata 4 90>>\n<<animationFrame Renata renata 18>>\n<<animationFrame Mia mia 19>>\n<<moveLeft Mia 11 110>>\n<<animationFrame Renata renata 16>>\n<<moveRight Renata 3 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<set $balance to $balance - 1>>\n[[whatsthescore]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "despdesp",
+		"tags": "",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 15>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveRight Mia 7 90>>\n<<moveLeft Renata 7 90>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 16>>\n<<pauseFor Mia 0.1>>\n<<animationFrame Mia mia 17>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 18>>\n<<animationFrame Renata renata 18>>\n<<pauseFor Mia 0.1>>\n<<animationFrame Renata renata 19>>\n<<animationFrame Mia mia 19>>\n<<moveLeft Mia 7 90>>\n<<moveRight Renata 7 90>>\n<<pauseFor Renata 0.05>>\nRenata: Hahaha!\nMia: Haha!\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n[[miachoice]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "miawins",
+		"tags": "",
+		"body": "Mia: I win!\n<<moveUp Mia 10 120>>\n<<moveDown Mia 10 90>>\nMia: Finally!\n<<moveUp Mia 5 120>>\n<<moveLeft Mia 4 120>>\n<<moveUp Mia 5 120>>\n<<moveLeft Mia 4 120>>\n<<moveDown Mia 10 90>>\n<<moveUp Mia 5 120>>\n<<moveLeft Mia 4 120>>\n<<moveDown Mia 5 90>>\n<<animationFrame Mia mia 19>>\n[[save]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "save",
+		"tags": "",
+		"body": "Noop\nMia-miafallingface: Ahhhhhh!\n<<setMusicVolume 0>>\n<<faceDown Maria>>\nRenata-renatascaredface: I've got you Mia!\n<<animationFrame Renata renata 10>>\n<<moveToX Renata Mia 15 120>>\n<<moveRight Mia 5 20>>\n<<moveRight Renata 10 20>>\n<<animationFrame Mia mia 4>>\nMia: *huff*...Renata, you got me...\n<<if $miawins eq 0>>\nRenata-renatasmilingface: Of course I did! It wouldn't be as fun to win if you got a broken arm!\n<<else>>\nRenata-renatasmilingface: Of course I did! It'll take me months for my rematch if you break your arm!\n<<endif>>\n<<setMusicVolume 0.25>>\n<<faceUp Maria>>\n<<moveRight Mia 5 30>>\n<<moveLeft Renata 5 30>>\n<<pauseFor Renata 1>>\n<<moveRight Renata 8 30>>\nMia: Ok, that's enough fencing for now.\nRenata: Yeah, I'm hungry!\nMia: To the market!\n<<attachTo Renata Mia>>\n<<enableCollisions Mia>>\n<<setHelpPrompt What are you doing? Let's go get food.>>\n<<setBgMusic kanakan_market.mp3>>\n<<set $needsfood to 1>>\n[[end]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+]
