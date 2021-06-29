@@ -1,0 +1,23 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<unhide Lorelai>>\n<<moveLeft Lorelai 120 80>>\n<<hide Lorelai>>\n<<hideLayer ruinsfrontdoor>>\n<<disableCollisions Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Haia>>\n<<unhide Haia>>\n<<attachTo Mia Haia>>\n<<moveToX Haia TopOfStairs 0 50>>\n<<moveDown Haia 60 60>>\n<<showLayer ruinsfrontdoor>>\n<<pauseFor Haia 0.2>>\n<<faceUp Haia>>\n<<faceUp Mia>>\n<<faceUp Renata>>\n<<pauseFor Mia 0.5>>\nHaia: I hope the lady who went into the ruins didn't get herself hurt.\n<<faceDown Haia>>\n<<faceDown Renata>>\nHaia: We have so many treasure hunter tourists who have no idea what they're up against..\nHaia: ...\nHaia: You know, beating a Fur Fur at your age with wooden swords is pretty impressive.\n<<moveDown Haia 20 40>>\nRenata-renatasmilingface: (Told you).\n<<moveDown Haia 40 40>>\n<<toMap blank 1>>\n[[end]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]

@@ -1,0 +1,63 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Mia>>\n<<moveToY Mia PedestalCheckpoint 0 60>>\n<<moveToY Renata PedestalCheckpoint -30 60>>\n<<moveToX Mia PedestalCheckpoint 30 60>>\n<<moveToX Renata PedestalCheckpoint -20 60>>\n<<faceLeft Mia>>\n<<faceUp Renata>>\n[[inspect]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "inspect",
+		"tags": "",
+		"body": "<<pauseFor Renata 1.0>>\n<<moveRight Renata 10 20>>\n<<pauseFor Renata 0.1>>\n<<faceUp Renata>>\n<<moveUp Mia 10 30>>\n<<faceLeft Mia>>\n<<pauseFor Renata 0.4>>\n<<moveLeft Renata 10 20>>\n<<pauseFor Renata 0.1>>\n<<faceUp Renata>>\n<<moveDown Mia 10 30>>\n<<faceLeft Mia>>\nRenata: Hmm, what is this?\nMia: It looks like a lotus flower![[preparetoclimb]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "preparetoclimb",
+		"tags": "",
+		"body": "Renata: Let's take a closer look!\nMia: How? It's too high to reach.\nRenata: I'll stand on your shoulders!\nMia: I saw it first!\nRenata: Ok, fine.\n<<moveToY Renata Mia 0 40>>\n<<moveToX Renata Mia -10 40>>\n<<pauseFor Renata 0.1>>\n<<faceLeft Renata>>\n<<moveToY Mia Renata -20 40>>\n<<moveToX Mia Renata 0 40>>\n<<moveUp Mia 1 10>>\n[[climb]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "climb",
+		"tags": "",
+		"body": "Mia: Up we go!\n<<moveToForeground Mia>>\n<<moveUp Mia 15 20>>\n<<moveUp Mia 20 60>>\nRenata: Ow!\n<<faceLeft Mia>>\n[[noticemissing]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "noticemissing",
+		"tags": "",
+		"body": "<<pauseFor Renata 1.0>>\nMia: It looks weird. I think one petal is missing.\nRenata: Oh! From the journal! There was writing about a missing petal!\nRenata: Where is that paper....?\nMia-miaworriedface: Hey I'm...\n<<moveRight Renata 2 10>>\n<<decoupleMovementAndAnimation Mia>>\n<<moveUp Mia 10 40>>\n<<coupleMovementAndAnimation Mia>>\n<<disableCollisions Mia>>\n<<resetSorting Mia>>\n<<moveDown Mia 15 120>>\n<<pauseFor Mia 0.1>>\nMia-miaangryface: Hey!\n<<faceUp Renata>>\nRenata: Sorry.\nMia-miaannoyedface: Okay, what's in the journal?\nRenata: ...'Sadly, I could not find the remaining petal. My companion soon arrived and I was able to escape, but the treasure will have to wait for another day.'\nMia: So maybe the last petal is still in here somewhere?\nRenata: Let's find it!\n<<enableCollisions Mia>>\n<<attachTo Renata Mia>>\n[[end]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]

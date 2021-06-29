@@ -1,0 +1,23 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<detachFrom Renata Mia>>\n<<moveToX Renata CrackInFloor -20 40>>\n<<moveToY Renata CrackInFloor 0 40>>\nRenata: Look at this crack in the ground!\n<<moveToX Renata CrackInFloor -10 10>>\nMia-miaangryface: Renata! Stay away!\nRenata: Maybe we could get into the ruins that way!\nMia-miaannoyedface: Why? Roundier Haia couldn't have fit into the ruins that way!\nRenata: Good point.\nMia-miaannoyedface: Let's go home, Renata.\nRenata: ....ok.\n<<moveLeft Renata 1 10>>\n<<showLayer weakspot>>\nRenata-renatascaredface: Ahhhhh!!!!\nMia-miascaredface: Ahhhh!\n<<moveDown Renata 10 120>>\n<<moveDown Mia 10 120>>\n<<hide Mia>>\n<<hide Renata>>\n<<toMap ruinsescaperoom 1>>\n[[end]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]
