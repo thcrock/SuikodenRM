@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="105" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="30" nextobjectid="194">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="105" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="30" nextobjectid="195">
  <properties>
   <property name="displayName" value="Kanakan City Market"/>
   <property name="musicTrackName" value="kanakan_market.mp3"/>
@@ -1455,7 +1455,7 @@
     <property name="character" value="Townfolk"/>
     <property name="face" value="u"/>
     <property name="message" value="Isn't the weather wonderful today?"/>
-    <property name="phases" value="u-5;p-4;d-5;l-40;u-5;p-15;d-5;r-40"/>
+    <property name="phases" value=""/>
     <property name="speed" type="float" value="15"/>
     <property name="sprite" value="lady_bluehair"/>
    </properties>
@@ -1530,6 +1530,11 @@
     <property name="character" value="Fish"/>
     <property name="phases" value="l-1;g;l-29;l-10;h;p-2;r-1;g;r-29;r-10;h;p-4"/>
     <property name="speed" type="float" value="10"/>
+   </properties>
+  </object>
+  <object id="194" name="FruitCrate" type="object" x="944.5" y="309" width="14.5" height="16">
+   <properties>
+    <property name="character" value="Invisible"/>
    </properties>
   </object>
  </objectgroup>

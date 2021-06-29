@@ -65,6 +65,7 @@ public class CharacterGeneration {
 		else if(name.equals("Townfolk")) return new Townfolk(ImageCache.getFrame(sprite, 2), bw, x, y, name, sprite);
 		else if(name.equals("Fish")) return new Fish(ImageCache.getFrame("fish", 1), bw, x, y);
 		else if(name.equals("Ukelele")) return new Ukelele(ImageCache.getFrame("ukelele", 1), bw, x, y);
+		else if(name.equals("Invisible")) return new Invisible(ImageCache.getFrame("ukelele", 1), bw, x, y);
 		return new Invisible(ImageCache.getFrame("chair", 1), bw, x, y);
 	}
 	
