@@ -1,0 +1,23 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Renata: So what's this water about? Do we have to get past it?\nMia: Is there another way around it?\n[[end]]",
+		"position": {
+			"x": 206,
+			"y": 378
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]

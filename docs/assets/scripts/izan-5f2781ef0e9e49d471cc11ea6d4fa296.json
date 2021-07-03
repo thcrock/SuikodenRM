@@ -1,0 +1,23 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Renata: Hey Izan!\nIzan: Hey Renata! Hey Mia! I'm trying to get my ball back! See you later!\n[[end]]",
+		"position": {
+			"x": 0,
+			"y": 0
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]

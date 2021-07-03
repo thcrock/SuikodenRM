@@ -1,0 +1,34 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<moveToX Renata ItemSeller 20 40>>\n<<moveToY Renata ItemSeller -10 40>>\n<<faceUp Renata>>\nItemSeller: I've got your items right here!\n<<faceUp ItemSeller>>\nItemSeller: Medicines!\n<<faceDown ItemSeller>>\nItemSeller: Antidotes!\n<<faceUp ItemSeller>>\nItemSeller: And some blue stuff!\n<<faceDown ItemSeller>>\nRenata: Blue stuff?\nMia: Why don't you know what it is?\nItemSeller: I can't remember what evvvv-erything is. I've got a lot of stuff in this shop!\n[[ Medicine |nomoney]]\n[[ Antidote |nomoney]]\n[[ Blue stuff |nomoney]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "nomoney",
+		"tags": "",
+		"body": "ItemSeller: That'll be 100 potch.\nRenata: 100 potch? Who has that kind of money?\nItemSeller: People who go around fighting monsters, I guess.\nRenata: Do you get a lot of those around here?\nItemSeller: We do, actually.\nItemSeller: A lady actually came through earlier today and bought a bunch. She had a huge scythe, looked like she meant business.\nItemSeller: She even bought some of the blue stuff, come to think of it.\nItemSeller: Anyways, I probably shouldn't be selling these to kids.\nMia: We're off to get some food anyway.\nItemSeller: The rolls at the bakery are great today!\n<<attachTo Renata Mia>>\n[[end]]",
+
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]

@@ -1,0 +1,23 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Worker: The path is out. No access to the port or trading post until tomorrow.\nRenata: What happened?\nWorker: These rocks fell from up the mountain above. Somebody said they heard an explosion and a crash overnight.\nMia: Weird.\n[[end]]",
+		"position": {
+			"x": 860,
+			"y": 371
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+]
