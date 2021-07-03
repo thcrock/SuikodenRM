@@ -19,7 +19,6 @@ import scripting.AnimationFrame;
 import scripting.DecoupleMovementAndAnimation;
 import scripting.ShowLayer;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.Json;
 import com.kyper.yarn.Dialogue;
 import com.kyper.yarn.Dialogue.CommandResult;
 import com.kyper.yarn.Dialogue.LineResult;
@@ -79,9 +78,12 @@ public class Conversation {
         rand = new Random();
         DialogueData data = SuikodenRM.gsm.getDialogueData();
         data.put("$randomstate", rand.nextInt(3));
+        data.put("$cluestate", rand.nextInt(3));
         dialogue = new Dialogue(data);
         try {
-            dialogue.loadFile("scripts/" + name + ".json",false,false,null);
+            String path = "scripts/" + name + ".json";
+            String input = Gdx.files.internal(path).readString();
+            dialogue.loadFile(input, path, false,false,null);
         } catch (IOException ex) {
             System.out.println("error!");
             return;
@@ -109,8 +111,10 @@ public class Conversation {
                 s.startScript();
             }
         }
-        int nextint = rand.nextInt(3);
-        SuikodenRM.gsm.getDialogueData().put("$randomstate", nextint);
+        int nextrandom = rand.nextInt(3);
+        SuikodenRM.gsm.getDialogueData().put("$randomstate", nextrandom);
+        int nextclue = rand.nextInt(3);
+        SuikodenRM.gsm.getDialogueData().put("$cluestate", nextclue);
 
         if(waiting && currentAction != null && option == null) {
             if(characters.get(currentAction.character).hasFinishedAction()) {
@@ -558,7 +562,8 @@ public class Conversation {
             } 
             line = null;
         } else if(option != null) {
-            System.out.println("choices");
+            System.out.println(option);
+            System.out.println(option.getOptions());
             String[] items = new String[option.getOptions().size()];
             int i = 0;
             for (String s: option.getOptions()) {

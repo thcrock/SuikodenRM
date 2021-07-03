@@ -21,7 +21,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
-import com.badlogic.gdx.Gdx;
 
 public class Dialogue {
 
@@ -109,13 +108,11 @@ public class Dialogue {
 			@Override
 			public void log(String message) {
 				System.out.println("YarnGdx:" + message);
-                Gdx.app.log("YarnGDX", message);
 			}
 		}, new YarnLogger() {
 			@Override
 			public void log(String message) {
 				System.out.println("YarnGdx:" + message);
-                Gdx.app.log("YarnGDX", message);
 			}
 		});
 	}
@@ -200,8 +197,7 @@ public class Dialogue {
 	 *            - if not null, only the specified node will be considered for
 	 *            loading;all else will be ignored.
 	 */
-	public void loadFile(String path, boolean show_tokens, boolean show_tree, String only_consider) throws IOException {
-            String input = Gdx.files.internal(path).readString();
+	public void loadFile(String input, String path, boolean show_tokens, boolean show_tree, String only_consider) throws IOException {
 			//String input = new String(Files.readAllBytes(Paths.get(path)));
 			loadString(input, path.toString(), show_tokens, show_tree, only_consider);
 	}

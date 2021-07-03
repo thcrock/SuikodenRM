@@ -2,7 +2,17 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<setBgMusic ThemeOfFriendship.mp3>>\nGirl 2-renatasmilingface: Let's go again!\nGirl 1: I'm hungry. Win by two?\nGirl 2-renatasmilingface: You're on.\n<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveToX Renata Mia 35 60>>\n<<moveToY Renata Mia 0 60>>\n<<moveRight Mia 1 20>>\n<<moveLeft Renata 1 20>>\n<<pauseFor Renata 0.1>>\n<<decoupleMovementAndAnimation Renata>>\n<<decoupleMovementAndAnimation Mia>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\n<<set $balance to 0>>\nGirl 1-miafiercefight:Here we go!\nGirl 2-renatafightface: Prepare to lose, Mia!\n[[miachoice]]",
+		"body": "<<setBgMusic ThemeOfFriendship.mp3>>\nGirl 2-renatasmilingface: Let's go again!\nGirl 1: I'm hungry. Win by two?\nGirl 2-renatasmilingface: You're on.\n<<detachFrom Renata Mia>>\n<<disableCollisions Renata>>\n<<disableCollisions Mia>>\n<<moveToX Renata Mia 35 60>>\n<<moveToY Renata Mia 0 60>>\n<<moveRight Mia 1 20>>\n<<moveLeft Renata 1 20>>\n<<pauseFor Renata 0.1>>\n<<decoupleMovementAndAnimation Renata>>\n<<decoupleMovementAndAnimation Mia>>\n<<animationFrame Mia mia 14>>\n<<animationFrame Renata renata 14>>\n<<set $balance to 0>>\nGirl 1-miafiercefight:Here we go!\nGirl 2-renatafightface: Prepare to lose, Mia!\n[[telegraph]]",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	},
+	{
+		"title": "telegraph",
+		"tags": "",
+		"body": "Noop\n<<if $randomstate eq 0>>\n<<set $move to 0>>\n<<if $cluestate eq 0>>\nRenata-renatafightface: Time to finish this!\n<<elseif $cluestate eq 1>>\nRenata-renatafightface: I can't miss!!\n<<else>>\nRenata-renatafightface: Falcon Rune!!\n<<endif>>\n<<elseif $randomstate eq 1>>\n<<set $move to 1>>\n<<if $cluestate eq 0>>\nRenata-renatafightface: Falcon!!\n<<elseif $cluestate eq 1>>\nRenata-renatafightface: Let's go!\n<<else>>\nRenata-renatafightface: I could go for a mango.\n<<endif>>\n<<else>>\n<<set $move to 2>>\n<<if $cluestate eq 0>>\nRenata-renatafightface: I could go for some barracuda.\n<<elseif $cluestate eq 1>>\nRenata-renatafightface: Falcon Time!!\n<<else>>\nRenata-renatafightface: I'm going to be the best fencer in Kanakan!\n<<endif>>\n<<endif>>\n[[miachoice]]",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -22,7 +32,7 @@
 	{
 		"title": "whatsthescore",
 		"tags": "",
-		"body": "Noop\n<<if $balance eq 0>>\nMia: We're tied!\n<<elseif $balance eq -1>>\nRenata: 1 for me!\n<<elseif $balance < -1>>\n<<set $miawins to 0>>\n[[save]]\n<<elseif $balance eq 1>>\nMia: 1 for me!\n<<elseif $balance > 1>>\n<<set $miawins to 1>>\n[[miawins]]\n<<else>>\nNoop\n<<endif>>\n<<animationFrame Mia mia 14>>\n[[miachoice]]",
+		"body": "Noop\n<<if $balance eq 0>>\nMia: We're tied!\n<<elseif $balance eq -1>>\nRenata: 1 for me!\n<<elseif $balance < -1>>\n<<set $miawins to 0>>\n[[save]]\n<<elseif $balance eq 1>>\nMia: 1 for me!\n<<elseif $balance > 1>>\n<<set $miawins to 1>>\n[[miawins]]\n<<else>>\nNoop\n<<endif>>\n<<animationFrame Mia mia 14>>\n[[telegraph]]",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -32,7 +42,7 @@
 	{
 		"title": "miaattack",
 		"tags": "",
-		"body": "Noop\n<<if $randomstate eq 0>>\n[[attackattack]]\n<<elseif $randomstate eq 1>>\n[[attackparry]]\n<<else>>\n[[attackdesp]]\n<<endif>>",
+		"body": "Noop\n<<if $move eq 0>>\n[[attackattack]]\n<<elseif $move eq 1>>\n[[attackparry]]\n<<else>>\n[[attackdesp]]\n<<endif>>",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -42,7 +52,7 @@
 	{
 		"title": "miaparry",
 		"tags": "",
-		"body": "Noop\n<<if $randomstate eq 0>>\n[[parryattack]]\n<<elseif $randomstate eq 1>>\n[[parryparry]]\n<<else>>\n[[parrydesp]]\n<<endif>>",
+		"body": "Noop\n<<if $move eq 0>>\n[[parryattack]]\n<<elseif $move eq 1>>\n[[parryparry]]\n<<else>>\n[[parrydesp]]\n<<endif>>",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -52,7 +62,7 @@
 	{
 		"title": "miadespattack",
 		"tags": "",
-		"body": "Noop\n<<if $randomstate eq 0>>\n[[despattack]]\n<<elseif $randomstate eq 1>>\n[[despparry]]\n<<else>>\n[[despdesp]]\n<<endif>>",
+		"body": "Noop\n<<if $move eq 0>>\n[[despattack]]\n<<elseif $move eq 1>>\n[[despparry]]\n<<else>>\n[[despdesp]]\n<<endif>>",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -62,7 +72,7 @@
 	{
 		"title": "attackattack",
 		"tags": "R-4 M+4 R+4 M-4 = 0",
-		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<moveRight Mia 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<animationFrame Mia mia 18>>\n<<pauseFor Renata 0.7>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<moveRight Renata 4 60>>\n<<moveLeft Mia 4 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n[[miachoice]]",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<moveRight Mia 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 18>>\n<<animationFrame Mia mia 18>>\n<<pauseFor Renata 0.7>>\n<<animationFrame Renata renata 17>>\n<<animationFrame Mia mia 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<moveRight Renata 4 60>>\n<<moveLeft Mia 4 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n[[telegraph]]",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -102,7 +112,7 @@
 	{
 		"title": "parryparry",
 		"tags": "",
-		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<moveRight Mia 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<pauseFor Renata 0.7>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<moveRight Renata 4 60>>\n<<moveLeft Mia 4 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n[[miachoice]]",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<moveLeft Renata 4 60>>\n<<moveRight Mia 4 60>>\n<<animationFrame Renata renata 16>>\n<<animationFrame Mia mia 16>>\n<<pauseFor Renata 0.05>>\n<<pauseFor Renata 0.7>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<moveRight Renata 4 60>>\n<<moveLeft Mia 4 60>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 15>>\n<<animationFrame Mia mia 15>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n[[telegraph]]",
 		"position": {
 			"x": 793,
 			"y": 505
@@ -142,7 +152,7 @@
 	{
 		"title": "despdesp",
 		"tags": "",
-		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 15>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveRight Mia 7 90>>\n<<moveLeft Renata 7 90>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 16>>\n<<pauseFor Mia 0.1>>\n<<animationFrame Mia mia 17>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 18>>\n<<animationFrame Renata renata 18>>\n<<pauseFor Mia 0.1>>\n<<animationFrame Renata renata 19>>\n<<animationFrame Mia mia 19>>\n<<moveLeft Mia 7 90>>\n<<moveRight Renata 7 90>>\n<<pauseFor Renata 0.05>>\nRenata: Hahaha!\nMia: Haha!\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n[[miachoice]]",
+		"body": "Noop\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 15>>\n<<animationFrame Renata renata 15>>\n<<pauseFor Renata 0.05>>\n<<moveRight Mia 7 90>>\n<<moveLeft Renata 7 90>>\n<<animationFrame Mia mia 16>>\n<<animationFrame Renata renata 16>>\n<<pauseFor Mia 0.1>>\n<<animationFrame Mia mia 17>>\n<<animationFrame Renata renata 17>>\n<<pauseFor Renata 0.05>>\n<<animationFrame Mia mia 18>>\n<<animationFrame Renata renata 18>>\n<<pauseFor Mia 0.1>>\n<<animationFrame Renata renata 19>>\n<<animationFrame Mia mia 19>>\n<<moveLeft Mia 7 90>>\n<<moveRight Renata 7 90>>\n<<pauseFor Renata 0.05>>\nRenata: Hahaha!\nMia: Haha!\n<<animationFrame Renata renata 14>>\n<<animationFrame Mia mia 14>>\n[[telegraph]]",
 		"position": {
 			"x": 793,
 			"y": 505
