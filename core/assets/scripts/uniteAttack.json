@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<faceRight Haia>>\n<<faceLeft Mia>>\n<<faceLeft Renata>>\nHaia: That's all for today.\n<<moveLeft Haia 160 80>>\n<<hide Haia>>\n<<faceDown Renata>>\n<<faceUp Mia>>\n[[getinplace]]",
+		"body": "<<faceRight Haia>>\n<<faceLeft Mia>>\n<<set $testvar to 1>>\n<<faceLeft Renata>>\nHaia: That's all for today.\n<<moveLeft Haia 160 80>>\n<<hide Haia>>\n<<faceDown Renata>>\n<<faceUp Mia>>\n[[getinplace]]",
 		"position": {
 			"x": 0,
 			"y": 0

@@ -36,6 +36,7 @@ public class GameStateManager implements InputProcessor {
 			
 	public GameStateManager (SuikodenRM rel) {
         data = new DialogueData("thewholegame");
+        data.setInt("$secrets", 0);
         musicManager = new MusicManager();
 		gameState = new GameState[NUMGAMESTATES];
 		ImageCache.load();
@@ -76,7 +77,7 @@ public class GameStateManager implements InputProcessor {
             gameState[state] = new MainMenuState();
         } 
         if(state == CREDITSTATE) {
-            gameState[state] = new CreditsState();
+            gameState[state] = new CreditsState(this.data);
         }
 	}
 
@@ -152,7 +153,7 @@ public class GameStateManager implements InputProcessor {
 		gameState[currentState].pause();
 		PAUSED = true;
 		currentState = CREDITSTATE;
-		gameState[currentState] = new CreditsState();
+		gameState[currentState] = new CreditsState(this.data);
 		relation.changeScreen();
     }
 

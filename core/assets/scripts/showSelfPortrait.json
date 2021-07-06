@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Renata: Are these your drawings?\nMia: Yeah, I've been working on a self-portrait.\nRenata: Can I see?\nMia: Sure!\n<<showImage miasketch>>\nRenata: That looks so awesome!\nMia: Thanks!\n[[end]]",
+		"body": "Renata: Are these your drawings?\nMia: Yeah, I've been working on a self-portrait.\nRenata: Can I see?\nMia: Sure!\n<<showImage miasketch>>\n<<set $secrets to $secrets + 1>>\nRenata: That looks so awesome!\nMia: Thanks!\n[[end]]",
 		"position": {
 			"x": 860,
 			"y": 371

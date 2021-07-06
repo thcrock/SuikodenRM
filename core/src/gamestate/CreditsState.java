@@ -24,6 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.orangeegames.suikorm.SuikodenRM;
+import com.kyper.yarn.DialogueData;
 
 public class CreditsState extends GameState {
 
@@ -44,6 +45,7 @@ public class CreditsState extends GameState {
     float currentSeconds = gapSeconds;
 	
     String myText = String.join("\n\n", new String[]{
+        "Kanakan Stories, Vol. 1",
         "STORY/MUSIC",
         "Tristan Crockett",
         "CHARACTER PORTRAITS",
@@ -74,7 +76,9 @@ public class CreditsState extends GameState {
 	private Stage stage;
 	
 	
-	public CreditsState() {
+	public CreditsState(DialogueData data) {
+        int secrets = data.getInt("$secrets");
+        this.myText = "SECRETS FOUND: " + String.valueOf(secrets) + "/2\n\n\n\n" + this.myText;
         shapeRenderer = new ShapeRenderer();
 	}
 
@@ -83,7 +87,7 @@ public class CreditsState extends GameState {
 		SuikodenRM.gsm.update(delta);
         Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        credits.setY(credits.getY() + delta*35);
+        credits.setY(credits.getY() + delta*37);
         credits.invalidate();
         currentSeconds -= delta;
         if(currentSeconds < 0) {
@@ -204,7 +208,6 @@ public class CreditsState extends GameState {
 
 	@Override
 	public void keyPressed(int k) {
-        SuikodenRM.gsm.mainMenuStart();
 	}
 
 	@Override
