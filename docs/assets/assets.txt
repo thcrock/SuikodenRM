@@ -443,7 +443,7 @@ t:scripts/cristianosPatron.json:scripts/cristianosPatron-bc4a9ef8c08c980c076e3bb
 t:scripts/noticeRuins.json:scripts/noticeRuins-61946983dced001e7da6ef47d979299b.json:590:application/unknown:1
 t:scripts/noticeChair.json:scripts/noticeChair-d3230ddb294686d8910e98a5466f82d1.json:770:application/unknown:1
 t:scripts/pauseBeforeEnding.json:scripts/pauseBeforeEnding-bb6d713d7f89d2729d912c9ab225e3eb.json:306:application/unknown:1
-t:scripts/uniteAttack.json:scripts/uniteAttack-2dcb54534f339776b768a30057a4ddf5.json:5196:application/unknown:1
+t:scripts/uniteAttack.json:scripts/uniteAttack-bf02c10368cd627bc0e3b06a8f093d6e.json:5219:application/unknown:1
 t:scripts/ladder.json:scripts/ladder-146cd6f9b4ad3c61871874dcb66bcd3c.json:417:application/unknown:1
 t:scripts/pushBarrel.json:scripts/pushBarrel-97cac2942822a1e7a5363ce77ff86f74.json:1097:application/unknown:1
 t:scripts/exitRuin.json:scripts/exitRuin-1742406854f4911819f7b4a531db0020.json:1056:application/unknown:1
@@ -483,10 +483,10 @@ t:scripts/placePetal.json:scripts/placePetal-0f3e5cee832202dbf53869d76ced4604.js
 t:scripts/looksScary.json:scripts/looksScary-7cd51a22280c17a34f82f51720883655.json:324:application/unknown:1
 t:scripts/haiaRunPast.json:scripts/haiaRunPast-6c8fead95e6903f1a144515fd10b030b.json:1427:application/unknown:1
 t:scripts/throwSword.json:scripts/throwSword-339f94a8d38f6c1e187e2d936195336f.json:3741:application/unknown:1
-t:scripts/showSelfPortrait.json:scripts/showSelfPortrait-35ac2568e5da3f7b43df4bb6474fb445.json:430:application/unknown:1
+t:scripts/showSelfPortrait.json:scripts/showSelfPortrait-6761a86574d78d78717f0b70e043d8fc.json:464:application/unknown:1
 t:scripts/scaredByRabbit.json:scripts/scaredByRabbit-b8d78d1e8309c08847b2d51227ff0195.json:1707:application/unknown:1
 t:scripts/leaveEscapeRoom.json:scripts/leaveEscapeRoom-ce101118d41d2d36bd8fdf78ee21e3ca.json:297:application/unknown:1
-t:scripts/ukelele.json:scripts/ukelele-277e3ee030948eb6437f972cef6e4e65.json:1082:application/unknown:1
+t:scripts/ukelele.json:scripts/ukelele-4daa67ba1ba7f3fa6fc9f367952c2b1d.json:1116:application/unknown:1
 d:tiles:tiles:0:application/unknown:1
 i:tiles/Misc2.png:tiles/Misc2-7404ab7a09088c7beba0203dc92c8f8b.png:1042051:image/png:1
 i:tiles/Misc3.png:tiles/Misc3-38f6242fd719b0a0a3750ea7769b20e8.png:847905:image/png:1

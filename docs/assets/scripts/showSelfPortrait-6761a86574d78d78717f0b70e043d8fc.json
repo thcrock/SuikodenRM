@@ -1,0 +1,24 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Renata: Are these your drawings?\nMia: Yeah, I've been working on a self-portrait.\nRenata: Can I see?\nMia: Sure!\n<<showImage miasketch>>\n<<set $secrets to $secrets + 1>>\nRenata: That looks so awesome!\nMia: Thanks!\n[[end]]",
+		"position": {
+			"x": 860,
+			"y": 371
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 793,
+			"y": 505
+		},
+		"colorID": 1
+	}
+
+	
+]
