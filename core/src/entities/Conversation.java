@@ -81,7 +81,7 @@ public class Conversation {
         data.put("$cluestate", rand.nextInt(3));
         dialogue = new Dialogue(data);
         try {
-            String path = "scripts/" + name + ".json";
+            String path = "scripts/" + name + ".yarn";
             String input = Gdx.files.internal(path).readString();
             dialogue.loadFile(input, path, false,false,null);
         } catch (IOException ex) {

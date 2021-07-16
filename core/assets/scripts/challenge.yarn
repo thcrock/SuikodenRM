@@ -1,0 +1,28 @@
+title: Start
+---
+<<setBgMusic ThemeOfFriendship.mp3>>
+<<faceUp Mia>>
+<<faceDown Renata>>
+Girl 2-renatasmilingface: Let's go again!
+Girl 1: I'm hungry. Win by two?
+Girl 2-renatasmilingface: You're on.
+<<detachFrom Renata Mia>>
+<<disableCollisions Renata>>
+<<moveToX Renata Mia 35 60>>
+<<moveToY Renata Mia 0 60>>
+<<moveRight Mia 1 20>>
+<<moveLeft Renata 1 20>>
+<<pauseFor Renata 0.1>>
+<<decoupleMovementAndAnimation Renata>>
+<<decoupleMovementAndAnimation Mia>>
+<<animationFrame Mia mia 14>>
+<<animationFrame Renata renata 14>>
+<<set $balance to 0>>
+Girl 1-miafiercefight: Here we go!
+Girl 2-renatafightface: Prepare to lose, Mia!
+[[End]]
+===
+
+title: End
+---
+===
