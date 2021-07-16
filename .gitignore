@@ -65,3 +65,13 @@ build/
 
 *.kra
 *~
+
+# LibGDX
+cores/sprites/atlas/
+
+## Packaging
+bundles/
+out-windows
+out-linux
+out-mac
+packr-all-4.0.0.jar
